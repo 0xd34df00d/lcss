@@ -1,0 +1,13 @@
+Nodes basic info:
+
+\copy (SELECT node.nid, type, node.title, timestamp, dst, teaser, body FROM node INNER JOIN node_revisions USING (nid) INNER JOIN (SELECT nid, max(timestamp) mts FROM node_revisions GROUP BY nid) maxs ON node.nid = maxs.nid AND node_revisions.timestamp = maxs.mts LEFT OUTER JOIN url_alias ON 'node/' || node.nid = url_alias.src WHERE (node.language = 'en' OR node.language = '') ORDER BY nid) TO '/tmp/nodes.csv' WITH CSV
+
+
+Images:
+
+\copy (SELECT nid, filepath FROM files INNER JOIN image USING (fid) WHERE image_size = '_original') TO '/tmp/images.csv' WITH CSV
+
+
+Tags:
+
+\copy (SELECT nid, name FROM term_node INNER JOIN term_data USING (tid) WHERE term_data.vid = 4) TO '/tmp/tags.csv' WITH CSV
