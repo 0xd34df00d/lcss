@@ -8,7 +8,6 @@ import qualified Data.Vector as V
 import qualified Data.Text as T
 import qualified Data.Csv as CSV
 import GHC.Generics
-import Control.Monad
 
 import Node
 
@@ -21,13 +20,6 @@ data NodeRecord = NodeRecord {
         teaser :: T.Text,
         body :: T.Text
     } deriving (Show, Eq, Ord, Generic)
-
-instance CSV.FromField NodeType where
-    parseField s | s == "story" = pure Story
-                 | s == "page" = pure Page
-                 | s == "image" = pure Image
-                 | s == "book" = pure Book
-                 | otherwise = mzero
 
 instance CSV.FromRecord NodeRecord
 
