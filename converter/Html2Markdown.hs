@@ -64,6 +64,12 @@ toMd' (TS.T.TagBranch "strong" [] cs) = wrapChildren "**" cs
 toMd' (TS.T.TagBranch "b" [] cs) = wrapChildren "**" cs
 toMd' (TS.T.TagBranch "em" [] cs) = wrapChildren "_" cs
 toMd' (TS.T.TagBranch "i" [] cs) = wrapChildren "_" cs
+toMd' (TS.T.TagBranch "ul" [] cs) = do
+    st <- get
+    put $ st { listNestLevel = listNestLevel st + 1, listStack = ListInfo Unordered 0 : listStack st }
+    r <- mapM toMd' cs
+    put st
+    return $ mconcat r
 toMd' (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = singleLine <$> prepChildren ('\n' `T.cons` T.replicate n "#" `T.snoc` ' ') cs
 toMd' (TS.T.TagBranch "br" [] []) = return "\n"
 toMd' (TS.T.TagBranch n attrs cs) | null cs = return tmpl
