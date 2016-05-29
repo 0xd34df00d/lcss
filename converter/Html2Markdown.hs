@@ -24,6 +24,9 @@ removeEmpty t = [t]
 wrapChildren :: T.Text -> [TS.T.TagTree T.Text] -> T.Text
 wrapChildren m cs = mconcat $ m : map toMd cs ++ [m]
 
+prepChildren :: T.Text -> [TS.T.TagTree T.Text] -> T.Text
+prepChildren m cs = m <> mconcat (map toMd cs)
+
 toMd :: TS.T.TagTree T.Text -> T.Text
 toMd (TS.T.TagLeaf (TS.TagText t)) = t
 toMd (TS.T.TagBranch "strong" [] cs) = wrapChildren "*" cs
