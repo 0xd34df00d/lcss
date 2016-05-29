@@ -36,8 +36,8 @@ singleLine t | T.last t == '\n' = t
 
 toMd :: TS.T.TagTree T.Text -> T.Text
 toMd (TS.T.TagLeaf (TS.TagText t)) = t
-toMd (TS.T.TagBranch "strong" [] cs) = wrapChildren "*" cs
-toMd (TS.T.TagBranch "b" [] cs) = wrapChildren "*" cs
+toMd (TS.T.TagBranch "strong" [] cs) = wrapChildren "**" cs
+toMd (TS.T.TagBranch "b" [] cs) = wrapChildren "**" cs
 toMd (TS.T.TagBranch "em" [] cs) = wrapChildren "_" cs
 toMd (TS.T.TagBranch "i" [] cs) = wrapChildren "_" cs
 toMd (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = singleLine $ prepChildren (T.replicate n "#" `T.snoc` ' ') cs
