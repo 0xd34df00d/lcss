@@ -40,7 +40,7 @@ toMd (TS.T.TagBranch "strong" [] cs) = wrapChildren "*" cs
 toMd (TS.T.TagBranch "b" [] cs) = wrapChildren "*" cs
 toMd (TS.T.TagBranch "em" [] cs) = wrapChildren "_" cs
 toMd (TS.T.TagBranch "i" [] cs) = wrapChildren "_" cs
-toMd (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = prepChildren (T.replicate n "#" `T.snoc` ' ') cs
+toMd (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = singleLine $ prepChildren (T.replicate n "#" `T.snoc` ' ') cs
 toMd (TS.T.TagBranch "br" [] []) = "\n"
 toMd (TS.T.TagBranch n attrs cs) | null cs = tmpl
                                  | T.count "<" tmpl /= 2 = error "Nowhere to insert the children" 
