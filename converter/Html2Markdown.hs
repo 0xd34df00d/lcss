@@ -1,14 +1,17 @@
 {-# LANGUAGE PartialTypeSignatures #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns #-}
 
 module Html2Markdown where
 
 import qualified Data.Text as T
+import qualified Data.Text.Read as TR
 import qualified Text.HTML.TagSoup as TS
 import qualified Text.HTML.TagSoup.Tree as TS.T
 import Data.Monoid
 import Data.Char
 import Data.Maybe
+import Control.Arrow
 
 convert :: T.Text -> _ 
 convert = mconcat . map toMd . cleanupHtml . TS.T.parseTree
@@ -33,6 +36,7 @@ toMd (TS.T.TagBranch "strong" [] cs) = wrapChildren "*" cs
 toMd (TS.T.TagBranch "b" [] cs) = wrapChildren "*" cs
 toMd (TS.T.TagBranch "em" [] cs) = wrapChildren "_" cs
 toMd (TS.T.TagBranch "i" [] cs) = wrapChildren "_" cs
+toMd (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = prepChildren (T.replicate n "#" `T.snoc` ' ') cs
 toMd (TS.T.TagBranch "br" [] []) = "\n"
 toMd (TS.T.TagBranch n attrs cs) | null cs = tmpl
                                  | T.count "<" tmpl /= 2 = error "Nowhere to insert the children" 
