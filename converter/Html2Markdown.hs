@@ -42,8 +42,11 @@ singleLine t | T.last t == '\n' = t
 
 data MDState = MDState
 
+emptyMDState :: MDState
+emptyMDState = MDState
+
 toMd :: TS.T.TagTree T.Text -> T.Text
-toMd t = evalState (toMd' t) MDState
+toMd t = evalState (toMd' t) emptyMDState
 
 toMd' :: MonadState MDState m => TS.T.TagTree T.Text -> m T.Text
 toMd' (TS.T.TagLeaf (TS.TagText t)) = return t
