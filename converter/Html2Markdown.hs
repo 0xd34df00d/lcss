@@ -48,12 +48,12 @@ data ListInfo = ListInfo {
     } deriving (Eq, Ord, Show)
 
 data MDState = MDState {
-        listNextLevel :: Int,
+        listNestLevel :: Int,
         listStack :: [ListInfo]
     } deriving (Eq, Ord, Show)
 
 emptyMDState :: MDState
-emptyMDState = MDState { listNextLevel = 0, listStack = [] }
+emptyMDState = MDState { listNestLevel = 0, listStack = [] }
 
 toMd :: TS.T.TagTree T.Text -> T.Text
 toMd t = evalState (toMd' t) emptyMDState
