@@ -1,6 +1,7 @@
 {-# LANGUAGE PartialTypeSignatures #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns #-}
+{-# LANGUAGE FlexibleContexts #-}
 
 module Html2Markdown where
 
@@ -12,6 +13,7 @@ import Data.Monoid
 import Data.Char
 import Data.Maybe
 import Control.Arrow
+import Control.Monad.State
 
 convert :: T.Text -> _ 
 convert = mconcat . map toMd . cleanupHtml . TS.T.parseTree
@@ -24,26 +26,37 @@ removeEmpty (TS.T.TagLeaf (TS.TagText t)) | T.all isSpace t = []
 removeEmpty (TS.T.TagBranch n _ []) | n /= "br" = []
 removeEmpty t = [t]
 
-wrapChildren :: T.Text -> [TS.T.TagTree T.Text] -> T.Text
-wrapChildren m cs = mconcat $ m : map toMd cs ++ [m]
+wrapChildren :: MonadState MDState m => T.Text -> [TS.T.TagTree T.Text] -> m T.Text
+wrapChildren m cs = do
+    texts <- mapM toMd' cs
+    return $ m <> mconcat texts <> m
 
-prepChildren :: T.Text -> [TS.T.TagTree T.Text] -> T.Text
-prepChildren m cs = m <> mconcat (map toMd cs)
+prepChildren :: MonadState MDState m => T.Text -> [TS.T.TagTree T.Text] -> m T.Text
+prepChildren m cs = do
+    texts <- mapM toMd' cs
+    return $ m <> mconcat texts
 
 singleLine :: T.Text -> T.Text
 singleLine t | T.last t == '\n' = t
              | otherwise = t `T.snoc` '\n'
 
+data MDState = MDState
+
 toMd :: TS.T.TagTree T.Text -> T.Text
-toMd (TS.T.TagLeaf (TS.TagText t)) = t
-toMd (TS.T.TagBranch "strong" [] cs) = wrapChildren "**" cs
-toMd (TS.T.TagBranch "b" [] cs) = wrapChildren "**" cs
-toMd (TS.T.TagBranch "em" [] cs) = wrapChildren "_" cs
-toMd (TS.T.TagBranch "i" [] cs) = wrapChildren "_" cs
-toMd (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = singleLine $ prepChildren (T.replicate n "#" `T.snoc` ' ') cs
-toMd (TS.T.TagBranch "br" [] []) = "\n"
-toMd (TS.T.TagBranch n attrs cs) | null cs = tmpl
-                                 | T.count "<" tmpl /= 2 = error "Nowhere to insert the children" 
-                                 | (h, t) <- T.breakOnEnd "<" tmpl = T.init h <> (mconcat $ map toMd cs) <> (T.last h `T.cons` t)
+toMd t = evalState (toMd' t) MDState
+
+toMd' :: MonadState MDState m => TS.T.TagTree T.Text -> m T.Text
+toMd' (TS.T.TagLeaf (TS.TagText t)) = return t
+toMd' (TS.T.TagBranch "strong" [] cs) = wrapChildren "**" cs
+toMd' (TS.T.TagBranch "b" [] cs) = wrapChildren "**" cs
+toMd' (TS.T.TagBranch "em" [] cs) = wrapChildren "_" cs
+toMd' (TS.T.TagBranch "i" [] cs) = wrapChildren "_" cs
+toMd' (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = singleLine <$> prepChildren ('\n' `T.cons` T.replicate n "#" `T.snoc` ' ') cs
+toMd' (TS.T.TagBranch "br" [] []) = return "\n"
+toMd' (TS.T.TagBranch n attrs cs) | null cs = return tmpl
+                                  | T.count "<" tmpl /= 2 = error "Nowhere to insert the children"
+                                  | (h, t) <- T.breakOnEnd "<" tmpl = do
+                                        texts <- mapM toMd' cs
+                                        return $ T.init h <> mconcat texts <> (T.last h `T.cons` t)
     where tmpl = TS.T.renderTree [TS.T.TagBranch n attrs []]
-toMd t = TS.T.renderTree [t]
+toMd' t = return $ TS.T.renderTree [t]
