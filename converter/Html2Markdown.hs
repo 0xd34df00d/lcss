@@ -30,6 +30,10 @@ wrapChildren m cs = mconcat $ m : map toMd cs ++ [m]
 prepChildren :: T.Text -> [TS.T.TagTree T.Text] -> T.Text
 prepChildren m cs = m <> mconcat (map toMd cs)
 
+singleLine :: T.Text -> T.Text
+singleLine t | T.last t == '\n' = t
+             | otherwise = t `T.snoc` '\n'
+
 toMd :: TS.T.TagTree T.Text -> T.Text
 toMd (TS.T.TagLeaf (TS.TagText t)) = t
 toMd (TS.T.TagBranch "strong" [] cs) = wrapChildren "*" cs
