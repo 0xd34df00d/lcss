@@ -27,6 +27,9 @@ wrapChildren m cs = mconcat $ m : map toMd cs ++ [m]
 toMd :: TS.T.TagTree T.Text -> T.Text
 toMd (TS.T.TagLeaf (TS.TagText t)) = t
 toMd (TS.T.TagBranch "strong" [] cs) = wrapChildren "*" cs
+toMd (TS.T.TagBranch "b" [] cs) = wrapChildren "*" cs
+toMd (TS.T.TagBranch "em" [] cs) = wrapChildren "_" cs
+toMd (TS.T.TagBranch "i" [] cs) = wrapChildren "_" cs
 toMd (TS.T.TagBranch "br" [] []) = "\n"
 toMd (TS.T.TagBranch n attrs cs) | null cs = tmpl
                                  | T.count "<" tmpl /= 2 = error "Nowhere to insert the children" 
