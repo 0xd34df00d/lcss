@@ -40,10 +40,19 @@ singleLine :: T.Text -> T.Text
 singleLine t | T.last t == '\n' = t
              | otherwise = t `T.snoc` '\n'
 
-data MDState = MDState
+data ListType = Ordered | Unordered deriving (Eq, Ord, Show)
+
+data ListInfo = ListInfo {
+        listItemNum :: Int
+    } deriving (Eq, Ord, Show)
+
+data MDState = MDState {
+        listNextLevel :: Int,
+        listStack :: [ListInfo]
+    } deriving (Eq, Ord, Show)
 
 emptyMDState :: MDState
-emptyMDState = MDState
+emptyMDState = MDState { listNextLevel = 0, listStack = [] }
 
 toMd :: TS.T.TagTree T.Text -> T.Text
 toMd t = evalState (toMd' t) emptyMDState
