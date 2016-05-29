@@ -43,6 +43,7 @@ singleLine t | T.last t == '\n' = t
 data ListType = Ordered | Unordered deriving (Eq, Ord, Show)
 
 data ListInfo = ListInfo {
+        listType :: ListType,
         listItemNum :: Int
     } deriving (Eq, Ord, Show)
 
