@@ -27,3 +27,6 @@ curListItem = listItemNum . head . listStack
 
 emptyMDState :: MDState
 emptyMDState = MDState { wantBreak = False, listNestLevel = 0, listStack = [] }
+
+requestBreak :: MDState -> MDState
+requestBreak st = st { wantBreak = True }
