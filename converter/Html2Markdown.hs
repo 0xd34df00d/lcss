@@ -51,6 +51,19 @@ parseListType "ul" = Just Unordered
 parseListType "ol" = Just Ordered
 parseListType _ = Nothing
 
+withBreak :: MonadState MDState m => m T.Text -> m T.Text
+withBreak s = do
+    br <- gets wantBreak
+    modify (\st -> st { wantBreak = NoBreak })
+    t <- s
+    return $ wrap br t
+    where wrap NoBreak t = t
+          wrap LineBreak (T.stripSuffix "\n" -> Just t) = t <> "\n"
+          wrap LineBreak t = t <> "\n"
+          wrap ParaBreak (T.stripSuffix "\n\n" -> Just t) = t <> "\n\n"
+          wrap ParaBreak (T.stripSuffix "\n" -> Just t) = t <> "\n\n"
+          wrap ParaBreak t = t <> "\n\n"
+
 toMd' :: MonadState MDState m => TS.T.TagTree T.Text -> m T.Text
 toMd' (TS.T.TagLeaf (TS.TagText t)) = return t
 toMd' (TS.T.TagBranch "strong" [] cs) = wrapChildren "**" cs
