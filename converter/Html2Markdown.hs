@@ -65,18 +65,20 @@ withBreak s = do
           wrap ParaBreak t = t <> "\n\n"
 
 toMd' :: MonadState MDState m => TS.T.TagTree T.Text -> m T.Text
-toMd' (TS.T.TagLeaf (TS.TagText t)) = return t
-toMd' (TS.T.TagBranch "strong" [] cs) = wrapChildren "**" cs
-toMd' (TS.T.TagBranch "b" [] cs) = wrapChildren "**" cs
-toMd' (TS.T.TagBranch "em" [] cs) = wrapChildren "_" cs
-toMd' (TS.T.TagBranch "i" [] cs) = wrapChildren "_" cs
-toMd' (TS.T.TagBranch (parseListType -> Just typ) [] cs) = do
+toMd' (TS.T.TagLeaf (TS.TagText t)) = withBreak $ return t
+toMd' (TS.T.TagBranch "strong" [] cs) = withBreak $ wrapChildren "**" cs
+toMd' (TS.T.TagBranch "b" [] cs) = withBreak $ wrapChildren "**" cs
+toMd' (TS.T.TagBranch "em" [] cs) = withBreak $ wrapChildren "_" cs
+toMd' (TS.T.TagBranch "i" [] cs) = withBreak $ wrapChildren "_" cs
+toMd' (TS.T.TagBranch (parseListType -> Just typ) [] cs) = withBreak $ do
     st <- get
-    put $ st { listNestLevel = listNestLevel st + 1, listStack = ListInfo typ 0 : listStack st }
+    let prevLevel = listNestLevel st
+    put $ st { listNestLevel = prevLevel + 1, listStack = ListInfo typ 0 : listStack st }
     r <- mapM toMd' cs
-    put st
-    return $ T.intercalate "\n" r
-toMd' (TS.T.TagBranch "li" [] cs) = do
+    put $ requestBreak (if prevLevel /= 0 then LineBreak else ParaBreak) st
+    return $ mconcat r
+toMd' (TS.T.TagBranch "li" [] cs) = withBreak $ do
+    modify $ requestBreak LineBreak
     st <- incListItemNum <$> get
     put st
     texts <- mapM toMd' cs
@@ -87,12 +89,14 @@ toMd' (TS.T.TagBranch "li" [] cs) = do
     return $ pretext <> mconcat texts
     where type2sym _ Unordered = "*"
           type2sym n Ordered = T.pack $ show n
-toMd' (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = singleLine <$> prepChildren ('\n' `T.cons` T.replicate n "#" `T.snoc` ' ') cs
+toMd' (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = withBreak $ do
+    modify $ requestBreak ParaBreak
+    prepChildren ("\n\n" <> T.replicate n "#" `T.snoc` ' ') cs
 toMd' (TS.T.TagBranch "br" [] []) = return "\n"
-toMd' (TS.T.TagBranch n attrs cs) | null cs = return tmpl
+toMd' (TS.T.TagBranch n attrs cs) | null cs = withBreak $ return tmpl
                                   | T.count "<" tmpl /= 2 = error "Nowhere to insert the children"
-                                  | (h, t) <- T.breakOnEnd "<" tmpl = do
+                                  | (h, t) <- T.breakOnEnd "<" tmpl = withBreak $ do
                                         texts <- mapM toMd' cs
                                         return $ T.init h <> mconcat texts <> (T.last h `T.cons` t)
     where tmpl = TS.T.renderTree [TS.T.TagBranch n attrs []]
-toMd' t = return $ TS.T.renderTree [t]
+toMd' t = withBreak $ return $ TS.T.renderTree [t]
