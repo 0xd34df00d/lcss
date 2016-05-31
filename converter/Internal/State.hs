@@ -10,6 +10,7 @@ data ListInfo = ListInfo {
     } deriving (Eq, Ord, Show)
 
 data MDState = MDState {
+        wantBreak :: Bool,
         listNestLevel :: Int,
         listStack :: [ListInfo]
     } deriving (Eq, Ord, Show)
@@ -25,4 +26,4 @@ curListItem :: MDState -> Int
 curListItem = listItemNum . head . listStack
 
 emptyMDState :: MDState
-emptyMDState = MDState { listNestLevel = 0, listStack = [] }
+emptyMDState = MDState { wantBreak = False, listNestLevel = 0, listStack = [] }
