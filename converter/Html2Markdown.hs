@@ -69,9 +69,9 @@ toMd' (TS.T.TagBranch "strong" [] cs) = wrapChildren "**" cs
 toMd' (TS.T.TagBranch "b" [] cs) = wrapChildren "**" cs
 toMd' (TS.T.TagBranch "em" [] cs) = wrapChildren "_" cs
 toMd' (TS.T.TagBranch "i" [] cs) = wrapChildren "_" cs
-toMd' (TS.T.TagBranch "ul" [] cs) = do
+toMd' (TS.T.TagBranch (parseListType -> Just typ) [] cs) = do
     st <- get
-    put $ st { listNestLevel = listNestLevel st + 1, listStack = ListInfo Unordered 0 : listStack st }
+    put $ st { listNestLevel = listNestLevel st + 1, listStack = ListInfo typ 0 : listStack st }
     r <- mapM toMd' cs
     put st
     return $ mconcat r
