@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE RecordWildCards #-}
 
 module Html2Markdown where
 
@@ -51,6 +52,10 @@ data MDState = MDState {
         listNestLevel :: Int,
         listStack :: [ListInfo]
     } deriving (Eq, Ord, Show)
+
+incListItemNum :: MDState -> MDState
+incListItemNum st@MDState { listStack = h : rest, .. } = st { listStack = h' : rest }
+    where h' = h { listItemNum = listItemNum h + 1 }
 
 curListType :: MDState -> ListType
 curListType = listType . head . listStack
