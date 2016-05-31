@@ -58,6 +58,11 @@ emptyMDState = MDState { listNestLevel = 0, listStack = [] }
 toMd :: TS.T.TagTree T.Text -> T.Text
 toMd t = evalState (toMd' t) emptyMDState
 
+parseListType :: T.Text -> Maybe ListType
+parseListType "ul" = Just Unordered
+parseListType "ol" = Just Ordered
+parseListType _ = Nothing
+
 toMd' :: MonadState MDState m => TS.T.TagTree T.Text -> m T.Text
 toMd' (TS.T.TagLeaf (TS.TagText t)) = return t
 toMd' (TS.T.TagBranch "strong" [] cs) = wrapChildren "**" cs
