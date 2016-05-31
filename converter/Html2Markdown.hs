@@ -86,6 +86,17 @@ toMd' (TS.T.TagBranch (parseListType -> Just typ) [] cs) = do
     r <- mapM toMd' cs
     put st
     return $ T.intercalate "\n" r
+toMd' (TS.T.TagBranch "li" [] cs) = do
+    st <- incListItemNum <$> get
+    put st
+    texts <- mapM toMd' cs
+    let pretext | not (null cs) && isList (head cs) = T.empty
+                | otherwise = T.replicate (2 * (listNestLevel st - 1)) " " <> type2sym (curListItem st) (curListType st) <> " "
+            where isList (TS.T.TagBranch (parseListType -> Just _) _ _) = True
+                  isList _ = False
+    return $ pretext <> mconcat texts
+    where type2sym _ Unordered = "*"
+          type2sym n Ordered = T.pack $ show n
 toMd' (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = singleLine <$> prepChildren ('\n' `T.cons` T.replicate n "#" `T.snoc` ' ') cs
 toMd' (TS.T.TagBranch "br" [] []) = return "\n"
 toMd' (TS.T.TagBranch n attrs cs) | null cs = return tmpl
