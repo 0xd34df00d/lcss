@@ -69,6 +69,9 @@ toMd' (TS.T.TagBranch "strong" [] cs) = withBreak $ wrapChildren "**" cs
 toMd' (TS.T.TagBranch "b" [] cs) = withBreak $ wrapChildren "**" cs
 toMd' (TS.T.TagBranch "em" [] cs) = withBreak $ wrapChildren "_" cs
 toMd' (TS.T.TagBranch "i" [] cs) = withBreak $ wrapChildren "_" cs
+toMd' (TS.T.TagBranch "a" attrs cs) | Just href <- lookup "href" attrs = withBreak $ do
+    texts <- mapM toMd' cs
+    return $ "[" <> mconcat texts <> "](" <> href <> ")"
 toMd' (TS.T.TagBranch (parseListType -> Just typ) [] cs) = withBreak $ do
     st <- get
     r <- modify (nestIntoList typ) >> mapM toMd' cs
