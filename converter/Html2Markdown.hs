@@ -74,7 +74,7 @@ toMd' (TS.T.TagBranch (parseListType -> Just typ) [] cs) = do
     put $ st { listNestLevel = listNestLevel st + 1, listStack = ListInfo typ 0 : listStack st }
     r <- mapM toMd' cs
     put st
-    return $ mconcat r
+    return $ T.intercalate "\n" r
 toMd' (TS.T.TagBranch (second TR.decimal . T.splitAt 1 -> ("h", Right (n, ""))) [] cs) = singleLine <$> prepChildren ('\n' `T.cons` T.replicate n "#" `T.snoc` ' ') cs
 toMd' (TS.T.TagBranch "br" [] []) = return "\n"
 toMd' (TS.T.TagBranch n attrs cs) | null cs = return tmpl
