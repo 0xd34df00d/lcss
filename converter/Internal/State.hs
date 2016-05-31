@@ -27,6 +27,9 @@ curListType = listType . head . listStack
 curListItem :: MDState -> Int
 curListItem = listItemNum . head . listStack
 
+nestIntoList :: ListType -> MDState -> MDState
+nestIntoList typ st = st { listNestLevel = listNestLevel st + 1, listStack = ListInfo typ 0 : listStack st }
+
 emptyMDState :: MDState
 emptyMDState = MDState { wantBreak = NoBreak, listNestLevel = 0, listStack = [] }
 
