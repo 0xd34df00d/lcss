@@ -72,7 +72,7 @@ toMd' (TS.T.TagBranch "i" [] cs) = withBreak $ wrapChildren "_" cs
 toMd' (TS.T.TagBranch (parseListType -> Just typ) [] cs) = withBreak $ do
     st <- get
     let prevLevel = listNestLevel st
-    put $ st { listNestLevel = prevLevel + 1, listStack = ListInfo typ 0 : listStack st }
+    put $ nestIntoList typ st
     r <- mapM toMd' cs
     put $ requestBreak (if prevLevel /= 0 then LineBreak else ParaBreak) st
     return $ mconcat r
