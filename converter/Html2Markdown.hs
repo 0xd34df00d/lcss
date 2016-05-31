@@ -16,7 +16,9 @@ import Data.Maybe
 import Control.Arrow
 import Control.Monad.State
 
-convert :: T.Text -> _ 
+import Internal.State
+
+convert :: T.Text -> T.Text
 convert = mconcat . map toMd . cleanupHtml . TS.T.parseTree
 
 cleanupHtml :: [TS.T.TagTree T.Text] -> [TS.T.TagTree T.Text]
@@ -40,31 +42,6 @@ prepChildren m cs = do
 singleLine :: T.Text -> T.Text
 singleLine t | T.last t == '\n' = t
              | otherwise = t `T.snoc` '\n'
-
-data ListType = Ordered | Unordered deriving (Eq, Ord, Show)
-
-data ListInfo = ListInfo {
-        listType :: ListType,
-        listItemNum :: Int
-    } deriving (Eq, Ord, Show)
-
-data MDState = MDState {
-        listNestLevel :: Int,
-        listStack :: [ListInfo]
-    } deriving (Eq, Ord, Show)
-
-incListItemNum :: MDState -> MDState
-incListItemNum st@MDState { listStack = h : rest, .. } = st { listStack = h' : rest }
-    where h' = h { listItemNum = listItemNum h + 1 }
-
-curListType :: MDState -> ListType
-curListType = listType . head . listStack
-
-curListItem :: MDState -> Int
-curListItem = listItemNum . head . listStack
-
-emptyMDState :: MDState
-emptyMDState = MDState { listNestLevel = 0, listStack = [] }
 
 toMd :: TS.T.TagTree T.Text -> T.Text
 toMd t = evalState (toMd' t) emptyMDState
