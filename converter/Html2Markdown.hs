@@ -52,6 +52,12 @@ data MDState = MDState {
         listStack :: [ListInfo]
     } deriving (Eq, Ord, Show)
 
+curListType :: MDState -> ListType
+curListType = listType . head . listStack
+
+curListItem :: MDState -> Int
+curListItem = listItemNum . head . listStack
+
 emptyMDState :: MDState
 emptyMDState = MDState { listNestLevel = 0, listStack = [] }
 
