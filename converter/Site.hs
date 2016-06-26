@@ -36,6 +36,10 @@ data Site t = Site {
         pages :: M.HashMap Category [t]
     } deriving (Show, Eq)
 
+instance Functor Site where
+    fmap f s = s { pages = (f <$>) <$> pages s }
+
+
 nodes2site :: Foldable t => t Node -> Site Node
 nodes2site ns = Site pages
     where pages = M.fromListWith (++) $ map (justRoot . nodeCat &&& return) $ filter ((/= Image) . typ) $ toList ns
