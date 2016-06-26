@@ -8,12 +8,12 @@ import qualified Data.Text as T
 import qualified Data.Text.Read as TR
 import qualified Data.IntMap as IM
 import qualified Data.HashMap.Lazy as M
-import qualified Data.Vector as V
 import Control.Arrow
 import Data.Maybe
 import Data.Monoid
 import Data.List
 import Data.List.Extra
+import Data.Foldable
 
 import Node
 
@@ -26,12 +26,12 @@ data ImageRef = ImageRef {
         refSize :: Maybe (Int, Int)
     } deriving (Eq, Ord, Show)
 
-extractNode :: V.Vector Node -> Node -> (Node, [ImageRef])
+extractNode :: Foldable t => t Node -> Node -> (Node, [ImageRef])
 extractNode ns n@(contents -> c@(TextContents t b)) = (n { contents = TextContents t' b' }, nubOrd $ trefs ++ brefs)
     where (t', trefs) = extract ns t
           (b', brefs) = extract ns b
 
-extract :: V.Vector Node -> T.Text -> (T.Text, [ImageRef])
+extract :: Foldable t => t Node -> T.Text -> (T.Text, [ImageRef])
 extract (buildNodeMap -> ns) t = mapAccumL (\acc -> first (acc <>) . extractChunk ns) h rest
     where (h:rest) = T.splitOn "[img_assist|" t
 
@@ -62,8 +62,8 @@ ref2text nodes ImageRef { .. } = "![" <> title' <> "](" <> imagePath <> " \"" <>
     where title' = fromMaybe T.empty refTitle
           Node { contents = ImageContents { .. }, .. } = nodes IM.! refNid
 
-buildNodeMap :: V.Vector Node -> IM.IntMap Node
-buildNodeMap = IM.fromList . V.toList . V.map (\n -> (nid n, n)) . V.filter ((== Image) . typ)
+buildNodeMap :: Foldable t => t Node -> IM.IntMap Node
+buildNodeMap = IM.fromList . map (\n -> (nid n, n)) . filter ((== Image) . typ) . toList
 
 parseAssist :: T.Text -> M.HashMap T.Text T.Text
 parseAssist = M.fromList . map (second T.tail . T.breakOn "=") . T.splitOn "|"
