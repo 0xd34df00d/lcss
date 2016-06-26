@@ -32,8 +32,6 @@ data Category = Category {
 
 instance Hashable Category
 
-justRoot :: RootCategory -> Category
-justRoot = flip Category []
 
 data Site t = Site {
         pages :: M.HashMap Category [t]
