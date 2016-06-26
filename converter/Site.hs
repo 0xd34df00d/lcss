@@ -9,7 +9,10 @@ import qualified Data.Text as T
 import GHC.Generics
 import Data.Hashable
 import Data.Foldable
+import Data.Maybe
+import Data.List
 import Control.Arrow
+import Control.Monad
 
 import Node
 
@@ -42,15 +45,17 @@ instance Functor Site where
 
 nodes2site :: Foldable t => t Node -> Site Node
 nodes2site ns = Site pages
-    where pages = M.fromListWith (++) $ map (justRoot . nodeCat &&& return) $ filter ((/= Image) . typ) $ toList ns
+    where pages = M.fromListWith (++) $ map (fixSubtyp . typCat . url &&& return) $ filter ((/= Image) . typ) $ toList ns
+          fixSubtyp (Category c ts) = Category c $ ts >>= subtyp c
 
-typCat :: T.Text -> Maybe RootCategory
-typCat "plugins" = Just Plugins
-typCat "user-guide" = Just UserGuide
-typCat "development" = Just Development
-typCat "concepts" = Just Concepts
-typCat _ = Nothing
+typCat :: T.Text -> Category
+typCat t = fromJust $ msum $ map (uncurry root) roots  ++ [Just $ Category Other []]
+    where root r c |  r `T.isPrefixOf` t = Just $ Category c [T.drop (T.length r + 1) t]
+                   | otherwise = Nothing
+          roots = [("plugins", Plugins), ("user-guide", UserGuide), ("development", Development), ("concepts", Concepts)]
 
-nodeCat :: Node -> RootCategory
-nodeCat (typCat . url -> Just c) = c
-nodeCat _ = Other
+subtyp :: RootCategory -> T.Text -> [T.Text]
+subtyp c t | Just ss <- lookup c cs
+           , Just s <- find ((`T.isPrefixOf` t) . (`T.snoc` '-')) ss = [s]
+           | otherwise = []
+    where cs = [(Plugins, ["azoth", "poshuku", "blasq"])]
