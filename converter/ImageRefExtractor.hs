@@ -2,7 +2,7 @@
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE RecordWildCards #-}
 
-module ImageRefExtractor(extract) where
+module ImageRefExtractor(extractNode) where
 
 import qualified Data.Text as T
 import qualified Data.Text.Read as TR
@@ -13,6 +13,7 @@ import Control.Arrow
 import Data.Maybe
 import Data.Monoid
 import Data.List
+import Data.List.Extra
 
 import Node
 
@@ -24,6 +25,11 @@ data ImageRef = ImageRef {
         refTitle :: Maybe T.Text,
         refSize :: Maybe (Int, Int)
     } deriving (Eq, Ord, Show)
+
+extractNode :: V.Vector Node -> Node -> (Node, [ImageRef])
+extractNode ns n@(contents -> c@(TextContents t b)) = (n { contents = TextContents t' b' }, nubOrd $ trefs ++ brefs)
+    where (t', trefs) = extract ns t
+          (b', brefs) = extract ns b
 
 extract :: V.Vector Node -> T.Text -> (T.Text, [ImageRef])
 extract (buildNodeMap -> ns) t = mapAccumL (\acc -> first (acc <>) . extractChunk ns) h rest
