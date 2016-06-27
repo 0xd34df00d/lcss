@@ -51,6 +51,10 @@ instance Functor Site where
 type PagesSet = [([String], T.Text)]
 
 
+convertSite :: Foldable t => t Node -> PagesSet
+convertSite = toPagesSet . nodes2site
+
+
 nodes2site :: Foldable t => t Node -> Site NodeWMetadata
 nodes2site ns = enrichMetadata ns <$> Site pages
     where pages = M.fromListWith (++) $ map (fixSubtyp . typCat . url &&& return) $ filter ((/= Image) . typ) $ toList ns
