@@ -20,6 +20,7 @@ data MDState = MDState {
 incListItemNum :: MDState -> MDState
 incListItemNum st@MDState { listStack = h : rest, .. } = st { listStack = h' : rest }
     where h' = h { listItemNum = listItemNum h + 1 }
+incListItemNum _ = error "Unexpected MD state, empty list stack"
 
 curListType :: MDState -> ListType
 curListType = listType . head . listStack
