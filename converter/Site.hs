@@ -11,6 +11,7 @@ import Data.Hashable
 import Data.Foldable
 import Data.Maybe
 import Data.List
+import Data.Char
 import Control.Arrow
 import Control.Monad
 
@@ -69,3 +70,16 @@ subtyp c t | Just ss <- lookup c cs
            , Just s <- find ((`T.isPrefixOf` t) . (`T.snoc` '-')) ss = [s]
            | otherwise = []
     where cs = [(Plugins, ["azoth", "poshuku", "blasq"])]
+
+toPagesSet :: Site NodeWMetadata -> PagesSet
+toPagesSet = concatMap catToPagesSet . M.toList . pages
+
+catToPagesSet :: (Category, [NodeWMetadata]) -> [([String], T.Text)]
+catToPagesSet (cat2path -> path, ns) = map (nodePath &&& node2contents ) ns
+    where nodePath n = path ++ [T.unpack (url $ node n) ++ ".md"]
+
+cat2path :: Category -> [String]
+cat2path (Category r s) = map toLower (show r) : map T.unpack s
+
+node2contents :: NodeWMetadata -> T.Text
+node2contents = title . node
