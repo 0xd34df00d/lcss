@@ -11,7 +11,6 @@ import qualified Text.HTML.TagSoup as TS
 import qualified Text.HTML.TagSoup.Tree as TS.T
 import Data.Monoid
 import Data.Char
-import Data.Maybe
 import Control.Arrow
 import Control.Monad.State
 

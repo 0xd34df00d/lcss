@@ -10,10 +10,8 @@ import GHC.Generics
 import Data.Hashable
 import Data.Foldable
 import Data.Maybe
-import Data.List
 import Data.Char
 import Control.Arrow
-import Control.Monad
 
 import Node
 import ImageRefExtractor
