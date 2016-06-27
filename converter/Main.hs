@@ -4,9 +4,7 @@ import qualified Data.ByteString.Lazy.Char8 as BS
 import Data.List
 import System.Environment
 
-import Node
 import Loader
-import ImageRefExtractor
 import Html2Markdown
 import Site
 
