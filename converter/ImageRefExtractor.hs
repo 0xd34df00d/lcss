@@ -2,7 +2,10 @@
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE RecordWildCards #-}
 
-module ImageRefExtractor(extractNode) where
+module ImageRefExtractor(
+        ImageRef,
+        extractNode
+    ) where
 
 import qualified Data.Text as T
 import qualified Data.Text.Read as TR
