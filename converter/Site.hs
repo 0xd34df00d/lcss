@@ -54,9 +54,8 @@ convertSite = toPagesSet . nodes2site
 
 
 nodes2site :: Foldable t => t Node -> Site NodeWMetadata
-nodes2site ns = enrichMetadata ns <$> Site pages
-    where pages = M.fromListWith (++) $ map (fixSubtyp . typCat . url &&& return) $ filter ((/= Image) . typ) $ toList ns
-          fixSubtyp (Category c ts) = Category c $ ts >>= subtyp c
+nodes2site ns = enrichMetadata ns <$> Site (M.fromListWith (++) $ map (fixSubtyp . typCat . url &&& return) $ filter ((/= Image) . typ) $ toList ns)
+    where fixSubtyp (Category c ts) = Category c $ ts >>= subtyp c
 
 enrichMetadata :: Foldable t => t Node -> Node -> NodeWMetadata
 enrichMetadata ns = uncurry NodeWMetadata . extractNode ns
