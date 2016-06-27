@@ -15,6 +15,7 @@ import Control.Arrow
 import Control.Monad
 
 import Node
+import ImageRefExtractor
 
 data RootCategory = Other
         | Plugins
@@ -33,6 +34,12 @@ data Category = Category {
 instance Hashable Category
 
 
+data NodeWMetadata = NodeWMetadata {
+        node :: Node,
+        imageRefs :: [ImageRef]
+    } deriving (Show, Eq, Ord)
+
+
 data Site t = Site {
         pages :: M.HashMap Category [t]
     } deriving (Show, Eq)
@@ -40,11 +47,16 @@ data Site t = Site {
 instance Functor Site where
     fmap f s = s { pages = (f <$>) <$> pages s }
 
+type PagesSet = [([String], T.Text)]
 
-nodes2site :: Foldable t => t Node -> Site Node
-nodes2site ns = Site pages
+
+nodes2site :: Foldable t => t Node -> Site NodeWMetadata
+nodes2site ns = enrichMetadata ns <$> Site pages
     where pages = M.fromListWith (++) $ map (fixSubtyp . typCat . url &&& return) $ filter ((/= Image) . typ) $ toList ns
           fixSubtyp (Category c ts) = Category c $ ts >>= subtyp c
+
+enrichMetadata :: Foldable t => t Node -> Node -> NodeWMetadata
+enrichMetadata ns = uncurry NodeWMetadata . extractNode ns
 
 typCat :: T.Text -> Category
 typCat t = fromJust $ msum $ map (uncurry root) roots  ++ [Just $ Category Other []]
