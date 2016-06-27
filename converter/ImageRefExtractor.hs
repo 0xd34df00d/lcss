@@ -42,6 +42,7 @@ extract (buildNodeMap -> ns) t = mapAccumL (\acc -> first (acc <>) . extractChun
 imageRef :: M.HashMap T.Text T.Text -> ImageRef
 imageRef flags = ImageRef (typ $ M.lookup "align" flags) (readInt $ flags M.! "nid") title size
     where typ (Just "inline") = Side
+          typ (Just "left") = Inline
           typ Nothing = Inline
           typ (Just t) = error $ "Unknown align: " ++ T.unpack t
           title = do
