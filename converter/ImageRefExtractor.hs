@@ -30,7 +30,7 @@ data ImageRef = ImageRef {
     } deriving (Eq, Ord, Show)
 
 extractNode :: Foldable t => t Node -> Node -> (Node, [ImageRef])
-extractNode ns n@(contents -> c@(TextContents t b)) = (n { contents = TextContents t' b' }, nubOrd $ trefs ++ brefs)
+extractNode ns n@(contents -> TextContents t b) = (n { contents = TextContents t' b' }, nubOrd $ trefs ++ brefs)
     where (t', trefs) = extract ns t
           (b', brefs) = extract ns b
 
