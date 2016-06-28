@@ -17,6 +17,7 @@ import Node
 import ImageRefExtractor
 
 data RootCategory = Other
+        | News
         | Plugins
         | UserGuide
         | Development
@@ -54,14 +55,15 @@ convertSite = toPagesSet . nodes2site
 
 
 nodes2site :: Foldable t => t Node -> Site NodeWMetadata
-nodes2site ns = enrichMetadata ns <$> Site (M.fromListWith (++) $ map (fixSubtyp . typCat . url &&& return) $ filter ((/= Image) . typ) $ toList ns)
+nodes2site ns = enrichMetadata ns <$> Site (M.fromListWith (++) $ map (fixSubtyp . nodeCat &&& return) $ filter ((/= Image) . typ) $ toList ns)
     where fixSubtyp (Category c ts) = Category c $ ts >>= subtyp c
 
 enrichMetadata :: Foldable t => t Node -> Node -> NodeWMetadata
 enrichMetadata ns = uncurry NodeWMetadata . extractNode ns
 
-typCat :: T.Text -> Category
-typCat t = fromJust $ msum $ map (uncurry root) roots  ++ [Just $ Category Other []]
+nodeCat :: Node -> Category
+nodeCat (typ -> Story) = Category News []
+nodeCat (url -> t) = fromJust $ msum $ map (uncurry root) roots  ++ [Just $ Category Other []]
     where root r c |  r `T.isPrefixOf` t = Just $ Category c [T.drop (T.length r + 1) t]
                    | otherwise = Nothing
           roots = [("plugins", Plugins), ("user-guide", UserGuide), ("development", Development), ("concepts", Concepts)]
