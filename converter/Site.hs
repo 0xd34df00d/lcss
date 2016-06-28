@@ -2,7 +2,7 @@
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-module Site where
+module Site(PagesSet, convertSite) where
 
 import qualified Data.HashMap.Strict as M
 import qualified Data.Text as T
