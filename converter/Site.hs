@@ -90,7 +90,15 @@ cat2path :: Category -> [String]
 cat2path (Category r s) = map toLower (show r) : map T.unpack s
 
 node2contents :: NodeWMetadata -> T.Text
-node2contents NodeWMetadata { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip [i|
+node2contents NodeWMetadata { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip s
+    where s | T.null teaser || teaser == body = [i|
+---
+title: #{title}
+---
+
+#{convert body}
+|]
+            | otherwise = [i|
 ---
 title: #{title}
 ---
