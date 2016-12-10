@@ -14,8 +14,6 @@ import Data.Foldable
 import Data.Maybe
 import Data.Char
 import Data.Default
-import Data.Either
-import Data.Monoid
 import Control.Arrow
 import Data.String.Interpolate.IsString
 import Text.Pandoc.Readers.HTML
@@ -35,10 +33,7 @@ data RootCategory = Other
 
 instance Hashable RootCategory
 
-data Category = Category {
-        rootCat :: RootCategory,
-        hier :: [T.Text]
-    } deriving (Show, Eq, Ord, Generic)
+data Category = Category RootCategory [T.Text] deriving (Show, Eq, Ord, Generic)
 
 instance Hashable Category
 

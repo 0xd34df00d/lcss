@@ -1,4 +1,3 @@
-import qualified Data.Vector as V
 import qualified Data.Text as T
 import qualified Data.Text.IO as TI
 import qualified Data.ByteString.Lazy.Char8 as BS
@@ -8,7 +7,6 @@ import System.Directory
 
 import Loader
 import Site
-import Node
 
 writePage :: ([String], T.Text) -> IO ()
 writePage (filename, contents) = do
