@@ -13,8 +13,14 @@ import Data.Hashable
 import Data.Foldable
 import Data.Maybe
 import Data.Char
+import Data.Default
+import Data.Either
+import Data.Monoid
 import Control.Arrow
 import Data.String.Interpolate.IsString
+import Text.Pandoc.Readers.HTML
+import Text.Pandoc.Writers.Markdown
+import Text.Pandoc.Error
 
 import Node
 import ImageRefExtractor
@@ -91,11 +97,13 @@ cat2path (Category r s) = map toLower (show r) : map T.unpack s
 
 node2contents :: NodeWMetadata -> T.Text
 node2contents NodeWMetadata { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip s
-    where s | T.null teaser || teaser == body = [i|
+    where convert = T.pack . writeMarkdown def . handleError . readHtml def . T.unpack
+          s | T.null teaser || teaser == body = [i|
 ---
 title: #{title}
 ---
 
+#{convert teaser}
 #{convert body}
 |]
             | otherwise = [i|
@@ -103,6 +111,6 @@ title: #{title}
 title: #{title}
 ---
 
-#{teaser}
-#{body}
+#{convert teaser}
+#{convert body}
 |]
