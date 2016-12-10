@@ -1,6 +1,8 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE RecordWildCards #-}
 
 module Site(PagesSet, convertSite) where
 
@@ -12,6 +14,7 @@ import Data.Foldable
 import Data.Maybe
 import Data.Char
 import Control.Arrow
+import Data.String.Interpolate.IsString
 
 import Node
 import ImageRefExtractor
@@ -87,4 +90,11 @@ cat2path :: Category -> [String]
 cat2path (Category r s) = map toLower (show r) : map T.unpack s
 
 node2contents :: NodeWMetadata -> T.Text
-node2contents = title . node
+node2contents NodeWMetadata { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip [i|
+---
+title: #{title}
+---
+
+#{teaser}
+#{body}
+|]
