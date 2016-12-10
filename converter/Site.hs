@@ -78,7 +78,7 @@ toPagesSet :: Site NodeWMetadata -> PagesSet
 toPagesSet = concatMap catToPagesSet . M.toList . pages
 
 catToPagesSet :: (Category, [NodeWMetadata]) -> [([String], T.Text)]
-catToPagesSet (cat2path -> path, ns) = map (nodePath &&& node2contents ) ns
+catToPagesSet (cat2path -> path, ns) = map (nodePath &&& node2contents) ns
     where nodePath n = path ++ [mkFilename (node n) ++ ".md"]
           mkFilename n | not $ T.null $ url n = T.unpack $ url n
                        | otherwise = "node-" ++ show (nid n)
