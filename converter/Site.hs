@@ -77,7 +77,7 @@ subtyp c t | Just ss <- lookup c cs
 toPagesSet :: Site NodeWMetadata -> PagesSet
 toPagesSet = concatMap catToPagesSet . M.toList . pages
 
-catToPagesSet :: (Category, [NodeWMetadata]) -> [([String], T.Text)]
+catToPagesSet :: (Category, [NodeWMetadata]) -> PagesSet
 catToPagesSet (cat2path -> path, ns) = map (nodePath &&& node2contents) ns
     where nodePath n = path ++ [mkFilename (node n) ++ ".md"]
           mkFilename n | not $ T.null $ url n = T.unpack $ url n
