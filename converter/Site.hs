@@ -98,7 +98,6 @@ node2contents NodeWMetadata { node = Node { contents = TextContents { .. }, .. }
 title: #{title}
 ---
 
-#{convert teaser}
 #{convert body}
 |]
             | otherwise = [i|
