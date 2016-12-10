@@ -22,6 +22,7 @@ process files | length files == 3 = do
     case processFiles datas of
         Left err -> putStrLn $ "Unable to load data: " ++ err
         Right res -> mapM_ writePage $ convertSite res
+process _ = putStrLn "Usage: Main <nodes.csv> <tags.csv> <images.csv>"
 
 main :: IO ()
 main = getArgs >>= process
