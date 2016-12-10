@@ -1,15 +1,20 @@
+import qualified Data.Vector as V
 import qualified Data.Text as T
 import qualified Data.Text.IO as TI
 import qualified Data.ByteString.Lazy.Char8 as BS
 import Data.List
 import System.Environment
+import System.Directory
 
 import Loader
-import Html2Markdown
 import Site
+import Node
 
 writePage :: ([String], T.Text) -> IO ()
-writePage (path, contents) = putStrLn $ "Would write to: " ++ intercalate  "/" path --TI.writeFile (intercalate  "/" path) contents
+writePage (filename, contents) = do
+    createDirectoryIfMissing True $ intercalate "/" $ take (length outFilename - 1) outFilename
+    TI.writeFile (intercalate  "/" $ "out" : filename) contents
+    where outFilename = "out" : filename
 
 process :: [String] -> IO ()
 process files | length files == 3 = do
