@@ -1,0 +1,6 @@
+.stack-work
+*.hi
+*.o
+src/_cache
+src/_site
+converter/out
