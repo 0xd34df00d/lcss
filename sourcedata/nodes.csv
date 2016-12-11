@@ -13600,7 +13600,7 @@ So, here's the changelog:
 <li>LMP: fixed some segfaults.</li>
 <li>[26: Poshuku]: removed tooltips generation.</li>
 <li>Sidebar: support embeddind dock visibility actions.</li>
-<li>[211: TabSessManager]: fixed <em>Select All</em> and <em>Select None</em> buttons.</li>
+<li>[311: TabSessManager]: fixed <em>Select All</em> and <em>Select None</em> buttons.</li>
 <li>TabSessManager: fixed tab close handling.</li>
 </ul>","This week we got a license for Intel VTune CPU profiler for non-commercial use, so some stuff was heavily optimized. For example, LeechCraft now starts much faster, especially if [143: Azoth] has a bunch of items in its contact list.
 
@@ -13630,7 +13630,7 @@ So, here's the changelog:
 <li>LMP: fixed some segfaults.</li>
 <li>[26: Poshuku]: removed tooltips generation.</li>
 <li>Sidebar: support embeddind dock visibility actions.</li>
-<li>[211: TabSessManager]: fixed <em>Select All</em> and <em>Select None</em> buttons.</li>
+<li>[311: TabSessManager]: fixed <em>Select All</em> and <em>Select None</em> buttons.</li>
 <li>TabSessManager: fixed tab close handling.</li>
 </ul>"
 365,image,Vrooby popup,1341984643,,"",""
@@ -14482,11 +14482,11 @@ Other changes:
 <ul>
 <li>Core: use system style by default instead of Plastique.</li>
 <li>Core: workaround for <a href=""https://bugreports.qt-project.org/browse/QTBUG-13175"">QTBUG-13175</a>.</li>
-<li>[216: AdvancedNotifications]: proper notifications view height.</li>
+<li>[210: AdvancedNotifications]: proper notifications view height.</li>
 <li>[143: Azoth]: user-visible strings are properly escaped in contact tooltips.</li>
 <li>Azoth: fixed Ctrl+1 handling.</li>
-<li>[171: Azoth ChatHistory]: fixed links not being clickable sometimes.</li>
-<li>[215: Azoth Metacontacts]: show dummy account only if there are metacontacts.</li>
+<li>[163: Azoth ChatHistory]: fixed links not being clickable sometimes.</li>
+<li>[214: Azoth Metacontacts]: show dummy account only if there are metacontacts.</li>
 <li>[399: HotStreams]: fetch radio list from dir.xiph.org.</li>
 <li>[344: LastFMScrobble]: fixed tags ordering in biography info.</li>
 <li>LastFMScrobble: fixed build with Debian liblastfm snapshot.</li>
@@ -14521,11 +14521,11 @@ Other changes:
 <ul>
 <li>Core: use system style by default instead of Plastique.</li>
 <li>Core: workaround for <a href=""https://bugreports.qt-project.org/browse/QTBUG-13175"">QTBUG-13175</a>.</li>
-<li>[216: AdvancedNotifications]: proper notifications view height.</li>
+<li>[210: AdvancedNotifications]: proper notifications view height.</li>
 <li>[143: Azoth]: user-visible strings are properly escaped in contact tooltips.</li>
 <li>Azoth: fixed Ctrl+1 handling.</li>
-<li>[171: Azoth ChatHistory]: fixed links not being clickable sometimes.</li>
-<li>[215: Azoth Metacontacts]: show dummy account only if there are metacontacts.</li>
+<li>[163: Azoth ChatHistory]: fixed links not being clickable sometimes.</li>
+<li>[214: Azoth Metacontacts]: show dummy account only if there are metacontacts.</li>
 <li>[399: HotStreams]: fetch radio list from dir.xiph.org.</li>
 <li>[344: LastFMScrobble]: fixed tags ordering in biography info.</li>
 <li>LastFMScrobble: fixed build with Debian liblastfm snapshot.</li>
@@ -14641,7 +14641,7 @@ Also, drag'n'drop support for file sending was improved significantly. Azoth Xoo
 [409: Azoth Autopaste] module now supports selecting syntax highlighter and choosing the paste service when pasting:
 [img_assist|nid=408|title=|desc=|link=popup|width=440]
 
-[215: Azoth Metacontacts] module now shows its pseudo account in the roster only if there are metacontacts.
+[214: Azoth Metacontacts] module now shows its pseudo account in the roster only if there are metacontacts.
 
 <h2>Other plugins</h2>
 
@@ -14742,7 +14742,7 @@ Also, drag'n'drop support for file sending was improved significantly. Azoth Xoo
 [409: Azoth Autopaste] module now supports selecting syntax highlighter and choosing the paste service when pasting:
 [img_assist|nid=408|title=|desc=|link=popup|width=440]
 
-[215: Azoth Metacontacts] module now shows its pseudo account in the roster only if there are metacontacts.
+[214: Azoth Metacontacts] module now shows its pseudo account in the roster only if there are metacontacts.
 
 <h2>Other plugins</h2>
 
