@@ -103,18 +103,14 @@ node2contents ctx NodeWRefs { node = Node { contents = TextContents { .. }, .. }
     where convert = T.pack . P.writeMarkdown writeOpts . P.handleError . P.readHtml readOpts . rewriteLinks (id2node ctx) . T.unpack
           readOpts = def { P.readerParseRaw = True }
           writeOpts = def
-          s | T.null teaser || teaser == body = [i|
+          fullS = [i|
 ---
 title: #{title}
+tags: #{tags}
 ---
 
-#{convert body}
+#{s}
 |]
-            | otherwise = [i|
----
-title: #{title}
----
-
-#{convert teaser}
-#{convert body}
-|]
+          s | T.null teaser || teaser `T.isPrefixOf` body = convert body
+            | otherwise = convert teaser <> "\n" <> convert body
+node2contents _ _ = error "unsupported node type"
