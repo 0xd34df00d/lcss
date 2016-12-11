@@ -8,7 +8,7 @@ import           Hakyll
 main :: IO ()
 main = hakyll $ do
     match "*.md" $ do
-        route $ customRoute $ (\s -> take (length s - 3) s) . toFilePath
+        route $ customRoute $ unmdize . toFilePath
         compile $ pandocCompiler
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
@@ -58,6 +58,9 @@ main = hakyll $ do
 
 
     match "templates/*" $ compile templateBodyCompiler
+
+unmdize :: String -> String
+unmdize s = take (length s - 3) s
 
 
 --------------------------------------------------------------------------------
