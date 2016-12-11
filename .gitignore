@@ -4,3 +4,5 @@
 src/_cache
 src/_site
 converter/out
+*.dyn_hi
+*.dyn_o
