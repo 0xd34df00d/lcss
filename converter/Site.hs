@@ -96,7 +96,8 @@ catToPagesSet ctx (cat2path -> path, ns) = map (nodePath &&& node2contents ctx) 
                        | otherwise = "node-" ++ show (nid n)
 
 cat2path :: Category -> [String]
-cat2path (Category r s) = map toLower (show r) : map T.unpack s
+cat2path (Category Other s) = T.unpack <$> s
+cat2path (Category r s) = (toLower <$> show r) : (T.unpack <$> s)
 
 node2contents :: ConvContext -> NodeWRefs -> T.Text
 node2contents ctx NodeWRefs { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip fullS
