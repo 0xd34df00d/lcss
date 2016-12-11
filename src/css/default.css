@@ -2,7 +2,8 @@ body {
     color: black;
     font-size: 16px;
     margin: 0px auto 0px auto;
-    width: 600px;
+    width: 80%;
+    max-width: 120em;
 }
 
 div#header {
@@ -29,7 +30,6 @@ div#header #navigation a {
     font-weight: bold;
     margin-left: 12px;
     text-decoration: none;
-    text-transform: uppercase;
 }
 
 div#footer {
@@ -53,4 +53,9 @@ div.info {
     color: #555;
     font-size: 14px;
     font-style: italic;
+}
+
+a {
+    color: #3d5c85;
+    text-decoration: none;
 }
