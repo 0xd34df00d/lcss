@@ -38,7 +38,7 @@ data Category = Category RootCategory [T.Text] deriving (Show, Eq, Ord, Generic)
 instance Hashable Category
 
 
-data NodeWMetadata = NodeWMetadata {
+data NodeWRefs = NodeWRefs {
         node :: Node,
         imageRefs :: [ImageRef]
     } deriving (Show, Eq, Ord)
@@ -58,12 +58,12 @@ convertSite :: Foldable t => t Node -> PagesSet
 convertSite = toPagesSet . nodes2site
 
 
-nodes2site :: Foldable t => t Node -> Site NodeWMetadata
+nodes2site :: Foldable t => t Node -> Site NodeWRefs
 nodes2site ns = enrichMetadata ns <$> Site (M.fromListWith (++) $ map (fixSubtyp . nodeCat &&& return) $ filter ((/= Image) . typ) $ toList ns)
     where fixSubtyp (Category c ts) = Category c $ ts >>= subtyp c
 
-enrichMetadata :: Foldable t => t Node -> Node -> NodeWMetadata
-enrichMetadata ns = uncurry NodeWMetadata . extractNode ns
+enrichMetadata :: Foldable t => t Node -> Node -> NodeWRefs
+enrichMetadata ns = uncurry NodeWRefs . extractNode ns
 
 nodeCat :: Node -> Category
 nodeCat (typ -> Story) = Category News []
@@ -78,11 +78,16 @@ subtyp c t | Just ss <- lookup c cs
            | otherwise = []
     where cs = [(Plugins, ["azoth", "poshuku", "blasq"])]
 
-toPagesSet :: Site NodeWMetadata -> PagesSet
-toPagesSet = concatMap catToPagesSet . M.toList . pages
+data ConvContext = ConvContext {
+        id2node :: M.HashMap Int Node
+    } deriving (Eq, Show)
 
-catToPagesSet :: (Category, [NodeWMetadata]) -> PagesSet
-catToPagesSet (cat2path -> path, ns) = map (nodePath &&& node2contents) ns
+toPagesSet :: Site NodeWRefs -> PagesSet
+toPagesSet s = concatMap (catToPagesSet ctx) $ M.toList $ pages s
+    where ctx = ConvContext $ M.fromList $ map ((\n -> (nid n, n)) . node) $ concat $ M.elems $ pages s
+
+catToPagesSet :: ConvContext -> (Category, [NodeWRefs]) -> PagesSet
+catToPagesSet ctx (cat2path -> path, ns) = map (nodePath &&& node2contents ctx) ns
     where nodePath n = path ++ [mkFilename (node n) ++ ".md"]
           mkFilename n | not $ T.null $ url n = T.unpack $ url n
                        | otherwise = "node-" ++ show (nid n)
@@ -90,8 +95,8 @@ catToPagesSet (cat2path -> path, ns) = map (nodePath &&& node2contents) ns
 cat2path :: Category -> [String]
 cat2path (Category r s) = map toLower (show r) : map T.unpack s
 
-node2contents :: NodeWMetadata -> T.Text
-node2contents NodeWMetadata { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip s
+node2contents :: ConvContext -> NodeWRefs -> T.Text
+node2contents ctx NodeWRefs { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip fullS
     where convert = T.pack . writeMarkdown def . handleError . readHtml def . T.unpack
           s | T.null teaser || teaser == body = [i|
 ---
