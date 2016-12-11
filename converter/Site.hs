@@ -14,14 +14,17 @@ import Data.Foldable
 import Data.Maybe
 import Data.Char
 import Data.Default
+import Data.Monoid
 import Control.Arrow
 import Data.String.Interpolate.IsString
-import Text.Pandoc.Readers.HTML
-import Text.Pandoc.Writers.Markdown
-import Text.Pandoc.Error
+import qualified Text.Pandoc.Readers.HTML as P
+import qualified Text.Pandoc.Writers.Markdown as P
+import qualified Text.Pandoc.Error as P
+import qualified Text.Pandoc.Options as P
 
 import Node
 import ImageRefExtractor
+import LinksRewriter
 
 data RootCategory = Other
         | News
@@ -97,7 +100,9 @@ cat2path (Category r s) = map toLower (show r) : map T.unpack s
 
 node2contents :: ConvContext -> NodeWRefs -> T.Text
 node2contents ctx NodeWRefs { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip fullS
-    where convert = T.pack . writeMarkdown def . handleError . readHtml def . T.unpack
+    where convert = T.pack . P.writeMarkdown writeOpts . P.handleError . P.readHtml readOpts . rewriteLinks (id2node ctx) . T.unpack
+          readOpts = def { P.readerParseRaw = True }
+          writeOpts = def
           s | T.null teaser || teaser == body = [i|
 ---
 title: #{title}
