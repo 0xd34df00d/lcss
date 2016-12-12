@@ -104,10 +104,12 @@ node2contents ctx NodeWRefs { node = Node { contents = TextContents { .. }, .. }
     where convert = T.pack . P.writeMarkdown writeOpts . P.handleError . P.readHtml readOpts . rewriteLinks (id2node ctx) . T.unpack
           readOpts = def { P.readerParseRaw = True }
           writeOpts = def
+          metadataLines = T.unlines $ ((\(k, v) -> [i|#{k}: #{v}|]) <$>) $ M.toList metadata
           fullS = [i|
 ---
 title: #{title}
 tags: #{tags}
+#{metadataLines}
 ---
 
 #{s}
