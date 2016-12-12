@@ -79,7 +79,7 @@ subtyp :: RootCategory -> T.Text -> [T.Text]
 subtyp c t | Just ss <- lookup c cs
            , Just s <- find ((`T.isPrefixOf` t) . (`T.snoc` '-')) ss = [s]
            | otherwise = []
-    where cs = [(Plugins, ["azoth", "poshuku", "blasq"])]
+    where cs = [(Plugins, ["azoth", "aggregator", "poshuku", "blasq"])]
 
 data ConvContext = ConvContext {
         id2node :: M.HashMap Int Node
