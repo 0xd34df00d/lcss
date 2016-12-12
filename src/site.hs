@@ -7,12 +7,6 @@ import           Hakyll
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-    match "*.md" $ do
-        route $ customRoute $ unmdize . toFilePath
-        compile $ pandocCompiler
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
-                >>= relativizeUrls
-
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -20,6 +14,12 @@ main = hakyll $ do
     match "css/*" $ do
         route   idRoute
         compile compressCssCompiler
+
+    match "text/*.md" $ do
+        route $ customRoute $ dropPrefix "text/" . unmdize . toFilePath
+        compile $ pandocCompiler
+                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+                >>= relativizeUrls
 
     match "posts/*" $ do
         route $ setExtension "html"
@@ -62,6 +62,8 @@ main = hakyll $ do
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
 
+dropPrefix :: String -> String -> String
+dropPrefix s = drop $ length s
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
