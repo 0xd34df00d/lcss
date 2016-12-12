@@ -21,6 +21,12 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
 
+    match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
+        route $ customRoute $ dropPrefix "text/plugins/" . unmdize . toFilePath
+        compile $ pandocCompiler
+                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+                >>= relativizeUrls
+
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
