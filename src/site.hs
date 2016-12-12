@@ -27,6 +27,18 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
 
+    create ["plugins"] $ do
+        route idRoute
+        compile $ do
+            plugins <- loadAll "text/plugins/*.md"
+            let pluginsCtx = length plugins `traceShow`
+                    listField "plugins" defaultContext (return plugins) <>
+                    constField "title" "Plugins" <>
+                    defaultContext
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/plugins.html" pluginsCtx
+                >>= loadAndApplyTemplate "templates/default.html" pluginsCtx
+                >>= relativizeUrls
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
