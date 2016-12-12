@@ -60,6 +60,9 @@ type PagesSet = [([String], T.Text)]
 convertSite :: Foldable t => t Node -> PagesSet
 convertSite = toPagesSet . nodes2site
 
+mapPagesWithCat :: (Category -> t -> t') -> Site t -> Site t'
+mapPagesWithCat f s = s { pages = M.mapWithKey (\c -> (f c <$>)) $ pages s }
+
 
 nodes2site :: Foldable t => t Node -> Site NodeWRefs
 nodes2site ns = enrichMetadata ns <$> Site (M.fromListWith (++) $ map (fixSubtyp . nodeCat &&& return) $ filter ((/= Image) . typ) $ toList ns)
