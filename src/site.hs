@@ -31,7 +31,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             plugins <- loadAll "text/plugins/*.md"
-            let pluginsCtx = length plugins `traceShow`
+            let pluginsCtx =
                     listField "plugins" defaultContext (return plugins) <>
                     constField "title" "Plugins" <>
                     defaultContext
