@@ -41,7 +41,7 @@ combine tags images = V.map $ csingle tm im
           im = M.fromListWith (const $ const "Image map collision") $ map (\(ImageRecord n p) -> (n, p)) $ V.toList images
 
 csingle :: M.HashMap Int [T.Text] -> M.HashMap Int T.Text -> NodeRecord -> Node
-csingle tags images NodeRecord { .. } = Node { tags = M.lookupDefault [] nid tags, contents = cnt typ, .. }
+csingle tags images NodeRecord { .. } = Node { tags = M.lookupDefault [] nid tags, contents = cnt typ, metadata = mempty, .. }
     where cnt Image | Just path <- M.lookup nid images = ImageContents path
                     | otherwise = error $ "No image file for image " ++ show nid
           cnt _ = TextContents { .. }

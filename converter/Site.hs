@@ -44,7 +44,7 @@ instance Hashable Category
 data NodeWRefs = NodeWRefs {
         node :: Node,
         imageRefs :: [ImageRef]
-    } deriving (Show, Eq, Ord)
+    } deriving (Show, Eq)
 
 
 data Site t = Site {

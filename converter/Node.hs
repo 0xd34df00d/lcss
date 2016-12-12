@@ -5,6 +5,7 @@ module Node where
 
 import qualified Data.Text as T
 import qualified Data.Csv as CSV(FromField, parseField)
+import qualified Data.HashMap.Strict as M
 import GHC.Generics
 import Control.Monad
 
@@ -32,5 +33,6 @@ data Node = Node {
         timestamp :: Int,
         url :: T.Text,
         tags :: [T.Text],
-        contents :: NodeContents
-    } deriving (Show, Eq, Ord, Generic)
+        contents :: NodeContents,
+        metadata :: M.HashMap T.Text T.Text
+    } deriving (Show, Eq, Generic)
