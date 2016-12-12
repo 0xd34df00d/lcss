@@ -113,5 +113,5 @@ tags: #{tags}
 #{s}
 |]
           s | T.null teaser || teaser `T.isPrefixOf` body = convert body
-            | otherwise = convert teaser <> "\n" <> convert body
+            | otherwise = convert teaser <> "\n<!--more-->\n" <> convert body
 node2contents _ _ = error "unsupported node type"
