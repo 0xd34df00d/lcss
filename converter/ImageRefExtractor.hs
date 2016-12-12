@@ -4,7 +4,7 @@
 
 module ImageRefExtractor(
         ImageRef,
-        extractNode
+        extractImageRefs
     ) where
 
 import qualified Data.Text as T
@@ -29,11 +29,11 @@ data ImageRef = ImageRef {
         refSize :: Maybe (Int, Int)
     } deriving (Eq, Ord, Show)
 
-extractNode :: Foldable t => t Node -> Node -> (Node, [ImageRef])
-extractNode ns n@(contents -> TextContents t b) = (n { contents = TextContents t' b' }, nubOrd $ trefs ++ brefs)
+extractImageRefs :: Foldable t => t Node -> Node -> (Node, [ImageRef])
+extractImageRefs ns n@(contents -> TextContents t b) = (n { contents = TextContents t' b' }, nubOrd $ trefs ++ brefs)
     where (t', trefs) = extract ns t
           (b', brefs) = extract ns b
-extractNode _ n = (n, [])
+extractImageRefs _ n = (n, [])
 
 extract :: Foldable t => t Node -> T.Text -> (T.Text, [ImageRef])
 extract (buildNodeMap -> ns) t = mapAccumL (\acc -> first (acc <>) . extractChunk ns) h rest

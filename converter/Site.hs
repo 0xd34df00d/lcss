@@ -66,7 +66,7 @@ nodes2site ns = enrichMetadata ns <$> Site (M.fromListWith (++) $ map (fixSubtyp
     where fixSubtyp (Category c ts) = Category c $ ts >>= subtyp c
 
 enrichMetadata :: Foldable t => t Node -> Node -> NodeWRefs
-enrichMetadata ns = uncurry NodeWRefs . extractNode ns
+enrichMetadata ns = uncurry NodeWRefs . extractImageRefs ns
 
 nodeCat :: Node -> Category
 nodeCat (typ -> Story) = Category News []
