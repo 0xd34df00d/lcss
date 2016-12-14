@@ -65,8 +65,13 @@ mapPagesWithCat f s = s { pages = M.mapWithKey (\c -> (f c <$>)) $ pages s }
 
 
 nodes2site :: Foldable t => t Node -> Site NodeWRefs
-nodes2site ns = enrichMetadata ns <$> Site (M.fromListWith (++) $ map (fixSubtyp . nodeCat &&& return) $ filter ((/= Image) . typ) $ toList ns)
+nodes2site ns = enrichMetadata ns <$> mapPagesWithCat catMetadata site
     where fixSubtyp (Category c ts) = Category c $ ts >>= subtyp c
+          site = Site (M.fromListWith (++) $ map (fixSubtyp . nodeCat &&& return) $ filter ((/= Image) . typ) $ toList ns)
+
+catMetadata :: Category -> Node -> Node
+catMetadata (Category Plugins _) n = undefined
+catMetadata _ n = n
 
 enrichMetadata :: Foldable t => t Node -> Node -> NodeWRefs
 enrichMetadata ns = uncurry NodeWRefs . extractImageRefs ns
