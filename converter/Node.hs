@@ -36,3 +36,6 @@ data Node = Node {
         contents :: NodeContents,
         metadata :: M.HashMap T.Text T.Text
     } deriving (Show, Eq, Generic)
+
+addMetadata :: T.Text -> T.Text -> Node -> Node
+addMetadata k v n = n { metadata = M.insert k v $ metadata n }
