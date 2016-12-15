@@ -3,6 +3,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE NamedFieldPuns #-}
 
 module Site(PagesSet, convertSite) where
 
@@ -70,8 +71,15 @@ nodes2site ns = enrichMetadata ns <$> mapPagesWithCat catMetadata site
           site = Site (M.fromListWith (++) $ map (fixSubtyp . nodeCat &&& return) $ filter ((/= Image) . typ) $ toList ns)
 
 catMetadata :: Category -> Node -> Node
-catMetadata (Category Plugins _) n = undefined
+catMetadata (Category Plugins _) n@Node { contents = TextContents { body }, title } = addMetadata "shortdescr" (shortDescr title body) n
 catMetadata _ n = n
+
+shortDescr :: T.Text -> T.Text -> T.Text
+shortDescr title body = sentence'''
+    where sentence = T.takeWhile (/= '.') body
+          sentence' = fromMaybe sentence $ T.stripPrefix title sentence
+          sentence'' = T.dropWhile (not . isAlpha) sentence'
+          sentence''' = T.strip $ fromJust $ msum $ map (`T.stripPrefix` sentence'') ["is a plugin", "is a", "plugin"] <> [Just sentence'']
 
 enrichMetadata :: Foldable t => t Node -> Node -> NodeWRefs
 enrichMetadata ns = uncurry NodeWRefs . extractImageRefs ns
