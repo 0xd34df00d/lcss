@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE QuasiQuotes #-}
 
 module ImageRefExtractor(
         ImageRef,
@@ -17,20 +18,21 @@ import Data.Monoid
 import Data.List
 import Data.List.Extra
 import Data.Foldable
+import Data.String.Interpolate.IsString
 
 import Node
 
-data ImageRefType = Side | Inline deriving (Eq, Ord, Show)
+data ImageAlign = AlignLeft | AlignRight | AlignInline deriving (Eq, Ord, Show)
 
 data ImageRef = ImageRef {
-        refType :: ImageRefType,
+        refAlign :: ImageAlign,
         refNid :: Int,
         refTitle :: Maybe T.Text,
         refSize :: Maybe (Int, Int)
     } deriving (Eq, Ord, Show)
 
 extractImageRefs :: Foldable t => t Node -> Node -> (Node, [ImageRef])
-extractImageRefs ns n@(contents -> TextContents t b) = (n { contents = TextContents t' b' }, nubOrd $ trefs ++ brefs)
+extractImageRefs ns n@(contents -> TextContents t b) | nid n == 3 = (n { contents = TextContents t' b' }, nubOrd $ trefs ++ brefs)
     where (t', trefs) = extract ns t
           (b', brefs) = extract ns b
 extractImageRefs _ n = (n, [])
@@ -41,11 +43,11 @@ extract (buildNodeMap -> ns) t = mapAccumL (\acc -> first (acc <>) . extractChun
 
 imageRef :: M.HashMap T.Text T.Text -> ImageRef
 imageRef flags = ImageRef (typ $ M.lookup "align" flags) (readInt $ flags M.! "nid") title size
-    where typ (Just "inline") = Side
-          typ (Just "right") = Inline
-          typ (Just "left") = Inline
-          typ (Just "none") = Inline
-          typ Nothing = Inline
+    where typ (Just "inline") = AlignInline
+          typ (Just "right") = AlignRight
+          typ (Just "left") = AlignLeft
+          typ (Just "none") = AlignInline
+          typ Nothing = AlignInline
           typ (Just t) = error $ "Unknown align: " ++ T.unpack t
           title = do
                 v <- M.lookup "title" flags
@@ -60,13 +62,17 @@ readInt (TR.decimal -> Right (n, _)) = n
 readInt t = error $ "Cannot read text as integer: " ++ T.unpack t
 
 extractChunk :: IM.IntMap Node -> T.Text -> (T.Text, ImageRef)
-extractChunk imgs t | refType ref == Side = (rest, ref)
-                    | otherwise = (ref2text imgs ref <> rest, ref)
+extractChunk imgs t = (ref2text imgs ref <> rest, ref)
     where (ref, rest) = (imageRef . parseAssist) *** T.tail $ T.breakOn "]" t
 
 ref2text :: IM.IntMap Node -> ImageRef -> T.Text
-ref2text nodes ImageRef { .. } = "![" <> title' <> "](" <> imagePath <> " \"" <> title' <> "\")" 
+ref2text nodes ImageRef { .. } = [i|<img src="#{imagePath}" alt="#{title'}" title="#{title'}" style="#{style refAlign}" #{dims} />|]
     where title' = fromMaybe T.empty refTitle
+          dims | Just (w, h) <- refSize = [i|width=#{T.pack $ show w} height=#{T.pack $ show h}|]
+               | otherwise = T.empty
+          style AlignInline = T.empty
+          style AlignRight = "float:right"
+          style AlignLeft = "float:left"
           Node { contents = ImageContents { .. }, .. } = nodes IM.! refNid
 
 buildNodeMap :: Foldable t => t Node -> IM.IntMap Node
