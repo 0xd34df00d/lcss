@@ -75,11 +75,19 @@ catMetadata (Category Plugins _) n@Node { contents = TextContents { body }, titl
 catMetadata _ n = n
 
 shortDescr :: T.Text -> T.Text -> T.Text
-shortDescr title body = sentence'''
-    where sentence = T.takeWhile (/= '.') body
+shortDescr title body = sentence''''
+    where sentence = T.strip $ T.takeWhile (/= '.') $ stripTags body
           sentence' = fromMaybe sentence $ T.stripPrefix title sentence
           sentence'' = T.dropWhile (not . isAlpha) sentence'
-          sentence''' = T.strip $ fromJust $ msum $ map (`T.stripPrefix` sentence'') ["is a plugin", "is a", "plugin"] <> [Just sentence'']
+          sentence''' = T.strip $ fromJust $ msum $ map (`T.stripPrefix` sentence'') ["is a plugin", "is a", "is the", "plugin"] <> [Just sentence'']
+          sentence'''' = T.replace ":" "':'" $ T.replace "-" "'-'" sentence'''
+
+stripTags :: T.Text -> T.Text
+stripTags s | Just True <- (<) <$> openPos <*> dotPos = stripTags $ T.drop (fromJust (T.findIndex (== ']') s) + 1) s
+            | otherwise = s
+    where dotPos = T.findIndex (== '.') s
+          openPos = T.findIndex (== '[') s
+
 
 enrichMetadata :: Foldable t => t Node -> Node -> NodeWRefs
 enrichMetadata ns = uncurry NodeWRefs . extractImageRefs ns
