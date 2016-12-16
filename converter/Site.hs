@@ -80,7 +80,7 @@ shortDescr title body = sentence''''
           sentence' = fromMaybe sentence $ T.stripPrefix title sentence
           sentence'' = T.dropWhile (not . isAlpha) sentence'
           sentence''' = T.strip $ fromJust $ msum $ map (`T.stripPrefix` sentence'') ["is a plugin", "is a", "is the", "plugin"] <> [Just sentence'']
-          sentence'''' = T.replace ":" "':'" $ T.replace "-" "'-'" sentence'''
+          sentence'''' = T.replace ":" "':'" sentence'''
 
 stripTags :: T.Text -> T.Text
 stripTags s | Just True <- (<) <$> openPos <*> dotPos = stripTags $ T.drop (fromJust (T.findIndex (== ']') s) + 1) s
