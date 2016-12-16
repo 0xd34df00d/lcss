@@ -129,7 +129,7 @@ node2contents :: ConvContext -> NodeWRefs -> T.Text
 node2contents ctx NodeWRefs { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip fullS
     where convert = T.pack . P.writeMarkdown writeOpts . P.handleError . P.readHtml readOpts . rewriteLinks (id2node ctx) . T.unpack
           readOpts = def { P.readerParseRaw = True }
-          writeOpts = def
+          writeOpts = def { P.writerHighlight = True }
           metadataLines = T.unlines $ ((\(k, v) -> [i|#{k}: #{v}|]) <$>) $ M.toList metadata
           fullS = [i|
 ---
