@@ -71,7 +71,9 @@ nodes2site ns = enrichMetadata ns <$> mapPagesWithCat catMetadata site
           site = Site (M.fromListWith (++) $ map (fixSubtyp . nodeCat &&& return) $ filter ((/= Image) . typ) $ toList ns)
 
 catMetadata :: Category -> Node -> Node
-catMetadata (Category Plugins _) n@Node { contents = TextContents { body }, title } = addMetadata "shortdescr" (shortDescr title body) n
+catMetadata (Category Plugins _) n@Node { contents = TextContents { body }, title } = key $ addMetadata "shortdescr" (shortDescr title body) n
+    where key | T.toLower title `elem` ["advancednotifications", "aggregator", "azoth", "bittorrent", "lackman", "lmp", "monocle", "poshuku", "sb2", "summary"] = addMetadata "keyplugin" "1"
+              | otherwise = id
 catMetadata _ n = n
 
 shortDescr :: T.Text -> T.Text -> T.Text
