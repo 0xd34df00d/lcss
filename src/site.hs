@@ -77,18 +77,37 @@ imageSizeFiller :: ExtractChunk -> Compiler ExtractChunk
 imageSizeFiller c@ChunkImgRef {} = do
     [w, h] <- words <$> unixFilter "identify" ["-format", "%w %h", imgUrl c] ""
     let dims = Just (read w, read h)
-    pure c { imgDims = msum [imgDims c, dims], imgSrcDims = dims }
+    pure c { imgDims = combine (imgDims c) dims, imgSrcDims = dims }
+    where combine DimsUnknown dims = fromMaybeBoth dims
+          combine d _ = d
 imageSizeFiller c = pure c
 
 thumbnailsCompiler :: ExtractChunk -> Compiler ExtractChunk
-thumbnailsCompiler c@ChunkImgRef { .. } | imgDims /= imgSrcDims = do
-    let Just (w, h) = imgDims
-    let thumbName = thumbFilename w h imgUrl
-    unixFilter "convert" [imgUrl, "-geometry", show w <> "x" <> show h, thumbName] ""
+thumbnailsCompiler c@ChunkImgRef { .. } | toMaybeBoth imgDims /= imgSrcDims = do
+    let thumbName = thumbFilename imgDims imgUrl
+    unixFilter "convert" [imgUrl, "-geometry", geom imgDims, thumbName] ""
     pure c
+    where geom (BothKnown (w, h)) = show w <> "x" <> show h
+          geom (WidthKnown w) = show w <> "x" <> show (snd $ fromJust imgSrcDims)
+          geom (HeightKnown h) = show (fst $ fromJust imgSrcDims) <> "x" <> show h
+          geom DimsUnknown = error "thumbnailsCompiler: dimensions of the thumbnail are fully unknown"
 thumbnailsCompiler c = pure c
 
 data ImgAlign = AlignLeft | AlignRight | AlignInline deriving (Eq, Show)
+
+data ImgDims = DimsUnknown
+             | WidthKnown Int
+             | HeightKnown Int
+             | BothKnown (Int, Int)
+             deriving (Eq, Show)
+
+toMaybeBoth :: ImgDims -> Maybe (Int, Int)
+toMaybeBoth (BothKnown p) = Just p
+toMaybeBoth _ = Nothing
+
+fromMaybeBoth :: Maybe (Int, Int) -> ImgDims
+fromMaybeBoth (Just p) = BothKnown p
+fromMaybeBoth _ = DimsUnknown
 
 data ExtractChunk = ChunkText String
                   | ChunkImgRef {
@@ -96,19 +115,22 @@ data ExtractChunk = ChunkText String
                         imgTitle :: String,
                         imgAlign :: ImgAlign,
                         imgIsLink :: Bool,
-                        imgDims :: Maybe (Int, Int),
+                        imgDims :: ImgDims,
                         imgSrcDims :: Maybe (Int, Int)
                     } deriving (Eq, Show)
 
 showChunk :: ExtractChunk -> String
 showChunk (ChunkText s) = s
-showChunk ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}"><img src="#{thumbFilename w h imgUrl}" width="#{w}" height="#{h}" alt="#{imgTitle}" /></a>|]
-                             | otherwise = [i|<img src="#{imgUrl}" width="#{w}" height="#{h}" alt="#{imgTitle}" />|]
-    where Just (w, h) = imgDims
+showChunk ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}"><img src="#{thumbFilename imgDims imgUrl}" alt="#{imgTitle}" /></a>|]
+                             | otherwise = [i|<img src="#{imgUrl}" alt="#{imgTitle}" />|]
 
-thumbFilename :: Int -> Int -> String -> String
-thumbFilename w h s = n <> "hakyllthumb_" <> show w <> "_" <> show h <> "." <> ext
+thumbFilename :: ImgDims -> String -> String
+thumbFilename dims s = n <> "hakyllthumb_" <> showDims dims <> "." <> ext
     where (ext, n) = join (***) reverse $ break (== '.') $ reverse s
+          showDims (BothKnown (w, h)) = show w <> "_" <> show h
+          showDims (WidthKnown w) = "w" <> show w
+          showDims (HeightKnown h) = "h" <> show h
+          showDims DimsUnknown = error "Dimensions should be known by this point"
 
 toChunks :: String -> [ExtractChunk]
 toChunks s = ChunkText h : concatMap (\(a, b) -> [a, b]) (buildChunk <$> rest)
@@ -131,5 +153,11 @@ parseExpr s = ChunkImgRef { .. }
                    | Just x <- val = error $ "Unknown image alignment: " <> x
             where val = M.lookup "align" sts
           imgIsLink = isJust $ M.lookup "link" sts
-          imgDims = join (***) read <$> ((,) <$> M.lookup "width" sts <*> M.lookup "height" sts)
+          imgDims | Just mw' <- mw
+                  , Just mh' <- mh = BothKnown (mw', mh')
+                  | Just mw' <- mw = WidthKnown mw'
+                  | Just mh' <- mh = HeightKnown mh'
+                  | otherwise = DimsUnknown
+            where mw = read <$> M.lookup "width" sts
+                  mh = read <$> M.lookup "height" sts
           imgSrcDims = Nothing
