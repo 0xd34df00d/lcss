@@ -30,6 +30,7 @@ main = hakyll $ do
         compile $ pandocCompiler
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
+                >>= imageRefsCompiler "images/"
 
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
         route $ customRoute $ dropPrefix "text/plugins/" . unmdize . toFilePath
