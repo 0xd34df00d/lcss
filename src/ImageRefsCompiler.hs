@@ -66,6 +66,7 @@ data ExtractChunk = ChunkText String
                         imgAlign :: ImgAlign,
                         imgIsLink :: Bool,
                         imgRequestedDims :: ImgDims,
+                        imgGeneratedDims :: Maybe (Int, Int),
                         imgSrcDims :: Maybe (Int, Int)
                     } deriving (Eq, Show)
 
@@ -91,7 +92,7 @@ buildChunk s = (parseExpr expr, ChunkText rest)
     where (expr, _:rest) = break (== ']') s
 
 parseExpr :: String -> ExtractChunk
-parseExpr s = ChunkImgRef { .. }
+parseExpr s = ChunkImgRef { imgSrcDims = Nothing, imgGeneratedDims = Nothing, .. }
     where sts = M.fromList $ (second tail . break (== '=') <$>) $ splitOn "|" s
           imgUrl | Just url <- M.lookup "url" sts = url
                  | otherwise = error $ "No url in image expr: `" <> s <> "`"
@@ -110,4 +111,3 @@ parseExpr s = ChunkImgRef { .. }
                   | otherwise = DimsUnknown
             where mw = read <$> M.lookup "width" sts
                   mh = read <$> M.lookup "height" sts
-          imgSrcDims = Nothing
