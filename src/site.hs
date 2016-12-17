@@ -37,6 +37,7 @@ main = hakyll $ do
         compile $ pandocCompiler
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
+                >>= imageRefsCompiler "images/"
 
     create ["plugins"] $ do
         route idRoute
