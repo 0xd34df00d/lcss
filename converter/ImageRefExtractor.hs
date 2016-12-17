@@ -2,6 +2,7 @@
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 module ImageRefExtractor(
         ImageRef,
@@ -66,8 +67,8 @@ ref2text :: IM.IntMap Node -> ImageRef -> T.Text
 ref2text nodes ImageRef { .. } = [i|[img_assist|url=#{imagePath'}|title=#{title'}|align=#{align' refAlign}|link=1#{dims}]|]
     where title' = fromMaybe T.empty refTitle
           dims = bt "width" (fst refSize) <> bt "height" (snd refSize)
-            where bt t d | Just d' <- d = [i||#{t}=#{T.pack $ show d'}|]
-                         | otherwise = T.empty
+            where bt (t :: T.Text) d | Just d' <- d = [i||#{t}=#{T.pack $ show d'}|]
+                                     | otherwise = T.empty
           align' AlignInline = "inline" :: T.Text
           align' AlignRight = "left"
           align' AlignLeft = "right"
