@@ -19,19 +19,23 @@ imageRefsCompiler imgs t = do
     mapM thumbnailsCompiler chunks
     pure t { itemBody = concatMap showChunk chunks }
 
+identifyRunner :: String -> Compiler (Int, Int)
+identifyRunner path = do
+    [w, h] <- words <$> unixFilter "identify" ["-format", "%w %h", path] ""
+    return (read w, read h)
+
 imageSizeFiller :: ExtractChunk -> Compiler ExtractChunk
 imageSizeFiller c@ChunkImgRef {} = do
-    [w, h] <- words <$> unixFilter "identify" ["-format", "%w %h", imgUrl c] ""
-    let dims = Just (read w, read h)
-    pure c { imgDims = combine (imgDims c) dims, imgSrcDims = dims }
+    dims <- Just <$> identifyRunner (imgUrl c)
+    pure c { imgRequestedDims = combine (imgRequestedDims c) dims, imgSrcDims = dims }
     where combine DimsUnknown dims = fromMaybeBoth dims
           combine d _ = d
 imageSizeFiller c = pure c
 
 thumbnailsCompiler :: ExtractChunk -> Compiler ExtractChunk
-thumbnailsCompiler c@ChunkImgRef { .. } | toMaybeBoth imgDims /= imgSrcDims = do
-    let thumbName = thumbFilename imgDims imgUrl
-    unixFilter "convert" [imgUrl, "-geometry", geom imgDims, thumbName] ""
+thumbnailsCompiler c@ChunkImgRef { .. } | toMaybeBoth imgRequestedDims /= imgSrcDims = do
+    let thumbName = thumbFilename imgRequestedDims imgUrl
+    unixFilter "convert" [imgUrl, "-geometry", geom imgRequestedDims, thumbName] ""
     pure c
     where geom (BothKnown (w, h)) = show w <> "x" <> show h
           geom (WidthKnown w) = show w <> "x" <> show (snd $ fromJust imgSrcDims)
@@ -61,13 +65,13 @@ data ExtractChunk = ChunkText String
                         imgTitle :: String,
                         imgAlign :: ImgAlign,
                         imgIsLink :: Bool,
-                        imgDims :: ImgDims,
+                        imgRequestedDims :: ImgDims,
                         imgSrcDims :: Maybe (Int, Int)
                     } deriving (Eq, Show)
 
 showChunk :: ExtractChunk -> String
 showChunk (ChunkText s) = s
-showChunk ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}"><img src="#{thumbFilename imgDims imgUrl}" alt="#{imgTitle}" /></a>|]
+showChunk ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}"><img src="#{thumbFilename imgRequestedDims imgUrl}" alt="#{imgTitle}" /></a>|]
                              | otherwise = [i|<img src="#{imgUrl}" alt="#{imgTitle}" />|]
 
 thumbFilename :: ImgDims -> String -> String
@@ -99,7 +103,7 @@ parseExpr s = ChunkImgRef { .. }
                    | Just x <- val = error $ "Unknown image alignment: " <> x
             where val = M.lookup "align" sts
           imgIsLink = isJust $ M.lookup "link" sts
-          imgDims | Just mw' <- mw
+          imgRequestedDims | Just mw' <- mw
                   , Just mh' <- mh = BothKnown (mw', mh')
                   | Just mw' <- mw = WidthKnown mw'
                   | Just mh' <- mh = HeightKnown mh'
