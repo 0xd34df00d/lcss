@@ -127,7 +127,7 @@ cat2path (Category r s) = (toLower <$> show r) : (T.unpack <$> s)
 
 node2contents :: ConvContext -> NodeWRefs -> T.Text
 node2contents ctx NodeWRefs { node = Node { contents = TextContents { .. }, .. }, .. } = T.strip fullS
-    where convert = T.pack . P.writeMarkdown writeOpts . P.handleError . P.readHtml readOpts . rewriteLinks (id2node ctx) . T.unpack . fixCode . fixBreaks
+    where convert = T.pack . P.writeMarkdown writeOpts . P.handleError . P.readHtml readOpts . rewriteLinks (id2node ctx) . T.unpack . fixBreaks . fixCode
           readOpts = def { P.readerParseRaw = True }
           writeOpts = def { P.writerHighlight = True }
           metadataLines = T.unlines $ ((\(k, v) -> [i|#{k}: #{v}|]) <$>) $ M.toList metadata
@@ -154,5 +154,5 @@ fixCode = T.replace "\n<code" "\n<pre" .
           T.replace "\t<code" "\t<pre" .
           T.replace "\t<code>" "\t<pre type=\"c++\">" .
           T.replace "\t<code>" "\t<pre type=\"c++\">" .
-          T.replace "</code>\n" "</pre>\n" .
-          T.replace "</code>\n" "</pre>\n"
+          T.replace "\t</code>" "\t</pre>" .
+          T.replace "\n</code>" "\n</pre>"
