@@ -154,7 +154,7 @@ parseExpr :: String -> ExtractChunk
 parseExpr s = ChunkImgRef { .. }
     where sts = M.fromList $ (second tail . break (== '=') <$>) $ splitOn "|" s
           imgUrl = sts M.! "url"
-          imgTitle = M.lookupDefault "" "url" sts
+          imgTitle = M.lookupDefault "" "title" sts
           imgAlign | Nothing <- val = AlignInline
                    | Just "left" <- val = AlignLeft
                    | Just "right" <- val = AlignRight
