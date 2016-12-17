@@ -68,7 +68,7 @@ extractChunk imgs t = (ref2text imgs ref <> rest, ref)
 ref2text :: IM.IntMap Node -> ImageRef -> T.Text
 ref2text nodes ImageRef { .. } = [i|[img_assist|url=#{imagePath'}|title=#{title'}|align=#{align' refAlign}|link=1#{dims}]|]
     where title' = fromMaybe T.empty refTitle
-          dims | Just (w, h) <- refSize = [i|width=#{T.pack $ show w} height=#{T.pack $ show h}|]
+          dims | Just (w, h) <- refSize = [i||width=#{T.pack $ show w}|height=#{T.pack $ show h}|]
                | otherwise = T.empty
           align' AlignInline = "inline" :: T.Text
           align' AlignRight = "left"
