@@ -28,7 +28,7 @@ data ImageRef = ImageRef {
         refAlign :: ImageAlign,
         refNid :: Int,
         refTitle :: Maybe T.Text,
-        refSize :: Maybe (Int, Int)
+        refSize :: (Maybe Int, Maybe Int)
     } deriving (Eq, Ord, Show)
 
 extractImageRefs :: Foldable t => t Node -> Node -> (Node, [ImageRef])
@@ -52,10 +52,7 @@ imageRef flags = ImageRef (typ $ M.lookup "align" flags) (readInt $ flags M.! "n
           title = do
                 v <- M.lookup "title" flags
                 if T.null v then Nothing else return v
-          size = do
-                w <- M.lookup "width" flags
-                h <- M.lookup "height" flags
-                return (readInt w, readInt h)
+          size = (readInt <$> M.lookup "width" flags, readInt <$> M.lookup "height" flags)
 
 readInt :: T.Text -> Int
 readInt (TR.decimal -> Right (n, _)) = n
@@ -68,8 +65,9 @@ extractChunk imgs t = (ref2text imgs ref <> rest, ref)
 ref2text :: IM.IntMap Node -> ImageRef -> T.Text
 ref2text nodes ImageRef { .. } = [i|[img_assist|url=#{imagePath'}|title=#{title'}|align=#{align' refAlign}|link=1#{dims}]|]
     where title' = fromMaybe T.empty refTitle
-          dims | Just (w, h) <- refSize = [i||width=#{T.pack $ show w}|height=#{T.pack $ show h}|]
-               | otherwise = T.empty
+          dims = bt "width" (fst refSize) <> bt "height" (snd refSize)
+            where bt t d | Just d' <- d = [i||#{t}=#{T.pack $ show d'}|]
+                         | otherwise = T.empty
           align' AlignInline = "inline" :: T.Text
           align' AlignRight = "left"
           align' AlignLeft = "right"
