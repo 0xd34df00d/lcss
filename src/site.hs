@@ -120,7 +120,8 @@ buildChunk s = (parseExpr expr, ChunkText rest)
 parseExpr :: String -> ExtractChunk
 parseExpr s = ChunkImgRef { .. }
     where sts = M.fromList $ (second tail . break (== '=') <$>) $ splitOn "|" s
-          imgUrl = sts M.! "url"
+          imgUrl | Just url <- M.lookup "url" sts = url
+                 | otherwise = error $ "No url in image expr: `" <> s <> "`"
           imgTitle = M.lookupDefault "" "title" sts
           imgAlign | Nothing <- val = AlignInline
                    | Just "left" <- val = AlignLeft
