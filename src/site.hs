@@ -116,7 +116,8 @@ imageSizeFiller c = pure c
 thumbnailsCompiler :: ExtractChunk -> Compiler ExtractChunk
 thumbnailsCompiler c@ChunkImgRef { .. } | imgDims /= imgSrcDims = do
     let Just (w, h) = imgDims
-    unixFilter "convert" [imgUrl, "-geometry", show w <> "x" <> show h, thumbFilename w h imgUrl] ""
+    let thumbName = thumbFilename w h imgUrl
+    unixFilter "convert" [imgUrl, "-geometry", show w <> "x" <> show h, thumbName] ""
     pure c
 thumbnailsCompiler c = pure c
 
