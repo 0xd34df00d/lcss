@@ -139,7 +139,7 @@ showChunk ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}"><img src="#{th
     where Just (w, h) = imgDims
 
 thumbFilename :: Int -> Int -> String -> String
-thumbFilename w h s = n <> "thumb_" <> show w <> "_" <> show h <> "." <> ext
+thumbFilename w h s = n <> "hakyllthumb_" <> show w <> "_" <> show h <> "." <> ext
     where (ext, n) = join (***) reverse $ break (== '.') $ reverse s
 
 toChunks :: String -> [ExtractChunk]
