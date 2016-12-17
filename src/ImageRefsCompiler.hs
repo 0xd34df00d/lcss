@@ -105,9 +105,9 @@ parseExpr s = ChunkImgRef { imgSrcDims = Nothing, imgGeneratedDims = Nothing, ..
             where val = M.lookup "align" sts
           imgIsLink = isJust $ M.lookup "link" sts
           imgRequestedDims | Just mw' <- mw
-                  , Just mh' <- mh = BothKnown (mw', mh')
-                  | Just mw' <- mw = WidthKnown mw'
-                  | Just mh' <- mh = HeightKnown mh'
-                  | otherwise = DimsUnknown
+                           , Just mh' <- mh = BothKnown (mw', mh')
+                           | Just mw' <- mw = WidthKnown mw'
+                           | Just mh' <- mh = HeightKnown mh'
+                           | otherwise = DimsUnknown
             where mw = read <$> M.lookup "width" sts
                   mh = read <$> M.lookup "height" sts
