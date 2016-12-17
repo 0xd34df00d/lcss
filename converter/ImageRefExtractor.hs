@@ -66,13 +66,13 @@ extractChunk imgs t = (ref2text imgs ref <> rest, ref)
     where (ref, rest) = (imageRef . parseAssist) *** T.tail $ T.breakOn "]" t
 
 ref2text :: IM.IntMap Node -> ImageRef -> T.Text
-ref2text nodes ImageRef { .. } = [i|<img src="#{imagePath'}" alt="#{title'}" title="#{title'}" style="#{style refAlign}" #{dims} />|]
+ref2text nodes ImageRef { .. } = [i|[img_assist|url=#{imagePath'}|title=#{title'}|align=#{align' refAlign}|link=1#{dims}]|]
     where title' = fromMaybe T.empty refTitle
           dims | Just (w, h) <- refSize = [i|width=#{T.pack $ show w} height=#{T.pack $ show h}|]
                | otherwise = T.empty
-          style AlignInline = T.empty
-          style AlignRight = "float:right"
-          style AlignLeft = "float:left"
+          align' AlignInline = "inline" :: T.Text
+          align' AlignRight = "left"
+          align' AlignLeft = "right"
           Node { contents = ImageContents { .. }, .. } = nodes IM.! refNid
           imagePath' = fromMaybe imagePath $ T.stripPrefix "sites/default/files/" imagePath
 
