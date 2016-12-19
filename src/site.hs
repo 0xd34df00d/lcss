@@ -1,5 +1,6 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 import           Data.Monoid
 import           Hakyll
 
@@ -31,7 +32,7 @@ main = hakyll $ do
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
         route $ customRoute $ dropPrefix "text/plugins/" . unmdize . toFilePath
         compile $ do
-                let ctx = pluginsCtx True
+                let ctx = pluginsCtx PluginsCtxConfig { isPrep = True }
                 pandocCompiler
                     >>= loadAndApplyTemplate "templates/plugin.html" ctx
                     >>= loadAndApplyTemplate "templates/default.html" ctx
@@ -41,7 +42,7 @@ main = hakyll $ do
     create ["plugins"] $ do
         route idRoute
         compile $ do
-            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx False
+            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx PluginsCtxConfig { isPrep = False }
             makeItem ""
                 >>= loadAndApplyTemplate "templates/plugins.html" pluginsCtx'
                 >>= loadAndApplyTemplate "templates/default.html" pluginsCtx'
@@ -61,6 +62,12 @@ postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 
+data PluginsCtxConfig = PluginsCtxConfig {
+                            isPrep :: Bool
+                        }
+
+pluginsCtx :: PluginsCtxConfig -> Context String
+pluginsCtx PluginsCtxConfig { .. } = listField "plugins" defaultContext (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
 pluginsCtx :: Bool -> Context String
 pluginsCtx isPrep = listField "plugins" defaultContext (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
     where verPred | isPrep = hasVersion "preprocess"
