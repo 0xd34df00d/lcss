@@ -61,8 +61,9 @@ a {
 }
 
 .category-listing {
-    width: 200px;
     float: right;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 .is-current-page-true {
@@ -71,6 +72,7 @@ a {
 
 .category-listing > ul {
     list-style-type: none;
+    padding-left: 1em;
 }
 
 .bordered {
