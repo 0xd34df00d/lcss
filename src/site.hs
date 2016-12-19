@@ -71,5 +71,15 @@ pluginsCtx PluginsCtxConfig { .. } = listField "plugins" defaultContext (loadAll
     where verPred | isPrep = hasVersion "preprocess"
                   | otherwise = hasNoVersion
 
+isCurrentPage :: FilePath -> [String] -> Item a -> Compiler String
+isCurrentPage fp _ item = do
+        rt <- getRoute $ itemIdentifier item
+        pure $ if rt == Just fp
+                then "true"
+                else "false"
+
+isCurrentPageField :: FilePath -> Context a
+isCurrentPageField = functionField "isCurrentPage" . isCurrentPage
+
 defaultTextRoute :: Identifier -> FilePath
 defaultTextRoute = dropPrefix "text/plugins/" . unmdize . toFilePath
