@@ -16,8 +16,8 @@ import Data.List.Split
 imageRefsCompiler :: String -> Item String -> Compiler (Item String)
 imageRefsCompiler imgs t = do
     chunks <- mapM imageSizeFiller $ toChunks $ itemBody t
-    mapM thumbnailsCompiler chunks
-    pure t { itemBody = concatMap showChunk chunks }
+    compiled <- mapM thumbnailsCompiler chunks
+    pure t { itemBody = concatMap showChunk compiled }
 
 identifyRunner :: String -> Compiler (Int, Int)
 identifyRunner path = do
