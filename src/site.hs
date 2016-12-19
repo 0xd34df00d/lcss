@@ -32,7 +32,7 @@ main = hakyll $ do
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
         route $ customRoute defaultTextRoute
         compile $ do
-                let ctx = pluginsCtx PluginsCtxConfig { isPrep = True }
+                let ctx = pluginsCtx PluginsCtxConfig { isPrep = True, pluginFields = [] }
                 pandocCompiler
                     >>= loadAndApplyTemplate "templates/plugin.html" ctx
                     >>= loadAndApplyTemplate "templates/default.html" ctx
@@ -42,7 +42,7 @@ main = hakyll $ do
     create ["plugins"] $ do
         route idRoute
         compile $ do
-            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx PluginsCtxConfig { isPrep = False }
+            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx PluginsCtxConfig { isPrep = False, pluginFields = [] }
             makeItem ""
                 >>= loadAndApplyTemplate "templates/plugins.html" pluginsCtx'
                 >>= loadAndApplyTemplate "templates/default.html" pluginsCtx'
@@ -63,11 +63,12 @@ postCtx =
     defaultContext
 
 data PluginsCtxConfig = PluginsCtxConfig {
-                            isPrep :: Bool
+                            isPrep :: Bool,
+                            pluginFields :: [Context String]
                         }
 
 pluginsCtx :: PluginsCtxConfig -> Context String
-pluginsCtx PluginsCtxConfig { .. } = listField "plugins" defaultContext (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
+pluginsCtx PluginsCtxConfig { .. } = listField "plugins" (mconcat pluginFields <> defaultContext) (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
     where verPred | isPrep = hasVersion "preprocess"
                   | otherwise = hasNoVersion
 
