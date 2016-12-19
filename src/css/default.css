@@ -6,7 +6,7 @@ body {
     max-width: 120em;
 }
 
-div#header {
+header {
     border-bottom: 2px solid black;
     margin-bottom: 30px;
     padding: 12px 0px 12px 0px;
@@ -20,11 +20,11 @@ div#logo a {
     text-decoration: none;
 }
 
-div#header #navigation {
+header #navigation {
     text-align: right;
 }
 
-div#header #navigation a {
+header #navigation a {
     color: black;
     font-size: 18px;
     font-weight: bold;
@@ -32,7 +32,7 @@ div#header #navigation a {
     text-decoration: none;
 }
 
-div#footer {
+footer {
     border-top: solid 2px black;
     color: #555;
     font-size: 12px;
