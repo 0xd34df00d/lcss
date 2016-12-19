@@ -34,14 +34,10 @@ main = hakyll $ do
     create ["plugins"] $ do
         route idRoute
         compile $ do
-            plugins <- loadAll "text/plugins/*.md"
-            let pluginsCtx =
-                    listField "plugins" defaultContext (return plugins) <>
-                    constField "title" "Plugins" <>
-                    defaultContext
+            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx
             makeItem ""
-                >>= loadAndApplyTemplate "templates/plugins.html" pluginsCtx
-                >>= loadAndApplyTemplate "templates/default.html" pluginsCtx
+                >>= loadAndApplyTemplate "templates/plugins.html" pluginsCtx'
+                >>= loadAndApplyTemplate "templates/default.html" pluginsCtx'
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
@@ -57,3 +53,6 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+pluginsCtx :: Context String
+pluginsCtx = listField "plugins" defaultContext (loadAll "text/plugins/*.md") <> defaultContext
