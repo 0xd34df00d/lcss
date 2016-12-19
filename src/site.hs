@@ -68,8 +68,6 @@ data PluginsCtxConfig = PluginsCtxConfig {
 
 pluginsCtx :: PluginsCtxConfig -> Context String
 pluginsCtx PluginsCtxConfig { .. } = listField "plugins" defaultContext (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
-pluginsCtx :: Bool -> Context String
-pluginsCtx isPrep = listField "plugins" defaultContext (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
     where verPred | isPrep = hasVersion "preprocess"
                   | otherwise = hasNoVersion
 
