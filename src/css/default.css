@@ -65,6 +65,10 @@ a {
     float: right;
 }
 
+.is-current-page-true {
+    list-style-type: initial;
+}
+
 .category-listing > ul {
     list-style-type: none;
 }
