@@ -72,3 +72,12 @@ a {
 .category-listing > ul {
     list-style-type: none;
 }
+
+.bordered {
+    border-color: #CDCCCC;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    padding-left: 0.5em;
+    padding-right; 0.5em;
+}
