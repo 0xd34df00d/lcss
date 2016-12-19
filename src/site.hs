@@ -73,15 +73,15 @@ pluginsCtx PluginsCtxConfig { .. } = listField "plugins" (mconcat pluginFields <
     where verPred | isPrep = hasVersion "preprocess"
                   | otherwise = hasNoVersion
 
-isCurrentPage :: FilePath -> [String] -> Item a -> Compiler String
-isCurrentPage fp _ item = do
+isCurrentPage :: FilePath -> Item a -> Compiler String
+isCurrentPage fp item = do
         rt <- getRoute $ itemIdentifier item
         pure $ if rt == Just fp
                 then "true"
                 else "false"
 
 isCurrentPageField :: FilePath -> Context a
-isCurrentPageField = functionField "isCurrentPage" . isCurrentPage
+isCurrentPageField = field "isCurrentPage" . isCurrentPage
 
 defaultTextRoute :: Identifier -> FilePath
 defaultTextRoute = dropPrefix "text/plugins/" . unmdize . toFilePath
