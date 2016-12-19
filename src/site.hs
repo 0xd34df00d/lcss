@@ -24,17 +24,24 @@ main = hakyll $ do
                 >>= relativizeUrls
                 >>= imageRefsCompiler
 
+    match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ version "preprocess" $ do
+        route $ customRoute $ dropPrefix "text/plugins/" . unmdize . toFilePath
+        compile $ getResourceBody
+
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
         route $ customRoute $ dropPrefix "text/plugins/" . unmdize . toFilePath
-        compile $ pandocCompiler
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
-                >>= relativizeUrls
-                >>= imageRefsCompiler
+        compile $ do
+                let ctx = pluginsCtx True
+                pandocCompiler
+                    >>= loadAndApplyTemplate "templates/plugin.html" ctx
+                    >>= loadAndApplyTemplate "templates/default.html" ctx
+                    >>= relativizeUrls
+                    >>= imageRefsCompiler
 
     create ["plugins"] $ do
         route idRoute
         compile $ do
-            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx
+            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx False
             makeItem ""
                 >>= loadAndApplyTemplate "templates/plugins.html" pluginsCtx'
                 >>= loadAndApplyTemplate "templates/default.html" pluginsCtx'
@@ -54,5 +61,7 @@ postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 
-pluginsCtx :: Context String
-pluginsCtx = listField "plugins" defaultContext (loadAll "text/plugins/*.md") <> defaultContext
+pluginsCtx :: Bool -> Context String
+pluginsCtx isPrep = listField "plugins" defaultContext (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
+    where verPred | isPrep = hasVersion "preprocess"
+                  | otherwise = hasNoVersion
