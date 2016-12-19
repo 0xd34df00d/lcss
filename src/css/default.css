@@ -59,3 +59,8 @@ a {
     color: #3d5c85;
     text-decoration: none;
 }
+
+.category-listing {
+    width: 200px;
+    float: right;
+}
