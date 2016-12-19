@@ -36,11 +36,13 @@ thumbnailsCompiler :: ExtractChunk -> Compiler ExtractChunk
 thumbnailsCompiler c@ChunkImgRef { .. } | toMaybeBoth imgRequestedDims /= imgSrcDims = do
     let thumbName = thumbFilename imgRequestedDims imgUrl
     unixFilter "convert" [imgUrl, "-geometry", geom imgRequestedDims, thumbName] ""
-    pure c
+    dims <- Just <$> identifyRunner thumbName
+    pure c { imgGeneratedDims = dims }
     where geom (BothKnown (w, h)) = show w <> "x" <> show h
           geom (WidthKnown w) = show w <> "x" <> show (snd $ fromJust imgSrcDims)
           geom (HeightKnown h) = show (fst $ fromJust imgSrcDims) <> "x" <> show h
           geom DimsUnknown = error "thumbnailsCompiler: dimensions of the thumbnail are fully unknown"
+thumbnailsCompiler c@ChunkImgRef { .. } = pure c { imgGeneratedDims = imgSrcDims }
 thumbnailsCompiler c = pure c
 
 data ImgAlign = AlignLeft | AlignRight | AlignInline deriving (Eq, Show)
