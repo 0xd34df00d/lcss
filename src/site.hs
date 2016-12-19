@@ -32,7 +32,8 @@ main = hakyll $ do
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
         route $ customRoute defaultTextRoute
         compile $ do
-                let ctx = pluginsCtx PluginsCtxConfig { isPrep = True, pluginFields = [] }
+                fp <- defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePath
+                let ctx = pluginsCtx PluginsCtxConfig { isPrep = True, pluginFields = [isCurrentPageField fp] }
                 pandocCompiler
                     >>= loadAndApplyTemplate "templates/plugin.html" ctx
                     >>= loadAndApplyTemplate "templates/default.html" ctx
