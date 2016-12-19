@@ -13,8 +13,8 @@ import Data.Monoid
 import Data.Maybe
 import Data.List.Split
 
-imageRefsCompiler :: String -> Item String -> Compiler (Item String)
-imageRefsCompiler imgs t = do
+imageRefsCompiler :: Item String -> Compiler (Item String)
+imageRefsCompiler t = do
     chunks <- mapM imageSizeFiller $ toChunks $ itemBody t
     compiled <- mapM thumbnailsCompiler chunks
     pure t { itemBody = concatMap showChunk compiled }

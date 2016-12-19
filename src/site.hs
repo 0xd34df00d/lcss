@@ -22,14 +22,14 @@ main = hakyll $ do
         compile $ pandocCompiler
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
-                >>= imageRefsCompiler "images/"
+                >>= imageRefsCompiler
 
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
         route $ customRoute $ dropPrefix "text/plugins/" . unmdize . toFilePath
         compile $ pandocCompiler
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
-                >>= imageRefsCompiler "images/"
+                >>= imageRefsCompiler
 
     create ["plugins"] $ do
         route idRoute
