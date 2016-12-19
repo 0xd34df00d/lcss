@@ -10,5 +10,5 @@ executable site
                   , split
                   , unordered-containers
                   , interpolate
-  ghc-options:      -threaded
+  ghc-options:      -threaded -Wall
   default-language: Haskell2010
