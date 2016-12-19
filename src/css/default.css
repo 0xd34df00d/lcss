@@ -64,3 +64,7 @@ a {
     width: 200px;
     float: right;
 }
+
+.category-listing > ul {
+    list-style-type: none;
+}
