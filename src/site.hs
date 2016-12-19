@@ -26,11 +26,11 @@ main = hakyll $ do
                 >>= imageRefsCompiler
 
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ version "preprocess" $ do
-        route $ customRoute $ dropPrefix "text/plugins/" . unmdize . toFilePath
+        route $ customRoute defaultTextRoute
         compile $ getResourceBody
 
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
-        route $ customRoute $ dropPrefix "text/plugins/" . unmdize . toFilePath
+        route $ customRoute defaultTextRoute
         compile $ do
                 let ctx = pluginsCtx PluginsCtxConfig { isPrep = True }
                 pandocCompiler
@@ -72,3 +72,6 @@ pluginsCtx :: Bool -> Context String
 pluginsCtx isPrep = listField "plugins" defaultContext (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
     where verPred | isPrep = hasVersion "preprocess"
                   | otherwise = hasNoVersion
+
+defaultTextRoute :: Identifier -> FilePath
+defaultTextRoute = dropPrefix "text/plugins/" . unmdize . toFilePath
