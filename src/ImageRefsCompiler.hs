@@ -35,7 +35,7 @@ imageSizeFiller c = pure c
 thumbnailsCompiler :: ExtractChunk -> Compiler ExtractChunk
 thumbnailsCompiler c@ChunkImgRef { .. } | toMaybeBoth imgRequestedDims /= imgSrcDims = do
     let thumbName = thumbFilename imgRequestedDims imgUrl
-    unixFilter "convert" [imgUrl, "-geometry", geom imgRequestedDims, thumbName] ""
+    _ <- unixFilter "convert" [imgUrl, "-geometry", geom imgRequestedDims, thumbName] ""
     dims <- Just <$> identifyRunner thumbName
     pure c { imgGeneratedDims = dims }
     where geom (BothKnown (w, h)) = show w <> "x" <> show h
