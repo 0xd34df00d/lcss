@@ -134,7 +134,7 @@ node2contents ctx NodeWRefs { node = Node { contents = TextContents { .. }, .. }
           fullS = [i|
 ---
 title: #{title}
-tags: #{tags}
+tags: #{T.intercalate ", " tags}
 #{metadataLines}
 ---
 
