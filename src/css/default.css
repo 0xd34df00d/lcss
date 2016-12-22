@@ -1,6 +1,7 @@
 body {
     color: black;
     font-size: 16px;
+    font-family: sans-serif;
     margin: 0px auto 0px auto;
     width: 80%;
     max-width: 120em;
