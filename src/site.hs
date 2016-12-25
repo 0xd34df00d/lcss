@@ -68,9 +68,7 @@ dropPrefix s = drop $ length s
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
-postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
+postCtx = dateField "date" "%B %e, %Y" <> defaultContext
 
 data PluginsCtxConfig = PluginsCtxConfig {
                             isPrep :: Bool,
