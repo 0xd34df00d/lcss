@@ -50,6 +50,14 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" pluginsCtx'
                 >>= relativizeUrls
 
+    match "text/news/*.md" $ do
+        route $ customRoute defaultTextRoute
+        compile $ do
+                pandocCompiler
+                    >>= loadAndApplyTemplate "templates/default.html" postCtx
+                    >>= relativizeUrls
+                    >>= imageRefsCompiler
+
     match "templates/*" $ compile templateBodyCompiler
 
 unmdize :: String -> String
