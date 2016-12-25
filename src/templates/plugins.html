@@ -1,1 +1,21 @@
-$partial("templates/plugins-list.html")$
+<h2>Key plugins:</h2>
+<dl>
+    $for(plugins)$
+        $if(keyplugin)$
+        <dt><a href="$url$">$title$</a></dt>
+        <dd>$shortdescr$</dd>
+        $endif$
+    $endfor$
+</dl>
+
+<h2>Other plugins:</h2>
+<ul>
+    $for(plugins)$
+        $if(keyplugin)$
+        $else$
+        <li>
+            <a href="$url$">$title$</a> &mdash; $shortdescr$
+        </li>
+        $endif$
+    $endfor$
+</ul>
