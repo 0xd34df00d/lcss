@@ -52,11 +52,11 @@ main = hakyll $ do
 
     match "text/news/*.md" $ do
         route $ customRoute defaultTextRoute
-        compile $ do
-                pandocCompiler
-                    >>= loadAndApplyTemplate "templates/default.html" postCtx
-                    >>= relativizeUrls
-                    >>= imageRefsCompiler
+        compile $ pandocCompiler
+                  >>= loadAndApplyTemplate "templates/news-item.html" postCtx
+                  >>= loadAndApplyTemplate "templates/default.html" postCtx
+                  >>= relativizeUrls
+                  >>= imageRefsCompiler
 
     match "templates/*" $ compile templateBodyCompiler
 
