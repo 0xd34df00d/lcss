@@ -22,6 +22,8 @@ import qualified Text.Pandoc.Readers.HTML as P
 import qualified Text.Pandoc.Writers.Markdown as P
 import qualified Text.Pandoc.Error as P
 import qualified Text.Pandoc.Options as P
+import qualified Data.Time.Format as Time
+import qualified Data.Time.Clock.POSIX as Time
 
 import Node
 import ImageRefExtractor
@@ -131,10 +133,12 @@ node2contents ctx NodeWRefs { node = Node { contents = TextContents { .. }, .. }
           readOpts = def { P.readerParseRaw = True }
           writeOpts = def { P.writerHighlight = True }
           metadataLines = T.unlines $ ((\(k, v) -> [i|#{k}: #{v}|]) <$>) $ M.toList metadata
+          published = Time.formatTime Time.defaultTimeLocale (Time.iso8601DateFormat $ Just "%H:%M:%S") $ Time.posixSecondsToUTCTime $ realToFrac timestamp
           fullS = [i|
 ---
 title: #{title}
 tags: #{T.intercalate ", " tags}
+published: #{published}
 #{metadataLines}
 ---
 
