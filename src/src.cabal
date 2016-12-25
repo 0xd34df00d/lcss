@@ -8,6 +8,7 @@ executable site
   build-depends:    base == 4.*
                   , hakyll == 4.9.*
                   , split
+                  , extra
                   , unordered-containers
                   , interpolate
   ghc-options:      -threaded -Wall
