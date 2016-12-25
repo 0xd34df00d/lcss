@@ -4,6 +4,7 @@
 import           Data.Monoid
 import           Hakyll
 
+import Data.List.Extra
 import ImageRefsCompiler
 
 
@@ -84,4 +85,4 @@ isCurrentPageField :: FilePath -> Context a
 isCurrentPageField = field "isCurrentPage" . isCurrentPage
 
 defaultTextRoute :: Identifier -> FilePath
-defaultTextRoute = dropPrefix "text/plugins/" . unmdize . toFilePath
+defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath
