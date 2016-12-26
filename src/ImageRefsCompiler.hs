@@ -6,6 +6,7 @@ module ImageRefsCompiler(imageRefsCompiler) where
 import Hakyll
 
 import qualified Data.HashMap.Strict as M
+import System.Directory(doesFileExist)
 import Control.Arrow
 import Control.Monad
 import Data.String.Interpolate
@@ -35,7 +36,8 @@ imageSizeFiller c = pure c
 thumbnailsCompiler :: ExtractChunk -> Compiler ExtractChunk
 thumbnailsCompiler c@ChunkImgRef { .. } | toMaybeBoth imgRequestedDims /= imgSrcDims = do
     let thumbName = thumbFilename imgRequestedDims imgUrl
-    _ <- unixFilter "convert" [imgUrl, "-geometry", geom imgRequestedDims, thumbName] ""
+    thumbExists <- unsafeCompiler $ doesFileExist thumbName
+    unless thumbExists $ void $ unixFilter "convert" [imgUrl, "-geometry", geom imgRequestedDims, thumbName] ""
     dims <- Just <$> identifyRunner thumbName
     pure c { imgGeneratedDims = dims }
     where geom (BothKnown (w, h)) = show w <> "x" <> show h
