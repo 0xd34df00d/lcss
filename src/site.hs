@@ -58,6 +58,15 @@ main = hakyll $ do
                   >>= relativizeUrls
                   >>= imageRefsCompiler
 
+    create ["news"] $ do
+        route idRoute
+        compile $ do
+            items <- recentFirst =<< loadAll "text/news/*.md"
+            let newsCtx = constField "title" "News" <> listField "news" postCtx (pure items) <> postCtx
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/news.html" newsCtx
+                >>= loadAndApplyTemplate "templates/default.html" newsCtx
+
     match "templates/*" $ compile templateBodyCompiler
 
 unmdize :: String -> String
