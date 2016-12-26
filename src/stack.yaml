@@ -6,4 +6,4 @@ packages:
 - '.'
 extra-deps:
 - hakyll-4.9.2.0
-resolver: lts-7.12
+resolver: lts-7.14
