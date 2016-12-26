@@ -81,7 +81,7 @@ date :: Context String
 date = dateField "date" "%B %e, %Y"
 
 dateAndTime :: Context String
-dateAndTime = dateField "dateandtime" "%c"
+dateAndTime = dateField "dateandtime" "%B %e, %Y, %H:%M"
 
 dates :: Context String
 dates = date <> dateAndTime
