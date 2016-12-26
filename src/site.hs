@@ -52,9 +52,10 @@ main = hakyll $ do
 
     match "text/news/*.md" $ do
         route $ customRoute defaultTextRoute
+        let newsCtx = dates <> defaultContext
         compile $ pandocCompiler
-                  >>= loadAndApplyTemplate "templates/news-item.html" postCtx
-                  >>= loadAndApplyTemplate "templates/default.html" postCtx
+                  >>= loadAndApplyTemplate "templates/news-item.html" newsCtx
+                  >>= loadAndApplyTemplate "templates/default.html" newsCtx
                   >>= relativizeUrls
                   >>= imageRefsCompiler
 
@@ -62,7 +63,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             items <- recentFirst =<< loadAll "text/news/*.md"
-            let newsCtx = constField "title" "News" <> listField "news" postCtx (pure items) <> postCtx
+            let newsCtx = constField "title" "News" <> listField "news" (dates <> defaultContext) (pure items) <> date <> defaultContext
             makeItem ""
                 >>= loadAndApplyTemplate "templates/news.html" newsCtx
                 >>= loadAndApplyTemplate "templates/default.html" newsCtx
@@ -76,8 +77,14 @@ dropPrefix :: String -> String -> String
 dropPrefix s = drop $ length s
 
 --------------------------------------------------------------------------------
-postCtx :: Context String
-postCtx = dateField "date" "%B %e, %Y" <> defaultContext
+date :: Context String
+date = dateField "date" "%B %e, %Y"
+
+dateAndTime :: Context String
+dateAndTime = dateField "dateandtime" "%c"
+
+dates :: Context String
+dates = date <> dateAndTime
 
 data PluginsCtxConfig = PluginsCtxConfig {
                             isPrep :: Bool,
