@@ -70,22 +70,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" newsCtx
                 >>= relativizeUrls
 
-    match "text/concepts/*.md" $ do
-        route $ customRoute defaultTextRoute
-        compile $ pandocCompiler
-                  >>= loadAndApplyTemplate "templates/default.html" defaultContext
-                  >>= relativizeUrls
-                  >>= imageRefsCompiler
-
-    create ["concepts"] $ do
-        route idRoute
-        compile $ do
-            items <- loadAll "text/concepts/*.md"
-            let conceptsCtx = constField "title" "Concepts" <> listField "concepts" defaultContext (pure items) <> defaultContext
-            makeItem ""
-                >>= loadAndApplyTemplate "templates/concepts.html" conceptsCtx
-                >>= loadAndApplyTemplate "templates/default.html" conceptsCtx
-                >>= relativizeUrls
+    listed $ defListedConfig "concepts"
 
     match "templates/*" $ compile templateBodyCompiler
 
