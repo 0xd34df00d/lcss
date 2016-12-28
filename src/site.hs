@@ -104,6 +104,30 @@ data ListedConfig = ListedConfig {
                         listFieldName :: String,
                         listTemplate :: String
                     }
+listed :: ListedConfig -> Rules ()
+listed ListedConfig { .. } = do
+    match filesPat $ do
+        route $ customRoute defaultTextRoute
+        compile $ pandocCompiler
+                  >>= loadAndApplyCustom
+                  >>= loadAndApplyTemplate "templates/default.html" ctx
+                  >>= relativizeUrls
+                  >>= imageRefsCompiler
+
+    create [fromFilePath section] $ do
+        route idRoute
+        compile $ do
+            items <- loadAll filesPat
+            let listCtx = constField "title" listTitle <> listField listFieldName ctx (pure items) <> ctx
+            makeItem ""
+                >>= loadAndApplyTemplate (fromFilePath $ "templates/" <> listTemplate <> ".html") listCtx
+                >>= loadAndApplyTemplate "templates/default.html" listCtx
+                >>= relativizeUrls
+    where filesPat = fromGlob $ "text/" <> section <> "/*.md"
+          ctx = customContext <> defaultContext
+          loadAndApplyCustom | Just tpl <- customTemplate = loadAndApplyTemplate tpl ctx
+                             | otherwise = pure
+
 date :: Context String
 date = dateField "date" "%B %e, %Y"
 
