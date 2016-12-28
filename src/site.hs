@@ -5,6 +5,7 @@ import           Data.Monoid
 import           Hakyll
 
 import Data.List.Extra
+import Data.Char
 import ImageRefsCompiler
 
 
@@ -104,6 +105,18 @@ data ListedConfig = ListedConfig {
                         listFieldName :: String,
                         listTemplate :: String
                     }
+
+defListedConfig :: String -> ListedConfig
+defListedConfig section = ListedConfig {
+                                section = section,
+                                customTemplate = Nothing,
+                                customContext = mempty,
+                                listTitle = section',
+                                listFieldName = section,
+                                listTemplate = section
+                            }
+    where section' = toUpper (head section) : tail section
+
 listed :: ListedConfig -> Rules ()
 listed ListedConfig { .. } = do
     match filesPat $ do
