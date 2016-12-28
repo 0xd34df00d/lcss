@@ -67,6 +67,7 @@ main = hakyll $ do
             makeItem ""
                 >>= loadAndApplyTemplate "templates/news.html" newsCtx
                 >>= loadAndApplyTemplate "templates/default.html" newsCtx
+                >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
 
