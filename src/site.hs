@@ -95,6 +95,15 @@ dropPrefix :: String -> String -> String
 dropPrefix s = drop $ length s
 
 --------------------------------------------------------------------------------
+
+data ListedConfig = ListedConfig {
+                        section :: String,
+                        customTemplate :: Maybe Identifier,
+                        customContext :: Context String,
+                        listTitle :: String,
+                        listFieldName :: String,
+                        listTemplate :: String
+                    }
 date :: Context String
 date = dateField "date" "%B %e, %Y"
 
