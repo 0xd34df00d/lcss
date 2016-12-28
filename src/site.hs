@@ -84,7 +84,7 @@ dropPrefix s = drop $ length s
 
 data ListedConfig = ListedConfig {
                         section :: String,
-                        customTemplate :: Maybe Identifier,
+                        customTemplate :: Maybe String,
                         customContext :: Context String,
                         listTitle :: String,
                         listFieldName :: String,
@@ -118,12 +118,13 @@ listed ListedConfig { .. } = do
             items <- loadAll filesPat
             let listCtx = constField "title" listTitle <> listField listFieldName ctx (pure items) <> ctx
             makeItem ""
-                >>= loadAndApplyTemplate (fromFilePath $ "templates/" <> listTemplate <> ".html") listCtx
+                >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
                 >>= loadAndApplyTemplate "templates/default.html" listCtx
                 >>= relativizeUrls
     where filesPat = fromGlob $ "text/" <> section <> "/*.md"
           ctx = customContext <> defaultContext
-          loadAndApplyCustom | Just tpl <- customTemplate = loadAndApplyTemplate tpl ctx
+          tplPath path = fromFilePath $ "templates/" <> path <> ".html"
+          loadAndApplyCustom | Just tpl <- customTemplate = loadAndApplyTemplate (tplPath tpl) ctx
                              | otherwise = pure
 
 date :: Context String
