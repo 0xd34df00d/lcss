@@ -1,6 +1,7 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE RankNTypes #-}
 import           Data.Monoid
 import           Hakyll
 
@@ -88,7 +89,8 @@ data ListedConfig = ListedConfig {
                         customContext :: Context String,
                         listTitle :: String,
                         listFieldName :: String,
-                        listTemplate :: String
+                        listTemplate :: String,
+                        subOrder :: forall m a. MonadMetadata m => [Item a] -> m [Item a]
                     }
 
 defListedConfig :: String -> ListedConfig
@@ -98,7 +100,8 @@ defListedConfig section = ListedConfig {
                                 customContext = mempty,
                                 listTitle = section',
                                 listFieldName = section,
-                                listTemplate = section
+                                listTemplate = section,
+                                subOrder = pure
                             }
     where section' = toUpper (head section) : tail section
 
@@ -115,7 +118,7 @@ listed ListedConfig { .. } = do
     create [fromFilePath section] $ do
         route idRoute
         compile $ do
-            items <- loadAll filesPat
+            items <- loadAll filesPat >>= subOrder
             let listCtx = constField "title" listTitle <> listField listFieldName ctx (pure items) <> ctx
             makeItem ""
                 >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
