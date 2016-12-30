@@ -52,24 +52,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" pluginsCtx'
                 >>= relativizeUrls
 
-    match "text/news/*.md" $ do
-        route $ customRoute defaultTextRoute
-        let newsCtx = dates <> defaultContext
-        compile $ pandocCompiler
-                  >>= loadAndApplyTemplate "templates/news-item.html" newsCtx
-                  >>= loadAndApplyTemplate "templates/default.html" newsCtx
-                  >>= relativizeUrls
-                  >>= imageRefsCompiler
-
-    create ["news"] $ do
-        route idRoute
-        compile $ do
-            items <- recentFirst =<< loadAll "text/news/*.md"
-            let newsCtx = constField "title" "News" <> listField "news" (dates <> defaultContext) (pure items) <> date <> defaultContext
-            makeItem ""
-                >>= loadAndApplyTemplate "templates/news.html" newsCtx
-                >>= loadAndApplyTemplate "templates/default.html" newsCtx
-                >>= relativizeUrls
+    listed (defListedConfig "news") { customContext = dates, customTemplate = Just "news-item", subOrder = recentFirst }
 
     listed $ defListedConfig "concepts"
 
