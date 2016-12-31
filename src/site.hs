@@ -30,7 +30,7 @@ main = hakyll $ do
 
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ version "preprocess" $ do
         route $ customRoute defaultTextRoute
-        compile $ getResourceBody
+        compile getResourceBody
 
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
         route $ customRoute defaultTextRoute
