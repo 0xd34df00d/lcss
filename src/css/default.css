@@ -22,6 +22,10 @@ div#logo a {
     text-decoration: none;
 }
 
+.logo-image {
+    vertical-align: middle;
+}
+
 header #navigation {
     text-align: right;
 }
