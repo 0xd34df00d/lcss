@@ -1,9 +1,6 @@
-flags:
-  hakyll:
-    checkexternal: false
+flags: {}
 extra-package-dbs: []
 packages:
 - '.'
-extra-deps:
-- hakyll-4.9.2.0
-resolver: lts-7.14
+extra-deps: []
+resolver: lts-8.4
