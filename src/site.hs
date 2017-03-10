@@ -36,7 +36,7 @@ main = hakyll $ do
         route $ customRoute defaultTextRoute
         compile $ do
                 fp <- defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePath
-                let ctx = pluginsCtx PluginsCtxConfig { isPrep = True, pluginFields = [isCurrentPageField fp] }
+                let ctx = pluginsCtx PluginsCtxConfig { usePreprocessed = True, pluginFields = [isCurrentPageField fp] }
                 pandocCompiler
                     >>= loadAndApplyTemplate "templates/plugin.html" ctx
                     >>= loadAndApplyTemplate "templates/default.html" ctx
@@ -46,7 +46,7 @@ main = hakyll $ do
     create ["plugins"] $ do
         route idRoute
         compile $ do
-            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx PluginsCtxConfig { isPrep = False, pluginFields = [] }
+            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx PluginsCtxConfig { usePreprocessed = False, pluginFields = [] }
             makeItem ""
                 >>= loadAndApplyTemplate "templates/plugins.html" pluginsCtx'
                 >>= loadAndApplyTemplate "templates/default.html" pluginsCtx'
@@ -123,13 +123,13 @@ dates :: Context String
 dates = date <> dateAndTime
 
 data PluginsCtxConfig = PluginsCtxConfig {
-                            isPrep :: Bool,
+                            usePreprocessed :: Bool,
                             pluginFields :: [Context String]
                         }
 
 pluginsCtx :: PluginsCtxConfig -> Context String
 pluginsCtx PluginsCtxConfig { .. } = listField "plugins" (mconcat pluginFields <> defaultContext) (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
-    where verPred | isPrep = hasVersion "preprocess"
+    where verPred | usePreprocessed = hasVersion "preprocess"
                   | otherwise = hasNoVersion
 
 isCurrentPage :: FilePath -> Item a -> Compiler String
