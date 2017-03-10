@@ -78,14 +78,14 @@ data ListedConfig = ListedConfig {
 
 defListedConfig :: String -> ListedConfig
 defListedConfig section = ListedConfig {
-                                section = section,
-                                customTemplate = Nothing,
-                                customContext = mempty,
-                                listTitle = section',
-                                listFieldName = section,
-                                listTemplate = section,
-                                subOrder = pure
-                            }
+                              section = section,
+                              customTemplate = Nothing,
+                              customContext = mempty,
+                              listTitle = section',
+                              listFieldName = section,
+                              listTemplate = section,
+                              subOrder = pure
+                          }
     where section' = toUpper (head section) : tail section
 
 listed :: ListedConfig -> Rules ()
