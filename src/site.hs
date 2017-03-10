@@ -35,13 +35,13 @@ main = hakyll $ do
     match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
         route $ customRoute defaultTextRoute
         compile $ do
-                fp <- defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePath
-                let ctx = pluginsCtx PluginsCtxConfig { usePreprocessed = True, pluginFields = [isCurrentPageField fp] }
-                pandocCompiler
-                    >>= loadAndApplyTemplate "templates/plugin.html" ctx
-                    >>= loadAndApplyTemplate "templates/default.html" ctx
-                    >>= relativizeUrls
-                    >>= imageRefsCompiler
+            fp <- defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePath
+            let ctx = pluginsCtx PluginsCtxConfig { usePreprocessed = True, pluginFields = [isCurrentPageField fp] }
+            pandocCompiler
+                >>= loadAndApplyTemplate "templates/plugin.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= relativizeUrls
+                >>= imageRefsCompiler
 
     create ["plugins"] $ do
         route idRoute
@@ -134,10 +134,10 @@ pluginsCtx PluginsCtxConfig { .. } = listField "plugins" (mconcat pluginFields <
 
 isCurrentPage :: FilePath -> Item a -> Compiler String
 isCurrentPage fp item = do
-        rt <- getRoute $ itemIdentifier item
-        pure $ if rt == Just fp
-                then "true"
-                else "false"
+    rt <- getRoute $ itemIdentifier item
+    pure $ if rt == Just fp
+            then "true"
+            else "false"
 
 isCurrentPageField :: FilePath -> Context a
 isCurrentPageField = field "isCurrentPage" . isCurrentPage
