@@ -1,5 +1,6 @@
 body {
-    color: black;
+    background-color: #31363b;
+    color: #eff0f1;
     font-size: 16px;
     font-family: sans-serif;
     margin: 0px auto 0px auto;
@@ -14,7 +15,7 @@ header {
 }
 
 div#logo a {
-    color: black;
+    color: #eff0f1;
     float: left;
     font-size: 18px;
     font-weight: bold;
@@ -26,7 +27,7 @@ header #navigation {
 }
 
 header #navigation a {
-    color: black;
+    color: #eff0f1;
     font-size: 18px;
     font-weight: bold;
     margin-left: 12px;
