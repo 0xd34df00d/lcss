@@ -122,16 +122,6 @@ dateAndTime = dateField "dateandtime" "%B %e, %Y, %H:%M"
 dates :: Context String
 dates = date <> dateAndTime
 
-data PluginsCtxConfig = PluginsCtxConfig {
-                            usePreprocessed :: Bool,
-                            pluginFields :: [Context String]
-                        }
-
-pluginsCtx :: PluginsCtxConfig -> Context String
-pluginsCtx PluginsCtxConfig { .. } = listField "plugins" (mconcat pluginFields <> defaultContext) (loadAll $ "text/plugins/*.md" .&&. verPred) <> defaultContext
-    where verPred | usePreprocessed = hasVersion "preprocess"
-                  | otherwise = hasNoVersion
-
 isCurrentPage :: FilePath -> Item a -> Compiler String
 isCurrentPage fp item = do
     rt <- getRoute $ itemIdentifier item
