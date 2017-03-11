@@ -30,29 +30,12 @@ main = hakyll $ do
                 >>= relativizeUrls
                 >>= imageRefsCompiler
 
-    match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ version "preprocess" $ do
-        route $ customRoute defaultTextRoute
-        compile getResourceBody
-
-    match ("text/plugins/*.md" .||. "text/plugins/*/*.md") $ do
-        route $ customRoute defaultTextRoute
-        compile $ do
-            fp <- loadCurrentPath
-            let ctx = pluginsCtx PluginsCtxConfig { usePreprocessed = True, pluginFields = [isCurrentPageField fp] }
-            pandocCompiler
-                >>= loadAndApplyTemplate "templates/plugin.html" ctx
-                >>= loadAndApplyTemplate "templates/default.html" ctx
-                >>= relativizeUrls
-                >>= imageRefsCompiler
-
-    create ["plugins"] $ do
-        route idRoute
-        compile $ do
-            let pluginsCtx' = constField "title" "Plugins" <> pluginsCtx PluginsCtxConfig { usePreprocessed = False, pluginFields = [] }
-            makeItem ""
-                >>= loadAndApplyTemplate "templates/plugins.html" pluginsCtx'
-                >>= loadAndApplyTemplate "templates/default.html" pluginsCtx'
-                >>= relativizeUrls
+    listed (defListedConfig "plugins") {
+                                        customTemplate = Just "plugin",
+                                        customItemsContext = do
+                                            fp <- loadCurrentPath
+                                            pure $ listField "plugins" (isCurrentPageField fp <> defaultContext) (loadAll $ "text/plugins/*.md" .&&. hasVersion "preprocess")
+                                       }
 
     listed (defListedConfig "news") { customContext = dates, customTemplate = Just "news-item", subOrder = recentFirst, verPreprocess = False }
 
