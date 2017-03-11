@@ -7,6 +7,8 @@ import           Hakyll
 
 import Data.List.Extra
 import Data.Char
+import Control.Monad
+
 import ImageRefsCompiler
 
 
@@ -52,9 +54,9 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" pluginsCtx'
                 >>= relativizeUrls
 
-    listed (defListedConfig "news") { customContext = dates, customTemplate = Just "news-item", subOrder = recentFirst }
+    listed (defListedConfig "news") { customContext = dates, customTemplate = Just "news-item", subOrder = recentFirst, verPreprocess = False }
 
-    listed $ defListedConfig "concepts"
+    listed (defListedConfig "concepts") { verPreprocess = False }
 
     match "templates/*" $ compile templateBodyCompiler
 
@@ -70,9 +72,12 @@ data ListedConfig = ListedConfig {
                         section :: String,
                         customTemplate :: Maybe String,
                         customContext :: Context String,
+                        customItemsContext :: Compiler (Context String),
                         listTitle :: String,
                         listFieldName :: String,
                         listTemplate :: String,
+                        createRoot :: Bool,
+                        verPreprocess :: Bool,
                         subOrder :: forall m a. MonadMetadata m => [Item a] -> m [Item a]
                     }
 
@@ -81,37 +86,49 @@ defListedConfig section = ListedConfig {
                               section = section,
                               customTemplate = Nothing,
                               customContext = mempty,
+                              customItemsContext = pure mempty,
                               listTitle = section',
                               listFieldName = section,
                               listTemplate = section,
+                              createRoot = True,
+                              verPreprocess = True,
                               subOrder = pure
                           }
     where section' = toUpper (head section) : tail section
 
 listed :: ListedConfig -> Rules ()
 listed ListedConfig { .. } = do
+    when verPreprocess $
+        match filesPat $ version "preprocess" $ do
+            route $ customRoute defaultTextRoute
+            compile getResourceBody
+
     match filesPat $ do
         route $ customRoute defaultTextRoute
-        compile $ pandocCompiler
-                  >>= loadAndApplyCustom
-                  >>= loadAndApplyTemplate "templates/default.html" ctx
+        compile $ do
+            ctx' <- customItemsContext
+            pandocCompiler
+                  >>= loadAndApplyCustom (ctx' <> ctx)
+                  >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
                   >>= relativizeUrls
                   >>= imageRefsCompiler
 
-    create [fromFilePath section] $ do
-        route idRoute
-        compile $ do
-            items <- loadAll filesPat >>= subOrder
-            let listCtx = constField "title" listTitle <> listField listFieldName ctx (pure items) <> ctx
-            makeItem ""
-                >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
-                >>= loadAndApplyTemplate "templates/default.html" listCtx
-                >>= relativizeUrls
+    when createRoot $
+        create [fromFilePath section] $ do
+            route idRoute
+            compile $ do
+                items <- loadAll (filesPat .&&. hasNoVersion) >>= subOrder
+                let listCtx = constField "title" listTitle <> listField listFieldName ctx (pure items) <> ctx
+                makeItem ""
+                    >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
+                    >>= loadAndApplyTemplate "templates/default.html" listCtx
+                    >>= relativizeUrls
+
     where filesPat = fromGlob $ "text/" <> section <> "/*.md"
           ctx = customContext <> defaultContext
           tplPath path = fromFilePath $ "templates/" <> path <> ".html"
-          loadAndApplyCustom | Just tpl <- customTemplate = loadAndApplyTemplate (tplPath tpl) ctx
-                             | otherwise = pure
+          loadAndApplyCustom | Just tpl <- customTemplate = loadAndApplyTemplate (tplPath tpl)
+                             | otherwise = const pure
 
 date :: Context String
 date = dateField "date" "%B %e, %Y"
