@@ -50,6 +50,7 @@ main = hakyll $ do
     listed (defListedConfig "concepts") { verPreprocess = False }
 
     listed (defListedConfig "development") {
+                                            createRoot = False,
                                             customTemplate = Just "development-item",
                                             customItemsContext = do
                                                 fp <- loadCurrentPath
