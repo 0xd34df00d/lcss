@@ -35,10 +35,17 @@ main = hakyll $ do
                                         customTemplate = Just "plugin",
                                         customItemsContext = do
                                             fp <- loadCurrentPath
-                                            pure $ listField "plugins" (isCurrentPageField fp <> defaultContext) (loadAll $ "text/plugins/*.md" .&&. hasVersion "preprocess")
+                                            pure $ listField "plugins"
+                                                    (isCurrentPageField fp <> defaultContext)
+                                                    (loadAll $ "text/plugins/*.md" .&&. hasVersion "preprocess")
                                        }
 
-    listed (defListedConfig "news") { customContext = dates, customTemplate = Just "news-item", subOrder = recentFirst, verPreprocess = False }
+    listed (defListedConfig "news") {
+                                     customContext = dates,
+                                     customTemplate = Just "news-item",
+                                     subOrder = recentFirst,
+                                     verPreprocess = False
+                                    }
 
     listed (defListedConfig "concepts") { verPreprocess = False }
 
@@ -46,16 +53,12 @@ main = hakyll $ do
                                             customTemplate = Just "development-item",
                                             customItemsContext = do
                                                 fp <- loadCurrentPath
-                                                pure $ listField "develSections" (isCurrentPageField fp <> defaultContext) (loadAll $ "text/development/*.md" .&&. hasVersion "preprocess")
+                                                pure $ listField "develSections"
+                                                        (isCurrentPageField fp <> defaultContext)
+                                                        (loadAll $ "text/development/*.md" .&&. hasVersion "preprocess")
                                            }
 
     match "templates/*" $ compile templateBodyCompiler
-
-unmdize :: String -> String
-unmdize s = take (length s - 3) s
-
-dropPrefix :: String -> String -> String
-dropPrefix s = drop $ length s
 
 --------------------------------------------------------------------------------
 
@@ -78,14 +81,13 @@ defListedConfig section = ListedConfig {
                               customTemplate = Nothing,
                               customContext = mempty,
                               customItemsContext = pure mempty,
-                              listTitle = section',
+                              listTitle = toUpper (head section) : tail section,
                               listFieldName = section,
                               listTemplate = section,
                               createRoot = True,
                               verPreprocess = True,
                               subOrder = pure
                           }
-    where section' = toUpper (head section) : tail section
 
 listed :: ListedConfig -> Rules ()
 listed ListedConfig { .. } = do
@@ -126,3 +128,9 @@ defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath
 
 loadCurrentPath :: Compiler FilePath
 loadCurrentPath = defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePath
+
+unmdize :: String -> String
+unmdize s = take (length s - 3) s
+
+dropPrefix :: String -> String -> String
+dropPrefix s = drop $ length s
