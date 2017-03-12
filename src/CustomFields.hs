@@ -1,4 +1,9 @@
-module CustomFields where
+module CustomFields
+        (
+         dates,
+         isCurrentPageField,
+         isDirectChildField
+        ) where
 
 import Data.Monoid
 import Hakyll
