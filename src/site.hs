@@ -55,7 +55,7 @@ main = hakyll $ do
                                             customItemsContext = do
                                                 fp <- loadCurrentPath
                                                 pure $ listField "develSections"
-                                                        (isCurrentPageField fp <> defaultContext)
+                                                        (isDirectChildField fp <> isCurrentPageField fp <> defaultContext)
                                                         (loadAll $ "text/development/*.md" .&&. hasVersion "preprocess")
                                            }
 
