@@ -10,6 +10,7 @@ import Data.Char
 import Control.Monad
 
 import ImageRefsCompiler
+import CustomFields
 
 
 --------------------------------------------------------------------------------
@@ -119,25 +120,6 @@ listed ListedConfig { .. } = do
           tplPath path = fromFilePath $ "templates/" <> path <> ".html"
           loadAndApplyCustom | Just tpl <- customTemplate = loadAndApplyTemplate (tplPath tpl)
                              | otherwise = const pure
-
-date :: Context String
-date = dateField "date" "%B %e, %Y"
-
-dateAndTime :: Context String
-dateAndTime = dateField "dateandtime" "%B %e, %Y, %H:%M"
-
-dates :: Context String
-dates = date <> dateAndTime
-
-isCurrentPage :: FilePath -> Item a -> Compiler String
-isCurrentPage fp item = do
-    rt <- getRoute $ itemIdentifier item
-    pure $ if rt == Just fp
-            then "true"
-            else "false"
-
-isCurrentPageField :: FilePath -> Context a
-isCurrentPageField = field "isCurrentPage" . isCurrentPage
 
 defaultTextRoute :: Identifier -> FilePath
 defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath

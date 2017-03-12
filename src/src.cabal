@@ -14,4 +14,5 @@ executable site
                   , directory
   ghc-options:      -threaded -Wall
   other-modules:    ImageRefsCompiler
+                  , CustomFields
   default-language: Haskell2010
