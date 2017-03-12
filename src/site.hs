@@ -41,6 +41,13 @@ main = hakyll $ do
 
     listed (defListedConfig "concepts") { verPreprocess = False }
 
+    listed (defListedConfig "development") {
+                                            customTemplate = Just "development-item",
+                                            customItemsContext = do
+                                                fp <- loadCurrentPath
+                                                pure $ listField "develSections" (isCurrentPageField fp <> defaultContext) (loadAll $ "text/development/*.md" .&&. hasVersion "preprocess")
+                                           }
+
     match "templates/*" $ compile templateBodyCompiler
 
 unmdize :: String -> String
