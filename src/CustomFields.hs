@@ -21,3 +21,16 @@ isCurrentPage fp item = do
 
 isCurrentPageField :: FilePath -> Context a
 isCurrentPageField = field "isCurrentPage" . isCurrentPage
+
+getParentPage :: Item a -> Compiler (Maybe String)
+getParentPage item = getMetadataField (itemIdentifier item) "parentPage"
+
+isDirectChild :: FilePath -> Item a -> Compiler String
+isDirectChild fp item = do
+    parent <- getParentPage item
+    pure $ if parent == Just fp
+            then "true"
+            else "false"
+
+isDirectChildField :: FilePath -> Context a
+isDirectChildField = field "isDirectChild" . isDirectChild
