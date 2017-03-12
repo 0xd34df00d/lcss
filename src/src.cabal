@@ -13,4 +13,5 @@ executable site
                   , interpolate
                   , directory
   ghc-options:      -threaded -Wall
+  other-modules:    ImageRefsCompiler
   default-language: Haskell2010
