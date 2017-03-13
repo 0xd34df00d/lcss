@@ -23,7 +23,7 @@ isCurrentPage fp item = getRoute (itemIdentifier item) >>= compareTemplated fp
 isCurrentPageField :: FilePath -> Context a
 isCurrentPageField = field "isCurrentPage" . isCurrentPage
 
-getParentPage :: Item a -> Compiler (Maybe String)
+getParentPage :: MonadMetadata m => Item a -> m (Maybe String)
 getParentPage item = getMetadataField (itemIdentifier item) "parentPage"
 
 isDirectChild :: FilePath -> Item a -> Compiler String
