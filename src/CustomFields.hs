@@ -26,11 +26,12 @@ isCurrentPageField = field "isCurrentPage" . isCurrentPage
 getParentPage :: MonadMetadata m => Item a -> m (Maybe String)
 getParentPage item = getMetadataField (itemIdentifier item) "parentPage"
 
-isDirectChild :: MonadMetadata m => FilePath -> Item a -> m String
-isDirectChild fp item = compareTemplated fp <$> getParentPage item
+isDirectChild :: MonadMetadata m => FilePath -> Item a -> m Bool
+isDirectChild fp item = compareMaybe fp <$> getParentPage item
 
 isDirectChildField :: FilePath -> Context a
-isDirectChildField = field "isDirectChild" . isDirectChild
+isDirectChildField = field "isDirectChild" . val
+    where val fp item = boolToTemplated <$> isDirectChild fp item
 
 compareMaybe :: Eq a => a -> Maybe a -> Bool
 compareMaybe l r = Just l == r
