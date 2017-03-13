@@ -32,6 +32,12 @@ isDirectChild fp item = compareTemplated fp <$> getParentPage item
 isDirectChildField :: FilePath -> Context a
 isDirectChildField = field "isDirectChild" . isDirectChild
 
+compareMaybe :: Eq a => a -> Maybe a -> Bool
+compareMaybe l r = Just l == r
+
+boolToTemplated :: Bool -> String
+boolToTemplated True = "true"
+boolToTemplated False = "false"
+
 compareTemplated :: Eq a => a -> Maybe a -> String
-compareTemplated l r | Just l == r = "true"
-                     | otherwise = "false"
+compareTemplated = (boolToTemplated .) . compareMaybe
