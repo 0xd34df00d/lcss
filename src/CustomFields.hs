@@ -18,11 +18,7 @@ dates :: Context String
 dates = date <> dateAndTime
 
 isCurrentPage :: FilePath -> Item a -> Compiler String
-isCurrentPage fp item = do
-    rt <- getRoute $ itemIdentifier item
-    pure $ if rt == Just fp
-            then "true"
-            else "false"
+isCurrentPage fp item = getRoute (itemIdentifier item) >>= compareTemplated fp
 
 isCurrentPageField :: FilePath -> Context a
 isCurrentPageField = field "isCurrentPage" . isCurrentPage
@@ -31,11 +27,11 @@ getParentPage :: Item a -> Compiler (Maybe String)
 getParentPage item = getMetadataField (itemIdentifier item) "parentPage"
 
 isDirectChild :: FilePath -> Item a -> Compiler String
-isDirectChild fp item = do
-    parent <- getParentPage item
-    pure $ if parent == Just fp
-            then "true"
-            else "false"
+isDirectChild fp item = getParentPage item >>= compareTemplated fp
 
 isDirectChildField :: FilePath -> Context a
 isDirectChildField = field "isDirectChild" . isDirectChild
+
+compareTemplated :: (Eq a, Applicative f) => a -> Maybe a -> f String
+compareTemplated l r | Just l == r = pure "true"
+                     | otherwise = pure "false"
