@@ -26,7 +26,7 @@ isCurrentPageField = field "isCurrentPage" . isCurrentPage
 getParentPage :: MonadMetadata m => Item a -> m (Maybe String)
 getParentPage item = getMetadataField (itemIdentifier item) "parentPage"
 
-isDirectChild :: FilePath -> Item a -> Compiler String
+isDirectChild :: MonadMetadata m => FilePath -> Item a -> m String
 isDirectChild fp item = compareTemplated fp <$> getParentPage item
 
 isDirectChildField :: FilePath -> Context a
