@@ -10,5 +10,12 @@ $endfor$
 $body$
 </article>
 
+<h2>Subsections</h2>
+<ul>
+    $for(develSections)$
+    <li class='is-direct-child-$isDirectChild()$'><a href="$url$">$title$</a></li>
+    $endfor$
+</ul>
+
 <div style="clear:both">
 </div>
