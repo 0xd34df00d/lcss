@@ -2,6 +2,7 @@ module CustomFields
         (
          dates,
          isCurrentPageField,
+         isDirectChild,
          isDirectChildField
         ) where
 
