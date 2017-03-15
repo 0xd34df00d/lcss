@@ -54,9 +54,10 @@ main = hakyll $ do
                                             customTemplate = Just "development-item",
                                             customItemsContext = do
                                                 fp <- loadCurrentPath
-                                                pure $ listField "develSections"
-                                                        (isDirectChildField fp <> isCurrentPageField fp <> defaultContext)
-                                                        (loadAll $ "text/development/*.md" .&&. hasVersion "preprocess")
+                                                allItems <- loadAll $ "text/development/*.md" .&&. hasVersion "preprocess"
+                                                pure $ listField "childSections"
+                                                        defaultContext
+                                                        (filterM (isDirectChild fp) allItems)
                                            }
 
     match "templates/*" $ compile templateBodyCompiler
