@@ -132,13 +132,16 @@ sectionsContext = do
     thisItem <- getResourceBody
     thisParent <- getMetadataField (itemIdentifier thisItem) "parentPage"
     allItems <- loadAll $ "text/development/*.md" .&&. hasVersion "preprocess"
-    pure $ listField "siblingSections"
-            (isCurrentPageField fp <> defaultContext)
-            (filterM (isSibling thisParent) allItems)
-           <>
-           listField "childSections"
-            defaultContext
-            (filterM (isDirectChild fp) allItems)
+    siblings <- filterM (isSibling thisParent) allItems
+    children <- filterM (isDirectChild fp) allItems
+    pure $ mconcat
+            [
+             listField "siblingSections" (isCurrentPageField fp <> defaultContext) (pure siblings),
+             hasPagesField "hasSiblingSections" siblings,
+             listField "childSections" defaultContext (pure children),
+             hasPagesField "hasChildSections" children
+            ]
+    where hasPagesField name = boolField name . const . not . null
 
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
