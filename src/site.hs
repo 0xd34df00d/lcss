@@ -54,8 +54,14 @@ main = hakyll $ do
                                             customTemplate = Just "development-item",
                                             customItemsContext = do
                                                 fp <- loadCurrentPath
+                                                thisItem <- getResourceBody
+                                                thisParent <- getMetadataField (itemIdentifier thisItem) "parentPage"
                                                 allItems <- loadAll $ "text/development/*.md" .&&. hasVersion "preprocess"
-                                                pure $ listField "childSections"
+                                                pure $ listField "siblingSections"
+                                                        (isCurrentPageField fp <> defaultContext)
+                                                        (filterM (isSibling thisParent) allItems)
+                                                       <>
+                                                       listField "childSections"
                                                         defaultContext
                                                         (filterM (isDirectChild fp) allItems)
                                            }
