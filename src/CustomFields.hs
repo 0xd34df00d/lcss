@@ -2,6 +2,7 @@ module CustomFields
         (
          dates,
          isCurrentPageField,
+         isSibling,
          isDirectChild,
          isDirectChildField
         ) where
@@ -26,6 +27,9 @@ isCurrentPageField = field "isCurrentPage" . isCurrentPage
 
 getParentPage :: MonadMetadata m => Item a -> m (Maybe String)
 getParentPage item = getMetadataField (itemIdentifier item) "parentPage"
+
+isSibling :: MonadMetadata m => Maybe String -> Item a -> m Bool
+isSibling str item = (== str) <$> getParentPage item
 
 isDirectChild :: MonadMetadata m => FilePath -> Item a -> m Bool
 isDirectChild fp item = compareMaybe fp <$> getParentPage item
