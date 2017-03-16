@@ -52,7 +52,7 @@ main = hakyll $ do
     listed (defListedConfig "development") {
                                             createRoot = False,
                                             customTemplate = Just "development-item",
-                                            customItemsContext = sectionsContext
+                                            customItemsContext = sectionsContext "development"
                                            }
 
     match "templates/*" $ compile templateBodyCompiler
@@ -126,12 +126,12 @@ defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath
 loadCurrentPath :: Compiler FilePath
 loadCurrentPath = defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePath
 
-sectionsContext :: Compiler (Context a)
-sectionsContext = do
+sectionsContext :: String -> Compiler (Context a)
+sectionsContext sectName = do
     fp <- loadCurrentPath
     thisItem <- getResourceBody
     thisParent <- getMetadataField (itemIdentifier thisItem) "parentPage"
-    allItems <- loadAll $ "text/development/*.md" .&&. hasVersion "preprocess"
+    allItems <- loadAll $ (fromGlob $ "text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess"
     siblings <- filterM (isSibling thisParent) allItems
     children <- filterM (isDirectChild fp) allItems
     pure $ mconcat
