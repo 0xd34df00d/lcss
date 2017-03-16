@@ -1,3 +1,4 @@
+$if(hasSiblingSections)$
 <aside class="category-listing bordered">
 <ul>
 $for(siblingSections)$
@@ -5,17 +6,20 @@ $for(siblingSections)$
 $endfor$
 </ul>
 </aside>
+$endif$
 
 <article class="main-content">
 $body$
 </article>
 
+$if(hasChildSections)$
 <h2>Subsections</h2>
 <ul>
     $for(childSections)$
     <li><a href="$url$">$title$</a></li>
     $endfor$
 </ul>
+$endif$
 
 <div style="clear:both">
 </div>
