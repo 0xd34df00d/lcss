@@ -52,18 +52,7 @@ main = hakyll $ do
     listed (defListedConfig "development") {
                                             createRoot = False,
                                             customTemplate = Just "development-item",
-                                            customItemsContext = do
-                                                fp <- loadCurrentPath
-                                                thisItem <- getResourceBody
-                                                thisParent <- getMetadataField (itemIdentifier thisItem) "parentPage"
-                                                allItems <- loadAll $ "text/development/*.md" .&&. hasVersion "preprocess"
-                                                pure $ listField "siblingSections"
-                                                        (isCurrentPageField fp <> defaultContext)
-                                                        (filterM (isSibling thisParent) allItems)
-                                                       <>
-                                                       listField "childSections"
-                                                        defaultContext
-                                                        (filterM (isDirectChild fp) allItems)
+                                            customItemsContext = sectionsContext
                                            }
 
     match "templates/*" $ compile templateBodyCompiler
@@ -136,6 +125,20 @@ defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath
 
 loadCurrentPath :: Compiler FilePath
 loadCurrentPath = defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePath
+
+sectionsContext :: Compiler (Context a)
+sectionsContext = do
+    fp <- loadCurrentPath
+    thisItem <- getResourceBody
+    thisParent <- getMetadataField (itemIdentifier thisItem) "parentPage"
+    allItems <- loadAll $ "text/development/*.md" .&&. hasVersion "preprocess"
+    pure $ listField "siblingSections"
+            (isCurrentPageField fp <> defaultContext)
+            (filterM (isSibling thisParent) allItems)
+           <>
+           listField "childSections"
+            defaultContext
+            (filterM (isDirectChild fp) allItems)
 
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
