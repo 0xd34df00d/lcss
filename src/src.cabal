@@ -12,6 +12,7 @@ executable site
                   , unordered-containers
                   , interpolate
                   , directory
+                  , monadlist
   ghc-options:      -threaded -Wall
   other-modules:    ImageRefsCompiler
                   , CustomFields

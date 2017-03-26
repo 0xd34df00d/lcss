@@ -2,5 +2,6 @@ flags: {}
 extra-package-dbs: []
 packages:
 - '.'
-extra-deps: []
+extra-deps:
+- monadlist-0.0.2
 resolver: lts-8.4
