@@ -2,7 +2,7 @@
 title: Writing a simple plugin in 20 minutes
 tags: tutorial, development
 published: 2011-07-10T21:44:23
-
+parentPage: development-writing-plugins
 ---
 
 Introduction

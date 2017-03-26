@@ -2,7 +2,7 @@
 title: Getting started (writing plugins)
 tags: plugins, development
 published: 2011-07-18T14:54:25
-
+parentPage: development-writing-plugins
 ---
 
 There are different typical scenarios for getting into LeechCraft

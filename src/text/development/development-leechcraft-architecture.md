@@ -2,7 +2,7 @@
 title: LeechCraft architecture
 tags: reference, development
 published: 2011-03-31T21:04:33
-
+parentPage: development-writing-plugins
 ---
 
 LeechCraft is plugin-based: LeechCraft Core only ensures correct loading
