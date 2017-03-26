@@ -8,6 +8,7 @@ import           Hakyll
 import Data.List.Extra
 import Data.Char
 import Control.Monad
+import Control.Monad.ListM
 
 import ImageRefsCompiler
 import CustomFields
@@ -148,3 +149,7 @@ unmdize s = take (length s - 3) s
 
 dropPrefix :: String -> String -> String
 dropPrefix s = drop $ length s
+
+sortItemsBy :: (MonadMetadata m, Ord b) => (Item a -> m b) -> [Item a] -> m [Item a]
+sortItemsBy = sortByM . comparingM
+    where comparingM f a b = compare <$> f a <*> f b
