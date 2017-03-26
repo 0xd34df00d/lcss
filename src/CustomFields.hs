@@ -4,10 +4,13 @@ module CustomFields
          isCurrentPageField,
          isSibling,
          isDirectChild,
-         isDirectChildField
+         isDirectChildField,
+         getBookOrder,
+         getBookOrder'
         ) where
 
 import Data.Monoid
+import Data.Maybe
 import Hakyll
 
 date :: Context String
@@ -47,3 +50,9 @@ boolToTemplated False = "false"
 
 compareTemplated :: Eq a => a -> Maybe a -> String
 compareTemplated = (boolToTemplated .) . compareMaybe
+
+getBookOrder :: MonadMetadata m => Item a -> m (Maybe Int)
+getBookOrder item = (read <$>) <$> getMetadataField (itemIdentifier item) "bookOrder"
+
+getBookOrder' :: MonadMetadata m => Int -> Item a -> m Int
+getBookOrder' def = fmap (fromMaybe def) . getBookOrder
