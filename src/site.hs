@@ -131,7 +131,7 @@ sectionsContext sectName = do
     fp <- loadCurrentPath
     thisItem <- getResourceBody
     thisParent <- getMetadataField (itemIdentifier thisItem) "parentPage"
-    allItems <- loadAll $ (fromGlob $ "text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess"
+    allItems <- loadAll $ fromGlob ("text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess"
     siblings <- filterM (isSibling thisParent) allItems
     children <- filterM (isDirectChild fp) allItems
     pure $ mconcat
