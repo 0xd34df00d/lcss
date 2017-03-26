@@ -2,7 +2,7 @@
 title: Building from source
 tags: development
 published: 2014-07-03T22:14:58
-
+parentPage: development-general-information
 ---
 
 Prerequisites

@@ -2,7 +2,7 @@
 title: Building from source (Win32)
 tags: development
 published: 2011-09-13T20:42:23
-
+parentPage: development-general-information
 ---
 
 This document describes building LeechCraft with pretty much all the
