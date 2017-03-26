@@ -53,7 +53,7 @@ main = hakyll $ do
     listed (defListedConfig "development") {
                                             createRoot = False,
                                             customTemplate = Just "development-item",
-                                            customItemsContext = sectionsContext "development"
+                                            customItemsContext = sectionsContext sortBookOrder "development"
                                            }
 
     match "templates/*" $ compile templateBodyCompiler
@@ -127,14 +127,14 @@ defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath
 loadCurrentPath :: Compiler FilePath
 loadCurrentPath = defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePath
 
-sectionsContext :: String -> Compiler (Context a)
-sectionsContext sectName = do
+sectionsContext :: Sorter -> String -> Compiler (Context a)
+sectionsContext sorter sectName = do
     fp <- loadCurrentPath
     thisItem <- getResourceBody
     thisParent <- getMetadataField (itemIdentifier thisItem) "parentPage"
     allItems <- loadAll $ fromGlob ("text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess"
-    siblings <- filterM (isSibling thisParent) allItems
-    children <- filterM (isDirectChild fp) allItems
+    siblings <- filterM (isSibling thisParent) allItems >>= sorter
+    children <- filterM (isDirectChild fp) allItems >>= sorter
     pure $ mconcat
             [
              listField "siblingSections" (isCurrentPageField fp <> defaultContext) (pure siblings),
