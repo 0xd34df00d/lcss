@@ -153,3 +153,8 @@ dropPrefix s = drop $ length s
 sortItemsBy :: (MonadMetadata m, Ord b) => (Item a -> m b) -> [Item a] -> m [Item a]
 sortItemsBy = sortByM . comparingM
     where comparingM f a b = compare <$> f a <*> f b
+
+type Sorter = forall m a. MonadMetadata m => [Item a] -> m [Item a]
+
+sortBookOrder :: Sorter
+sortBookOrder = sortItemsBy $ getBookOrder' 0
