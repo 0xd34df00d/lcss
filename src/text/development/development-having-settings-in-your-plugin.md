@@ -3,6 +3,7 @@ title: Having settings in your plugin
 tags: howto, development
 published: 2014-07-16T17:31:54
 parentPage: development-writing-plugins
+bookOrder: 9
 ---
 
 Basic description

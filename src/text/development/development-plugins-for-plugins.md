@@ -3,6 +3,7 @@ title: Plugins for plugins
 tags: development
 published: 2011-02-09T09:22:38
 parentPage: development-writing-plugins
+bookOrder: 8
 ---
 
 Plugins could have other plugins for themselves, though this requires

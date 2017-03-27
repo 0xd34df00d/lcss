@@ -3,6 +3,7 @@ title: Code style
 tags: development
 published: 2012-08-08T10:23:45
 parentPage: development-writing-plugins
+bookOrder: 2
 ---
 
 Naming conventions

@@ -3,6 +3,7 @@ title: CMake cheatsheet
 tags: development
 published: 2014-04-11T12:58:16
 parentPage: development-writing-plugins
+bookOrder: 4
 ---
 
 This cheatsheet contains solutions for typical tasks that a LeechCraft

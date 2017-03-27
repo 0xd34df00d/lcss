@@ -3,6 +3,7 @@ title: Having tabs in your plugin
 tags: plugins, howto, development
 published: 2013-08-20T23:06:01
 parentPage: development-writing-plugins
+bookOrder: 6
 ---
 
 Plugins that can have tabs should implement the

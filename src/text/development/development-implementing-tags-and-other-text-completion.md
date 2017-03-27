@@ -3,6 +3,7 @@ title: Implementing tags (and other text) completion
 tags: plugins, howto, development
 published: 2011-04-13T21:15:24
 parentPage: development-writing-plugins
+bookOrder: 7
 ---
 
 LeechCraft utility library has several classes that aid in supporting
