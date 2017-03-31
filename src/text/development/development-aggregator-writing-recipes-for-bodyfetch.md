@@ -2,7 +2,7 @@
 title: Writing recipes for BodyFetch
 tags: tutorial, development, aggregator
 published: 2011-07-12T02:14:01
-
+parentPage: development-aggregator
 ---
 
 Introduction

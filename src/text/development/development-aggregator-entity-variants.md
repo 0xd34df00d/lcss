@@ -2,7 +2,7 @@
 title: Entity variants handled by Aggregator
 tags: entity handlers, development, aggregator
 published: 2010-11-26T20:39:10
-
+parentPage: development-aggregator
 ---
 
 The algorithm is pretty simple.\
