@@ -2,7 +2,8 @@
 title: Using notifications
 tags: plugins, howto, development
 published: 2013-04-02T07:51:20
-
+parentPage: development-integrating
+bookOrder: 0
 ---
 
 Notifications are just normal LeechCraft entities with a special MIME

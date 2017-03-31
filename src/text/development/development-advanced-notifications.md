@@ -2,7 +2,8 @@
 title: Advanced Notifications
 tags: plugins, howto, development
 published: 2013-04-02T08:46:41
-
+parentPage: development-integrating
+bookOrder: 1
 ---
 
 This page documents the Advanced Notifications framework protocols,
