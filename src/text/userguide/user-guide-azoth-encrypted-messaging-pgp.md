@@ -2,7 +2,8 @@
 title: Encrypted instant messaging with PGP
 tags: user guide, azoth
 published: 2012-06-27T22:50:33
-
+parentPage: user-guide-azoth
+bookOrder: 10
 ---
 
 <div style="text-align:right;">

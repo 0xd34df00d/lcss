@@ -2,7 +2,7 @@
 title: Azoth
 tags: user guide, azoth
 published: 2012-06-27T22:24:36
-
+parentPage: user-guide
 ---
 
 [Azoth](/plugins-azoth) is our modular IM client supporting a bunch of

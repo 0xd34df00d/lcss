@@ -2,7 +2,8 @@
 title: Azoth howto, part 2
 tags: user guide, azoth
 published: 2013-12-20T21:09:53
-
+parentPage: user-guide-azoth
+bookOrder: 1
 ---
 
 If you managed to get through the issues of constructing your set of

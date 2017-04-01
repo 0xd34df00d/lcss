@@ -2,7 +2,8 @@
 title: Azoth howto, part 1
 tags: user guide, azoth
 published: 2013-12-19T00:58:32
-
+parentPage: user-guide-azoth
+bookOrder: 0
 ---
 
 LeechCraft has a whole lot of great modules that can gain and hold their
