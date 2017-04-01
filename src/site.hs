@@ -52,7 +52,8 @@ main = hakyll $ do
 
     listed (defListedConfig "development") {
                                             createRoot = False,
-                                            customTemplate = Just "development-item",
+                                            listTemplate = "book",
+                                            customTemplate = Just "book-item",
                                             customItemsContext = sectionsContext sortBookOrder "development"
                                            }
 
