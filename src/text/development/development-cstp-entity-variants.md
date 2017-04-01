@@ -2,7 +2,7 @@
 title: Entity variants handled by CSTP
 tags: development, cstp, entity handlers
 published: 2010-11-26T22:28:46
-
+parentPage: development-cstp
 ---
 
 `Entity::Entity_` could contain data of two types: either
