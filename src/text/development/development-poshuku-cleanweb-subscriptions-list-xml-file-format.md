@@ -2,7 +2,7 @@
 title: Poshuku CleanWeb subscriptions list XML file format
 tags: poshuku, development
 published: 2010-11-25T08:50:24
-
+parentPage: development-poshuku
 ---
 
 Each subscription is defined by subscription element which must have url
