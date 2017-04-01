@@ -2,7 +2,7 @@
 title: Extending New Life with new importers
 tags: tutorial, new life, development
 published: 2010-11-26T21:01:53
-
+parentPage: development-newlife
 ---
 
 New Life's sources are located in `/src/plugins/newlife`.\
