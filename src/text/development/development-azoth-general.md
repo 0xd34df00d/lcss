@@ -2,7 +2,8 @@
 title: General information about Azoth plugins
 tags: plugins, development, azoth
 published: 2011-02-12T02:38:23
-
+parentPage: development-azoth
+bookOrder: 0
 ---
 
 Azoth has several types of plugins. They can provide support for

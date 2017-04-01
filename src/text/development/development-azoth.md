@@ -2,7 +2,7 @@
 title: Azoth
 tags: development, azoth
 published: 2011-07-08T00:48:55
-
+parentPage: development-plugin-specific
 ---
 
 This section describes extending and styling Azoth, the modular IM for

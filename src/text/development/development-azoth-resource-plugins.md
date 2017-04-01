@@ -2,7 +2,8 @@
 title: Writing resource plugins for Azoth
 tags: plugins, development, azoth
 published: 2011-02-16T19:51:56
-
+parentPage: development-azoth
+bookOrder: 3
 ---
 
 Introduction

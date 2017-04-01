@@ -2,7 +2,8 @@
 title: Theming chat windows
 tags: themes, plugins, development, azoth
 published: 2011-07-11T00:08:54
-
+parentPage: development-azoth
+bookOrder: 1
 ---
 
 Azoth chat windows may be styled if the Azoth StandardStyles plugin is

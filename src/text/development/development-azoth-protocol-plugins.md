@@ -2,7 +2,8 @@
 title: Writing protocol plugins for Azoth
 tags: plugins, development, azoth
 published: 2011-02-12T04:09:56
-
+parentPage: development-azoth
+bookOrder: 2
 ---
 
 This document tries to overview basic ideas regarding implementing
