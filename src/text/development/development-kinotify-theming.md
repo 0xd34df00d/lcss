@@ -2,7 +2,7 @@
 title: Theming Kinotify
 tags: themes, plugins, kinotify, development
 published: 2011-01-31T18:06:15
-
+parentPage: development-kinotify
 ---
 
 Kinotify supports themes for the notifications.
