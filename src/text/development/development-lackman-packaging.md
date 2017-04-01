@@ -2,7 +2,7 @@
 title: Packaging
 tags: lackman, development
 published: 2011-10-25T18:39:31
-
+parentPage: development-lackman
 ---
 
 This page describes the process of packaging for LackMan.
