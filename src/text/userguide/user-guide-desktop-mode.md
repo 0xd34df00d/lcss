@@ -2,7 +2,7 @@
 title: Desktop mode
 tags: desktop mode
 published: 2013-11-28T20:12:33
-
+parentPage: user-guide
 ---
 
 This page documents desktop mode available in LeechCraft starting from
