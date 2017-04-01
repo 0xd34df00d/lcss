@@ -2,7 +2,7 @@
 title: Entity variants handled by SeekThru
 tags: seekthru, entity handlers, development
 published: 2010-11-26T20:41:02
-
+parentPage: development-seekthru
 ---
 
 SeekThru only handles the entity if `Entity::Entity_` could be converted
