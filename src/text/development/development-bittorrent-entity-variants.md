@@ -2,7 +2,7 @@
 title: Entity variants handled by BitTorrent
 tags: entity handlers, bittorrent, development
 published: 2010-11-26T22:19:48
-
+parentPage: development-bittorrent
 ---
 
 `Entity::Entity_` should be either `QUrl` or `QByteArray`. In all other
