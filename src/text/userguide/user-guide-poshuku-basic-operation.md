@@ -2,7 +2,8 @@
 title: Basic operation
 tags: user guide, poshuku
 published: 2011-11-16T23:32:12
-
+parentPage: user-guide-poshuku
+bookOrder: 0
 ---
 
 Opening Poshuku

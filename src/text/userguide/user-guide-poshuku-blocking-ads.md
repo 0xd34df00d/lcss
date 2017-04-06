@@ -2,7 +2,8 @@
 title: Blocking ads
 tags: user guide, poshuku
 published: 2011-11-20T21:00:32
-
+parentPage: user-guide-poshuku
+bookOrder: 3
 ---
 
 Advertisment can be blocked with the [Poshuku

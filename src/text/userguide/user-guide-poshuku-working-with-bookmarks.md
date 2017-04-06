@@ -2,7 +2,8 @@
 title: Working with bookmarks
 tags: user guide, poshuku
 published: 2011-11-17T00:02:45
-
+parentPage: user-guide-poshuku
+bookOrder: 1
 ---
 
 Poshuku allows to assign different tags to different bookmarks, thus

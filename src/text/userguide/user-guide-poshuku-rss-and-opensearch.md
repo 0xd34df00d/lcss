@@ -2,7 +2,8 @@
 title: RSS and OpenSearch
 tags: user guide, poshuku
 published: 2011-11-20T19:47:04
-
+parentPage: user-guide-poshuku
+bookOrder: 2
 ---
 
 This chapter describes how to work with RSS- and OpenSearch-enabled web

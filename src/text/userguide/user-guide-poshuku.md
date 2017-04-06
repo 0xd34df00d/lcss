@@ -2,7 +2,7 @@
 title: Poshuku
 tags: poshuku, user guide
 published: 2011-11-16T22:05:46
-
+parentPage: user-guide
 ---
 
 Poshuku is the default (and only) web browser in LeechCraft. Its

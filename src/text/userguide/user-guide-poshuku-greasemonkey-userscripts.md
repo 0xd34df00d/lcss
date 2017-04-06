@@ -2,7 +2,8 @@
 title: GreaseMonkey userscripts
 tags: user guide, poshuku
 published: 2011-11-20T22:10:07
-
+parentPage: user-guide-poshuku
+bookOrder: 4
 ---
 
 Poshuku allows one to install scripts that make on-the-fly changes to
