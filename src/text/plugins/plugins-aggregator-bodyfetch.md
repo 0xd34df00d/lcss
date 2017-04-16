@@ -3,7 +3,7 @@ title: Aggregator BodyFetch
 tags: plugins, aggregator
 published: 2011-07-12T01:56:46
 shortdescr: allows to automatically fetch full bodies of news items and replace the original teasers from RSS feeds with them, so that it appears like the full news stories were originally there
-
+parentPage: plugins-aggregator
 ---
 
 Aggregator BodyFetch plugin allows to automatically fetch full bodies of
