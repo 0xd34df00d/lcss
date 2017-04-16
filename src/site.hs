@@ -33,12 +33,10 @@ main = hakyll $ do
                 >>= imageRefsCompiler
 
     listed (defListedConfig "plugins") {
-                                        customTemplate = Just "plugin",
-                                        customItemsContext = do
-                                            fp <- loadCurrentPath
-                                            pure $ listField "plugins"
-                                                    (isCurrentPageField fp <> defaultContext)
-                                                    (loadAll $ "text/plugins/*.md" .&&. hasVersion "preprocess")
+                                        createRoot = False,
+                                        listTemplate = "book",
+                                        customTemplate = Just "book-item",
+                                        customItemsContext = sectionsContext sortBookOrder "plugins"
                                        }
 
     listed (defListedConfig "news") {
