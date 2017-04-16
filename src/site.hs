@@ -34,7 +34,6 @@ main = hakyll $ do
 
     listed (defListedConfig "plugins") {
                                         createRoot = False,
-                                        listTemplate = "book",
                                         customTemplate = Just "book-item",
                                         customItemsContext = sectionsContext sortBookOrder "plugins"
                                        }
@@ -50,14 +49,12 @@ main = hakyll $ do
 
     listed (defListedConfig "development") {
                                             createRoot = False,
-                                            listTemplate = "book",
                                             customTemplate = Just "book-item",
                                             customItemsContext = sectionsContext sortBookOrder "development"
                                            }
 
     listed (defListedConfig "userguide") {
                                            createRoot = False,
-                                           listTemplate = "book",
                                            customTemplate = Just "book-item",
                                            customItemsContext = sectionsContext sortBookOrder "userguide"
                                          }
