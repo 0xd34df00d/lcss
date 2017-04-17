@@ -2,7 +2,7 @@
 title: LMP
 tags: plugins, lmp
 published: 2014-04-02T19:52:01
-shortdescr: LeechCraft Music Player is a collection-oriented music player based on GStreamer<sup>1</sup>
+shortdescr: LeechCraft Music Player is a collection-oriented music player based on GStreamer
 keyplugin: 1
 
 ---
