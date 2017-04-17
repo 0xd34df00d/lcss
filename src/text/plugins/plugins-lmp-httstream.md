@@ -3,7 +3,7 @@ title: LMP HttStream
 tags: plugins, lmp httstream, lmp
 published: 2014-06-16T12:16:18
 shortdescr: adds HTTP streaming capabilities to the LMP player
-
+parentPage: plugins-lmp
 ---
 
 LMP HttStream adds HTTP streaming capabilities to the LMP player.\

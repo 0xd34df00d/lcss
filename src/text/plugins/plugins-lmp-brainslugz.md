@@ -3,7 +3,7 @@ title: LMP BrainSlugz
 tags: lmp brainslugz, plugins, lmp
 published: 2014-06-16T11:45:29
 shortdescr: discography completeness checker
-
+parentPage: plugins-lmp
 ---
 
 LMP BrainSlugz is the discography completeness checker.\
