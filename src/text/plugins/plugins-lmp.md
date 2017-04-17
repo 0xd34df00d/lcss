@@ -8,7 +8,7 @@ keyplugin: 1
 ---
 
 LeechCraft Music Player is a collection-oriented music player based on
-GStreamer^1^.
+GStreamer.
 
 Features
 --------
@@ -83,9 +83,3 @@ Subplugins
 \
 Allows LMP to synchronize and upload music collection to MTP-enabled
 portable devices.
-
-Notes
------
-
-^1^ LMP uses Phonon instead of GStreamer in versions before and
-including 0.6.0.
