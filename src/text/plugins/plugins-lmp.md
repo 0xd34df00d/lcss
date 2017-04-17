@@ -73,13 +73,3 @@ discography|align=inline|link=1|width=440\]
 \[img\_assist|url=images/lmp05.png|title=Transcoding parameters on sync|align=inline|link=1|width=440\]
 
 \[img\_assist|url=images/lmp\_4.png|title=Tray icon|align=inline|link=1|width=440\]
-
-Subplugins
-----------
-
-### MTPSync
-
-\
-\
-Allows LMP to synchronize and upload music collection to MTP-enabled
-portable devices.
