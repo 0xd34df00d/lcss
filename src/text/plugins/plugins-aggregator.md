@@ -17,11 +17,6 @@ Aggregator is a client for RSS/RDF/Atom feeds with support for various
 RSS extensions. It also allows to subscribe and automatically fetch
 podcasts and any other data.
 
-### Plugins
-
--   [BodyFetch](/plugins-aggregator-bodyfetch) for automatic fetching of
-    full news bodies.
-
 ### Features
 
 -   Support for feeds in **RSS 2.0, RSS 0.93, RDF, Atom 0.3, Atom 1.0**.
