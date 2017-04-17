@@ -89,20 +89,6 @@ icon|align=inline|link=1|width=440\]
 Subplugins
 ----------
 
-### Graffiti
-
-\
-\
-Audo tags editor.\
-\
-Features:
-
--   Mass audio tags editor.
--   Automatic fetching of audio tags via audio fingerprinting and
-    plugins like [MusicZombie](/plugins-musiczombie).
--   Renaming according to the mask and tags.
--   Splitting CUE files into separate tracks.
-
 ### MTPSync
 
 \
