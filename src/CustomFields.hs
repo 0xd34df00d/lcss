@@ -6,9 +6,11 @@ module CustomFields
          isDirectChild,
          isDirectChildField,
          getBookOrder,
-         getBookOrder'
+         getBookOrder',
+         buildFieldMap
         ) where
 
+import qualified Data.Map.Lazy as M
 import Data.Monoid
 import Data.Maybe
 import Hakyll
@@ -56,3 +58,9 @@ getBookOrder item = (read <$>) <$> getMetadataField (itemIdentifier item) "bookO
 
 getBookOrder' :: MonadMetadata m => Int -> Item a -> m Int
 getBookOrder' def = fmap (fromMaybe def) . getBookOrder
+
+buildFieldMap :: MonadMetadata m => String -> [Item a] -> m (M.Map Identifier (Maybe String))
+buildFieldMap fld items = do
+    let ids = itemIdentifier <$> items
+    vals <- mapM (`getMetadataField` fld) ids
+    pure $ M.fromList $ zip ids vals
