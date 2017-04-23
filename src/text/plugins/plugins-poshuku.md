@@ -40,7 +40,7 @@ Features
     regular expression.
 -   Address line with smart autocomplete which suggests more probable
     URLs based visits frequency and dates.
--   Support for <storng>SQLite</strong>, **PostgreSQL** and **MySQL**
+-   Support for **SQLite**, **PostgreSQL** and **MySQL**
     for data storage.
 -   Easy lookup of selected words in installed search engines, for
     example, via [SeekThru](/plugins-seekthru).
