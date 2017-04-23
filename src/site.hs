@@ -5,8 +5,10 @@
 import           Data.Monoid
 import           Hakyll
 
+import qualified Data.Map.Lazy as M
 import Data.List.Extra
 import Data.Char
+import Data.Maybe
 import Control.Monad
 import Control.Monad.ListM
 
@@ -138,11 +140,13 @@ sectionsContext sorter sectName = do
     allItems <- loadAll $ fromGlob ("text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess"
     siblings <- filterM (isSibling thisParent) allItems >>= sorter
     children <- filterM (isDirectChild fp) allItems >>= sorter
+    shortDescrs <- buildFieldMap "shortdescr" children
+    let hasShortDescr = boolField "hasShortDescr" $ isJust . join . (`M.lookup` shortDescrs) . itemIdentifier
     pure $ mconcat
             [
              listField "siblingSections" (isCurrentPageField fp <> defaultContext) (pure siblings),
              hasPagesField "hasSiblingSections" siblings,
-             listField "childSections" defaultContext (pure children),
+             listField "childSections" (hasShortDescr <> defaultContext) (pure children),
              hasPagesField "hasChildSections" children
             ]
     where hasPagesField name = boolField name . const . not . null
