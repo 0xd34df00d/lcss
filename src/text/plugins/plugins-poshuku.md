@@ -15,7 +15,9 @@ keyplugin: 1
 \
 \[img\_assist|url=images/poshuku\_certs2.png|title=|align=left|link=1|width=220\]\
 \
-Poshuku is a full-featured WebKit-based web browser.
+
+Poshuku is a full-featured web browser supporting both WebKit and WebEngine
+as the rendering backends.
 
 Features
 --------
