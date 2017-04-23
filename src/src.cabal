@@ -10,6 +10,7 @@ executable site
                   , split
                   , extra
                   , unordered-containers
+                  , containers
                   , interpolate
                   , directory
                   , monadlist
