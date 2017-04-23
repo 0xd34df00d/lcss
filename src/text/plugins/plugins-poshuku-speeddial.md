@@ -3,7 +3,7 @@ title: Poshuku SpeedDial
 tags: poshuku speeddial, poshuku, plugins
 published: 2014-06-16T12:32:35
 shortdescr: provides the Speed Dial start page for the Poshuku browser
-
+parentPage: plugins-poshuku
 ---
 
 Poshuku SpeedDial provides the Speed Dial start page for the Poshuku

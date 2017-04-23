@@ -3,7 +3,7 @@ title: Poshuku FileScheme
 tags: poshuku, plugins
 published: 2012-02-09T08:36:12
 shortdescr: Allows to navigate local resource via the <code>file':'//</code> scheme
-
+parentPage: plugins-poshuku
 ---
 
 Allows to navigate local resource via the `file://` scheme. Of course,

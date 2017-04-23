@@ -3,7 +3,7 @@ title: Poshuku FatApe
 tags: poshuku, plugins
 published: 2012-02-09T08:40:56
 shortdescr: FatApe provides support for GreaseMonkey userscripts
-
+parentPage: plugins-poshuku
 ---
 
 FatApe provides support for GreaseMonkey userscripts. These scripts

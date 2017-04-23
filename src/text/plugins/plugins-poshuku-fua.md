@@ -3,7 +3,7 @@ title: Poshuku FUA
 tags: poshuku, plugins
 published: 2012-02-09T08:35:59
 shortdescr: Allows to set different User-Agent strings for different URLs
-
+parentPage: plugins-poshuku
 ---
 
 Allows to set different User-Agent strings for different URLs.

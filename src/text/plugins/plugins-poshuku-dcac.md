@@ -3,7 +3,7 @@ title: Poshuku DC/AC
 tags: poshuku dcac
 published: 2014-07-05T12:59:46
 shortdescr: Color invertor mode for Poshuku
-
+parentPage: plugins-poshuku
 ---
 
 Color invertor mode for Poshuku. It works on any site without any custom
