@@ -12,4 +12,4 @@ for each CPU core.\
 \
 \[img\_assist|url=images/cpuload1.png|title=|align=inline|link=1|width=440\]\
 \
-Currently only Linux and Mac OS X are supported.
+Currently only Linux, FreeBSD and Mac OS X are supported.
