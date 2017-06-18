@@ -24,7 +24,6 @@ notification about a user changing status in two clicks, for example.
 
 Rules
 -----
-
 AdvancedNotifications works by matching each event notification against
 a list of rules defined by the user (of course, there is a pretty sane
 default setup). The rules are matched from top to bottom. These rules
@@ -49,7 +48,6 @@ notifications sound may be used for incoming messages from, say,
 
 Visual method
 -------------
-
 This notifier uses another visual notifications plugins already present
 in LeechCraft, like [DBusManager](/plugins-dbusmanager)'s libnotify
 support or [Kinotify](/plugins-kinotify).
@@ -61,7 +59,6 @@ you'd see only one notification about these messages.
 
 System tray method
 ------------------
-
 System tray notifier is designed to be used for events that user must be
 informed about.
 
@@ -77,7 +74,6 @@ notifier|align=inline|link=1|width=440\]
 
 Sound method
 ------------
-
 Notification rules may also define the sound to play when an event
 occurs.
 
