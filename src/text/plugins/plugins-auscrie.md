@@ -11,15 +11,6 @@ and share or save them.
 
 Features
 --------
-
--   Screenshots of LeechCraft window, current screen or current desktop.
--   Delays for screenshots.
--   Saving or uploading to various image bins.
-
-\
-\
-The following image bins are supported:
-
--   dump.bitcheese.net
--   savepic.ru
--   imagebin.ca
+- Screenshots of LeechCraft window, current screen or current desktop.
+- Configurable delays.
+- Saving or sharing via other plugins like [Imgaste](/plugins-imgaste) or [Blasq](/plugins-blasq).
