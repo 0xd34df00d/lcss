@@ -17,7 +17,7 @@ Features
 --------
 - Drafts.
 - Autosaving.
-- WYSIWYG editor (via the LHTR plugin) with full support for
+- WYSIWYG editor (via the [LHTR](/plugins-lhtr) plugin) with full support for
   platform-specific tags.
 - Exporting blogs.
 - Post previews.
