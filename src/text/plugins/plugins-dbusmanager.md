@@ -6,8 +6,8 @@ shortdescr: Enables LeechCraft to use D-Bus
 
 ---
 
-Enables LeechCraft to use D-Bus. Currently, this only means showing
-notifications via implementations supporting FreeDesktop's notifications
-standard, like KDE 4.4 (or higher), Gnome, XFCE and others.\
-\
-Currently DBusManager only exists under \*NIX.
+Provides some API for LeechCraft via D-Bus.
+
+Support for MPRIS (both [client-](/plugins-xtazy) and [server-side](/plugins-lmp))
+or FreeDesktop-style Desktop Notifications (again, both [client-](/plugins-sysnotify)
+and [server-side](/plugins-laughty)) does not depend on this plugin.
