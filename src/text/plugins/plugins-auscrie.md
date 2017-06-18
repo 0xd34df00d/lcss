@@ -6,8 +6,8 @@ shortdescr: makes screenshots of LeechCraft window and allows to upload or save 
 
 ---
 
-Auscrie makes screenshots of LeechCraft window and allows to upload or
-save them.
+Auscrie allows one to take screenshots of the LeechCraft windows or the whole desktop
+and share or save them.
 
 Features
 --------
