@@ -1,7 +1,7 @@
 flags: {}
 extra-package-dbs: []
 packages:
-- '.'
+- .
 extra-deps:
 - monadlist-0.0.2
-resolver: lts-8.11
+resolver: lts-8.18
