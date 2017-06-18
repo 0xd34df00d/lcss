@@ -16,7 +16,7 @@ $if(hasChildSections)$
 <h2>Subsections</h2>
 <ul>
     $for(childSections)$
-    <li><a href="$url$">$title$</a></li>
+    <li><a href="$url$">$title$</a>$if(hasShortDescr)$ &mdash; $shortdescr$$endif$</li>
     $endfor$
 </ul>
 $endif$
