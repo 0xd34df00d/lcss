@@ -16,6 +16,8 @@ It is an implementation of the image [data filters](/concepts-data-filters) conc
 Supported services
 ------------------
 
--   dump.bitcheese.net
--   imagebin.ca
--   savepic.ru
+- pomf.cat
+- mixtape.moe
+- dump.bitcheese.net
+- imagebin.ca
+- savepic.ru
