@@ -11,7 +11,11 @@ imagebin.ca or dump.bitcheese.net. For example,
 [Auscrie](/plugins-auscrie) and [Poshuku](/plugins-poshuku) use it to
 upload screenshots and web page shots, respectively.
 
-It is an implementation of the image [data filters](/concepts-data-filters) concept.
+Imgaste also knows about different imagebins' limits on file size and image
+dimensions limits and automatically filters out those that would not accept
+a given image.
+
+Imgaste is an implementation of the image [data filters](/concepts-data-filters) concept.
 
 Supported services
 ------------------
