@@ -91,13 +91,13 @@ automatically.
 \
 LeechCraft is currently available in [an OBS
 repo](http://software.opensuse.org/download.html?project=home:DarkSS:fedora&package=leechcraft)
-for Fedora 19 and 20.\
+for latest Fedora releases.\
 \
 After adding the repo, issue the following command to install all
 LeechCraft modules (which is recommended):
 
 ``` {type="bash"}
-sudo yum install "leechcraft*"
+sudo dnf install "leechcraft*"
 ```
 
 \
@@ -107,8 +107,16 @@ issue the following to find all available packages with LeechCraft
 modules:
 
 ``` {type="bash"}
-yum search leechcraft
+dnf search leechcraft
 ```
+
+\
+\
+Popular RPM Sphere repo can be used to get LeechCraft packages too.\
+\
+If you feel like the packages and/or releases are too old, don't hesitate [filling an
+issue](http://dev.leechcraft.org/projects/leechcraft/issues/new) against
+DA for a version bump.
 
 ### Gentoo {#gentoo style="visibility:hidden;"}
 
