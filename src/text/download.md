@@ -91,13 +91,13 @@ automatically.
 \
 LeechCraft is currently available in [an OBS
 repo](http://software.opensuse.org/download.html?project=home:DarkSS:fedora&package=leechcraft)
-for Fedora 19 and 20.\
+for latest Fedora releases.\
 \
 After adding the repo, issue the following command to install all
 LeechCraft modules (which is recommended):
 
 ``` {type="bash"}
-sudo yum install "leechcraft*"
+sudo dnf install "leechcraft*"
 ```
 
 \
@@ -107,8 +107,16 @@ issue the following to find all available packages with LeechCraft
 modules:
 
 ``` {type="bash"}
-yum search leechcraft
+dnf search leechcraft
 ```
+
+\
+\
+Popular RPM Sphere repo can be used to get LeechCraft packages too.\
+\
+If you feel like the packages and/or releases are too old, don't hesitate [filling an
+issue](http://dev.leechcraft.org/projects/leechcraft/issues/new) against
+DA for a version bump.
 
 ### Gentoo {#gentoo style="visibility:hidden;"}
 
@@ -161,7 +169,7 @@ plugins.
 
 ![](http://files.leechcraft.org/imgs/distro_logos/suse.png)\
 \
-Starting with openSUSE 12.2 LeechCraft is in default OSS repositories.
+LeechCraft is available in default OSS repositories.
 To install it, just issue the following:
 
 ``` {type="bash"}
@@ -170,26 +178,26 @@ zypper in leechcraft*
 
 \
 \
-For the latest milestone of LeechCraft the *network* repository needs to
+For the latest milestone of LeechCraft the [network](https://software.opensuse.org//download.html?project=network&package=leechcraft) repository needs to
 be added, so issue
 
 ``` {type="bash"}
-zypper ar -f -r http://download.opensuse.org/repositories/network/openSUSE_13.2/network.repo
+zypper ar -f -r http://download.opensuse.org/repositories/network/openSUSE_Tumbleweed/network.repo
 zypper in leechcraft*
 ```
 
-replacing *13.2* in the first command with your current distro version.\
+replacing *Tumbleweed* in the first command with your current distro version.\
 \
 To be on the bleeding edge and get most recent snapshots of the master
-development branch. add the corresponding repo by issuing
+development branch, add the [corresponding repo](https://software.opensuse.org//download.html?project=home:DarkSS:Qt5&package=leechcraft) by issuing
 
 ``` {type="bash"}
-zypper ar -f -r http://download.opensuse.org/repositories/home:Reki:leechcraft:masterbranch/openSUSE_13.1/home:Reki:leechcraft:masterbranch.repo
+zypper ar -f -r http://download.opensuse.org/repositories/home:DarkSS:Qt5/openSUSE_Leap_42.3/home:DarkSS:Qt5.repo
 ```
 
 \
 \
-If you feel like the packages are too old, don't hesitate [filling an
+If you feel like the packages and/or releases are too old, don't hesitate [filling an
 issue](http://dev.leechcraft.org/projects/leechcraft/issues/new) against
 DA for a version bump.\
 \
