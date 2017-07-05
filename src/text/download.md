@@ -198,7 +198,7 @@ zypper ar -f -r http://download.opensuse.org/repositories/home:DarkSS:Qt5/openSU
 \
 \
 If you feel like the packages and/or releases are too old, don't hesitate [filling an
-issue](http://dev.leechcraft.org/projects/leechcraft/issues/new) against
+issue](http://dev.leechcraft.org/projects/leechcraft/issues/new) and assigning it to
 DA for a version bump.\
 \
 Alternatively, you can use official openSUSE [packages
