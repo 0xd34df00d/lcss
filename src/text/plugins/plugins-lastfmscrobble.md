@@ -14,14 +14,13 @@ album art, etc.
 Features
 --------
 
-- Scrobbling listened tracks from other players like
-  [LMP](/plugins-lmp) to Last.FM.
+- Scrobbling tracks listened in players like [LMP](/plugins-lmp).
 - "Loving" listened tracks.
 - Support for requesting artists that are similar to a given artist.
 - Automatic fetching of album art.
 - Support for Last.FM radio.
 - Fetching personalized recommendations.
-- Fetching recent releases of artists that are in the
+- Fetching information about recent releases of artists that are in the
   user's collection.
 - Fetching artists biography.
 - Configurable language of the fetched information.
