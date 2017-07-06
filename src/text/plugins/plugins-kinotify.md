@@ -18,7 +18,7 @@ and is fully themable.
 Features
 --------
 
-- Supports HTML markup.
-- Supports notification actions.
-- Themable.
+- HTML markup.
+- Notification actions.
+- Themes support.
 - Platform-independent.
