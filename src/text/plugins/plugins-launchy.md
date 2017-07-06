@@ -2,7 +2,7 @@
 title: Launchy
 tags: plugins, launchy
 published: 2013-12-30T07:54:33
-shortdescr: is third-party applications launcher and LeechCraft tab opener
+shortdescr: plugins and third-party applications launcher
 
 ---
 
