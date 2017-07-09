@@ -7,7 +7,8 @@ shortdescr: LeechCraft Hypertext Editor
 ---
 
 LHTR is the LeechCraft Hypertext Editor. It is used by modules like
-[Blogique](/plugins-blogique) to provide HTML editing capabilities.
+[Blogique](/plugins-blogique) or [Snails](/plugins-snails) to provide
+HTML editing capabilities.
 
 Features
 --------
