@@ -21,14 +21,14 @@ Features
   plugins like [Azoth](/plugins-azoth) can disconnect from servers
   gracefully on hibernation and reconnect properly on startup.
 - Allows other plugins like a video player to prohibit screensaver.
-- Allows user to easily sleep/hibernate the system.
-- Notifies user when device starts discharging or charging.
-- Notifies user on low power level.
+- Allows user to put the system to sleep or hibernation.
+- Notifications when the computer starts discharging or charging.
+- Notifications when the battery charge is low.
 
 Backends
 --------
 
 - UPower on Linux.
 - WinAPI on WIndows.
-- Native ioctl on FreeBSD.
-- Native APIs on Mac OS X.
+- Native API on FreeBSD.
+- Native API on Mac OS X.
