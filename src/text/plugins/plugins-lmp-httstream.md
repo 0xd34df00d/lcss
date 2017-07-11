@@ -2,7 +2,7 @@
 title: LMP HttStream
 tags: plugins, lmp httstream, lmp
 published: 2014-06-16T12:16:18
-shortdescr: adds HTTP streaming capabilities to the LMP player
+shortdescr: adds HTTP streaming capabilities
 parentPage: plugins-lmp
 ---
 
@@ -16,9 +16,9 @@ configurable encoding quality.
 Features
 --------
 
--   Configurable streaming quality for different addresses.
--   Automatic starting of the audio playback on first client connect.
--   Automatic stopping of recoding when there are no clients connected.
+- Configurable streaming quality for different addresses.
+- Automatic starting of the audio playback on first client connect.
+- Automatic stopping of recoding when there are no clients connected.
 
 Screenshots
 -----------
