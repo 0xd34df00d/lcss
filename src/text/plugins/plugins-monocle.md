@@ -53,15 +53,11 @@ Screenshots
 Backends
 --------
 
-\
-\
 Different file formats are supported by different backends. For now the
 following backends exist:
 
 ### PDF (Poppler-based)
 
-\
-\
 The most feature-rich backend, based on the Poppler rendering library.
 It also supports multithreaded threaded rendering on Poppler 0.24.0 and
 newer, resulting in seamless smooth scrolling and optimal multicore
@@ -69,36 +65,17 @@ usage if multiple pages are displayed at once.
 
 ### fb2
 
-\
-\
 Self-written parser for fb2 books. Doesn't support images in fb2
 documents for now.
 
 ### DjVu
 
-\
-\
 Based on the DjVuLibre suite.
 
 ### PostScript
 
-\
-\
 Based on the libspectre library.
 
 ### MOBI
 
-\
-\
 Based on own implementation.
-
-### PDF (mupdf-based)
-
-\
-\
-Another backend for PDF documents. Some claim that it renders more
-nicely than Poppler. Though, for now it doesn't support links, forms,
-text searching and possibly some other fancy things Poppler supports.\
-\
-Please note that since mupdf is built as static library, you need to
-build mupdf with the `-fPIC`{type="bash"} option.
