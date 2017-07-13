@@ -8,8 +8,8 @@ keyplugin: 1
 ---
 
 Monocle is a modular document reader, with support for different file
-formats via different backends.\
-\
+formats via different backends.
+
 Monocle integrates with the rest of LeechCraft, so, for example, when
 you click a link to a PDF document in [Poshuku](/plugins-poshuku), it is
 suggested to be opened by Monocle after it's downloaded.
@@ -17,47 +17,38 @@ suggested to be opened by Monocle after it's downloaded.
 Features
 --------
 
--   Tables of contents.
--   Support for links in documents (like in PDF files).
--   Support for forms in documents (like, again, in PDF documents).
--   Displaying annotations in documents like PDF.
--   Support for searching in documents like PDF and FB2.
--   Thumbnails for documents visually highlighting the currently
-    displayed part of the pages.
--   Support for selecting areas and copying them as image or as text (if
-    applicable), or even integrating with the [data
-    filters](/concepts-data-filters) like image uploaders or
-    text searchers.
--   Fullscreen presentation mode.
--   Limited cache for already-rendered images.
--   Displaying one or two pages at once.
--   Paginated navigation.
--   Automatic document reload on document file changes.
--   Integration with the rest of LeechCraft.
+- Tables of contents.
+- Support for links in documents (like in PDF files).
+- Support for forms in documents (like, again, in PDF documents).
+- Displaying annotations in documents like PDF.
+- Support for searching in documents like PDF and FB2.
+- Thumbnails for documents visually highlighting the currently
+  displayed part of the pages.
+- Support for selecting areas and copying them as image or as text (if
+  applicable), or even integrating with the [data
+  filters](/concepts-data-filters) like image uploaders or
+  text searchers.
+- Fullscreen presentation mode.
+- Limited cache for already-rendered images.
+- Displaying one or two pages at once.
+- Paginated navigation.
+- Automatic document reload on document file changes.
+- Integration with the rest of LeechCraft.
 
-\
-\
 The exact feature set depends on the backend used and document type.
 
 Screenshots
 -----------
 
-\
-\
-\[img\_assist|url=images/monocle01.png|title=Searching in a PDF
-document|align=inline|link=1|width=440\]\
-\
-\[img\_assist|url=images/monocle\_datafilters\_part.png|title=Data
-filters|align=inline|link=1|width=440\]\
-\
-\[img\_assist|url=images/monocle02.png|title=Page
-thumbnails|align=inline|link=1|width=440\]\
-\
-\[img\_assist|url=images/monocle03.png|title=PDF document with
-forms|align=inline|link=1|width=440\]\
-\
-\[img\_assist|url=images/monocle04.png|title=DjVu
-document|align=inline|link=1|width=440\]
+\[img\_assist|url=images/monocle01.png|title=Searching in a PDF document|align=inline|link=1|width=440\]
+
+\[img\_assist|url=images/monocle\_datafilters\_part.png|title=Data filters|align=inline|link=1|width=440\]
+
+\[img\_assist|url=images/monocle02.png|title=Page thumbnails|align=inline|link=1|width=440\]\
+
+\[img\_assist|url=images/monocle03.png|title=PDF document with forms|align=inline|link=1|width=440\]\
+
+\[img\_assist|url=images/monocle04.png|title=DjVu document|align=inline|link=1|width=440\]
 
 Backends
 --------
