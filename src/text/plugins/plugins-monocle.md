@@ -2,7 +2,7 @@
 title: Monocle
 tags: plugins, monocle
 published: 2014-03-06T07:51:39
-shortdescr: modular document reader, with support for different file formats via different backends
+shortdescr: modular multiformat document viewer
 keyplugin: 1
 
 ---
