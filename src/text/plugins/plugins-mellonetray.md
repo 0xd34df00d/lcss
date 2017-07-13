@@ -2,7 +2,7 @@
 title: Mellonetray
 tags: mellonetray, plugins
 published: 2013-09-13T20:49:24
-shortdescr: so that third-party applications can embed their tray icons into LeechCraft
+shortdescr: a system tray quark for third-party applications
 
 ---
 
