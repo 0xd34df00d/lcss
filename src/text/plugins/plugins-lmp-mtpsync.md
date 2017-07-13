@@ -8,3 +8,6 @@ parentPage: plugins-lmp
 
 LMP MTPSync allows synchronizing and uploading music collection to MTP-enabled
 portable devices (like most recent Android phones).
+
+LMP MTPSync uses [Devmon](/plugins-devmon) to learn about newly connected
+devices.
