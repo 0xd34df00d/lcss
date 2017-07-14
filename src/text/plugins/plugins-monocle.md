@@ -56,7 +56,7 @@ Backends
 Different file formats are supported by different backends. For now the
 following backends exist:
 
-### PDF (Poppler-based)
+### PDF
 
 The most feature-rich backend, based on the Poppler rendering library.
 It also supports multithreaded threaded rendering on Poppler 0.24.0 and
