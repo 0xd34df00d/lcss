@@ -10,9 +10,9 @@ keyplugin: 1
 Monocle is a modular document reader, with support for different file
 formats via different backends.
 
-Monocle integrates with the rest of LeechCraft, so, for example, when
-you click a link to a PDF document in [Poshuku](/plugins-poshuku), it is
-suggested to be opened by Monocle after it's downloaded.
+Monocle integrates with the rest of LeechCraft, so, for example, navigating
+to a PDF document in [Poshuku](/plugins-poshuku) automatically suggests opening
+it in Monocle.
 
 Features
 --------
