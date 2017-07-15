@@ -2,7 +2,7 @@
 title: Otlozhu
 tags: plugins, otlozhu
 published: 2012-04-17T10:09:59
-shortdescr: <a href="http':'//en
+shortdescr: GTD-inspired TODO manager
 
 ---
 
