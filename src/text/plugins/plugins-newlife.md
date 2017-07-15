@@ -16,53 +16,39 @@ Features and supported applications
 
 Kopete
 
-:   -   Chat history.
+: - Chat history.
 
 Psi+
 
-:   -   Account settings.
-    -   Chat history.
+: - Account settings.
+  - Chat history.
 
 Vacuum IM
 
-:   -   Account settings.
-    -   Chat history.
+: - Account settings.
+  - Chat history.
 
 ### RSS
 
 Akregator
 
-:   <ul>
-    <li>
-    Feeds list.
-    </li>
-    <li>
-    Individual settings for each feed, like update interval and custom
+: - Feeds list.
+  - Individual settings for each feed, like update interval and custom
     storage parameters.
-    </li>
-    <li>
-    Akregator's settings.
-    </li>
+  - Akregator's settings.
 
 Firefox
 
-:   <ul>
-    <li>
-    History
-    </li>
-    <li>
-    Bookmarks
-    </li>
-    <li>
-    RSS feeds (aka Live bookmarks)
-    </li>
+: - History
+  - Bookmarks
+  - RSS feeds (aka Live bookmarks)
 
 Liferea
 
-:   -   Feeds list.
+: - Feeds list.
 
 ### Web browsers
 
 Opera
 
-:   -   Browsing history.
+: - Browsing history.
