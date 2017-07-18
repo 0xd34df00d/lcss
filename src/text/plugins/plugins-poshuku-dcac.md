@@ -2,7 +2,7 @@
 title: Poshuku DC/AC
 tags: poshuku dcac
 published: 2014-07-05T12:59:46
-shortdescr: Color invertor mode for Poshuku
+shortdescr: color adjuster for eye strain reduction
 parentPage: plugins-poshuku
 ---
 
