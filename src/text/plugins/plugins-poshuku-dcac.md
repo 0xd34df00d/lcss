@@ -6,9 +6,9 @@ shortdescr: Color invertor mode for Poshuku
 parentPage: plugins-poshuku
 ---
 
-Color invertor mode for Poshuku. It works on any site without any custom
-CSS.\
-\
+Color inversion, temperature shift and brightness reduction for Poshuku
+to reduce eye strain. It works on any site without any custom CSS.
+
 DC/AC also supports a somewhat smart mode where colors are inverted only
 if average brightness of the web page is bigger than some given
 threshold.
