@@ -2,13 +2,13 @@
 title: SB2
 tags: sb2, plugins
 published: 2013-09-13T20:58:35
-shortdescr: next generation side panel for LeechCraft
+shortdescr: side panel for LeechCraft
 keyplugin: 1
 
 ---
 
-SB2 is the next generation side panel for LeechCraft.\
-\
+SB2 is the side panel for LeechCraft.
+
 It allows one to open and navigate between tabs (highlighting active and
 opened tabs), it also provides tray and quick launch areas, LeechCraft
 menu, and it also hosts widgets from other plugins called quarks.\
