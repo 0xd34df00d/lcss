@@ -1,9 +1,7 @@
 ---
 title: Rosenthal
 tags: plugins
-published: 2014-03-06T07:43:52
 shortdescr: spellchecker plugin for other plugins to use
-
 ---
 
 Rosenthal is a spellchecker plugin for other plugins to use.\
