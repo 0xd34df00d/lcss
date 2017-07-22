@@ -1,7 +1,6 @@
 ---
 title: SB2
 tags: sb2, plugins
-published: 2013-09-13T20:58:35
 shortdescr: side panel for LeechCraft
 keyplugin: 1
 
