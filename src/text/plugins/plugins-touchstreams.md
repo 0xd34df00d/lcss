@@ -6,7 +6,7 @@ shortdescr: VK.com client for audio streaming
 
 ---
 
-TouchStreams it the VK.com client for streaming audio from this social
+TouchStreams is the VK.com client for streaming audio from this social
 network. It allows other plugins like [LMP](/plugins-lmp) to query for
 available tracks given artist name, track name or a free-form string and
 returns the tracks available for streaming. It also provides your and
