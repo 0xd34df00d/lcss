@@ -1,7 +1,6 @@
 ---
 title: SeekThru
 tags: seekthru, plugins
-published: 2013-12-09T12:26:21
 shortdescr: client for OpenSearch-enabled web sites and engines
 ---
 

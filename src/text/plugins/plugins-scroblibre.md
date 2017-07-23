@@ -1,7 +1,6 @@
 ---
 title: Scroblibre
 tags: scroblibre
-published: 2013-12-13T13:43:51
 shortdescr: general Submissions API 1.2 scrobbler
 ---
 

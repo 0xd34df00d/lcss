@@ -1,7 +1,6 @@
 ---
 title: Summary
 tags: summary, plugins
-published: 2013-09-11T13:18:37
 shortdescr: shows a quick overview of the running jobs, unread news and the likes
 keyplugin: 1
 ---
