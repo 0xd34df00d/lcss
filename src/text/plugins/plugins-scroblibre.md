@@ -2,8 +2,7 @@
 title: Scroblibre
 tags: scroblibre
 published: 2013-12-13T13:43:51
-shortdescr: allowing to scrobble to services supporting the Submissions API 1
-
+shortdescr: general Submissions API 1.2 scrobbler
 ---
 
 Scroblibre is a scrobbling plugin for modules like [LMP](/plugins-lmp)
