@@ -12,6 +12,9 @@ available tracks given artist name, track name or a free-form string and
 returns the tracks available for streaming. It also provides your and
 your friends' audios as radio stations for streaming.
 
+Please note this plugin is defunct for now since early 2017 as VKontakte
+has shut down the corresponding API.
+
 Features
 --------
 
