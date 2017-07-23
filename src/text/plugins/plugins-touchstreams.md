@@ -2,7 +2,7 @@
 title: TouchStreams
 tags: touchstreams, plugins
 published: 2013-11-19T09:40:07
-shortdescr: it the VK
+shortdescr: VK.com client for audio streaming
 
 ---
 
