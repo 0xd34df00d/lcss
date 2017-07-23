@@ -12,10 +12,6 @@ tasks like leeching or seeding torrents, IM file transfers or music
 transcoding progress with context-dependent actions and views. It also
 can collect status information from other plugins like unread channels.\
 \
-Summary also allows to perform searches via the installed plugins like
-[SeekThru](/plugins-seekthru), [HistoryHolder](/plugins-historyholder)
-or [vGrabber](/plugins-vgrabber).\
-\
 \[img\_assist|url=images/summary01.png|title=|align=inline|link=1|width=440\]
 
 ### Features
