@@ -2,7 +2,7 @@
 title: TPI
 tags: tpi, plugins
 published: 2013-09-11T14:15:55
-shortdescr: short for Task Progress Indicator) allows keeping track of ongoing tasks, be it BitTorrent downloads, XMPP file transfers or anything else
+shortdescr: briefly shows the progress of uncomplete tasks in SB2.
 
 ---
 
