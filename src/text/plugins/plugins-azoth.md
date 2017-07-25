@@ -1,10 +1,8 @@
 ---
 title: Azoth
 tags: plugins, azoth
-published: 2014-07-27T22:08:31
 shortdescr: modular IM client for LeechCraft
 keyplugin: 1
-
 ---
 
 \[img\_assist|url=images/azoth\_muc\_120916.png|title=MUC|align=left|link=1|width=220|height=136\]\

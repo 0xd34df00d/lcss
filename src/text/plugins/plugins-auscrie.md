@@ -1,9 +1,7 @@
 ---
 title: Auscrie
 tags: 
-published: 2012-04-17T10:53:12
 shortdescr: makes screenshots of LeechCraft window and allows to upload or save them
-
 ---
 
 Auscrie allows one to take screenshots of the LeechCraft windows or the whole desktop

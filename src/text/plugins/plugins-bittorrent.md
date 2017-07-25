@@ -1,10 +1,8 @@
 ---
 title: BitTorrent
 tags: 
-published: 2012-12-21T22:35:59
 shortdescr: feature-rich, fast and efficient client for BitTorrent protocol
 keyplugin: 1
-
 ---
 
 BitTorrent is a feature-rich, fast and efficient client for BitTorrent
