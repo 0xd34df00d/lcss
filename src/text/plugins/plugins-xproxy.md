@@ -12,6 +12,8 @@ XProxy allows configuring proxy servers on a per-host basis.
 Features
 --------
 
+- Support for defining the list of hosts via a Python or JS script
+  (useful to fetch a fresh list of RosKomNadzor blocked entities on a live basis, for instance).
 - Support for SOCKS5, HTTP and FTP proxies.
 - Matching hosts via regexps.
 - Different proxies for different ports/protocols.
