@@ -1,9 +1,7 @@
 ---
 title: TPI
 tags: tpi, plugins
-published: 2013-09-11T14:15:55
 shortdescr: briefly shows the progress of uncomplete tasks in SB2.
-
 ---
 
 TPI (short for Task Progress Indicator) shows the progress of various

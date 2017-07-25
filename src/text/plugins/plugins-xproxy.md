@@ -1,7 +1,6 @@
 ---
 title: XProxy
 tags: xproxy, plugins
-published: 2012-04-17T09:56:16
 shortdescr: allows configuring proxy servers on a per-host basis
 ---
 
