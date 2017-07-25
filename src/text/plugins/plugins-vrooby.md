@@ -2,8 +2,7 @@
 title: Vrooby
 tags: vrooby, plugins
 published: 2013-09-11T12:02:50
-shortdescr: is removable storage device manager for LeechCraft
-
+shortdescr: removable storage devices manager
 ---
 
 Vrooby is removable storage device manager for LeechCraft.\
