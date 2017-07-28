@@ -1,6 +1,6 @@
 ---
 title: Auscrie
-tags: 
+tags: plugins, auscrie
 shortdescr: makes screenshots of LeechCraft window and allows to upload or save them
 ---
 

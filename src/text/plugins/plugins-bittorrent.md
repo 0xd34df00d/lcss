@@ -1,6 +1,6 @@
 ---
 title: BitTorrent
-tags: 
+tags: plugins, bittorrent
 shortdescr: feature-rich, fast and efficient client for BitTorrent protocol
 keyplugin: 1
 ---
