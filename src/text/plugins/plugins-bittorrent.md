@@ -8,14 +8,11 @@ keyplugin: 1
 BitTorrent is a feature-rich, fast and efficient client for BitTorrent
 protocol.
 
-\[img\_assist|url=images/torrenttab1.png|title=Torrent
-tab|align=inline|link=1|width=440\]
+\[img\_assist|url=images/torrenttab1.png|title=Torrent tab|align=inline|link=1|width=440\]
 
-\[img\_assist|url=images/torrenttab2.png|title=Torrent
-tab|align=inline|link=1|width=440\]
+\[img\_assist|url=images/torrenttab2.png|title=Torrent tab|align=inline|link=1|width=440\]
 
-\[img\_assist|url=images/torrent\_summary.png|title=Torrents in
-Summary|align=inline|link=1|width=440\]
+\[img\_assist|url=images/torrent\_summary.png|title=Torrents in Summary|align=inline|link=1|width=440\]
 
 Features
 --------
