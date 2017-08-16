@@ -35,7 +35,8 @@ main = hakyll $ do
                 >>= imageRefsCompiler
 
     listed (defListedConfig "plugins") {
-                                        createRoot = False,
+                                        createRoot = True,
+                                        listTemplate = "plugins",
                                         customTemplate = Just "book-item",
                                         customItemsContext = sectionsContext sortBookOrder "plugins"
                                        }
