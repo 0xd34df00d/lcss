@@ -1,7 +1,7 @@
 ---
 title: AdvancedNotifications
 tags: plugins, advanced notifications
-shortdescr: provides support for the Advanced Notifications framework':' a highly configurable, flexible and powerful notifications system
+shortdescr: a highly configurable, flexible and powerful notifications system
 keyplugin: 1
 ---
 
