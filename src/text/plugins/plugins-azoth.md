@@ -1,7 +1,7 @@
 ---
 title: Azoth
 tags: plugins, azoth
-shortdescr: modular IM client for LeechCraft
+shortdescr: modular IM client
 keyplugin: 1
 ---
 
