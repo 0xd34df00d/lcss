@@ -1,12 +1,11 @@
 ---
 title: BitTorrent
 tags: plugins, bittorrent
-shortdescr: feature-rich, fast and efficient client for BitTorrent protocol
+shortdescr: feature-rich, fast and efficient BitTorrent
 keyplugin: 1
 ---
 
-BitTorrent is a feature-rich, fast and efficient client for BitTorrent
-protocol.
+BitTorrent is a feature-rich, fast and efficient BitTorrent client.
 
 \[img\_assist|url=images/torrenttab1.png|title=Torrent tab|align=inline|link=1|width=440\]
 
