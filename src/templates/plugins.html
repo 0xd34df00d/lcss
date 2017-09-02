@@ -13,9 +13,12 @@
     $for(plugins)$
         $if(keyplugin)$
         $else$
-        <li>
-            <a href="$url$">$title$</a> &mdash; $shortdescr$
-        </li>
+            $if(parentPage)$
+            $else$
+            <li>
+                <a href="$url$">$title$</a> &mdash; $shortdescr$
+            </li>
+            $endif$
         $endif$
     $endfor$
 </ul>
