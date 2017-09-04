@@ -4,7 +4,6 @@ module CustomFields
          isCurrentPageField,
          isSibling,
          isDirectChild,
-         isDirectChildField,
          isKeyPlugin,
          getBookOrder,
          getBookOrder',
@@ -42,9 +41,6 @@ isDirectChild fp item = compareMaybe fp <$> getParentPage item
 
 isKeyPlugin :: MonadMetadata m => Item a -> m Bool
 isKeyPlugin item = compareMaybe "1" <$> getMetadataField (itemIdentifier item) "keyplugin"
-isDirectChildField :: FilePath -> Context a
-isDirectChildField = field "isDirectChild" . val
-    where val fp item = boolToTemplated <$> isDirectChild fp item
 
 compareMaybe :: Eq a => a -> Maybe a -> Bool
 compareMaybe l r = Just l == r
