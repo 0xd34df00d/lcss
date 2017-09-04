@@ -1,7 +1,7 @@
 ---
 title: AnHero
 tags: plugins, anhero
-shortdescr: to send them
+shortdescr: the crash handler
 ---
 
 \*NIX-only (including Mac OS X) crash handler which uses gdb to handle
