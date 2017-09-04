@@ -66,8 +66,11 @@ main = hakyll $ do
 
 --------------------------------------------------------------------------------
 
+type CustomRootBuilder = ListedConfig -> Pattern -> Context String -> (String -> Identifier) -> Rules ()
+
 data RootItem = NoRoot
               | DefaultRoot
+              | CustomRoot CustomRootBuilder
 
 data ListedConfig = ListedConfig {
                         section :: String,
@@ -97,7 +100,7 @@ defListedConfig section = ListedConfig {
                           }
 
 listed :: ListedConfig -> Rules ()
-listed ListedConfig { .. } = do
+listed cfg@ListedConfig { .. } = do
     when verPreprocess $
         match filesPat $ version "preprocess" $ do
             route $ customRoute defaultTextRoute
@@ -124,6 +127,7 @@ listed ListedConfig { .. } = do
                     >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
                     >>= loadAndApplyTemplate "templates/default.html" listCtx
                     >>= relativizeUrls
+        CustomRoot rules -> rules cfg filesPat ctx tplPath
 
     where filesPat = fromGlob $ "text/" <> section <> "/*.md"
           ctx = customContext <> defaultContext
