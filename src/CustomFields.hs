@@ -4,6 +4,7 @@ module CustomFields
          isCurrentPageField,
          isSibling,
          isDirectChild,
+         getParentPage,
          isKeyPlugin,
          getBookOrder,
          getBookOrder',
