@@ -35,7 +35,7 @@ main = hakyll $ do
                 >>= imageRefsCompiler
 
     listed (defListedConfig "plugins") {
-                                        createRoot = True,
+                                        createRoot = DefaultRoot,
                                         listTemplate = "plugins",
                                         customTemplate = Just "book-item",
                                         customItemsContext = sectionsContext sortBookOrder "plugins"
@@ -51,13 +51,13 @@ main = hakyll $ do
     listed (defListedConfig "concepts") { verPreprocess = False }
 
     listed (defListedConfig "development") {
-                                            createRoot = False,
+                                            createRoot = NoRoot,
                                             customTemplate = Just "book-item",
                                             customItemsContext = sectionsContext sortBookOrder "development"
                                            }
 
     listed (defListedConfig "userguide") {
-                                           createRoot = False,
+                                           createRoot = NoRoot,
                                            customTemplate = Just "book-item",
                                            customItemsContext = sectionsContext sortBookOrder "userguide"
                                          }
@@ -65,6 +65,9 @@ main = hakyll $ do
     match "templates/*" $ compile templateBodyCompiler
 
 --------------------------------------------------------------------------------
+
+data RootItem = NoRoot
+              | DefaultRoot
 
 data ListedConfig = ListedConfig {
                         section :: String,
@@ -74,7 +77,7 @@ data ListedConfig = ListedConfig {
                         listTitle :: String,
                         listFieldName :: String,
                         listTemplate :: String,
-                        createRoot :: Bool,
+                        createRoot :: RootItem,
                         verPreprocess :: Bool,
                         subOrder :: forall m a. MonadMetadata m => [Item a] -> m [Item a]
                     }
@@ -88,7 +91,7 @@ defListedConfig section = ListedConfig {
                               listTitle = toUpper (head section) : tail section,
                               listFieldName = section,
                               listTemplate = section,
-                              createRoot = True,
+                              createRoot = DefaultRoot,
                               verPreprocess = True,
                               subOrder = pure
                           }
@@ -110,8 +113,9 @@ listed ListedConfig { .. } = do
                   >>= relativizeUrls
                   >>= imageRefsCompiler
 
-    when createRoot $
-        create [fromFilePath section] $ do
+    case createRoot of
+        NoRoot -> pure ()
+        DefaultRoot -> create [fromFilePath section] $ do
             route idRoute
             compile $ do
                 items <- loadAll (filesPat .&&. hasNoVersion) >>= subOrder
