@@ -1,10 +1,8 @@
 ---
 title: LMP
 tags: plugins, lmp
-published: 2014-04-02T19:52:01
 shortdescr: collection-oriented music player
 keyplugin: 1
-
 ---
 
 LeechCraft Music Player is a collection-oriented music player based on
