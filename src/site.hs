@@ -35,7 +35,7 @@ main = hakyll $ do
                 >>= imageRefsCompiler
 
     listed (defListedConfig "plugins") {
-                                        createRoot = DefaultRoot,
+                                        createRoot = CustomRoot pluginsRoot,
                                         listTemplate = "plugins",
                                         customTemplate = Just "book-item",
                                         customItemsContext = sectionsContext sortBookOrder "plugins"
@@ -98,6 +98,29 @@ defListedConfig section = ListedConfig {
                               verPreprocess = True,
                               subOrder = pure
                           }
+
+pluginsRoot :: CustomRootBuilder
+pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath section] $ do
+    route idRoute
+    compile $ do
+        allItems <- loadAll (filesPat .&&. hasNoVersion) >>= subOrder
+        keyItems <- filterM isKeyPlugin allItems
+        otherItems <- filterM otherPred allItems
+        let listCtx = mconcat
+                        [
+                         constField "title" listTitle,
+                         listField "keyplugins" ctx (pure keyItems),
+                         listField "otherplugins" ctx (pure otherItems),
+                         ctx
+                        ]
+        makeItem ""
+            >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
+            >>= loadAndApplyTemplate "templates/default.html" listCtx
+            >>= relativizeUrls
+    where otherPred item = do
+            isKey <- isKeyPlugin item
+            parent <- getParentPage item
+            pure $ not isKey && isNothing parent
 
 listed :: ListedConfig -> Rules ()
 listed cfg@ListedConfig { .. } = do
