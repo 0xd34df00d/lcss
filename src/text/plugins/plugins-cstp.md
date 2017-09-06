@@ -2,7 +2,7 @@
 title: CSTP
 tags: 
 published: 2010-06-11T21:20:27
-shortdescr: Clean & simple HTTP implementation
+shortdescr: HTTP downloader implementation
 
 ---
 
