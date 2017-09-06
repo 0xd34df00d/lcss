@@ -106,11 +106,12 @@ pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath sect
         allItems <- loadAll (filesPat .&&. hasNoVersion) >>= subOrder
         keyItems <- filterM isKeyPlugin allItems
         otherItems <- filterM otherPred allItems
+        let subsCtx = listFieldWith "subplugins" ctx $ \item -> filterM (isDirectChild $ defaultTextRoute $ itemIdentifier item) allItems
         let listCtx = mconcat
                         [
                          constField "title" listTitle,
-                         listField "keyplugins" ctx (pure keyItems),
-                         listField "otherplugins" ctx (pure otherItems),
+                         listField "keyplugins" (subsCtx <> ctx) $ pure keyItems,
+                         listField "otherplugins" ctx $ pure otherItems,
                          ctx
                         ]
         makeItem ""
