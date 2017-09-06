@@ -169,9 +169,9 @@ sectionsContext sorter sectName = do
     fp <- loadCurrentPath
     thisItem <- getResourceBody
     thisParent <- getMetadataField (itemIdentifier thisItem) "parentPage"
-    allItems <- loadAll $ fromGlob ("text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess"
-    siblings <- filterM (isSibling thisParent) allItems >>= sorter
-    children <- filterM (isDirectChild fp) allItems >>= sorter
+    allItems <- loadAll (fromGlob ("text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess") >>= sorter
+    siblings <- filterM (isSibling thisParent) allItems
+    children <- filterM (isDirectChild fp) allItems
     shortDescrs <- buildFieldMap "shortdescr" children
     let hasShortDescr = boolField "hasShortDescr" $ isJust . join . (`M.lookup` shortDescrs) . itemIdentifier
     pure $ mconcat
