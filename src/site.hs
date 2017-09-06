@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE ParallelListComp #-}
 import           Data.Monoid
 import           Hakyll
 
@@ -106,7 +107,12 @@ pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath sect
         allItems <- loadAll (filesPat .&&. hasNoVersion) >>= subOrder
         keyItems <- filterM isKeyPlugin allItems
         otherItems <- filterM otherPred allItems
-        let subsCtx = listFieldWith "subplugins" ctx $ \item -> filterM (isDirectChild $ defaultTextRoute $ itemIdentifier item) allItems
+        let itemChildren item = filterM (isDirectChild $ bareName item) allItems
+        children <- do
+            chs <- mapM (itemChildren) keyItems
+            pure $ M.fromList [(defaultTextRoute $ itemIdentifier item, chs') | item <- keyItems
+                                                                              | chs' <- chs]
+        let subsCtx = listFieldWith "subplugins" ctx (\item -> pure $ children M.! bareName item)
         let listCtx = mconcat
                         [
                          constField "title" listTitle,
@@ -122,6 +128,7 @@ pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath sect
             isKey <- isKeyPlugin item
             parent <- getParentPage item
             pure $ not isKey && isNothing parent
+          bareName = defaultTextRoute . itemIdentifier
 
 listed :: ListedConfig -> Rules ()
 listed cfg@ListedConfig { .. } = do
