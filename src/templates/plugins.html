@@ -2,7 +2,16 @@
 <dl>
     $for(keyplugins)$
     <dt><a href="$url$">$title$</a></dt>
-    <dd>$shortdescr$</dd>
+    <dd>
+        $shortdescr$
+        <ul>
+        $for(subplugins)$
+            <li>
+                <a href="$url$">$title$</a> &mdash; $shortdescr$
+            </li>
+        $endfor$
+        </ul>
+    </dd>
     $endfor$
 </dl>
 
