@@ -4,6 +4,7 @@
     <dt><a href="$url$">$title$</a></dt>
     <dd>
         $shortdescr$
+        $if(hasSubplugins)$
         <ul>
         $for(subplugins)$
             <li>
@@ -11,6 +12,7 @@
             </li>
         $endfor$
         </ul>
+        $endif$
     </dd>
     $endfor$
 </dl>
