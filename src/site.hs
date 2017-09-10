@@ -114,6 +114,7 @@ pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath sect
                                                                               | chs' <- chs]
         let subsCtx = listFieldWith "subplugins" ctx (\item -> pure $ children M.! bareName item)
                     <> boolField "hasSubplugins" (\item -> not $ null $ children M.! bareName item)
+                    <> field "bareName" (pure . bareName)
         let listCtx = mconcat
                         [
                          listField "keyplugins" (subsCtx <> ctx) $ pure keyItems,
