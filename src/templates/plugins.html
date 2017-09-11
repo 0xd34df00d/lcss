@@ -1,12 +1,16 @@
 <style>
-@import url("/css/dropdown.css")
+@import url("/css/dropdown.css");
+
+.keyplugin-descr {
+    margin-bottom: 0.5em;
+}
 </style>
 
 <h2>Key plugins:</h2>
 <dl>
     $for(keyplugins)$
     <dt><a href="$url$">$title$</a></dt>
-    <dd>
+    <dd class="keyplugin-descr">
         $shortdescr$
         $if(hasSubplugins)$
         <div class="expandable-container">
