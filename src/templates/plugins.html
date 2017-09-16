@@ -13,19 +13,14 @@
     <dd class="keyplugin-descr">
         $shortdescr$
         $if(hasSubplugins)$
-        <div class="expandable-container">
-            <input type="checkbox" id="subplugins-list-$bareName$" />
-            <label for="subplugins-list-$bareName$">Subplugins</label>
-            <div class="content">
-                <ul>
-                $for(subplugins)$
-                    <li>
-                        <a href="$url$">$title$</a> &mdash; $shortdescr$
-                    </li>
-                $endfor$
-                </ul>
-            </div>
-        </div>
+        <details>
+            <summary>Subplugins</summary>
+            <ul>
+            $for(subplugins)$
+            <li><a href="$url$">$title$</a> &mdash; $shortdescr$</li>
+            $endfor$
+            </ul>
+        </details>
         $endif$
     </dd>
     $endfor$
