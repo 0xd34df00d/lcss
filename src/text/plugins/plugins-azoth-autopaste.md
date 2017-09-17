@@ -1,7 +1,7 @@
 ---
 title: Azoth Autopaste
 tags: azoth, plugins
-shortdescr: detects long texts and suggests pasting them to a pastebin service
+shortdescr: allows pasting long texts to some pastebin services
 parentPage: plugins-azoth
 ---
 
