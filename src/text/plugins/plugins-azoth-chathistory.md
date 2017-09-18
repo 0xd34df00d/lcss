@@ -1,9 +1,8 @@
 ---
 title: Azoth ChatHistory
 tags: plugins, azoth
-published: 2014-07-04T17:36:00
 shortdescr: as the name implies, stores the history of chat sessions
-
+parentPage: plugins-azoth
 ---
 
 \[img\_assist|url=images/azoth\_ch1\_0.png|title=MUC
