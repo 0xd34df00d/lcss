@@ -2,7 +2,7 @@
 title: Azoth Metacontacts
 tags: plugins, azoth
 shortdescr: metacontacts support plugin
-parentPage: azoth-plugins
+parentPage: plugins-azoth
 ---
 
 Azoth Metacontacts provides support for metacontacts in LeechCraft.
