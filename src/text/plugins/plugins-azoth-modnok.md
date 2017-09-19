@@ -1,9 +1,8 @@
 ---
 title: Azoth Modnok
 tags: plugins, azoth
-published: 2011-07-12T00:03:43
 shortdescr: allows to render and display LaTeX formulae directly in chat windows
-
+parentPage: plugins-azoth
 ---
 
 Azoth Modnok allows to render and display LaTeX formulae directly in
