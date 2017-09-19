@@ -1,9 +1,8 @@
 ---
 title: Azoth Murm
 tags: azoth
-published: 2014-03-18T16:15:58
 shortdescr: provides support for VKontakte messaging via native API instead of XMPP
-
+parentPage: plugins-azoth
 ---
 
 Azoth Murm provides support for VKontakte messaging via native API
