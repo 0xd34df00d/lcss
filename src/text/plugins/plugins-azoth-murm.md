@@ -5,14 +5,11 @@ shortdescr: VKontakte messaging protocol implementation
 parentPage: plugins-azoth
 ---
 
-Azoth Murm provides support for VKontakte messaging via native API
-instead of XMPP.
+Azoth Murm provides support for VKontakte messaging via its
+native API.
 
-Using native API allows Murm to support various additional features not
-available via XMPP API, such as displaying photos in messages (as well
-as other media attachments) or fetching more information about users
-than is available in VCards provided via XMPP. Moreover, XMPP will be
-closed on August 31 this year.
+Using the native API allows Murm to support various additional features,
+such as displaying photos or other media attachments in the messages.
 
 \[img\_assist|url=images/murm01.png|title=|align=inline|link=1|width=440\]
 
