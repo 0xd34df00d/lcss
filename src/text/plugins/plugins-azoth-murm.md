@@ -29,3 +29,4 @@ Feature highlights
 - Full support for OTR (if the corresponding plugin is
   also installed).
 - Support browsing server history.
+- Sending files via VKontakte documents exchange system.
