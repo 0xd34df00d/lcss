@@ -1,9 +1,8 @@
 ---
 title: Azoth OTRoid
 tags: azoth otroid
-published: 2014-07-04T19:37:00
 shortdescr: provides support for OTR deniable encryption to Azoth
-
+parentPage: plugins-azoth
 ---
 
 Azoth OTRoid provides support for OTR deniable encryption to Azoth. It
