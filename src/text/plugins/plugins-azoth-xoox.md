@@ -1,9 +1,8 @@
 ---
 title: Azoth Xoox
 tags: xoox, azoth
-published: 2015-06-30T22:48:48
-shortdescr: provides support for the XMPP protocol in Azoth
-
+shortdescr: XMPP protocol implementation
+parentPage: plugins-azoth
 ---
 
 Azoth Xoox provides support for the XMPP protocol in Azoth.\
