@@ -29,8 +29,7 @@ while remaining usable for other protocols.
 Protocols
 ---------
 
-Azoth supports the following protocols (links point to the pages of
-corresponding modules):
+Azoth supports the following protocols:
 
 - [IRC](/plugins-azoth-acetamide).
 - [Mail.Ru Agent](/plugins-azoth-vader).
