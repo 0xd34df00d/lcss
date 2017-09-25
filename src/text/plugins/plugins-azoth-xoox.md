@@ -5,39 +5,33 @@ shortdescr: XMPP protocol implementation
 parentPage: plugins-azoth
 ---
 
-Azoth Xoox provides support for the XMPP protocol in Azoth.\
-\
+Azoth Xoox provides support for the XMPP protocol in Azoth.
+
 Xoox is based on the [QXmpp](https://github.com/qxmpp-project/qxmpp)
 library.
 
 ### Feature highlights
 
-\
-\
-
--   Media calls support (Jingle).
--   Support for PEP and current user activity, mood, tune and location.
--   Bookmarks with autojoin support.
--   Full support for MUCs.
--   Support for messages with HTML content.
--   Notifications about chat state participation.
--   Service discovery support.
--   Gateway support, with registration.
--   Support for various file transfer methods.
--   In-band registration of accounts (right from the client).
--   Privacy lists.
--   Encrypted and signed messages and presences.
--   Full CAPTCHA support.
--   Support for ad-hoc commands.
--   Support for exchanging roster items.
--   Search for contacts in Jabber.
+- Media calls support (Jingle).
+- Support for PEP and current user activity, mood, tune and location.
+- Bookmarks with autojoin support.
+- Full support for MUCs.
+- Support for messages with HTML content.
+- Notifications about chat state participation.
+- Service discovery support.
+- Gateway support, with registration.
+- Support for various file transfer methods.
+- In-band registration of accounts (right from the client).
+- Privacy lists.
+- Encrypted and signed messages and presences.
+- Full CAPTCHA support.
+- Support for ad-hoc commands.
+- Support for exchanging roster items.
+- Search for contacts in Jabber.
 
 ### XEPs matrix
 
-\
-\
-This table summarizes the status of different XEPs in Azoth Xoox.\
-\
+This table summarizes the status of different XEPs in Azoth Xoox.
 
 <style type="text/css">
 .xepm, .xepm tr, .xepm td { border:1px solid #000; }
@@ -45,8 +39,6 @@ This table summarizes the status of different XEPs in Azoth Xoox.\
 .sinprog { background-color: #FFE958; }
 .sdone { background-color: #2ED52E; }
 </style>
-\
-\
 
 | XEP                                                                                     |Notes                                                                              |
 |-----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
