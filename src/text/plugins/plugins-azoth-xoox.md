@@ -34,7 +34,7 @@ library.
 This table summarizes the status of different XEPs in Azoth Xoox.
 
 <style type="text/css">
-.xepm, .xepm tr, .xepm td { border:1px solid #000; }
+.xepm, .xepm tr, .xepm td { border: 1px solid #000; border-spacing: 0px; }
 .splan { background-color: #FF5858; }
 .sinprog { background-color: #FFE958; }
 .sdone { background-color: #2ED52E; }
