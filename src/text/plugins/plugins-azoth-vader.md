@@ -8,8 +8,8 @@ parentPage: plugins-azoth
 Azoth Vader provides supports for the MRIM protocol used in the Mail.Ru
 Agent IM service.
 
-Vader is based on an own implementation of the MRIM protocol, partially
-based on available (and outdated) official specs and partly
+Vader uses its own MRIM implementation, partially
+based on publically available (and outdated) official specs and partially
 reverse-engineered. The following protocol features are supported:
 
 - Extended statuses.
