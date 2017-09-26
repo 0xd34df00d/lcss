@@ -109,7 +109,7 @@ pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath sect
         otherItems <- filterM otherPred allItems
         let itemChildren item = filterM (isDirectChild $ bareName item) allItems
         children <- do
-            chs <- mapM (itemChildren) keyItems
+            chs <- mapM itemChildren keyItems
             pure $ M.fromList [(defaultTextRoute $ itemIdentifier item, chs') | item <- keyItems
                                                                               | chs' <- chs]
         let subsCtx = listFieldWith "subplugins" ctx (\item -> pure $ children M.! bareName item)
@@ -178,9 +178,9 @@ sectionsContext :: Sorter -> String -> Compiler (Context a)
 sectionsContext sorter sectName = do
     fp <- loadCurrentPath
     thisItem <- getResourceBody
-    thisParent <- getMetadataField (itemIdentifier thisItem) "parentPage"
+    thisParentId <- getMetadataField (itemIdentifier thisItem) "parentPage"
     allItems <- loadAll (fromGlob ("text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess") >>= sorter
-    siblings <- filterM (isSibling thisParent) allItems
+    siblings <- filterM (isSibling thisParentId) allItems
     children <- filterM (isDirectChild fp) allItems
     shortDescrs <- buildFieldMap "shortdescr" children
     let hasShortDescr = boolField "hasShortDescr" $ isJust . join . (`M.lookup` shortDescrs) . itemIdentifier
