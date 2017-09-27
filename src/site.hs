@@ -178,7 +178,7 @@ sectionsContext :: Sorter -> String -> Compiler (Context a)
 sectionsContext sorter sectName = do
     fp <- loadCurrentPath
     thisItem <- getResourceBody
-    thisParentId <- getMetadataField (itemIdentifier thisItem) "parentPage"
+    thisParentId <- getParentPage thisItem
     allItems <- loadAll (fromGlob ("text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess") >>= sorter
     siblings <- filterM (isSibling thisParentId) allItems
     children <- filterM (isDirectChild fp) allItems
