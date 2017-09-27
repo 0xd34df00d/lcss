@@ -39,7 +39,7 @@ main = hakyll $ do
                                         createRoot = CustomRoot pluginsRoot,
                                         listTemplate = "plugins",
                                         customTemplate = Just "book-item",
-                                        customItemsContext = sectionsContext sortBookOrder "plugins"
+                                        customItemsContext = sectionsContext sortBookOrder
                                        }
 
     listed (defListedConfig "news") {
@@ -54,13 +54,13 @@ main = hakyll $ do
     listed (defListedConfig "development") {
                                             createRoot = NoRoot,
                                             customTemplate = Just "book-item",
-                                            customItemsContext = sectionsContext sortBookOrder "development"
+                                            customItemsContext = sectionsContext sortBookOrder
                                            }
 
     listed (defListedConfig "userguide") {
                                            createRoot = NoRoot,
                                            customTemplate = Just "book-item",
-                                           customItemsContext = sectionsContext sortBookOrder "userguide"
+                                           customItemsContext = sectionsContext sortBookOrder
                                          }
 
     match "templates/*" $ compile templateBodyCompiler
@@ -77,7 +77,7 @@ data ListedConfig = ListedConfig {
                         section :: String,
                         customTemplate :: Maybe String,
                         customContext :: Context String,
-                        customItemsContext :: Compiler (Context String),
+                        customItemsContext :: ListedConfig -> Compiler (Context String),
                         listTitle :: String,
                         listFieldName :: String,
                         listTemplate :: String,
@@ -91,7 +91,7 @@ defListedConfig section = ListedConfig {
                               section = section,
                               customTemplate = Nothing,
                               customContext = mempty,
-                              customItemsContext = pure mempty,
+                              customItemsContext = const $ pure mempty,
                               listTitle = toUpper (head section) : tail section,
                               listFieldName = section,
                               listTemplate = section,
@@ -142,7 +142,7 @@ listed cfg@ListedConfig { .. } = do
     match filesPat $ do
         route $ customRoute defaultTextRoute
         compile $ do
-            ctx' <- customItemsContext
+            ctx' <- customItemsContext cfg
             pandocCompiler
                   >>= loadAndApplyCustom (ctx' <> ctx)
                   >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
@@ -174,12 +174,12 @@ defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath
 loadCurrentPath :: Compiler FilePath
 loadCurrentPath = defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePath
 
-sectionsContext :: Sorter -> String -> Compiler (Context a)
-sectionsContext sorter sectName = do
+sectionsContext :: Sorter -> ListedConfig -> Compiler (Context a)
+sectionsContext sorter cfg@ListedConfig { .. } = do
     fp <- loadCurrentPath
     thisItem <- getResourceBody
     thisParentId <- getParentPage thisItem
-    allItems <- loadAll (fromGlob ("text/" <> sectName <> "/*.md") .&&. hasVersion "preprocess") >>= sorter
+    allItems <- loadAll (fromGlob ("text/" <> section <> "/*.md") .&&. hasVersion "preprocess") >>= sorter
     siblings <- filterM (isSibling thisParentId) allItems
     children <- filterM (isDirectChild fp) allItems
     shortDescrs <- buildFieldMap "shortdescr" children
