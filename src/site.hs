@@ -35,12 +35,7 @@ main = hakyll $ do
                 >>= relativizeUrls
                 >>= imageRefsCompiler
 
-    listed (defListedConfig "plugins") {
-                                        createRoot = CustomRoot pluginsRoot,
-                                        listTemplate = "plugins",
-                                        customTemplate = Just "book-item",
-                                        customItemsContext = sectionsContext sortBookOrder
-                                       }
+    listed (bookListedConfig "plugins") { createRoot = CustomRoot pluginsRoot }
 
     listed (defListedConfig "news") {
                                      customContext = dates,
@@ -49,22 +44,11 @@ main = hakyll $ do
                                      verPreprocess = False
                                     }
 
-    listed (defListedConfig "concepts") {
-                                         customTemplate = Just "book-item",
-                                         customItemsContext = sectionsContext sortBookOrder
-                                        }
+    listed (bookListedConfig "concepts")
 
-    listed (defListedConfig "development") {
-                                            createRoot = NoRoot,
-                                            customTemplate = Just "book-item",
-                                            customItemsContext = sectionsContext sortBookOrder
-                                           }
+    listed (bookListedConfig "development") { createRoot = NoRoot }
 
-    listed (defListedConfig "userguide") {
-                                           createRoot = NoRoot,
-                                           customTemplate = Just "book-item",
-                                           customItemsContext = sectionsContext sortBookOrder
-                                         }
+    listed (bookListedConfig "userguide") { createRoot = NoRoot }
 
     match "templates/*" $ compile templateBodyCompiler
 
@@ -102,6 +86,11 @@ defListedConfig section = ListedConfig {
                               verPreprocess = True,
                               subOrder = pure
                           }
+
+bookListedConfig :: String -> ListedConfig
+bookListedConfig section = (defListedConfig section) { customTemplate = Just "book-item"
+                                                     , customItemsContext = sectionsContext sortBookOrder
+                                                     }
 
 pluginsRoot :: CustomRootBuilder
 pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath section] $ do
