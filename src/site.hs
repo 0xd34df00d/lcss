@@ -184,14 +184,31 @@ sectionsContext sorter cfg@ListedConfig { .. } = do
     children <- filterM (isDirectChild fp) allItems
     shortDescrs <- buildFieldMap "shortdescr" children
     let hasShortDescr = boolField "hasShortDescr" $ isJust . join . (`M.lookup` shortDescrs) . itemIdentifier
+    parentCtx <- parentPageContext cfg allItems thisParentId
     pure $ mconcat
             [
              listField "siblingSections" (isCurrentPageField fp <> defaultContext) (pure siblings),
              hasPagesField "hasSiblingSections" siblings,
              listField "childSections" (hasShortDescr <> defaultContext) (pure children),
-             hasPagesField "hasChildSections" children
+             hasPagesField "hasChildSections" children,
+             parentCtx
             ]
     where hasPagesField name = boolField name . const . not . null
+
+parentPageContext :: MonadMetadata m => ListedConfig -> [Item a] -> Maybe String -> m (Context b)
+parentPageContext ListedConfig { .. } _ Nothing = pure $ mconcat
+        [
+         constField "parentPageTitle" listTitle,
+         constField "parentPageUrl" section
+        ]
+parentPageContext _ allItems (Just ident) = do
+    title <- getMetadataField id' "title"
+    pure $ mconcat
+        [
+         constField "parentPageTitle" $ fromJust title,
+         constField "parentPageUrl" ident
+        ]
+    where id' = itemIdentifier $ head $ filter ((== ident) . defaultTextRoute . itemIdentifier) allItems
 
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
