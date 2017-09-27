@@ -49,7 +49,10 @@ main = hakyll $ do
                                      verPreprocess = False
                                     }
 
-    listed (defListedConfig "concepts") { verPreprocess = False }
+    listed (defListedConfig "concepts") {
+                                         customTemplate = Just "book-item",
+                                         customItemsContext = sectionsContext sortBookOrder
+                                        }
 
     listed (defListedConfig "development") {
                                             createRoot = NoRoot,
