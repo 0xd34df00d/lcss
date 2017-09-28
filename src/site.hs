@@ -36,19 +36,15 @@ main = hakyll $ do
                 >>= imageRefsCompiler
 
     listed (bookListedConfig "plugins") { createRoot = CustomRoot pluginsRoot }
-
-    listed (defListedConfig "news") {
-                                     customContext = dates,
-                                     customTemplate = Just "news-item",
-                                     subOrder = recentFirst,
-                                     verPreprocess = False
-                                    }
-
+    listed (bookListedConfig "development") { createRoot = NoRoot }
+    listed (bookListedConfig "userguide") { createRoot = NoRoot }
     listed (bookListedConfig "concepts")
 
-    listed (bookListedConfig "development") { createRoot = NoRoot }
-
-    listed (bookListedConfig "userguide") { createRoot = NoRoot }
+    listed (defListedConfig "news") { customContext = dates
+                                    , customTemplate = Just "news-item"
+                                    , subOrder = recentFirst
+                                    , verPreprocess = False
+                                    }
 
     match "templates/*" $ compile templateBodyCompiler
 
