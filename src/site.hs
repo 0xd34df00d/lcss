@@ -176,12 +176,12 @@ sectionsContext sorter cfg@ListedConfig { .. } = do
     pure $ mconcat
             [
              listField "siblingSections" (isCurrentPageField fp <> defaultContext) (pure siblings),
-             hasPagesField "hasSiblingSections" siblings,
+             hasPagesField 1 "hasSiblingSections" siblings,
              listField "childSections" (hasShortDescr <> defaultContext) (pure children),
-             hasPagesField "hasChildSections" children,
+             hasPagesField 0 "hasChildSections" children,
              parentCtx
             ]
-    where hasPagesField name = boolField name . const . not . null
+    where hasPagesField len name = boolField name . const . (> len) . length
 
 parentPageContext :: MonadMetadata m => ListedConfig -> [Item a] -> Maybe String -> m (Context b)
 parentPageContext ListedConfig { .. } _ Nothing = pure $ mconcat
