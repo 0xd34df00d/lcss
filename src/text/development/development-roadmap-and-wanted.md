@@ -27,18 +27,3 @@ UPower2 backend for Liznoo.
 :   This should be pretty simple since UPower2 resembles UPower
     pretty much.
 
-Plans
------
-
-### 0.5.85
-
-\
-\
-Release date: ≈15 September.
-
-Nicer Google Drive support.
-
-:   
-
-CHM support in Monocle.
-:   Use chmlib for this.
