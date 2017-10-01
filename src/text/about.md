@@ -99,35 +99,5 @@ getting a decent IM client, media player or a feed reader, for example.\
 
 </div>
 
-\
-\
 <div style="clear:both">
-
 </div>
-
-\
-\
-<div style="float:right">
-
-<div class="fb-like" data-href="http://leechcraft.org" data-send="true"
-data-layout="button_count" data-width="180" data-show-faces="true">
-
-</div>
-
-</div>
-
-<div style="float:right">
-
-<div id="vk_like">
-
-</div>
-
-</div>
-
-<div style="float:right">
-
-<plusone href="http://leechcraft.org"></plusone>
-
-</div>
-
-<script type="text/javascript">VK.Widgets.Like("vk_like", {type: "mini", pageUrl: "http://leechcraft.org"});</script>
