@@ -4,9 +4,7 @@ tags: development
 parentPage: development-general-information
 ---
 
-Since this page is write-protected, discussion of desired features can
-be found
-[here](http://wiki.leechcraft.org/wiki/index.php/Roadmap_and_Features).
+For discussion please send pull requests to <https://github.com/0xd34df00d/lcss/blob/master/src/text/development/development-roadmap-and-wanted.md>
 
 Features we want
 ----------------
