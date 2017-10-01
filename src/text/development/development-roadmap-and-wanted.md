@@ -4,21 +4,41 @@ tags: development
 parentPage: development-general-information
 ---
 
-For discussion please send pull requests to <https://github.com/0xd34df00d/lcss/blob/master/src/text/development/development-roadmap-and-wanted.md>
+For discussion and suggestions [contact us](/contact-us) or send
+pull requests for
+<https://github.com/0xd34df00d/lcss/blob/master/src/text/development/development-roadmap-and-wanted.md>.
 
-Features we want
-----------------
+### Core
 
+-   Tabs in the window header.
 
-Jamendo integration in [LMP](/plugins-lmp).
-: We need to support radio streams, obtaining artists info,
-  recommendations, album art and similar stuff as does
-  [LastFMScrobble](/plugins-lastfmscrobble) for Last.FM.
+### New plugins
 
-HAL backend for [Liznoo](/plugins-liznoo).
-: This will be needed for the FreeBSD port of Liznoo, since there is
-  no UPower there.
+-   libvlc- or mpv-based media player with support for collections,
+    playlists, and so on.
+-   GUI for mpd.
+-   Recursive HTTP downloader (like `wget -m`{type="bash"} or
+    Teleport Pro).
+-   Tree-like tabs display like Tab++.
 
-UPower2 backend for Liznoo.
-: This should be pretty simple since UPower2 resembles UPower
-  pretty much.
+### Azoth
+
+-   Any XEPs not currently implemented according to the XEP matrix
+    on the [Azoth Xoox](/plugins-azoth-xoox)'s page.
+-   Ring, Matrix, ICQ, Gadu-gadu or any other protocol you want.
+
+### Liznoo
+
+-   FreeBSD HAL backend.
+
+### LMP
+
+-   Jamendo/Spotify/Pandora/any other social music service integration.
+
+### Poshuku
+
+-   Synchronizing bookmarks or currently opened pages with your favorite social
+    bookmarking service like Read It Later (Poshuku OnlineBookmarks is
+    to be extended for that).
+-   Shortcuts for clickable elements on a web page.
+-   Opera-like on/off toggle for pictures.
