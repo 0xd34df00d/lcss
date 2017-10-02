@@ -12,6 +12,7 @@ style="width: 40%; min-width: 460px; max-width: 1150px; float:right; margin-left
 
 </div>
 
+LeechCraft is a free open source cross-platform modular **live environment**.
 
 
 
