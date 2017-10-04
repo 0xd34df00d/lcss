@@ -3,8 +3,24 @@ title: About LeechCraft
 tags: 
 ---
 
-<div
-style="width: 40%; min-width: 460px; max-width: 1150px; float:right; margin-left: 4em; border-color: #CDCCCC; border-width: 1px; border-style: solid; border-radius: 5px; -moz-border-radius: 5px; padding-left: 5px; padding-right: 5px">
+<style type="text/css">
+.mainshots {
+    width: 40%;
+    min-width: 460px;
+    max-width: 1150px;
+    float:right;
+    margin-left: 4em;
+    border-color: #CDCCCC;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+</style>
+
+<div class="mainshots">
 \[img\_assist|url=images/poshuku01.png|title=Poshuku|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/azoth\_muc\_120916.png|title=Azoth|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/lmp00.png|title=LMP|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/lmp03.png|title=LMP|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/monocle01.png|title=Monocle|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/summary01.png|title=Summary|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/lackman01.png|title=LackMan|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/blogique01.png|title=Blogique|align=inline|link=1|width=220|height=133\]
 </div>
 
