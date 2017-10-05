@@ -18,6 +18,10 @@ tags:
     padding-left: 5px;
     padding-right: 5px;
 }
+
+.mainshots img {
+    margin: 0.1em;
+}
 </style>
 
 <div class="mainshots">
