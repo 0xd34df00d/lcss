@@ -100,7 +100,7 @@ issue:
 emerge -av leechcraft-meta
 ```
 All LeechCraft packages reside in a single category *app-leechcraft/*.
-To see the list of available ebuild, issue the following (assuming you
+To see the list of available ebuilds, issue the following (assuming you
 have *eix* installed):
 ``` {type="bash"}
 eix -c app-leechcraft/
@@ -119,8 +119,8 @@ the following loosely categorized ones:
 
 Alternatively, you could manually install every plugin.
 
-Please note that subplugins are toggled via USE flags of first-level
-plugins.
+Please note that subplugins are toggled via USE flags of the corresponding
+first-level plugins.
 
 ### openSUSE {#opensuse style="visibility:hidden;"}
 
@@ -131,7 +131,7 @@ To install it, just issue the following:
 ``` {type="bash"}
 zypper in leechcraft*
 ```
-For the latest milestone of LeechCraft the [network](https://software.opensuse.org//download.html?project=network&package=leechcraft) repository needs to
+For the latest milestone of LeechCraft the [network](https://software.opensuse.org/download.html?project=network&package=leechcraft) repository needs to
 be added, so issue
 ``` {type="bash"}
 zypper ar -f -r http://download.opensuse.org/repositories/network/openSUSE_Tumbleweed/network.repo
@@ -140,7 +140,7 @@ zypper in leechcraft*
 replacing *Tumbleweed* in the first command with your current distro version.
 
 To be on the bleeding edge and get most recent snapshots of the master
-development branch, add the [corresponding repo](https://software.opensuse.org//download.html?project=home:DarkSS:Qt5&package=leechcraft) by issuing
+development branch, add the [corresponding repo](https://software.opensuse.org/download.html?project=home:DarkSS:Qt5&package=leechcraft) by issuing
 
 ``` {type="bash"}
 zypper ar -f -r http://download.opensuse.org/repositories/home:DarkSS:Qt5/openSUSE_Leap_42.3/home:DarkSS:Qt5.repo
