@@ -10,7 +10,7 @@ Linux {#linux style="visibility:hidden;"}
 
 ### Agilia {#agilia style="visibility:hidden;"}
 
-![](http://files.leechcraft.org/imgs/distro_logos/agilia.png)
+![](//files.leechcraft.org/imgs/distro_logos/agilia.png)
 
 First, you need to enable the *edge* repository. For that, issue
 ``` {type="bash"}
@@ -37,7 +37,7 @@ mpkg install leechcraft-aggregator leechcraft-azoth leechcraft-poshuku
 
 ### Arch {#arch style="visibility:hidden;"}
 
-![](http://files.leechcraft.org/imgs/distro_logos/arch.png)
+![](//files.leechcraft.org/imgs/distro_logos/arch.png)
 
 LeechCraft has PKGBUILDs in AUR, so to install it, you first need
 yaourt:
@@ -51,7 +51,7 @@ yaourt -S leechcraft-git
 
 ### Debian {#debian style="visibility:hidden;"}
 
-![](http://files.leechcraft.org/imgs/distro_logos/debian.png)
+![](//files.leechcraft.org/imgs/distro_logos/debian.png)
 
 Packages for Debian Wheezy/Sid are available in [this unofficial
 repo](http://notesalexp.org/). Instructions for enabling that repository
@@ -63,7 +63,7 @@ automatically.
 
 ### Fedora {#fedora style="visibility:hidden;"}
 
-![](http://files.leechcraft.org/imgs/distro_logos/fedora.png)
+![](//files.leechcraft.org/imgs/distro_logos/fedora.png)
 
 LeechCraft is currently available in [an OBS
 repo](http://software.opensuse.org/download.html?project=home:DarkSS:fedora&package=leechcraft)
@@ -88,7 +88,7 @@ DA for a version bump.
 
 ### Gentoo {#gentoo style="visibility:hidden;"}
 
-![](http://files.leechcraft.org/imgs/distro_logos/gentoo.png)
+![](//files.leechcraft.org/imgs/distro_logos/gentoo.png)
 
 LeechCraft is available in the official Gentoo Portage tree. The most
 recent version is currently in *\~arch*, and live ebuilds for the master
@@ -124,7 +124,7 @@ first-level plugins.
 
 ### openSUSE {#opensuse style="visibility:hidden;"}
 
-![](http://files.leechcraft.org/imgs/distro_logos/suse.png)
+![](//files.leechcraft.org/imgs/distro_logos/suse.png)
 
 LeechCraft is available in default OSS repositories.
 To install it, just issue the following:
@@ -154,7 +154,7 @@ Alternatively, you can use official openSUSE [packages search](http://software.o
 
 ### Slackware {#slackware style="visibility:hidden;"}
 
-![](http://files.leechcraft.org/imgs/distro_logos/slackware.png)
+![](//files.leechcraft.org/imgs/distro_logos/slackware.png)
 
 Installation for Slackware is pretty simple: just download packages for
 your architecture (pkg for x86, pkg64 for x86\_64) from our
@@ -174,7 +174,7 @@ Have fun!
 
 ### Ubuntu {#ubuntu style="visibility:hidden;"}
 
-![](http://files.leechcraft.org/imgs/distro_logos/ubuntu.png)
+![](//files.leechcraft.org/imgs/distro_logos/ubuntu.png)
 
 LeechCraft 0.5.60 and later is available for Ubuntu Oneiric and Precise.
 Version 0.5.0 is also available for Maverick and Natty.
@@ -203,7 +203,7 @@ install *leechcraft-dbg* package.
 FreeBSD {#freebsd style="visibility:hidden;"}
 -------
 
-![](http://files.leechcraft.org/imgs/distro_logos/freebsd.png)\
+![](//files.leechcraft.org/imgs/distro_logos/freebsd.png)\
 
 LeechCraft is available for FreeBSD-current. To install, issue
 
@@ -222,7 +222,7 @@ plugins.
 Mac OS X {#mac-os-x style="visibility:hidden;"}
 --------
 
-![](http://files.leechcraft.org/imgs/distro_logos/mac_osx.png)
+![](//files.leechcraft.org/imgs/distro_logos/mac_osx.png)
 
 LeechCraft supports Mac OS X 10.9 and more recent versions.
 
@@ -238,7 +238,7 @@ available
 Microsoft Windows {#microsoft-windows style="visibility:hidden;"}
 -----------------
 
-![](http://files.leechcraft.org/imgs/distro_logos/Windows.png)\
+![](//files.leechcraft.org/imgs/distro_logos/Windows.png)\
 
 There are two installers, for
 [x86\_64](http://dist.leechcraft.org/LeechCraft/0.6.70/leechcraft-installer-0.6.70-0_x86_64.exe)
