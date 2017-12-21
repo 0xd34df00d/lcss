@@ -83,7 +83,7 @@ dnf search leechcraft
 Popular RPM Sphere repo can be used to get LeechCraft packages too.
 
 If you feel like the packages and/or releases are too old, don't hesitate [filling an
-issue](http://dev.leechcraft.org/projects/leechcraft/issues/new) against
+issue](https://dev.leechcraft.org/projects/leechcraft/issues/new) against
 DA for a version bump.
 
 ### Gentoo {#gentoo style="visibility:hidden;"}
@@ -147,7 +147,7 @@ zypper ar -f -r http://download.opensuse.org/repositories/home:DarkSS:Qt5/openSU
 ```
 
 If you feel like the packages and/or releases are too old, don't hesitate [filling an
-issue](http://dev.leechcraft.org/projects/leechcraft/issues/new) and assigning it to
+issue](https://dev.leechcraft.org/projects/leechcraft/issues/new) and assigning it to
 DA for a version bump.
 
 Alternatively, you can use official openSUSE [packages search](http://software.opensuse.org/).
@@ -228,12 +228,12 @@ LeechCraft supports Mac OS X 10.9 and more recent versions.
 
 The latest installer is for the 0.6.70 version, dated July 28, 2014. You
 can get it
-[here](http://dist.leechcraft.org/LeechCraft/0.6.70/LeechCraft-0.6.70.dmg).\
+[here](https://dist.leechcraft.org/LeechCraft/0.6.70/LeechCraft-0.6.70.dmg).\
 
 Previous LeechCraft build supporting previous Mac OS versions (10.7 and
 10.8) is for the 0.6.0 version, dated September 12, 2013. It is
 available
-[here](http://dist.leechcraft.org/LeechCraft/0.6.0/leechcraft-0.6.0.dmg).
+[here](https://dist.leechcraft.org/LeechCraft/0.6.0/leechcraft-0.6.0.dmg).
 
 Microsoft Windows {#microsoft-windows style="visibility:hidden;"}
 -----------------
@@ -241,9 +241,9 @@ Microsoft Windows {#microsoft-windows style="visibility:hidden;"}
 ![](//files.leechcraft.org/imgs/distro_logos/Windows.png)\
 
 There are two installers, for
-[x86\_64](http://dist.leechcraft.org/LeechCraft/0.6.70/leechcraft-installer-0.6.70-0_x86_64.exe)
+[x86\_64](https://dist.leechcraft.org/LeechCraft/0.6.70/leechcraft-installer-0.6.70-0_x86_64.exe)
 and
-[i686](http://dist.leechcraft.org/LeechCraft/0.6.70/leechcraft-installer-0.6.70-0_i686.exe)
+[i686](https://dist.leechcraft.org/LeechCraft/0.6.70/leechcraft-installer-0.6.70-0_i686.exe)
 architectures. Both are for LeechCraft 0.6.70, dated August 04, 2014.
 
 Please note that Windows is not as supported as other OSes, so crashes
@@ -255,7 +255,7 @@ Source
 The sources for the git HEAD could be downloaded from
 [Github](https://github.com/0xd34df00d/leechcraft/archive/master.zip).
 There are also tar.xz archives with weekly snapshots at [our
-server](http://dist.leechcraft.org/LeechCraft/).
+server](https://dist.leechcraft.org/LeechCraft/).
 
 If you want the last bleeding-edge LeechCraft, you could always [build
 from source](development-building-from-source).
