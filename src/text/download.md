@@ -203,7 +203,7 @@ install *leechcraft-dbg* package.
 FreeBSD {#freebsd style="visibility:hidden;"}
 -------
 
-![](//files.leechcraft.org/imgs/distro_logos/freebsd.png)\
+![](//files.leechcraft.org/imgs/distro_logos/freebsd.png)
 
 LeechCraft is available for FreeBSD-current. To install, issue
 
@@ -228,7 +228,7 @@ LeechCraft supports Mac OS X 10.9 and more recent versions.
 
 The latest installer is for the 0.6.70 version, dated July 28, 2014. You
 can get it
-[here](https://dist.leechcraft.org/LeechCraft/0.6.70/LeechCraft-0.6.70.dmg).\
+[here](https://dist.leechcraft.org/LeechCraft/0.6.70/LeechCraft-0.6.70.dmg).
 
 Previous LeechCraft build supporting previous Mac OS versions (10.7 and
 10.8) is for the 0.6.0 version, dated September 12, 2013. It is
@@ -238,7 +238,7 @@ available
 Microsoft Windows {#microsoft-windows style="visibility:hidden;"}
 -----------------
 
-![](//files.leechcraft.org/imgs/distro_logos/Windows.png)\
+![](//files.leechcraft.org/imgs/distro_logos/Windows.png)
 
 There are two installers, for
 [x86\_64](https://dist.leechcraft.org/LeechCraft/0.6.70/leechcraft-installer-0.6.70-0_x86_64.exe)
