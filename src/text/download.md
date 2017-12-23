@@ -13,7 +13,7 @@ Linux {#linux style="visibility:hidden;"}
 ![](//files.leechcraft.org/imgs/distro_logos/agilia.png)
 
 First, you need to enable the *edge* repository. For that, issue
-``` {type="bash"}
+```bash
 mpkg-list_rep
 mpkg-enable_rep repo_num
 mpkg-update
@@ -21,17 +21,17 @@ mpkg-update
 where *repo\_num* is the number of *edge* repo in the output of
 `mkpg-list_rep`{type="bash"}. If there is no *edge* repository, you need
 to add it manually:
-``` {type="bash"}
+```bash
 mpkg-add_rep http://edge.agilialinux.ru
 mpkg-update
 ```
 After that, you can issue
-``` {type="bash"}
+```bash
 mpkg search leechcraft
 ```
 to see what packages of LeechCraft are available and install the ones
 you want, for example, for Aggregator, Azoth and Poshuku:
-``` {type="bash"}
+```bash
 mpkg install leechcraft-aggregator leechcraft-azoth leechcraft-poshuku
 ```
 
@@ -41,11 +41,11 @@ mpkg install leechcraft-aggregator leechcraft-azoth leechcraft-poshuku
 
 LeechCraft has PKGBUILDs in AUR, so to install it, you first need
 yaourt:
-``` {type="bash"}
+```bash
 pacman -Sy yaourt
 ```
 Then, just issue
-``` {type="bash"}
+```bash
 yaourt -S leechcraft-git
 ```
 
@@ -71,13 +71,13 @@ for latest Fedora releases.
 
 After adding the repo, issue the following command to install all
 LeechCraft modules (which is recommended):
-``` {type="bash"}
+```bash
 sudo dnf install "leechcraft*"
 ```
 You may also want to install only a part of the modules. In this case
 issue the following to find all available packages with LeechCraft
 modules:
-``` {type="bash"}
+```bash
 dnf search leechcraft
 ```
 Popular RPM Sphere repo can be used to get LeechCraft packages too.
@@ -96,13 +96,13 @@ branch are masked.
 
 To install the metapackage which would pull all the plugins available,
 issue:
-``` {type="bash"}
+```bash
 emerge -av leechcraft-meta
 ```
 All LeechCraft packages reside in a single category *app-leechcraft/*.
 To see the list of available ebuilds, issue the following (assuming you
 have *eix* installed):
-``` {type="bash"}
+```bash
 eix -c app-leechcraft/
 ```
 If you prefer sets (starting with Portage 2.2), you can select any of
@@ -128,12 +128,12 @@ first-level plugins.
 
 LeechCraft is available in default OSS repositories.
 To install it, just issue the following:
-``` {type="bash"}
+```bash
 zypper in leechcraft*
 ```
 For the latest milestone of LeechCraft the [network](https://software.opensuse.org/download.html?project=network&package=leechcraft) repository needs to
 be added, so issue
-``` {type="bash"}
+```bash
 zypper ar -f -r http://download.opensuse.org/repositories/network/openSUSE_Tumbleweed/network.repo
 zypper in leechcraft*
 ```
@@ -142,7 +142,7 @@ replacing *Tumbleweed* in the first command with your current distro version.
 To be on the bleeding edge and get most recent snapshots of the master
 development branch, add the [corresponding repo](https://software.opensuse.org/download.html?project=home:DarkSS:Qt5&package=leechcraft) by issuing
 
-``` {type="bash"}
+```bash
 zypper ar -f -r http://download.opensuse.org/repositories/home:DarkSS:Qt5/openSUSE_Leap_42.3/home:DarkSS:Qt5.repo
 ```
 
@@ -159,7 +159,7 @@ Alternatively, you can use official openSUSE [packages search](http://software.o
 Installation for Slackware is pretty simple: just download packages for
 your architecture (pkg for x86, pkg64 for x86\_64) from our
 [repo](/repos/slackware/repo/) and install them with:
-``` {type="bash"}
+```bash
 updatepkg --install-new packagename
 ```
 For running LeechCraft, you would also need qjson, which could be
@@ -181,13 +181,13 @@ Version 0.5.0 is also available for Maverick and Natty.
 
 Add PPA with Weekly Builds (recommended):
 
-``` {type="bash"}
+```bash
 sudo add-apt-repository ppa:tehnick/leechcraft-unstable
 ```
 
 Alternatively, you can use PPA with stable releases:
 
-``` {type="bash"}
+```bash
 sudo add-apt-repository ppa:tehnick/leechcraft-stable
 ```
 
@@ -207,12 +207,12 @@ FreeBSD {#freebsd style="visibility:hidden;"}
 
 LeechCraft is available for FreeBSD-current. To install, issue
 
-``` {type="bash"}
+```bash
 portmaster x11/leechcraft
 ```
 
 or
-``` {type="bash"}
+```bash
 make -C x11/leechcraft install clean
 ```
 
