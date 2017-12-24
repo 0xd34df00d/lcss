@@ -3,10 +3,14 @@ title: Download
 toc: true
 ---
 
-Linux {#linux style="visibility:hidden;"}
+<style>
+.invisible-header { visibility: hidden; }
+</style>
+
+Linux {#linux class="invisible-header"}
 -----
 
-### Agilia {#agilia style="visibility:hidden;"}
+### Agilia {#agilia class="invisible-header"}
 
 ![](//files.leechcraft.org/imgs/distro_logos/agilia.png)
 
@@ -33,7 +37,7 @@ you want, for example, for Aggregator, Azoth and Poshuku:
 mpkg install leechcraft-aggregator leechcraft-azoth leechcraft-poshuku
 ```
 
-### Arch {#arch style="visibility:hidden;"}
+### Arch {#arch class="invisible-header"}
 
 ![](//files.leechcraft.org/imgs/distro_logos/arch.png)
 
@@ -47,7 +51,7 @@ Then, just issue
 yaourt -S leechcraft-git
 ```
 
-### Debian {#debian style="visibility:hidden;"}
+### Debian {#debian class="invisible-header"}
 
 ![](//files.leechcraft.org/imgs/distro_logos/debian.png)
 
@@ -59,7 +63,7 @@ Each LeechCraft plugin is packaged in a separate package. To install all
 LeechCraft plugins, just select *leechcraft*, the rest will be pulled
 automatically.
 
-### Fedora {#fedora style="visibility:hidden;"}
+### Fedora {#fedora class="invisible-header"}
 
 ![](//files.leechcraft.org/imgs/distro_logos/fedora.png)
 
@@ -84,7 +88,7 @@ If you feel like the packages and/or releases are too old, don't hesitate [filli
 issue](https://dev.leechcraft.org/projects/leechcraft/issues/new) against
 DA for a version bump.
 
-### Gentoo {#gentoo style="visibility:hidden;"}
+### Gentoo {#gentoo class="invisible-header"}
 
 ![](//files.leechcraft.org/imgs/distro_logos/gentoo.png)
 
@@ -120,7 +124,7 @@ Alternatively, you could manually install every plugin.
 Please note that subplugins are toggled via USE flags of the corresponding
 first-level plugins.
 
-### openSUSE {#opensuse style="visibility:hidden;"}
+### openSUSE {#opensuse class="invisible-header"}
 
 ![](//files.leechcraft.org/imgs/distro_logos/suse.png)
 
@@ -150,7 +154,7 @@ DA for a version bump.
 
 Alternatively, you can use official openSUSE [packages search](http://software.opensuse.org/).
 
-### Slackware {#slackware style="visibility:hidden;"}
+### Slackware {#slackware class="invisible-header"}
 
 ![](//files.leechcraft.org/imgs/distro_logos/slackware.png)
 
@@ -170,7 +174,7 @@ and modifying slackbuilds could be obtained at http://slackbuilds.org
 
 Have fun!
 
-### Ubuntu {#ubuntu style="visibility:hidden;"}
+### Ubuntu {#ubuntu class="invisible-header"}
 
 ![](//files.leechcraft.org/imgs/distro_logos/ubuntu.png)
 
@@ -198,7 +202,7 @@ parts of it, you can just select relevant plugins (they all begin with
 *leechcraft-*). If you want to help us with debugging LeechCraft,
 install *leechcraft-dbg* package.
 
-FreeBSD {#freebsd style="visibility:hidden;"}
+FreeBSD {#freebsd class="invisible-header"}
 -------
 
 ![](//files.leechcraft.org/imgs/distro_logos/freebsd.png)
@@ -217,7 +221,7 @@ make -C x11/leechcraft install clean
 Currently LeechCraft is represented by a single port file for all
 plugins.
 
-Mac OS X {#mac-os-x style="visibility:hidden;"}
+Mac OS X {#mac-os-x class="invisible-header"}
 --------
 
 ![](//files.leechcraft.org/imgs/distro_logos/mac_osx.png)
@@ -233,7 +237,7 @@ Previous LeechCraft build supporting previous Mac OS versions (10.7 and
 available
 [here](https://dist.leechcraft.org/LeechCraft/0.6.0/leechcraft-0.6.0.dmg).
 
-Microsoft Windows {#microsoft-windows style="visibility:hidden;"}
+Microsoft Windows {#microsoft-windows class="invisible-header"}
 -----------------
 
 ![](//files.leechcraft.org/imgs/distro_logos/Windows.png)
