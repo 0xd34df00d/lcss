@@ -5,6 +5,7 @@
 {-# LANGUAGE ParallelListComp #-}
 import           Data.Monoid
 import           Hakyll
+import           Text.Pandoc.Options
 
 import qualified Data.Map.Lazy as M
 import Data.List.Extra
@@ -30,7 +31,7 @@ main = hakyll $ do
 
     match "text/*.md" $ do
         route $ customRoute $ dropPrefix "text/" . unmdize . toFilePath
-        compile $ pandocCompiler
+        compile $ pandocCompiler'
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
                 >>= imageRefsCompiler
@@ -131,7 +132,7 @@ listed cfg@ListedConfig { .. } = do
         route $ customRoute defaultTextRoute
         compile $ do
             ctx' <- customItemsContext cfg
-            pandocCompiler
+            pandocCompiler'
                   >>= loadAndApplyCustom (ctx' <> ctx)
                   >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
                   >>= relativizeUrls
@@ -155,6 +156,18 @@ listed cfg@ListedConfig { .. } = do
           tplPath path = fromFilePath $ "templates/" <> path <> ".html"
           loadAndApplyCustom | Just tpl <- customTemplate = loadAndApplyTemplate (tplPath tpl)
                              | otherwise = const pure
+
+pandocCompiler' :: Compiler (Item String)
+pandocCompiler' = do
+    item <- getResourceBody
+    toc <- getMetadataField (itemIdentifier item) "toc"
+    if fromMaybe "nope" toc `elem` ["true", "1", "True"]
+        then pandocCompilerWith defaultHakyllReaderOptions writeOptsToc
+        else pandocCompiler
+    where writeOptsToc = defaultHakyllWriterOptions { writerTableOfContents = True
+                                                    , writerTOCDepth = 4
+                                                    , writerTemplate = Just "$if(toc)$<div id=\"toc\">$toc$</div>$endif$\n$body$"
+                                                    }
 
 defaultTextRoute :: Identifier -> FilePath
 defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath
