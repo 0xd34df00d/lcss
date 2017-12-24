@@ -1,7 +1,5 @@
 ---
 title: Download
-tags: 
-published: 2014-08-06T12:43:07
 toc: true
 ---
 
