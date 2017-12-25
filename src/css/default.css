@@ -66,7 +66,7 @@ a {
     text-decoration: none;
 }
 
-.category-listing {
+.category-listing, .toc {
     float: right;
     padding-left: 0.5em;
     padding-right: 0.5em;
