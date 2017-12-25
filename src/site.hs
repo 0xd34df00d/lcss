@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings, QuasiQuotes #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ParallelListComp #-}
@@ -13,6 +13,7 @@ import Data.Char
 import Data.Maybe
 import Control.Monad
 import Control.Monad.ListM
+import Text.RawString.QQ
 
 import ImageRefsCompiler
 import CustomFields
@@ -166,8 +167,19 @@ pandocCompiler' = do
         else pandocCompiler
     where writeOptsToc = defaultHakyllWriterOptions { writerTableOfContents = True
                                                     , writerTOCDepth = 4
-                                                    , writerTemplate = Just "$if(toc)$<div id=\"toc\">$toc$</div>$endif$\n$body$"
+                                                    , writerTemplate = Just tocTemplate
                                                     }
+          tocTemplate = [r|
+$if(toc)$
+<aside class="toc bordered">
+    <details open="open">
+        <summary>TOC</summary>
+        $toc$
+    </details>
+</aside>
+$endif$
+$body$
+|]
 
 defaultTextRoute :: Identifier -> FilePath
 defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath
