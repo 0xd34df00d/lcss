@@ -4,7 +4,8 @@ toc: true
 ---
 
 <style>
-.invisible-header { visibility: hidden; }
+.invisible-header { visibility: hidden; height: 0px; margin-top: 2em; }
+.invisible-header:first-of-type { display: none; }
 </style>
 
 Linux {#linux class="invisible-header"}
