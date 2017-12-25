@@ -173,7 +173,7 @@ pandocCompiler' = do
 $if(toc)$
 <aside class="toc bordered">
     <details open="open">
-        <summary>TOC</summary>
+        <summary>Contents</summary>
         $toc$
     </details>
 </aside>
