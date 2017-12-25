@@ -83,6 +83,10 @@ a {
     padding-left: 1em;
 }
 
+.toc ul {
+    padding-left: 1em;
+}
+
 .bordered {
     border-color: #CDCCCC;
     border-width: 1px;
