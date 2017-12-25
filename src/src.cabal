@@ -15,6 +15,7 @@ executable site
                   , interpolate
                   , directory
                   , monadlist
+                  , raw-strings-qq
   ghc-options:      -threaded -Wall -rtsopts
   other-modules:    ImageRefsCompiler
                   , CustomFields
