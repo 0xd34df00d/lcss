@@ -27,7 +27,7 @@ quite a lot: it's a birthday notifier module for our
 from contacts' vCards, and one can also configure the desired days on
 which to notify.
 
-Среди прочих изменений:
+Among other changes:
 
 - Core: fallback to using external apps is now optional.
 - Core: fixed showing main window in some WMs.
