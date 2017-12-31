@@ -21,10 +21,8 @@ sense to upload music in big batches. It's also run with minimum
 possible priority, so one can just continue to do your work while the
 media files are being converted. All this stuff looks like this:
 
-\[img\_assist|url=images/lmp-up-1.png|title=Uploading
-progress|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp-up-2.png|title=Transcoding
-options|align=inline|link=1|width=440\]
+\[img\_assist|url=images/lmp-up-1.png|title=Uploading progress|align=inline|link=1|width=440\]
+\[img\_assist|url=images/lmp-up-2.png|title=Transcoding options|align=inline|link=1|width=440\]
 
 For now only those media players are supported that don't require any
 special MTP or i-device-related protocols, but support for the latter
