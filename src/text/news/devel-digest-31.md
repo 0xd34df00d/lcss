@@ -1,7 +1,7 @@
 ---
 title: Development digest #31
 tags: digest, 0.6.x
-published: 2012-10-03T18:07:43
+published: 2012-09-06T14:30:00
 
 ---
 
