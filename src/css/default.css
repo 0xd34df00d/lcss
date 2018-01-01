@@ -94,3 +94,28 @@ a {
     padding-left: 0.5em;
     padding-right: 0.5em;
 }
+
+.img-wrap {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 0.8em;
+}
+
+.img-wrap-left {
+    float: left;
+    clear: both;
+    margin-right: 5px;
+}
+
+.img-wrap-right {
+    float: right;
+    clear: both;
+    margin-left: 5px;
+}
+
+.img-wrap-inline {
+    border: none;
+}
