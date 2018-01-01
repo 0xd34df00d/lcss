@@ -9,6 +9,7 @@ import qualified Data.HashMap.Strict as M
 import System.Directory(doesFileExist)
 import Control.Arrow
 import Control.Monad
+import Data.Char
 import Data.String.Interpolate
 import Data.Monoid
 import Data.Maybe
@@ -76,17 +77,17 @@ data ExtractChunk = ChunkText String
 
 showChunk :: ExtractChunk -> String
 showChunk (ChunkText s) = s
-showChunk ref@ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}">#{imgTag ref $ thumbFilename imgRequestedDims imgUrl}</a>|]
-                                 | otherwise = imgTag ref imgUrl
-
-imgTag :: ExtractChunk -> String -> String
-imgTag ChunkImgRef { .. } url = [i|<img src="#{url}" width="#{w}" height="#{h}" alt="#{imgTitle}" title="#{imgTitle}" style="#{float}" />|]
+showChunk ChunkImgRef { .. } = [i|
+<div class="img-wrap img-wrap-#{map toLower $ drop 5 $ show imgAlign}">
+    #{prelink}
+    <img src="#{url}" width="#{w}" height="#{h}" alt="#{imgTitle}" title="#{imgTitle}" /><br/>
+    <strong>#{imgTitle}</strong>
+    #{postlink}
+</div>
+|]
     where Just (w, h) = imgGeneratedDims
-          float = case imgAlign of
-                    AlignLeft -> "float:left; clear:both;"
-                    AlignRight -> "float:right; clear:both;"
-                    AlignInline -> ""
-imgTag (ChunkText _) _ = error "imgTag accepts only ChunkImgRef"
+          (url, prelink, postlink) | imgIsLink = (thumbFilename imgRequestedDims imgUrl, [i|<a href="#{imgUrl}">|], "</a>")
+                                   | otherwise = (imgUrl, mempty, mempty)
 
 thumbFilename :: ImgDims -> String -> String
 thumbFilename dims s = n <> "hakyllthumb_" <> showDims dims <> "." <> ext
