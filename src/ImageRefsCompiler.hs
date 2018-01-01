@@ -76,13 +76,17 @@ data ExtractChunk = ChunkText String
 
 showChunk :: ExtractChunk -> String
 showChunk (ChunkText s) = s
-showChunk ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}"><img src="#{thumbFilename imgRequestedDims imgUrl}" width="#{w}" height="#{h}" alt="#{imgTitle}" title="#{imgTitle}" style="#{float}" /></a>|]
-                             | otherwise = [i|<img src="#{imgUrl}" width="#{w}" height="#{h}" alt="#{imgTitle}" title="#{imgTitle}" style="#{float}" />|]
+showChunk ref@ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}">#{imgTag ref $ thumbFilename imgRequestedDims imgUrl}</a>|]
+                                 | otherwise = imgTag ref imgUrl
+
+imgTag :: ExtractChunk -> String -> String
+imgTag ChunkImgRef { .. } url = [i|<img src="#{url}" width="#{w}" height="#{h}" alt="#{imgTitle}" title="#{imgTitle}" style="#{float}" />|]
     where Just (w, h) = imgGeneratedDims
           float = case imgAlign of
                     AlignLeft -> "float:left; clear:both;"
                     AlignRight -> "float:right; clear:both;"
                     AlignInline -> ""
+imgTag (ChunkText _) _ = error "imgTag accepts only ChunkImgRef"
 
 thumbFilename :: ImgDims -> String -> String
 thumbFilename dims s = n <> "hakyllthumb_" <> showDims dims <> "." <> ext
