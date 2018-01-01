@@ -3,7 +3,6 @@ title: SB2
 tags: sb2, plugins
 shortdescr: side panel for LeechCraft
 keyplugin: 1
-
 ---
 
 SB2 is the side panel for LeechCraft, extensible via special widgets
