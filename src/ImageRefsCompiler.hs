@@ -76,9 +76,13 @@ data ExtractChunk = ChunkText String
 
 showChunk :: ExtractChunk -> String
 showChunk (ChunkText s) = s
-showChunk ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}"><img src="#{thumbFilename imgRequestedDims imgUrl}" width="#{w}" height="#{h}" alt="#{imgTitle}" /></a>|]
-                             | otherwise = [i|<img src="#{imgUrl}" width="#{w}" height="#{h}" alt="#{imgTitle}" />|]
+showChunk ChunkImgRef { .. } | imgIsLink = [i|<a href="#{imgUrl}"><img src="#{thumbFilename imgRequestedDims imgUrl}" width="#{w}" height="#{h}" alt="#{imgTitle}" style="#{float}" /></a>|]
+                             | otherwise = [i|<img src="#{imgUrl}" width="#{w}" height="#{h}" alt="#{imgTitle}" style="#{float}" />|]
     where Just (w, h) = imgGeneratedDims
+          float = case imgAlign of
+                    AlignLeft -> "float:left; clear:both;"
+                    AlignRight -> "float:right; clear:both;"
+                    AlignInline -> ""
 
 thumbFilename :: ImgDims -> String -> String
 thumbFilename dims s = n <> "hakyllthumb_" <> showDims dims <> "." <> ext
