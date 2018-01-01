@@ -51,7 +51,7 @@ TabSessManager also supports explicitly named sessions, so that one can
 save a bunch of interesting tabs in a named session and restore them
 later.
 
-\[img\_assist|url=images/nsm01.png|title=NetStoreManager|align=left|link=1|width=220|height=136\]
+\[img\_assist|url=images/nsm01.png|title=NetStoreManager|align=right|link=1|width=220|height=136\]
 
 [NetStoreManager](/plugins-netstoremanager), plugin for management of
 remote network data storages like Yandex.Disk, has been added. It is
