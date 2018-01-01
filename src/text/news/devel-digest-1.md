@@ -1,5 +1,5 @@
 ---
-title: Development digest #1
+title: Development digest &num;1
 tags: digest
 published: 2011-05-07T09:27:22
 

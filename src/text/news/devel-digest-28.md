@@ -1,5 +1,5 @@
 ---
-title: Development digest #28
+title: Development digest &num;28
 tags: digest, 0.6.x
 published: 2012-07-24T21:20:35
 
