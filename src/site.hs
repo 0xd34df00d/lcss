@@ -11,8 +11,8 @@ import qualified Data.Map.Lazy as M
 import Data.List.Extra
 import Data.Char
 import Data.Maybe
+import Data.Ord
 import Control.Monad
-import Control.Monad.ListM
 import Text.RawString.QQ
 
 import ImageRefsCompiler
@@ -230,8 +230,9 @@ dropPrefix :: String -> String -> String
 dropPrefix s = drop $ length s
 
 sortItemsBy :: (MonadMetadata m, Ord b) => (Item a -> m b) -> [Item a] -> m [Item a]
-sortItemsBy = sortByM . comparingM
-    where comparingM f a b = compare <$> f a <*> f b
+sortItemsBy cmp items = do
+    items' <- zip items <$> mapM cmp items
+    pure $ fst <$> sortBy (comparing snd) items'
 
 type Sorter = forall m a. MonadMetadata m => [Item a] -> m [Item a]
 
