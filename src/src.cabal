@@ -14,7 +14,6 @@ executable site
                   , containers
                   , interpolate
                   , directory
-                  , monadlist
                   , raw-strings-qq
   ghc-options:      -threaded -Wall -rtsopts
   other-modules:    ImageRefsCompiler
