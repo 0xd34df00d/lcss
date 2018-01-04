@@ -58,11 +58,15 @@ data RootItem = NoRoot
               | DefaultRoot
               | CustomRoot CustomRootBuilder
 
+data CustomItemsContext = CustomItemsContext {
+                              itemsContext :: ListedConfig -> Compiler (Context String)
+                          }
+
 data ListedConfig = ListedConfig {
                         section :: String,
                         customTemplate :: Maybe String,
                         customContext :: Context String,
-                        customItemsContext :: ListedConfig -> Compiler (Context String),
+                        customItemsContext :: CustomItemsContext,
                         listTitle :: String,
                         listFieldName :: String,
                         listTemplate :: String,
@@ -76,7 +80,7 @@ defListedConfig section = ListedConfig {
                               section = section,
                               customTemplate = Nothing,
                               customContext = mempty,
-                              customItemsContext = const $ pure mempty,
+                              customItemsContext = CustomItemsContext $ const $ pure mempty,
                               listTitle = toUpper (head section) : tail section,
                               listFieldName = section,
                               listTemplate = section,
@@ -87,7 +91,7 @@ defListedConfig section = ListedConfig {
 
 bookListedConfig :: String -> ListedConfig
 bookListedConfig section = (defListedConfig section) { customTemplate = Just "book-item"
-                                                     , customItemsContext = sectionsContext sortBookOrder
+                                                     , customItemsContext = CustomItemsContext { itemsContext = sectionsContext sortBookOrder }
                                                      }
 
 pluginsRoot :: CustomRootBuilder
@@ -132,7 +136,7 @@ listed cfg@ListedConfig { .. } = do
     match filesPat $ do
         route $ customRoute defaultTextRoute
         compile $ do
-            ctx' <- customItemsContext cfg
+            ctx' <- itemsContext customItemsContext cfg
             pandocCompiler'
                   >>= loadAndApplyCustom (ctx' <> ctx)
                   >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
