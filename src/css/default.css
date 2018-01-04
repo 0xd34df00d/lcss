@@ -45,6 +45,7 @@ footer {
     margin-top: 30px;
     padding: 12px 0px 12px 0px;
     text-align: right;
+    clear: both;
 }
 
 h1 {
