@@ -18,34 +18,33 @@ our XML settings dialog markup language now supports the attribute that
 allows to have *More this stuff* buttons where needed, and
 [LackMan](/plugins-lackman) now supports communicating with other
 plugins in order to show just those packages that are relevant to the
-chosen *More this stuff* category.\
-\
-\[img\_assist|url=images/icons1.png|title=Poshuku hover
-box|align=left|link=1|width=220\]\
-\
+chosen *More this stuff* category.
+
+\[img\_assist|url=images/icons1.png|title=Poshuku hover box|align=right|link=1|width=220\]
+
 Among other changes:
 
--   Added the "Group send" feature to [Azoth](/plugins-azoth).
--   [Poshuku](/plugins-poshuku): display links on hover in a nice box on
-    the viewport instead of status bar (see the screenshot on
-    the right).
--   [LackMan](/plugins-lackman) now gives a bit more space to the
-    descriptions of the packages.
--   Added periodical updates feature to [LackMan](/plugins-lackman).
--   [AdvancedNotifications](/plugins-advancednotifications) now supports
-    toggling audio notifications via quick launch area and tray menu.
--   [Aggregator](/plugins-aggregator) now supports removing individual
-    channels by user.
--   Allow one to disable displaying conference join/leave events in
-    [Azoth](/plugins-azoth).
--   [Azoth](/plugins-azoth) now has buttons to install more different
-    icons/themes in settings.
--   Fixed layouts a bit more in Settings tab.
--   [\#489](http://dev.leechcraft.org/issues/489): fixed displaying
-    image in [Azoth p100q](/plugins-azoth-p100q) from original post in
-    each comment quote.
--   [\#492](http://dev.leechcraft.org/issues/492): hide Inspect action
-    in [Azoth](/plugins-azoth) context menu when developer extras
-    are disabled.
--   Fixed viewport size issues in [Poshuku](/plugins-poshuku).
--   Fixed rare emoticons mishandling in [Azoth](/plugins-azoth).
+- Added the "Group send" feature to [Azoth](/plugins-azoth).
+- [Poshuku](/plugins-poshuku): display links on hover in a nice box on
+  the viewport instead of status bar (see the screenshot on
+  the right).
+- [LackMan](/plugins-lackman) now gives a bit more space to the
+  descriptions of the packages.
+- Added periodical updates feature to [LackMan](/plugins-lackman).
+- [AdvancedNotifications](/plugins-advancednotifications) now supports
+  toggling audio notifications via quick launch area and tray menu.
+- [Aggregator](/plugins-aggregator) now supports removing individual
+  channels by user.
+- Allow one to disable displaying conference join/leave events in
+  [Azoth](/plugins-azoth).
+- [Azoth](/plugins-azoth) now has buttons to install more different
+  icons/themes in settings.
+- Fixed layouts a bit more in Settings tab.
+- [\#489](http://dev.leechcraft.org/issues/489): fixed displaying
+  image in [Azoth p100q](/plugins-azoth-p100q) from original post in
+  each comment quote.
+- [\#492](http://dev.leechcraft.org/issues/492): hide Inspect action
+  in [Azoth](/plugins-azoth) context menu when developer extras
+  are disabled.
+- Fixed viewport size issues in [Poshuku](/plugins-poshuku).
+- Fixed rare emoticons mishandling in [Azoth](/plugins-azoth).
