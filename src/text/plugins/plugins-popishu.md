@@ -11,9 +11,9 @@ syntax highlighting for some common file types, folding, automatic
 identation, and such. It also could be used as enhanced source view
 plugin for the [Poshuku](/plugins-poshuku) browser module, for example.
 
-\[img\_assist|url=images/popishu\_src1.png|title=HTML source view|align=left|link=1|width=220\]
+\[img\_assist|url=images/popishu\_src1.png|title=HTML source view|align=right|link=1|width=220\]
 
-\[img\_assist|url=images/popishu\_tex1.png|title=TeX document|align=left|link=1|width=220\]
+\[img\_assist|url=images/popishu\_tex1.png|title=TeX document|align=right|link=1|width=220\]
 
 Features
 --------
