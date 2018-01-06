@@ -11,9 +11,9 @@ supports notifications with HTML markup, notification actions (for
 example, "Open chat" action in a notification about incoming IM message)
 and is fully themable.
 
-\[img\_assist|url=images/screen12.png|title=GMail Notifier notification|align=left|link=1|width=220\]
+\[img\_assist|url=images/screen12.png|title=GMail Notifier notification|align=right|link=1|width=220\]
 
-\[img\_assist|url=images/screen13.png|title=Azoth notification|align=left|link=1|width=220\]
+\[img\_assist|url=images/screen13.png|title=Azoth notification|align=right|link=1|width=220\]
 
 Features
 --------

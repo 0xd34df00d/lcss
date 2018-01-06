@@ -5,11 +5,11 @@ shortdescr: client for RSS/RDF/Atom feeds with support for various RSS extension
 keyplugin: 1
 ---
 
-\[img\_assist|url=images/summary01.png|title=|align=left|link=1|width=220\]
+\[img\_assist|url=images/summary01.png|title=|align=right|link=1|width=220\]
 
-\[img\_assist|url=images/aggregator\_merge1.png|title=|align=left|link=1|width=220\]
+\[img\_assist|url=images/aggregator\_merge1.png|title=|align=right|link=1|width=220\]
 
-\[img\_assist|url=images/aggregator\_filtering1.png|title=|align=left|link=1|width=220\]
+\[img\_assist|url=images/aggregator\_filtering1.png|title=|align=right|link=1|width=220\]
 
 Aggregator is a client for RSS/RDF/Atom feeds with support for various
 RSS extensions. It also allows to subscribe and automatically fetch
