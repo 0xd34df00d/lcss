@@ -1,5 +1,8 @@
+{-# LANGUAGE FlexibleInstances #-}
+
 module CustomFields
         (
+         HasMetadata,
          dates,
          isCurrentPageField,
          isSibling,
@@ -32,6 +35,10 @@ class HasMetadata a where
 instance HasMetadata (Item a) where
     (/>) = getMetadataField . itemIdentifier
     ident = itemIdentifier
+
+instance HasMetadata (Identifier, Metadata) where
+    (_, m) /> f = pure $ lookupString f m
+    ident = fst
 
 isCurrentPage :: HasMetadata a => FilePath -> a -> Compiler String
 isCurrentPage fp a = compareTemplated fp <$> getRoute (ident a)
