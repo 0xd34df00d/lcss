@@ -9,13 +9,13 @@ For a long time I was asked to make a clear and readable list of
 dependencies between plugins in LeechCraft. Those dependencies are quite
 obscure, as some plugins depend on others directly, some depend only on
 some functionality of others, and there could be even cyclic
-dependencies!\
-\
+dependencies!
+
 Anyway, a few days ago I made a graph for that, and [here it
 is](http://files.leechcraft.org/plugins.png). I do not even post
 thumbnails here since it doesn't make sense for an image wider than 3000
-pixels.\
-\
+pixels.
+
 Thus, ovals indicate the usual LeechCraft plugins, rectangles represent
 some of the functionality provided by plugins, and external non-standard
 (not Qt and not Boost) dependencies are of rhomboid shape. Arrows from
@@ -31,14 +31,14 @@ and external library dependencies. "Strict" dependencies carry some kind
 of personal thoughts: for example, you can use [Azoth](/plugins-azoth)
 or Snails without a password manager, but it would be quite a pain — you
 will be asked with a password to every other step, so the corresponding
-arrows are red.\
-\
+arrows are red.
+
 Also, this graph doesn't contain all the plugins in LeechCraft: ones
 without dependencies (including subplugins depending only on their
-parent plugin) aren't shown.\
-\
+parent plugin) aren't shown.
+
 That graph will be updated from time to time, so one could expect it to
-be more or less up-to-date.\
-\
+be more or less up-to-date.
+
 If anyone wonders, graph's sources are
 [here](https://github.com/0xd34df00d/leechcraft/blob/master/doc/plugins.dot).
