@@ -1,7 +1,7 @@
 ---
 title: LeechCraft 0.4.85 is released
 tags: 0.5.x, release
-published: 2012-02-09T08:45:57
+published: 2011-07-22T08:45:57
 
 ---
 

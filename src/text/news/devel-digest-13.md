@@ -1,7 +1,7 @@
 ---
 title: Development digest &num;13
 tags: digest
-published: 2011-10-04T10:10:33
+published: 2011-09-19T10:10:33
 
 ---
 
