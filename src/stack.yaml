@@ -4,4 +4,4 @@ packages:
 - .
 extra-deps:
 - monadlist-0.0.2
-resolver: lts-10.2
+resolver: lts-11.0
