@@ -230,9 +230,6 @@ parentPageContext _ allItems (Just ident) = do
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
 
-dropPrefix :: String -> String -> String
-dropPrefix s = drop $ length s
-
 sortItemsBy :: (MonadMetadata m, Ord b) => (Item a -> m b) -> [Item a] -> m [Item a]
 sortItemsBy cmp items = do
     items' <- zip items <$> mapM cmp items
