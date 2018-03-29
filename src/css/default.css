@@ -119,4 +119,5 @@ a {
 
 .img-wrap-inline {
     border: none;
+    display: inline-block;
 }
