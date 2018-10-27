@@ -3,7 +3,6 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ParallelListComp #-}
-import           Data.Monoid
 import           Hakyll
 import           Text.Pandoc.Options
 

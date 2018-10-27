@@ -15,7 +15,6 @@ module CustomFields
         ) where
 
 import qualified Data.Map.Lazy as M
-import Data.Monoid
 import Data.Maybe
 import Hakyll
 

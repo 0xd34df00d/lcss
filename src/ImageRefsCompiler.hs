@@ -11,7 +11,6 @@ import Control.Arrow
 import Control.Monad
 import Data.Char
 import Data.String.Interpolate
-import Data.Monoid
 import Data.Maybe
 import Data.List.Split
 
