@@ -1,18 +1,17 @@
 {-# LANGUAGE FlexibleInstances #-}
 
 module CustomFields
-        (
-         HasMetadata,
-         dates,
-         isCurrentPageField,
-         isSibling,
-         isDirectChild,
-         getParentPage,
-         isKeyPlugin,
-         getBookOrder,
-         getBookOrder',
-         buildFieldMap
-        ) where
+( HasMetadata
+, dates
+, isCurrentPageField
+, isSibling
+, isDirectChild
+, getParentPage
+, isKeyPlugin
+, getBookOrder
+, getBookOrder'
+, buildFieldMap
+) where
 
 import qualified Data.Map.Lazy as M
 import Data.Maybe
@@ -28,16 +27,16 @@ dates :: Context String
 dates = date <> dateAndTime
 
 class HasMetadata a where
-    (/>) :: MonadMetadata m => a -> String -> m (Maybe String)
-    ident :: a -> Identifier
+  (/>) :: MonadMetadata m => a -> String -> m (Maybe String)
+  ident :: a -> Identifier
 
 instance HasMetadata (Item a) where
-    (/>) = getMetadataField . itemIdentifier
-    ident = itemIdentifier
+  (/>) = getMetadataField . itemIdentifier
+  ident = itemIdentifier
 
 instance HasMetadata (Identifier, Metadata) where
-    (_, m) /> f = pure $ lookupString f m
-    ident = fst
+  (_, m) /> f = pure $ lookupString f m
+  ident = fst
 
 isCurrentPage :: HasMetadata a => FilePath -> a -> Compiler String
 isCurrentPage fp a = compareTemplated fp <$> getRoute (ident a)
@@ -75,6 +74,6 @@ getBookOrder' def = fmap (fromMaybe def) . getBookOrder
 
 buildFieldMap :: (HasMetadata a, MonadMetadata m) => String -> [a] -> m (M.Map Identifier (Maybe String))
 buildFieldMap fld as = do
-    let ids = ident <$> as
-    vals <- mapM (/> fld) as
-    pure $ M.fromList $ zip ids vals
+  let ids = ident <$> as
+  vals <- mapM (/> fld) as
+  pure $ M.fromList $ zip ids vals

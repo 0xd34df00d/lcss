@@ -57,36 +57,34 @@ data RootItem = NoRoot
               | DefaultRoot
               | CustomRoot CustomRootBuilder
 
-data CustomItemsContext = CustomItemsContext {
-                              itemsContext :: ListedConfig -> Compiler (Context String)
-                          }
+newtype CustomItemsContext = CustomItemsContext { itemsContext :: ListedConfig -> Compiler (Context String) }
 
-data ListedConfig = ListedConfig {
-                        section :: String,
-                        customTemplate :: Maybe String,
-                        customContext :: Context String,
-                        customItemsContext :: CustomItemsContext,
-                        listTitle :: String,
-                        listFieldName :: String,
-                        listTemplate :: String,
-                        createRoot :: RootItem,
-                        verPreprocess :: Bool,
-                        subOrder :: forall m a. MonadMetadata m => [Item a] -> m [Item a]
-                    }
+data ListedConfig = ListedConfig
+  { section :: String
+  , customTemplate :: Maybe String
+  , customContext :: Context String
+  , customItemsContext :: CustomItemsContext
+  , listTitle :: String
+  , listFieldName :: String
+  , listTemplate :: String
+  , createRoot :: RootItem
+  , verPreprocess :: Bool
+  , subOrder :: forall m a. MonadMetadata m => [Item a] -> m [Item a]
+  }
 
 defListedConfig :: String -> ListedConfig
-defListedConfig section = ListedConfig {
-                              section = section,
-                              customTemplate = Nothing,
-                              customContext = mempty,
-                              customItemsContext = CustomItemsContext $ const $ pure mempty,
-                              listTitle = toUpper (head section) : tail section,
-                              listFieldName = section,
-                              listTemplate = section,
-                              createRoot = DefaultRoot,
-                              verPreprocess = True,
-                              subOrder = pure
-                          }
+defListedConfig section = ListedConfig
+  { section = section
+  , customTemplate = Nothing
+  , customContext = mempty
+  , customItemsContext = CustomItemsContext $ const $ pure mempty
+  , listTitle = toUpper (head section) : tail section
+  , listFieldName = section
+  , listTemplate = section
+  , createRoot = DefaultRoot
+  , verPreprocess = True
+  , subOrder = pure
+  }
 
 bookListedConfig :: String -> ListedConfig
 bookListedConfig section = (defListedConfig section) { customTemplate = Just "book-item"
@@ -95,65 +93,66 @@ bookListedConfig section = (defListedConfig section) { customTemplate = Just "bo
 
 pluginsRoot :: CustomRootBuilder
 pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath section] $ do
-    route idRoute
-    compile $ do
-        allItems <- loadAll (filesPat .&&. hasNoVersion) >>= subOrder
-        keyItems <- filterM isKeyPlugin allItems
-        otherItems <- filterM otherPred allItems
-        let itemChildren item = filterM (isDirectChild $ bareName item) allItems
-        children <- do
-            chs <- mapM itemChildren keyItems
-            pure $ M.fromList [(defaultTextRoute $ itemIdentifier item, chs') | item <- keyItems
-                                                                              | chs' <- chs]
-        let subsCtx = listFieldWith "subplugins" ctx (\item -> pure $ children M.! bareName item)
-                    <> boolField "hasSubplugins" (\item -> not $ null $ children M.! bareName item)
-                    <> field "bareName" (pure . bareName)
-        let listCtx = mconcat
-                        [
-                         constField "title" listTitle,
-                         listField "keyplugins" (subsCtx <> ctx) $ pure keyItems,
-                         listField "otherplugins" ctx $ pure otherItems,
-                         ctx
-                        ]
-        makeItem ""
-            >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
-            >>= loadAndApplyTemplate "templates/default.html" listCtx
-            >>= relativizeUrls
-    where otherPred item = do
-            isKey <- isKeyPlugin item
-            parent <- getParentPage item
-            pure $ not isKey && isNothing parent
-          bareName = defaultTextRoute . itemIdentifier
+  route idRoute
+  compile $ do
+    allItems <- loadAll (filesPat .&&. hasNoVersion) >>= subOrder
+    keyItems <- filterM isKeyPlugin allItems
+    otherItems <- filterM otherPred allItems
+    let itemChildren item = filterM (isDirectChild $ bareName item) allItems
+    children <- do
+      chs <- mapM itemChildren keyItems
+      pure $ M.fromList [(defaultTextRoute $ itemIdentifier item, chs') | item <- keyItems
+                                                                        | chs' <- chs]
+    let subsCtx = mconcat
+          [ listFieldWith "subplugins" ctx (\item -> pure $ children M.! bareName item)
+          , boolField "hasSubplugins" (\item -> not $ null $ children M.! bareName item)
+          , field "bareName" (pure . bareName)
+          ]
+    let listCtx = mconcat
+          [ constField "title" listTitle
+          , listField "keyplugins" (subsCtx <> ctx) $ pure keyItems
+          , listField "otherplugins" ctx $ pure otherItems
+          , ctx
+          ]
+    makeItem ""
+      >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
+      >>= loadAndApplyTemplate "templates/default.html" listCtx
+      >>= relativizeUrls
+  where otherPred item = do
+          isKey <- isKeyPlugin item
+          parent <- getParentPage item
+          pure $ not isKey && isNothing parent
+        bareName = defaultTextRoute . itemIdentifier
 
 listed :: ListedConfig -> Rules ()
 listed cfg@ListedConfig { .. } = do
     when verPreprocess $
-        match filesPat $ version "preprocess" $ do
-            route $ customRoute defaultTextRoute
-            compile getResourceBody
+      match filesPat $ version "preprocess" $ do
+        route $ customRoute defaultTextRoute
+        compile getResourceBody
 
     match filesPat $ do
-        route $ customRoute defaultTextRoute
-        compile $ do
-            ctx' <- itemsContext customItemsContext cfg
-            pandocCompiler'
-                  >>= loadAndApplyCustom (ctx' <> ctx)
-                  >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
-                  >>= relativizeUrls
-                  >>= imageRefsCompiler
+      route $ customRoute defaultTextRoute
+      compile $ do
+        ctx' <- itemsContext customItemsContext cfg
+        pandocCompiler'
+          >>= loadAndApplyCustom (ctx' <> ctx)
+          >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
+          >>= relativizeUrls
+          >>= imageRefsCompiler
 
     case createRoot of
-        NoRoot -> pure ()
-        DefaultRoot -> create [fromFilePath section] $ do
-            route idRoute
-            compile $ do
-                items <- loadAll (filesPat .&&. hasNoVersion) >>= subOrder
-                let listCtx = constField "title" listTitle <> listField listFieldName ctx (pure items) <> ctx
-                makeItem ""
-                    >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
-                    >>= loadAndApplyTemplate "templates/default.html" listCtx
-                    >>= relativizeUrls
-        CustomRoot rules -> rules cfg filesPat ctx tplPath
+      NoRoot -> pure ()
+      DefaultRoot -> create [fromFilePath section] $ do
+        route idRoute
+        compile $ do
+          items <- loadAll (filesPat .&&. hasNoVersion) >>= subOrder
+          let listCtx = constField "title" listTitle <> listField listFieldName ctx (pure items) <> ctx
+          makeItem ""
+            >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
+            >>= loadAndApplyTemplate "templates/default.html" listCtx
+            >>= relativizeUrls
+      CustomRoot rules -> rules cfg filesPat ctx tplPath
 
     where filesPat = fromGlob $ "text/" <> section <> "/*.md"
           ctx = customContext <> defaultContext
@@ -163,16 +162,16 @@ listed cfg@ListedConfig { .. } = do
 
 pandocCompiler' :: Compiler (Item String)
 pandocCompiler' = do
-    item <- getResourceBody
-    toc <- getMetadataField (itemIdentifier item) "toc"
-    if fromMaybe "nope" toc `elem` ["true", "1", "True"]
-        then pandocCompilerWith defaultHakyllReaderOptions writeOptsToc
-        else pandocCompiler
-    where writeOptsToc = defaultHakyllWriterOptions { writerTableOfContents = True
-                                                    , writerTOCDepth = 4
-                                                    , writerTemplate = Just tocTemplate
-                                                    }
-          tocTemplate = [r|
+  item <- getResourceBody
+  toc <- getMetadataField (itemIdentifier item) "toc"
+  if fromMaybe "nope" toc `elem` ["true", "1", "True"]
+    then pandocCompilerWith defaultHakyllReaderOptions writeOptsToc
+    else pandocCompiler
+  where writeOptsToc = defaultHakyllWriterOptions { writerTableOfContents = True
+                                                  , writerTOCDepth = 4
+                                                  , writerTemplate = Just tocTemplate
+                                                  }
+        tocTemplate = [r|
 $if(toc)$
 <aside class="toc bordered">
     <details open="open">
@@ -192,47 +191,44 @@ loadCurrentPath = defaultTextRoute . fromFilePath . drop 2 <$> getResourceFilePa
 
 sectionsContext :: Sorter -> ListedConfig -> Compiler (Context a)
 sectionsContext sorter cfg@ListedConfig { .. } = do
-    fp <- loadCurrentPath
-    thisItem <- getResourceBody
-    thisParentId <- getParentPage thisItem
-    allItems <- loadAll (fromGlob ("text/" <> section <> "/*.md") .&&. hasVersion "preprocess") >>= sorter
-    siblings <- filterM (isSibling thisParentId) allItems
-    children <- filterM (isDirectChild fp) allItems
-    shortDescrs <- buildFieldMap "shortdescr" children
-    let hasShortDescr = boolField "hasShortDescr" $ isJust . join . (`M.lookup` shortDescrs) . itemIdentifier
-    parentCtx <- parentPageContext cfg allItems thisParentId
-    pure $ mconcat
-            [
-             listField "siblingSections" (isCurrentPageField fp <> defaultContext) (pure siblings),
-             hasPagesField 1 "hasSiblingSections" siblings,
-             listField "childSections" (hasShortDescr <> defaultContext) (pure children),
-             hasPagesField 0 "hasChildSections" children,
-             parentCtx
-            ]
-    where hasPagesField len name = boolField name . const . (> len) . length
+  fp <- loadCurrentPath
+  thisItem <- getResourceBody
+  thisParentId <- getParentPage thisItem
+  allItems <- loadAll (fromGlob ("text/" <> section <> "/*.md") .&&. hasVersion "preprocess") >>= sorter
+  siblings <- filterM (isSibling thisParentId) allItems
+  children <- filterM (isDirectChild fp) allItems
+  shortDescrs <- buildFieldMap "shortdescr" children
+  let hasShortDescr = boolField "hasShortDescr" $ isJust . join . (`M.lookup` shortDescrs) . itemIdentifier
+  parentCtx <- parentPageContext cfg allItems thisParentId
+  pure $ mconcat
+    [ listField "siblingSections" (isCurrentPageField fp <> defaultContext) (pure siblings)
+    , hasPagesField 1 "hasSiblingSections" siblings
+    , listField "childSections" (hasShortDescr <> defaultContext) (pure children)
+    , hasPagesField 0 "hasChildSections" children
+    , parentCtx
+    ]
+  where hasPagesField len name = boolField name . const . (> len) . length
 
 parentPageContext :: MonadMetadata m => ListedConfig -> [Item a] -> Maybe String -> m (Context b)
 parentPageContext ListedConfig { .. } _ Nothing = pure $ mconcat
-        [
-         constField "parentPageTitle" listTitle,
-         constField "parentPageUrl" section
-        ]
+  [ constField "parentPageTitle" listTitle
+  , constField "parentPageUrl" section
+  ]
 parentPageContext _ allItems (Just ident) = do
-    title <- getMetadataField id' "title"
-    pure $ mconcat
-        [
-         constField "parentPageTitle" $ fromJust title,
-         constField "parentPageUrl" ident
-        ]
-    where id' = itemIdentifier $ head $ filter ((== ident) . defaultTextRoute . itemIdentifier) allItems
+  title <- getMetadataField id' "title"
+  pure $ mconcat
+    [ constField "parentPageTitle" $ fromJust title
+    , constField "parentPageUrl" ident
+    ]
+  where id' = itemIdentifier $ head $ filter ((== ident) . defaultTextRoute . itemIdentifier) allItems
 
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
 
 sortItemsBy :: (MonadMetadata m, Ord b) => (Item a -> m b) -> [Item a] -> m [Item a]
 sortItemsBy cmp items = do
-    items' <- zip items <$> mapM cmp items
-    pure $ fst <$> sortBy (comparing snd) items'
+  items' <- zip items <$> mapM cmp items
+  pure $ fst <$> sortBy (comparing snd) items'
 
 type Sorter = forall m a. MonadMetadata m => [Item a] -> m [Item a]
 
