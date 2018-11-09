@@ -1,5 +1,6 @@
 {-# LANGUAGE QuasiQuotes #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE LambdaCase #-}
 
 module ImageRefsCompiler(imageRefsCompiler) where
 
@@ -38,8 +39,7 @@ thumbnailsCompiler c@ChunkImgRef { .. } | toMaybeBoth imgRequestedDims /= imgSrc
   let thumbName = thumbFilename imgRequestedDims imgUrl
   thumbExists <- unsafeCompiler $ doesFileExist thumbName
   unless thumbExists $ void $ unixFilter "convert" [imgUrl, "-geometry", geom imgRequestedDims, thumbName] ""
-  dims <- Just <$> identifyRunner thumbName
-  pure c { imgGeneratedDims = dims }
+  pure c { imgGeneratedDims = computeDims imgSrcDims imgRequestedDims }
   where geom (BothKnown (w, h)) = show w <> "x" <> show h
         geom (WidthKnown w) = show w <> "x" <> show (snd $ fromJust imgSrcDims)
         geom (HeightKnown h) = show (fst $ fromJust imgSrcDims) <> "x" <> show h
@@ -54,6 +54,18 @@ data ImgDims = DimsUnknown
              | HeightKnown Int
              | BothKnown (Int, Int)
              deriving (Eq, Show)
+
+computeDims :: Maybe (Int, Int) -> ImgDims -> Maybe (Int, Int)
+computeDims Nothing = const Nothing
+computeDims (Just (w, h)) = Just . pickMin . \case
+  DimsUnknown        -> error "Impossible"
+  WidthKnown w'      -> (w', ratio h w' w)
+  HeightKnown h'     -> (ratio w h' h, h')
+  BothKnown (w', h') -> (min w' $ ratio w h' h, min h' $ ratio h w' w)
+  where ratio unknown d' d = round' $ fromIntegral unknown * fromIntegral d' / (fromIntegral d :: Double)
+        round' v | v - fromIntegral (floor v :: Int) == 0.5 = ceiling v
+                 | otherwise = round v
+        pickMin (w', h') = (min w w', min h h')
 
 toMaybeBoth :: ImgDims -> Maybe (Int, Int)
 toMaybeBoth (BothKnown p) = Just p
