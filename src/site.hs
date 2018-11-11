@@ -164,7 +164,7 @@ listed cfg@ListedConfig { .. } = do
 pandocCompilerWithToc :: Compiler (Item String)
 pandocCompilerWithToc = do
   item <- getResourceBody
-  toc <- getMetadataField (itemIdentifier item) "toc"
+  toc <- item /> "toc"
   if fromMaybe "nope" toc `elem` ["true", "1", "True"]
     then pandocCompilerWith defaultHakyllReaderOptions writeOptsToc
     else pandocCompiler
