@@ -32,7 +32,7 @@ main = hakyll $ do
 
     match "text/*.md" $ do
         route $ customRoute $ dropPrefix "text/" . unmdize . toFilePath
-        compile $ pandocCompiler'
+        compile $ pandocCompilerWithToc
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
                 >>= imageRefsCompiler
@@ -136,7 +136,7 @@ listed cfg@ListedConfig { .. } = do
       route $ customRoute defaultTextRoute
       compile $ do
         ctx' <- itemsContext customItemsContext cfg
-        pandocCompiler'
+        pandocCompilerWithToc
           >>= loadAndApplyCustom (ctx' <> ctx)
           >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
           >>= relativizeUrls
@@ -161,8 +161,8 @@ listed cfg@ListedConfig { .. } = do
           loadAndApplyCustom | Just tpl <- customTemplate = loadAndApplyTemplate (tplPath tpl)
                              | otherwise = const pure
 
-pandocCompiler' :: Compiler (Item String)
-pandocCompiler' = do
+pandocCompilerWithToc :: Compiler (Item String)
+pandocCompilerWithToc = do
   item <- getResourceBody
   toc <- getMetadataField (itemIdentifier item) "toc"
   if fromMaybe "nope" toc `elem` ["true", "1", "True"]
