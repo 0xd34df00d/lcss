@@ -3,6 +3,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ParallelListComp #-}
+{-# LANGUAGE NoMonomorphismRestriction #-}
 import           Hakyll
 import           Text.Pandoc.Options
 
