@@ -102,8 +102,8 @@ pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath sect
     let itemChildren item = filterM (isDirectChild $ bareName item) allItems
     children <- do
       chs <- mapM itemChildren keyItems
-      pure $ M.fromList [(defaultTextRoute $ itemIdentifier item, chs') | item <- keyItems
-                                                                        | chs' <- chs]
+      pure $ M.fromList [(defaultTextRoute $ ident item, chs') | item <- keyItems
+                                                               | chs' <- chs]
     let subsCtx = mconcat
           [ listFieldWith "subplugins" ctx (\item -> pure $ children M.! bareName item)
           , boolField "hasSubplugins" (\item -> not $ null $ children M.! bareName item)
@@ -123,7 +123,7 @@ pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath sect
           isKey <- isKeyPlugin item
           parent <- getParentPage item
           pure $ not isKey && isNothing parent
-        bareName = defaultTextRoute . itemIdentifier
+        bareName = defaultTextRoute . ident
 
 listed :: ListedConfig -> Rules ()
 listed cfg@ListedConfig { .. } = do
@@ -199,7 +199,7 @@ sectionsContext sorter cfg@ListedConfig { .. } = do
   siblings <- filterM (isSibling thisParentId) allItems
   children <- filterM (isDirectChild fp) allItems
   shortDescrs <- buildFieldMap "shortdescr" children
-  let hasShortDescr = boolField "hasShortDescr" $ isJust . join . (`M.lookup` shortDescrs) . itemIdentifier
+  let hasShortDescr = boolField "hasShortDescr" $ isJust . join . (`M.lookup` shortDescrs) . ident
   parentCtx <- parentPageContext cfg allItems thisParentId
   pure $ mconcat
     [ listField "siblingSections" (isCurrentPageField fp <> defaultContext) (pure siblings)
@@ -221,7 +221,7 @@ parentPageContext _ allItems (Just itemId) = do
     [ constField "parentPageTitle" $ fromJust title
     , constField "parentPageUrl" itemId
     ]
-  where id' = itemIdentifier $ head $ filter ((== itemId) . defaultTextRoute . itemIdentifier) allItems
+  where id' = ident $ head $ filter ((== itemId) . defaultTextRoute . ident) allItems
 
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
