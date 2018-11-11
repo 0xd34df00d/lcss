@@ -214,13 +214,13 @@ parentPageContext ListedConfig { .. } _ Nothing = pure $ mconcat
   [ constField "parentPageTitle" listTitle
   , constField "parentPageUrl" section
   ]
-parentPageContext _ allItems (Just ident) = do
+parentPageContext _ allItems (Just itemId) = do
   title <- getMetadataField id' "title"
   pure $ mconcat
     [ constField "parentPageTitle" $ fromJust title
-    , constField "parentPageUrl" ident
+    , constField "parentPageUrl" itemId
     ]
-  where id' = itemIdentifier $ head $ filter ((== ident) . defaultTextRoute . itemIdentifier) allItems
+  where id' = itemIdentifier $ head $ filter ((== itemId) . defaultTextRoute . itemIdentifier) allItems
 
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
