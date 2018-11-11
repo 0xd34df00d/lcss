@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 
 module CustomFields
-( HasMetadata
+( HasMetadata(..)
 , dates
 , isCurrentPageField
 , isSibling
