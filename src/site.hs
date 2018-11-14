@@ -104,20 +104,20 @@ pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath sect
       chs <- mapM itemChildren keyItems
       pure $ M.fromList [(defaultTextRoute $ ident item, chs') | item <- keyItems
                                                                | chs' <- chs]
-    let subsCtx = mconcat
+    let subPluginsCtx = mconcat
           [ listFieldWith "subplugins" ctx (\item -> pure $ children M.! bareName item)
           , boolField "hasSubplugins" (\item -> not $ null $ children M.! bareName item)
           , field "bareName" (pure . bareName)
           ]
-    let listCtx = mconcat
+    let pluginsListCtx = mconcat
           [ constField "title" listTitle
-          , listField "keyplugins" (subsCtx <> ctx) $ pure keyItems
+          , listField "keyplugins" (subPluginsCtx <> ctx) $ pure keyItems
           , listField "otherplugins" ctx $ pure otherItems
           , ctx
           ]
     makeItem ""
-      >>= loadAndApplyTemplate (tplPath listTemplate) listCtx
-      >>= loadAndApplyTemplate "templates/default.html" listCtx
+      >>= loadAndApplyTemplate (tplPath listTemplate) pluginsListCtx
+      >>= loadAndApplyTemplate "templates/default.html" pluginsListCtx
       >>= relativizeUrls
   where otherPred item = do
           isKey <- isKeyPlugin item
