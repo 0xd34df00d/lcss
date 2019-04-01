@@ -23,8 +23,10 @@ imageRefsCompiler t = do
 
 identifyRunner :: String -> Compiler (Int, Int)
 identifyRunner path = do
-  [w, h] <- words <$> unixFilter "identify" ["-format", "%w %h", path] ""
-  return (read w, read h)
+  output <- unixFilter "identify" ["-format", "%w %h", path] ""
+  case words output of
+    [w, h] -> pure (read w, read h)
+    ws -> error $ "Unknown identify format: " <> show ws
 
 imageSizeFiller :: ExtractChunk -> Compiler ExtractChunk
 imageSizeFiller c@ChunkImgRef {} = do
