@@ -11,7 +11,6 @@ import qualified Data.Map.Lazy as M
 import Data.List.Extra
 import Data.Char
 import Data.Maybe
-import Data.Ord
 import Control.Monad
 import Text.RawString.QQ
 
@@ -229,7 +228,7 @@ unmdize s = take (length s - 3) s
 sortItemsBy :: (MonadMetadata m, Ord b) => (Item a -> m b) -> [Item a] -> m [Item a]
 sortItemsBy cmp items = do
   items' <- zip items <$> mapM cmp items
-  pure $ fst <$> sortBy (comparing snd) items'
+  pure $ fst <$> sortOn snd items'
 
 type Sorter = forall m a. MonadMetadata m => [Item a] -> m [Item a]
 
