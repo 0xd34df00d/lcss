@@ -63,7 +63,7 @@ data ListedConfig = ListedConfig
   { section :: String
   , customTemplate :: Maybe String
   , customContext :: Context String
-  , customItemsContext :: CustomItemsContext
+  , customItemsContext :: Maybe CustomItemsContext
   , listTitle :: String
   , listFieldName :: String
   , listTemplate :: String
@@ -77,7 +77,7 @@ defListedConfig section = ListedConfig
   { section = section
   , customTemplate = Nothing
   , customContext = mempty
-  , customItemsContext = CustomItemsContext $ const $ pure mempty
+  , customItemsContext = Nothing
   , listTitle = toUpper (head section) : tail section
   , listFieldName = section
   , listTemplate = section
@@ -88,7 +88,7 @@ defListedConfig section = ListedConfig
 
 bookListedConfig :: String -> ListedConfig
 bookListedConfig section = (defListedConfig section) { customTemplate = Just "book-item"
-                                                     , customItemsContext = CustomItemsContext { itemsContext = sectionsContext sortBookOrder }
+                                                     , customItemsContext = Just CustomItemsContext { itemsContext = sectionsContext sortBookOrder }
                                                      }
 
 pluginsRoot :: CustomRootBuilder
@@ -134,7 +134,7 @@ listed cfg@ListedConfig { .. } = do
     match filesPat $ do
       route $ customRoute defaultTextRoute
       compile $ do
-        ctx' <- itemsContext customItemsContext cfg
+        ctx' <- maybe (pure mempty) (`itemsContext` cfg) customItemsContext
         pandocCompilerWithToc
           >>= loadAndApplyCustom (ctx' <> ctx)
           >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
