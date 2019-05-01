@@ -209,7 +209,7 @@ sectionsContext sorter cfg@ListedConfig { .. } = do
     ]
   where hasPagesField len name = boolField name . const . (> len) . length
 
-parentPageContext :: MonadMetadata m => ListedConfig -> [Item a] -> Maybe String -> m (Context b)
+parentPageContext :: (HasMetadata it, MonadMetadata m) => ListedConfig -> [it] -> Maybe String -> m (Context b)
 parentPageContext ListedConfig { .. } _ Nothing = pure $ mconcat
   [ constField "parentPageTitle" listTitle
   , constField "parentPageUrl" section
