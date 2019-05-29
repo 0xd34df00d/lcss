@@ -225,12 +225,12 @@ parentPageContext _ allItems (Just itemId) = do
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
 
-sortItemsBy :: (MonadMetadata m, Ord b) => (Item a -> m b) -> [Item a] -> m [Item a]
+sortItemsBy :: (HasMetadata a, MonadMetadata m, Ord b) => (a -> m b) -> [a] -> m [a]
 sortItemsBy cmp items = do
   items' <- zip items <$> mapM cmp items
   pure $ fst <$> sortOn snd items'
 
-type Sorter = forall m a. MonadMetadata m => [Item a] -> m [Item a]
+type Sorter = forall m a. (HasMetadata a, MonadMetadata m) => [a] -> m [a]
 
 sortBookOrder :: Sorter
 sortBookOrder = sortItemsBy $ getBookOrder' 0
