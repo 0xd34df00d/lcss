@@ -24,9 +24,7 @@ tags:
 }
 </style>
 
-<div class="mainshots">
-\[img\_assist|url=images/poshuku01.png|title=Poshuku|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/azoth\_muc\_120916.png|title=Azoth|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/lmp00.png|title=LMP|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/lmp03.png|title=LMP|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/monocle01.png|title=Monocle|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/summary01.png|title=Summary|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/lackman01.png|title=LackMan|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/blogique01.png|title=Blogique|align=inline|link=1|width=220|height=133\]
-</div>
+<div class="mainshots">\[img\_assist|url=images/poshuku01.png|title=Poshuku|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/azoth\_muc\_120916.png|title=Azoth|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/lmp00.png|title=LMP|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/lmp03.png|title=LMP|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/monocle01.png|title=Monocle|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/summary01.png|title=Summary|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/lackman01.png|title=LackMan|align=inline|link=1|width=220|height=133\]\[img\_assist|url=images/blogique01.png|title=Blogique|align=inline|link=1|width=220|height=133\]</div>
 
 LeechCraft is a free open source cross-platform modular **live environment**.
 
