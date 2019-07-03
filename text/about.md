@@ -102,7 +102,7 @@ getting a decent IM client, media player or a feed reader, for example.
 <div class="downbutton">
 [Get LeechCraft!](/download)
 
-![](https://files.leechcraft.org/imgs/distro_logos/Linux_24.png)![](https://files.leechcraft.org/imgs/distro_logos/mac_osx_24.png)![](https://files.leechcraft.org/imgs/distro_logos/Windows_24.png)
+![There are packages for Linux!](https://files.leechcraft.org/imgs/distro_logos/Linux_24.png)![There are packages for OS X!](https://files.leechcraft.org/imgs/distro_logos/mac_osx_24.png)![There are packages for Windows!](https://files.leechcraft.org/imgs/distro_logos/Windows_24.png)
 </div>
 
 <div style="clear:both">
