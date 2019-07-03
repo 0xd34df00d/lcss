@@ -45,9 +45,19 @@ main = hakyll $ do
                                     , customTemplate = Just "news-item"
                                     , subOrder = recentFirst
                                     , verPreprocess = False
+                                    , withRss = Just ("rss.xml",
+                                                  FeedConfiguration
+                                                  { feedTitle = "LeechCraft"
+                                                  , feedDescription = ""
+                                                  , feedAuthorName = "0xd34df00d"
+                                                  , feedAuthorEmail = "0xd34df00d@gmail.com"
+                                                  , feedRoot = "https://leechcraft.org"
+                                                  }
+                                                )
                                     }
 
     match "templates/*" $ compile templateBodyCompiler
+
 
 --------------------------------------------------------------------------------
 
@@ -70,6 +80,7 @@ data ListedConfig = ListedConfig
   , createRoot :: RootItem
   , verPreprocess :: Bool
   , subOrder :: forall m a. MonadMetadata m => [Item a] -> m [Item a]
+  , withRss :: Maybe (Identifier, FeedConfiguration)
   }
 
 defListedConfig :: String -> ListedConfig
@@ -84,6 +95,7 @@ defListedConfig section = ListedConfig
   , createRoot = DefaultRoot
   , verPreprocess = True
   , subOrder = pure
+  , withRss = Nothing
   }
 
 bookListedConfig :: String -> ListedConfig
@@ -137,6 +149,7 @@ listed cfg@ListedConfig { .. } = do
         ctx' <- maybe (pure mempty) (`itemsContext` cfg) customItemsContext
         pandocCompilerWithToc
           >>= loadAndApplyCustom (ctx' <> ctx)
+          >>= (if isJust withRss then saveSnapshot "rss" else pure)
           >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
           >>= relativizeUrls
           >>= imageRefsCompiler
@@ -153,6 +166,17 @@ listed cfg@ListedConfig { .. } = do
             >>= loadAndApplyTemplate "templates/default.html" listCtx
             >>= relativizeUrls
       CustomRoot rules -> rules cfg filesPat ctx tplPath
+
+    case withRss of
+      Nothing -> pure ()
+      Just (name, feedConfig) -> create [name] $ do
+        route idRoute
+        compile $ do
+          items <- loadAllSnapshots (filesPat .&&. hasNoVersion) "rss" >>=
+                      fmap (take 10) . recentFirst
+          ctx' <- maybe (pure mempty) (`itemsContext` cfg) customItemsContext
+          let feedCtx = ctx' <> ctx <> bodyField "description"
+          renderRss feedConfig feedCtx items
 
     where filesPat = fromGlob $ "text/" <> section <> "/*.md"
           ctx = customContext <> defaultContext
