@@ -175,7 +175,7 @@ listed cfg@ListedConfig { .. } = do
           items <- loadAllSnapshots (filesPat .&&. hasNoVersion) "rss" >>=
                       fmap (take 10) . recentFirst
           ctx' <- maybe (pure mempty) (`itemsContext` cfg) customItemsContext
-          let feedCtx = ctx' <> ctx <> bodyField "description"
+          let feedCtx = ctx' <> ctx <> field "description" (pure . rssizeBody . itemBody)
           renderRss feedConfig feedCtx items
 
     where filesPat = fromGlob $ "text/" <> section <> "/*.md"
@@ -183,6 +183,10 @@ listed cfg@ListedConfig { .. } = do
           tplPath path = fromFilePath $ "templates/" <> path <> ".html"
           loadAndApplyCustom | Just tpl <- customTemplate = loadAndApplyTemplate (tplPath tpl)
                              | otherwise = const pure
+
+rssizeBody :: String -> String
+rssizeBody = unlines . takeWhile (not . isBadLine) . take 3 . lines
+  where isBadLine l = "<h2" `isInfixOf` l || "img_assist" `isInfixOf` l
 
 pandocCompilerWithToc :: Compiler (Item String)
 pandocCompilerWithToc = do
