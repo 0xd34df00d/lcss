@@ -1,8 +1,1 @@
-.stack-work
-*.hi
-*.o
-src/_cache
-src/_site
-converter/out
-*.dyn_hi
-*.dyn_o
+*hakyllthumb*png
