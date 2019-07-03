@@ -149,10 +149,10 @@ listed cfg@ListedConfig { .. } = do
         ctx' <- maybe (pure mempty) (`itemsContext` cfg) customItemsContext
         pandocCompilerWithToc
           >>= loadAndApplyCustom (ctx' <> ctx)
+          >>= imageRefsCompiler
           >>= (if isJust withRss then saveSnapshot "rss" else pure)
           >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
           >>= relativizeUrls
-          >>= imageRefsCompiler
 
     case createRoot of
       NoRoot -> pure ()
