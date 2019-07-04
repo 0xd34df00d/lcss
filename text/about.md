@@ -5,9 +5,7 @@ tags:
 
 <style type="text/css">
 .mainshots {
-    width: 40%;
-    min-width: 460px;
-    max-width: 1150px;
+    width: 460px;
     float:right;
     margin-left: 4em;
     border-color: #CDCCCC;
@@ -17,6 +15,13 @@ tags:
     -moz-border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
+    align: right;
+}
+
+@media (min-width: 1600px) {
+    .mainshots {
+        width: 680px;
+    }
 }
 
 .mainshots img {
@@ -30,7 +35,8 @@ tags:
 `{ "name": "lmp00.png", "align": "inline", "title": "LMP", "thumb": "small" }`{.img}
 `{ "name": "lmp03.png", "align": "inline", "title": "LMP", "thumb": "small" }`{.img}
 `{ "name": "monocle01.png", "align": "inline", "title": "Monocle", "thumb": "small" }`{.img}
-`{ "name": "summary01.png", "align": "inline", "title": "LackMan", "thumb": "small" }`{.img}
+`{ "name": "summary01.png", "align": "inline", "title": "Summary", "thumb": "small" }`{.img}
+`{ "name": "lackman01.png", "align": "inline", "title": "LackMan", "thumb": "small" }`{.img}
 `{ "name": "blogique01.png", "align": "inline", "title": "Blogique", "thumb": "small" }`{.img}
  </div>
 
