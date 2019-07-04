@@ -16,7 +16,6 @@ import Data.Maybe
 import Control.Monad
 import Text.RawString.QQ
 
-import ImageRefsCompiler
 import ImageCodesProducer
 import CustomFields
 
@@ -39,7 +38,6 @@ main = do
         compile $ pandocCompilerWithToc imagesDb
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
-                >>= imageRefsCompiler
 
     listed imagesDb (bookListedConfig "plugins") { createRoot = CustomRoot pluginsRoot }
     listed imagesDb (bookListedConfig "development") { createRoot = NoRoot }
@@ -158,7 +156,6 @@ listed imagesDb cfg@ListedConfig { .. } = do
           >>= loadAndApplyCustom (ctx' <> ctx)
           >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
           >>= relativizeUrls
-          >>= imageRefsCompiler
 
     case createRoot of
       NoRoot -> pure ()

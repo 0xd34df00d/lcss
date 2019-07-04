@@ -21,7 +21,6 @@ executable site
                   , split
                   , unordered-containers
   ghc-options:      -threaded -Wall -rtsopts
-  other-modules:    ImageRefsCompiler
-                  , CustomFields
+  other-modules:    CustomFields
                   , ImageCodesProducer
   default-language: Haskell2010
