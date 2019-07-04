@@ -1,11 +1,13 @@
 --------------------------------------------------------------------------------
-{-# LANGUAGE OverloadedStrings, QuasiQuotes #-}
+{-# LANGUAGE OverloadedStrings, QuasiQuotes, LambdaCase #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ParallelListComp #-}
 {-# LANGUAGE NoMonomorphismRestriction #-}
 import           Hakyll
 import           Text.Pandoc.Options
+import           Text.Pandoc.Walk
+import           Text.Pandoc.Definition
 
 import qualified Data.Map.Lazy as M
 import Data.List.Extra
@@ -15,12 +17,15 @@ import Control.Monad
 import Text.RawString.QQ
 
 import ImageRefsCompiler
+import ImageCodesProducer
 import CustomFields
 
 
 --------------------------------------------------------------------------------
 main :: IO ()
-main = hakyll $ do
+main = do
+  imagesDb <- prepareImageDb "images/"
+  hakyll $ do
     match "images/**"  $ do
         route   idRoute
         compile copyFileCompiler
@@ -31,30 +36,31 @@ main = hakyll $ do
 
     match "text/*.md" $ do
         route $ customRoute $ dropPrefix "text/" . unmdize . toFilePath
-        compile $ pandocCompilerWithToc
+        compile $ pandocCompilerWithToc imagesDb
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
                 >>= imageRefsCompiler
 
-    listed (bookListedConfig "plugins") { createRoot = CustomRoot pluginsRoot }
-    listed (bookListedConfig "development") { createRoot = NoRoot }
-    listed (bookListedConfig "userguide") { createRoot = NoRoot }
-    listed (bookListedConfig "concepts")
+    listed imagesDb (bookListedConfig "plugins") { createRoot = CustomRoot pluginsRoot }
+    listed imagesDb (bookListedConfig "development") { createRoot = NoRoot }
+    listed imagesDb (bookListedConfig "userguide") { createRoot = NoRoot }
+    listed imagesDb (bookListedConfig "concepts")
 
-    listed (defListedConfig "news") { customContext = dates
-                                    , customTemplate = Just "news-item"
-                                    , subOrder = recentFirst
-                                    , verPreprocess = False
-                                    , withRss = Just ("rss.xml",
-                                                  FeedConfiguration
-                                                  { feedTitle = "LeechCraft"
-                                                  , feedDescription = ""
-                                                  , feedAuthorName = "0xd34df00d"
-                                                  , feedAuthorEmail = "0xd34df00d@gmail.com"
-                                                  , feedRoot = "https://leechcraft.org"
-                                                  }
-                                                )
-                                    }
+    listed imagesDb
+      (defListedConfig "news") { customContext = dates
+                               , customTemplate = Just "news-item"
+                               , subOrder = recentFirst
+                               , verPreprocess = False
+                               , withRss = Just ("rss.xml",
+                                             FeedConfiguration
+                                             { feedTitle = "LeechCraft"
+                                             , feedDescription = ""
+                                             , feedAuthorName = "0xd34df00d"
+                                             , feedAuthorEmail = "0xd34df00d@gmail.com"
+                                             , feedRoot = "https://leechcraft.org"
+                                             }
+                                           )
+                               }
 
     match "templates/*" $ compile templateBodyCompiler
 
@@ -136,8 +142,8 @@ pluginsRoot ListedConfig { .. } filesPat ctx tplPath = create [fromFilePath sect
           pure $ not isKey && isNothing parent
         bareName = defaultTextRoute . ident
 
-listed :: ListedConfig -> Rules ()
-listed cfg@ListedConfig { .. } = do
+listed :: ImagesDb -> ListedConfig -> Rules ()
+listed imagesDb cfg@ListedConfig { .. } = do
     when verPreprocess $
       match filesPat $ version "preprocess" $ do
         route $ customRoute defaultTextRoute
@@ -147,7 +153,7 @@ listed cfg@ListedConfig { .. } = do
       route $ customRoute defaultTextRoute
       compile $ do
         ctx' <- maybe (pure mempty) (`itemsContext` cfg) customItemsContext
-        pandocCompilerWithToc
+        pandocCompilerWithToc imagesDb
           >>= (if isJust withRss then saveSnapshot "rss" else pure)
           >>= loadAndApplyCustom (ctx' <> ctx)
           >>= loadAndApplyTemplate "templates/default.html" (ctx' <> ctx)
@@ -188,13 +194,15 @@ rssizeBody :: String -> String
 rssizeBody = unlines . takeWhile (not . isBadLine) . take 3 . lines
   where isBadLine l = "<h2" `isInfixOf` l || "img_assist" `isInfixOf` l
 
-pandocCompilerWithToc :: Compiler (Item String)
-pandocCompilerWithToc = do
+pandocCompilerWithToc :: ImagesDb -> Compiler (Item String)
+pandocCompilerWithToc imagesDb = do
   item <- getResourceBody
   toc <- item /> "toc"
-  if fromMaybe "nope" toc `elem` ["true", "1", "True"]
-    then pandocCompilerWith defaultHakyllReaderOptions writeOptsToc
-    else pandocCompiler
+  let writeOpts | fromMaybe "nope" toc `elem` ["true", "1", "True"] = writeOptsToc
+                | otherwise = defaultHakyllWriterOptions
+  pandocCompilerWithTransform defaultHakyllReaderOptions writeOpts
+    $ walk $ \case (Code (_, ["img"], _) str) -> compileImageInfo imagesDb str
+                   x -> x
   where writeOptsToc = defaultHakyllWriterOptions { writerTableOfContents = True
                                                   , writerTOCDepth = 4
                                                   , writerTemplate = Just tocTemplate
