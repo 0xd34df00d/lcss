@@ -65,6 +65,10 @@ a {
     text-decoration: none;
 }
 
+li:not(:first-child) {
+    margin-top: 0.5em;
+}
+
 .category-listing, .toc {
     float: right;
     padding-left: 0.5em;
