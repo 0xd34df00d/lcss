@@ -7,14 +7,17 @@ executable site
   main-is:          site.hs
   build-depends:    base == 4.*
                   , hakyll == 4.*
-                  , pandoc
-                  , split
-                  , extra
-                  , unordered-containers
+                  , aeson
+                  , bytestring
                   , containers
-                  , interpolate
                   , directory
+                  , interpolate
+                  , extra
+                  , pandoc
+                  , pandoc-types
                   , raw-strings-qq
+                  , split
+                  , unordered-containers
   ghc-options:      -threaded -Wall -rtsopts
   other-modules:    ImageRefsCompiler
                   , CustomFields
