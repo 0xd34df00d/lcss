@@ -73,7 +73,7 @@ li:not(:first-child) {
     float: right;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    background-color: white;
+    background-color: #f7f7f7;
 }
 
 .is-current-page-true {
