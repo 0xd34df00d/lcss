@@ -18,6 +18,12 @@ tags:
     align: right;
 }
 
+@media (max-width: 1100px) {
+    .mainshots {
+        width: 240px;
+    }
+}
+
 @media (min-width: 1600px) {
     .mainshots {
         width: 680px;
