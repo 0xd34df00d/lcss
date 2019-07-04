@@ -77,7 +77,7 @@ options:\
 `{ "name": "cleanweb-manual-filter1.png", "align": "inline", "title": ""  }`{.img}\
 \
 There, you could customize the URL pattern to block, select whether it
-should be interpreted as a wildcard (with *\*?* symbols) or a regexp.
+should be interpreted as a wildcard (with `*` and `?` symbols) or a regexp.
 You can also specify whether the item will be blacklisted or
 whitelisted, whether the matching should be case-sensitive, and on what
 domains the filtering should be explicitly enabled or disabled.\
