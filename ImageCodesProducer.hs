@@ -114,12 +114,7 @@ prepareImageDb rootPath = do
 compileThumbnails :: String -> [String] -> IO ()
 compileThumbnails rootPath names = do
   forM_ thumbs $ \thumb -> createDirectoryIfMissing False $ rootPath <> thumbDirName thumb
-  void $ withPool 10 $ \pool -> 
-    parallel pool
-      [ f name thumb
-      | name <- names
-      , thumb <- thumbs
-      ]
+  void $ withPool 10 $ \pool -> parallel pool [ f name thumb | name <- names , thumb <- thumbs ]
   where
     thumbs = [minBound .. maxBound]
     f name thumb = do
