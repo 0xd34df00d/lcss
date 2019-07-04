@@ -1,4 +1,7 @@
 *hakyllthumb*png
+images/small/
+images/medium/
+images/large/
 .stack-work
 _cache
 _site
