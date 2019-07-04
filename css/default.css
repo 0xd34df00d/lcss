@@ -89,6 +89,10 @@ li:not(:first-child) {
     padding-left: 1em;
 }
 
+.toc li, .category-listing li {
+    margin-top: 0.1em;
+}
+
 .bordered {
     border-color: #CDCCCC;
     border-width: 1px;
