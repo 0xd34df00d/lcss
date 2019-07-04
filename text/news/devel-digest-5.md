@@ -7,8 +7,8 @@ published: 2011-06-16T12:18:58
 
 This week in LeechCraft:
 
-\[img\_assist|url=images/settings1.png|title=General view|align=right|link=1|width=220\]
-\[img\_assist|url=images/settings2.png|title=Concrete page|align=right|link=1|width=220\]
+`{ "name": "settings1.png", "align": "right", "title": "General view", "thumb": "small" }`{.img}
+`{ "name": "settings2.png", "align": "right", "title": "Concrete page", "thumb": "small" }`{.img}
 
 - LeechCraft settings moved from a dialog to a tab (and to be honest,
   the idea of the tab is borrowed from KDE's *systemsettings*). See

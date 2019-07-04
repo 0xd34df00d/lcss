@@ -65,9 +65,9 @@ included into official repositories of openSUSE and RFR.
 
 And now some screenshots:
 
-\[img\_assist|url=images/azoth\_pep1.png|title=PEP in Azoth|align=inline|link=1|width=440\]
-\[img\_assist|url=images/adhoc01.png|title=Ad-Hoc commands|align=inline|link=1|width=440\]
-\[img\_assist|url=images/adhoc02.png|title=Ad-Hoc commands|align=inline|link=1|width=440\]
-\[img\_assist|url=images/azoth\_console1.png|title=XML console|align=inline|link=1|width=440\]
-\[img\_assist|url=images/settings1.png|title=Settings, general view|align=inline|link=1|width=440\]
-\[img\_assist|url=images/settings2.png|title=Specific settings|align=inline|link=1|width=440\]
+`{ "name": "azoth_pep1.png", "align": "inline", "title": "PEP in Azoth", "thumb": "medium" }`{.img}
+`{ "name": "adhoc01.png", "align": "inline", "title": "Ad-Hoc commands", "thumb": "medium" }`{.img}
+`{ "name": "adhoc02.png", "align": "inline", "title": "Ad-Hoc commands", "thumb": "medium" }`{.img}
+`{ "name": "azoth_console1.png", "align": "inline", "title": "XML console", "thumb": "medium" }`{.img}
+`{ "name": "settings1.png", "align": "inline", "title": "Settings, general view", "thumb": "medium" }`{.img}
+`{ "name": "settings2.png", "align": "inline", "title": "Specific settings", "thumb": "medium" }`{.img}

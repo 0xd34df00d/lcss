@@ -19,7 +19,7 @@ list of applications from the freedesktop.org desktop files. For now it
 only supports visual fullscreen launcher, some say it resembles Unity a
 bit:
 
-\[img\_assist|url=images/screenshot.png|title=Launchy|align=inline|link=1|width=440\]
+`{ "name": "screenshot.png", "align": "inline", "title": "Launchy", "thumb": "medium" }`{.img}
 
 Another improvement worth noting separately is that Azoth Autopaste
 module has been upgraded a lot, so now it supports choosing syntax

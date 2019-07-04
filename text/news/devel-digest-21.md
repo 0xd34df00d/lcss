@@ -8,7 +8,7 @@ published: 2012-04-07T11:04:24
 Since previous development digest we've introduced 4 new plugins, and we
 feel like it's just the time to make another one digest.
 
-\[img\_assist|url=images/otlozhu-1.png|title=Otlozhu|align=right|link=1|width=220\]
+`{ "name": "otlozhu-1.png", "align": "right", "title": "Otlozhu", "thumb": "small" }`{.img}
 
 One of the new plugins is [Otlozhu](/plugins-otlozhu) — a GTD-inspired
 TODO manager. It won't be an all-in-one PIM/organizer, so don't expect
@@ -19,7 +19,7 @@ your organizer, the better. For now it supports tagging items,
 (optional!) due dates, notifications, percentage of completeness,
 sorting and filtering by tags.
 
-\[img\_assist|url=images/xproxy-1.png|title=XProxy|align=right|link=1|width=220\]
+`{ "name": "xproxy-1.png", "align": "right", "title": "XProxy", "thumb": "small" }`{.img}
 
 Other plugin is [XProxy](/plugins-xproxy) which is an advanced proxy
 configurator, allowing to configure proxies on a per-host and per-port

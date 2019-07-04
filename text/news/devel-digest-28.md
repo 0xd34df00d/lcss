@@ -20,7 +20,7 @@ fixes, no new features, no improvements.
 Also, small, but nice news is that [Azoth](/plugins-azoth) now supports
 displaying avatars in tooltips, like this:
 
-\[img\_assist|url=images/azoth\_tooltip\_01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "azoth_tooltip_01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 And here's the list of other important changes:
 

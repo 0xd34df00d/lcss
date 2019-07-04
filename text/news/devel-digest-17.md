@@ -20,7 +20,7 @@ allows to have *More this stuff* buttons where needed, and
 plugins in order to show just those packages that are relevant to the
 chosen *More this stuff* category.
 
-\[img\_assist|url=images/icons1.png|title=Poshuku hover box|align=right|link=1|width=220\]
+`{ "name": "icons1.png", "align": "right", "title": "Poshuku hover box", "thumb": "small" }`{.img}
 
 Among other changes:
 

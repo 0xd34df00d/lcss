@@ -17,8 +17,7 @@ Azoth, our IM client, has also been improved a lot. Its IRC
 implementation, the Acetamide plugin, is completely reworked and now
 supports RFC 2812 among new features.
 
-\[img\_assist|url=images/azoth\_muc\_120916.png|title=MUC in
-Azoth|align=inline|link=1|width=440|height=272\]
+`{ "name": "azoth_muc_120916.png", "align": "inline", "title": "MUC in Azoth", "thumb": "medium" }`{.img}
 
 XMPP protocol now also supports more things, like bookmarks (with
 autojoin), password-protected rooms, configuring MUC rooms, service
@@ -29,8 +28,7 @@ now one would see when a remote user is typing. These notifications are
 also sent to remote users, but for privacy-concerned users this could be
 disabled in settings, of course.
 
-\[img\_assist|url=images/azoth\_sd\_120916.png|title=Service
-Discovery|align=inline|link=1|width=440|height=272\]
+`{ "name": "azoth_sd_120916.png", "align": "inline", "title": "Service Discovery", "thumb": "medium" }`{.img}
 
 Some funny bugs have been fixed in Azoth. For example, one of them
 prevented Azoth from handling messages that had been received while the
@@ -44,8 +42,7 @@ for example. Support for the *psto.net* and *juick.com* microblogging
 services has been improved severely. A new plugin, Azoth HiLi, allows to
 configure custom highlights in chat rooms.
 
-\[img\_assist|url=images/azoth\_psto1\_0.png|title=Juick in
-Azoth|align=inline|link=1|width=440|height=272\]
+`{ "name": "azoth_psto1_0.png", "align": "inline", "title": "Juick in Azoth", "thumb": "medium" }`{.img}
 
 Kinotify now supports showing a custom picture in the notification, so,
 for example, if an IM contact has sent you a message, the avatar of that

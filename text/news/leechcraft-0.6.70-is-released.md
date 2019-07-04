@@ -22,13 +22,13 @@ Let's start with the [LMP](/plugins-lmp) audio player.
 First, it's worth noting the newly added support for creating
 AdvancedNotifications rules directly from the playlist:
 
-\[img\_assist|url=images/lmp\_rules1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_rules1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Choosing the menu item automatically opens AdvancedNotifications
 settings tab with all fields filled according to the track selected, so
 all that's left is to configure the notification methods:
 
-\[img\_assist|url=images/lmp\_rules2.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_rules2.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 The tracks with the associated rules are marked by a flag colored
 according to the rule color (that can be set in the [Advanced
@@ -36,7 +36,7 @@ Notifications](/plugins-advancednotifications) settings), filled if the
 rule is enabled and hollow if it is disabled. It is also possible to
 directly open the rules configuration from the track menu:
 
-\[img\_assist|url=images/lmp\_rules4.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_rules4.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 That's what we call "modules integration"!
 
@@ -47,7 +47,7 @@ version, and, as promised, some new effects were added in this release,
 like [FrAdj](/plugins-lmp-fradj),a 10-band equalizer effect with
 presets:
 
-\[img\_assist|url=images/lmp\_fradj1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_fradj1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Perhaps the most interesting effect is
 [HttStream](/plugins-lmp-httstream) — streaming module, allowing one to
@@ -58,7 +58,7 @@ streamed with maximum quality on a local area network, and two
 instances, with high-quality and medium-quality encoding, can be exposed
 to the Internet, for example.
 
-\[img\_assist|url=images/lmp\_httstream1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_httstream1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 We think of adding a web interface and an RPC API to LMP in nearest
 releases, which, combined with HttStream, can turn LMP into a small
@@ -69,7 +69,7 @@ media server.
 Another new LMP subplugin added in this release is
 [BrainSlugz](/plugins-lmp-brainslugz), checking the local user's
 discography for new missed releases:
-\[img\_assist|url=images/lmp\_brainslugz1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_brainslugz1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 BrainSlugz uses other first-level plugins like MusicZombie (for
 MusicBrainz) to query the discographies, thus other information sources
@@ -93,7 +93,7 @@ Eleeminator
 Quite a long-awaited plugin, [Eleeminator](/plugins-eleeminator) brings
 a terminal emulator to LeechCraft:
 
-\[img\_assist|url=images/eleeminator1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "eleeminator1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 It supports everything one would expect from a terminal emulator:
 multiple tabs, configurable color schemes, clipboard, links detection
@@ -105,7 +105,7 @@ tab, updating the title accordingly. It also shows a warning if one
 tries to close a tab with something running in either background or
 foreground:
 
-\[img\_assist|url=images/eleeminator2.png|title=|align=inline|link=1|width=440\]
+`{ "name": "eleeminator2.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Eleeminator is based on the QTermWidget library, and some code has been
 contributed back to that project.
@@ -121,7 +121,7 @@ support for quite a few new plugins and features in this release.
 A simple but useful module, [DC/AC](/plugins-poshuku-dcac) provides a
 color invertor working on any site without any custom CSS:
 
-\[img\_assist|url=images/poshuku\_dcac1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "poshuku_dcac1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 It also supports a thresholded mode, when colors are inverted only when
 the web page in question is brighter that some given threshold.
@@ -131,7 +131,7 @@ the web page in question is brighter that some given threshold.
 Another long-awaited plugin which, as the name goes, adds Speed Dial
 functionality to the Poshuku browser:
 
-\[img\_assist|url=images/poshuku\_speeddial1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "poshuku_speeddial1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 [SpeedDial](/plugins-poshuku-speeddial) supports automatic mode as well
 as a static list of pages. In the former case two lists are shown: one
@@ -154,11 +154,11 @@ connection is fully secure, or some elements were loaded via unencrypted
 connection, or there were some SSL errors. Teh corresponding dialog
 allows viewing the certificates chain:
 
-\[img\_assist|url=images/poshuku\_certs1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "poshuku_certs1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 and the list of elements loaded via insecure connection:
 
-\[img\_assist|url=images/poshuku\_certs2.png|title=|align=inline|link=1|width=440\]
+`{ "name": "poshuku_certs2.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 AdvancedNotifications Dolle
 ---------------------------
@@ -172,7 +172,7 @@ Notifications](/plugins-advancednotifications) rules added in this
 release, this can be used to easily distinguish between different event
 types:
 
-\[img\_assist|url=images/dolle1\_done.png|title=|align=inline|link=1|width=440\]
+`{ "name": "dolle1_done.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Azoth
 -----
@@ -199,26 +199,26 @@ lazily on hover, saving around 100 KiB of memory per contact. The
 tooltips themselves have also become a little bit more neat, showing the
 client and status icons, as well as the contact's time (if available):
 
-\[img\_assist|url=images/azoth\_tooltip1\_cut.png|title=|align=inline|link=1|width=660\]
+`{ "name": "azoth_tooltip1_cut.png", "align": "inline", "title": "", "thumb": "large" }`{.img}
 
 The [OTR support module](/plugins-azoth-otroid) now supports
 question-based and shared secred authentication:
 
-\[img\_assist|url=images/azoth\_otroid\_auth1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "azoth_otroid_auth1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 as well as managing fingerprints:
 
-\[img\_assist|url=images/azoth\_otroid\_priv2.png|title=|align=inline|link=1|width=440\]
+`{ "name": "azoth_otroid_priv2.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 and accounts keys:
 
-\[img\_assist|url=images/azoth\_otroid\_priv1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "azoth_otroid_priv1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 The [ChatHistory](/plugins-azoth-chathistory) module has got a new
 improved search box, along with the forward and case-insensitive search
 (the latter is available only if SQLite is built with ICU):
 
-\[img\_assist|url=images/azoth\_ch1\_0.png|title=|align=inline|link=1|width=660\]
+`{ "name": "azoth_ch1_0.png", "align": "inline", "title": "", "thumb": "large" }`{.img}
 
 Monocle
 -------
@@ -241,7 +241,7 @@ Otlozhu
 [Otlozhu](/plugins-otlozhu), our todo manager, now supports hierarchical
 tasks:
 
-\[img\_assist|url=images/otlozhu\_hier1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "otlozhu_hier1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 It has also got a lot of smaller improvements, mostly in GUI. The
 calendar pane is now resizable, for example, and the comment editing

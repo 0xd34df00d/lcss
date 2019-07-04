@@ -45,8 +45,7 @@ release:
   AdiumStyles](/plugins-azoth-adiumstyles): added support for style
   variants and lots of compatibility improvements.
 - Added the "Group send" feature to [Azoth](/plugins-azoth).
-- \[img\_assist|url=images/icons1.png|title=Poshuku hover
-  box|align=right|link=1|width=220\][Poshuku](/plugins-poshuku):
+- `{ "name": "icons1.png", "align": "right", "title": "Poshuku hover   box", "thumb": "small" }`{.img}[Poshuku](/plugins-poshuku):
   display links on hover in a nice box on the viewport instead of
   status bar (see the screenshot on the right).
 - [Azoth](/plugins-azoth) now has buttons to install more different

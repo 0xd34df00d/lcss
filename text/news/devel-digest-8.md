@@ -11,9 +11,9 @@ related to XMPP rather than implementation of lots of XEPs. Some other
 plugins, like [Aggregator](/plugins-aggregator), weren't forgotten as
 well.
 
-\[img\_assist|url=images/modnok01.png|title=LaTeX formula with Modnok|align=right|link=1|width=220\]
-\[img\_assist|url=images/azoth\_muc\_as1\_120916.png|title=An Adium style|align=right|link=1|width=220\]
-\[img\_assist|url=images/azoth\_muc\_as4\_120917.png|title=Another Adium style|align=right|link=1|width=220\]
+`{ "name": "modnok01.png", "align": "right", "title": "LaTeX formula with Modnok", "thumb": "small" }`{.img}
+`{ "name": "azoth_muc_as1_120916.png", "align": "right", "title": "An Adium style", "thumb": "small" }`{.img}
+`{ "name": "azoth_muc_as4_120917.png", "align": "right", "title": "Another Adium style", "thumb": "small" }`{.img}
 
 So, the list of changes since previous devel digest follows:
 

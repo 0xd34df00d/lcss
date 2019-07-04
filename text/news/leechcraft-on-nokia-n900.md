@@ -23,11 +23,11 @@ available](/files/leechcraft-n900-icons.zip) — that archive should be
 unpacked into `/usr`{type="bash"}.
 
 And, well, some screenshots now:
-\[img\_assist|url=images/Screenshot-20110208-191134.png|title=|align=inline|link=1|width=800\]
-\[img\_assist|url=images/Screenshot-20110208-191253.png|title=|align=inline|link=1|width=800\]
-\[img\_assist|url=images/Screenshot-20110208-191357.png|title=|align=inline|link=1|width=800\]
-\[img\_assist|url=images/Screenshot-20110213-203546.png|title=|align=inline|link=1|width=800\]
-\[img\_assist|url=images/Screenshot-20110213-203605.png|title=|align=inline|link=1|width=800\]
-\[img\_assist|url=images/Screenshot-20110213-204401.png|title=|align=inline|link=1|width=800\]
-\[img\_assist|url=images/h\_1297694725\_f74eea08de.png|title=|align=inline|link=1|width=800\]
-\[img\_assist|url=images/h\_1297700911\_84cb6ccc5c.png|title=|align=inline|link=1|width=800\]
+`{ "name": "Screenshot-20110208-191134.png", "align": "inline", "title": ""  }`{.img}
+`{ "name": "Screenshot-20110208-191253.png", "align": "inline", "title": ""  }`{.img}
+`{ "name": "Screenshot-20110208-191357.png", "align": "inline", "title": ""  }`{.img}
+`{ "name": "Screenshot-20110213-203546.png", "align": "inline", "title": ""  }`{.img}
+`{ "name": "Screenshot-20110213-203605.png", "align": "inline", "title": ""  }`{.img}
+`{ "name": "Screenshot-20110213-204401.png", "align": "inline", "title": ""  }`{.img}
+`{ "name": "h_1297694725_f74eea08de.png", "align": "inline", "title": ""  }`{.img}
+`{ "name": "h_1297700911_84cb6ccc5c.png", "align": "inline", "title": ""  }`{.img}

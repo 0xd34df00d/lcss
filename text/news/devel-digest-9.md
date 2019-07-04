@@ -14,7 +14,7 @@ no need for a separate toolbar for that anymore, and that frees space a
 lot. The new tabbar system also supports pinning tabs, but currently the
 pinning state isn't saved between launches.
 
-\[img\_assist|url=images/tabs01.png|title=New tabs|align=inline|link=1|width=440\]
+`{ "name": "tabs01.png", "align": "inline", "title": "New tabs", "thumb": "medium" }`{.img}
 
 Unfortunately, Tab++ still doesn't work with the new tabs, but hopefully
 that would be fixed soon.
@@ -25,7 +25,7 @@ ejabberd-based servers as well.
 
 There are lots of other changes as well, among them:
 
-\[img\_assist|url=images/tabslist01.png|title=TabsList|align=right|link=1|width=220\]
+`{ "name": "tabslist01.png", "align": "right", "title": "TabsList", "thumb": "small" }`{.img}
 
 - Added Azoth LastSeen for client-side recording of contacts' last
   online and availability time.

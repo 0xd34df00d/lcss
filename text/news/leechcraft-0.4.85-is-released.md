@@ -20,7 +20,7 @@ the interface now looks cleaner and more mature.
 
 Here's the screenshot of the new interface:
 
-\[img\_assist|url=images/tabs01.png|title=New tabs|align=inline|link=1|width=440\]
+`{ "name": "tabs01.png", "align": "inline", "title": "New tabs", "thumb": "medium" }`{.img}
 
 Eagle-eyed one could notice three little title-less tabs in the left.
 Yes, the new tabs interface also supports pinning tabs, but the pinning
@@ -121,10 +121,10 @@ digests: [\#8](/devel-digest-8) and [\#9](/devel-digest-9).
 
 And now some screenshots:
 
-\[img\_assist|url=images/tabslist01.png|title=TabsList module|align=inline|link=1|width=440\]
-\[img\_assist|url=images/modnok01.png|title=LaTeX formula with Modnok|align=inline|link=1|width=440\]
-\[img\_assist|url=images/azoth\_muc\_as1\_120916.png|title=An Adium style|align=inline|link=1|width=440\]
-\[img\_assist|url=images/azoth\_muc\_as4\_120917.png|title=Another Adium style|align=inline|link=1|width=440\]
+`{ "name": "tabslist01.png", "align": "inline", "title": "TabsList module", "thumb": "medium" }`{.img}
+`{ "name": "modnok01.png", "align": "inline", "title": "LaTeX formula with Modnok", "thumb": "medium" }`{.img}
+`{ "name": "azoth_muc_as1_120916.png", "align": "inline", "title": "An Adium style", "thumb": "medium" }`{.img}
+`{ "name": "azoth_muc_as4_120917.png", "align": "inline", "title": "Another Adium style", "thumb": "medium" }`{.img}
 
 Packages for Ubuntu are in Launchpad queue to be compiled, Gentoo
 ebuilds are already available in the rion overlay, openSUSE, Fedora and
