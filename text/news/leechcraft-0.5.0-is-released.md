@@ -5,10 +5,10 @@ published: 2012-02-09T09:43:59
 
 ---
 
-\[img\_assist|url=images/poshuku01.png|title=Poshuku Browser|align=right|link=1|width=220|height=136\]
-\[img\_assist|url=images/azoth\_muc\_120916.png|title=MUC|align=right|link=1|width=220|height=136\]
-\[img\_assist|url=images/azoth\_muc\_as1\_120916.png|title=MUC with Adium style|align=right|link=1|width=220|height=136\]
-\[img\_assist|url=images/summary01.png|title=Summary|align=right|link=1|width=220|height=136\]
+`{ "name": "poshuku01.png", "align": "right", "title": "Poshuku Browser", "thumb": "small" }`{.img}
+`{ "name": "azoth_muc_120916.png", "align": "right", "title": "MUC", "thumb": "small" }`{.img}
+`{ "name": "azoth_muc_as1_120916.png", "align": "right", "title": "MUC with Adium style", "thumb": "small" }`{.img}
+`{ "name": "summary01.png", "align": "right", "title": "Summary", "thumb": "small" }`{.img}
 
 Today LeechCraft 0.5.0 «Saviour Welcome Home» is finally released!
 

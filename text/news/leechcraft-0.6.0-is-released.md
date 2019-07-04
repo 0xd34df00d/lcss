@@ -29,42 +29,42 @@ was rather a stub. Now we have a proper collection- and social-oriented
 player having everything you would expect from an audio player today and
 that is ready to compete with monsters like Amarok:
 
-\[img\_assist|url=images/lmp00.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp00.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 It is based on music collections concept:
 
-\[img\_assist|url=images/lmp01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 gets even better if you have a Last.FM account (and
 [LastFMScrobble](/plugins-lastfmscrobble) module):
 
-\[img\_assist|url=images/lmp03.png|title=|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp04.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp03.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
+`{ "name": "lmp04.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 allowing you to stay on the front edge of the new or hyped music:
 
-\[img\_assist|url=images/lmp06.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp06.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 as well as to discover what you may also like:
 
-\[img\_assist|url=images/lmp03.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp03.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 fetches lyrics automatically:
 
-\[img\_assist|url=images/lmp08.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp08.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 supports transcoding to removable devices (dumb flash-like in 0.6.0, but
 full MTP support is already implemented in master development branch and
 will be present in 0.6.60):
 
-\[img\_assist|url=images/lmp05.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp05.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 can fetch artists discographies (from MusicBrainz via
 [MusicZombie](/plugins-musiczombie) module, for example) and preview
 them from VKontakte, and allow one to just browse information about
 artists:
 
-\[img\_assist|url=images/lmp07.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp07.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 The player integrates with the rest of LeechCraft, so that Azoth can
 automatically announce what tune you are listening to via XMPP User Tune
@@ -77,7 +77,7 @@ Icecast/Shoutcast streams via the HotStreams module.
 LMP also has a subplugin, Graffiti, for tag manipulation, CUE files
 splitting:
 
-\[img\_assist|url=images/lmpgraffiti01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmpgraffiti01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 LMP Graffiti also supports renaming files according to a mask and
 fetching tags from MusicBrainz/AcoustID by the means of acoustic
@@ -116,14 +116,14 @@ C++ plugin. There are quite a few quarks already:
 - tab switcher and opener with highlighting for active and opened tabs
   and a handy tab switcher:
 \
-  \[img\_assist|url=images/sb201.png|title=|align=inline|link=1|width=440\]
+  `{ "name": "sb201.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 - [third-party application launcher](/plugins-launchy);
 - [network activity monitor](/plugins-lemon);
 - [new mail notificator](/plugins-gmailnotifier);
 - [task progress indicator](/plugins-tpi) for monitoring progress of
   everything from pending torrents to audio transcoding process:
 \
-  \[img\_assist|url=images/sb202.png|title=|align=inline|link=1|width=440\]
+  `{ "name": "sb202.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 - and a bunch of others.
 
 The SB2 panel supports the multiwindow support introduced in this
@@ -152,7 +152,7 @@ Monocle
 Another big new plugin is [Monocle](/plugins-monocle), the document
 reader:
 
-\[img\_assist|url=images/monocle01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "monocle01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Monocle is modular, and different formats are supported by different
 modules. The following are supported: PDF, FB2, DjVu and PostScript
@@ -163,7 +163,7 @@ likes. It supports tables of contents, forms (in PDF), thumbnails,
 bookmarks, one- or two-pages layouts, fullscreen mode, links and some
 other features:
 
-\[img\_assist|url=images/monocle03.png|title=|align=inline|link=1|width=440\]
+`{ "name": "monocle03.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Monocle integrates with the rest of LeechCraft, so, for example, a just
 downloaded document will automatically be opened in Monocle.
@@ -174,7 +174,7 @@ Blogique
 One more new thing in this release is [Blogique](/plugins-blogique), the
 blogging platform client plugin:
 
-\[img\_assist|url=images/blogique01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "blogique01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 For now only local blog and Livejournal.com is supported, though support
 for more platforms is planned. Like Azoth and Monocle, Blogique is
@@ -213,7 +213,7 @@ Krusader, Midnight Commander or Total Commander, so we decided to change
 NSM's UI from a tree view to something similar to these file managers
 (one panel for now, though):
 
-\[img\_assist|url=images/nsm01\_0.png|title=|align=inline|link=1|width=440\]
+`{ "name": "nsm01_0.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 There are some new features. More files and directories actions are
 supported, like copying, moving, erasing and moving to trash. There is
@@ -240,7 +240,7 @@ on FreeBSD and native APIs on Mac OS X. It supports reporting battery
 level, status and statistics, notifying other plugins about
 suspend/hibernate events (so that Azoth can gracefully disconnect from
 the servers, for example) and drawing nice power consumption graphs:
-\[img\_assist|url=images/liznoo01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "liznoo01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 ### Launchy
 
@@ -248,7 +248,7 @@ Third-party [application launcher](/plugins-launchy) based on
 FreeDesktop.Org specifications. It provides a quark for SB2 and a
 full-screen launch panel:
 
-\[img\_assist|url=images/launch01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "launch01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 In master branch it also fully supports keyboard navigation and
 launching arbitrary applications (not only those providing a .desktop
@@ -261,7 +261,7 @@ available only for Linux and using the UDisks daemon. It also provides
 data about removable storages to other plugins, so that LMP, for
 example, can know about such devices and sync with them.
 
-\[img\_assist|url=images/vrooby01\_th.png|title=|align=inline|link=1|width=440\]
+`{ "name": "vrooby01_th.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 ### Dolozhee
 
@@ -391,17 +391,17 @@ mode](/user-guide-desktop-mode), where LeechCraft window automatically
 becomes desktop window, and SB2 widget is created as a top-level panel,
 visible even when other apps are active:
 
-\[img\_assist|url=images/lcdesktop01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lcdesktop01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 0.6.60 will also feature some new related plugins, like
 [Fenet](/plugins-fenet) for controlling window and compositing managers:
 
-\[img\_assist|url=images/fenet01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "fenet01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 [KBSwitch](/plugins-kbswitch) for configuring keyboard layouts:
 
-\[img\_assist|url=images/kbswitch01.png|title=|align=inline|link=1|width=440\]
-\[img\_assist|url=images/kbswitch02.png|title=|align=inline|link=1|width=440\]
+`{ "name": "kbswitch01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
+`{ "name": "kbswitch02.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 as well as [Krigstask](/plugins-krigstask) (the taskbar and pager),
 [Mellonetray](/plugins-mellonetray) (well, the tray) and Laughty, the

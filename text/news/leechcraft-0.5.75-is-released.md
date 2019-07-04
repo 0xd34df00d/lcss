@@ -21,8 +21,8 @@ sense to upload music in big batches. It's also run with minimum
 possible priority, so one can just continue to do your work while the
 media files are being converted. All this stuff looks like this:
 
-\[img\_assist|url=images/lmp-up-1.png|title=Uploading progress|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp-up-2.png|title=Transcoding options|align=inline|link=1|width=440\]
+`{ "name": "lmp-up-1.png", "align": "inline", "title": "Uploading progress", "thumb": "medium" }`{.img}
+`{ "name": "lmp-up-2.png", "align": "inline", "title": "Transcoding options", "thumb": "medium" }`{.img}
 
 For now only those media players are supported that don't require any
 special MTP or i-device-related protocols, but support for the latter
@@ -43,7 +43,7 @@ removable storage devices. Other plugins then may query it to know what
 devices are available and where they are mounted, for example. It also
 allows the user to mount and unmount them via LeechCraft UI:
 
-\[img\_assist|url=images/vrooby-1.png|title=Devices popup|align=inline|link=1|width=440\]
+`{ "name": "vrooby-1.png", "align": "inline", "title": "Devices popup", "thumb": "medium" }`{.img}
 
 Several things were optimized a lot, thanks to the Intel VTune profiler
 being for non-commercial use (it's available in Gentoo's *science*

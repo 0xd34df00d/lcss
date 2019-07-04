@@ -23,7 +23,7 @@ Mac OS X
 
 Moreover, LeechCraft can finally be built and run on Mac OS X:
 
-\[img\_assist|url=images/mac.png|title=|align=inline|link=1|width=440\]
+`{ "name": "mac.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 The resulting [app
 bundle](http://sourceforge.net/projects/leechcraft/files/LeechCraft/0.5.85/leechcraft-0.5.85.dmg/download)
@@ -43,7 +43,7 @@ UNIX-only and fetches the list of applications from the freedesktop.org
 desktop files. For now it only supports visual fullscreen launcher, some
 say it resembles Unity a bit:
 
-\[img\_assist|url=images/screenshot.png|title=|align=inline|link=1|width=440\]
+`{ "name": "screenshot.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 CleanWeb
 --------
@@ -97,7 +97,7 @@ tons of radio streams from radio stations like Digitally Imported,
 SomaFM or from huge streams directory at
 [dir.xiph.org](http://dir.xiph.org):
 
-\[img\_assist|url=images/lmp\_radio\_120917.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_radio_120917.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Moreover, LMP now is even more social: paired with LastFMScrobble, it is
 now able to fetch personalized recommended concerts and festivals. Of
@@ -124,7 +124,7 @@ variable). Moreover, the list of supported formats is dynamically
 fetched from FFmpeg at runtime, so only those formats that will actually
 work are displayed:
 
-\[img\_assist|url=images/lmp\_devsync\_transcoding.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_devsync_transcoding.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 And, speaking of transcoding and device synchronization, LMP DumbSync
 subplugin, which is used to upload music to non-MTP and non-iThing
@@ -132,13 +132,13 @@ devices, now also supports uploading album art with the music.
 
 Collection statistics dialog is also available:
 
-\[img\_assist|url=images/lmp\_collection\_stats.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_collection_stats.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 There are also lots of other fixes and improvements, like improved
 biography and similar artists templates, with nice effects like
 background blurring on photo view:
 
-\[img\_assist|url=images/lmp\_background\_blurring.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_background_blurring.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 NetStoreManager
 ---------------
@@ -169,7 +169,7 @@ capabilities were also improved. Azoth now supports sending files both
 by protocol means and via modules like NetStoreManager, all from a
 single handy dialog:
 
-\[img\_assist|url=images/azoth\_filetransfer.png|title=|align=inline|link=1|width=440\]
+`{ "name": "azoth_filetransfer.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 That's yet one more profit from LeechCraft-style modules integration, by
 the way.
@@ -182,7 +182,7 @@ default it autodetects the one offered by the Jabber server.
 selecting syntax highlighter and choosing the paste service when
 pasting:
 
-\[img\_assist|url=images/azoth\_autopaste.png|title=|align=inline|link=1|width=440\]
+`{ "name": "azoth_autopaste.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 [Azoth Metacontacts](/plugins-azoth-metacontacts) module now shows its
 pseudo account in the roster only if there are metacontacts.

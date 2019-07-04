@@ -23,8 +23,8 @@ database and VK.com audio collection respectively.
 For example, if MusicZombie plugin is present, LMP can show the
 discography and tracklist in biography view and in recent releases view:
 
-\[img\_assist|url=images/lmp\_bio\_disco.png|title=|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_releases\_disco.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_bio_disco.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
+`{ "name": "lmp_releases_disco.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Paired with TouchStreams plugin it can also automatically start
 streaming tracks from VK.com (but that requires an active VK.com
@@ -32,7 +32,7 @@ account, at least for now) from a variety of places, like similar
 artists, recommendations, recent releases and hypes. Generally a
 loudspeaker icon appears near an item if it can be streamed:
 
-\[img\_assist|url=images/lmp\_hypes.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_hypes.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 By the way, fetching hyped artists and tracks — both most popular and
 most growing ones — is another new feature of LMP in this release, so
@@ -67,23 +67,23 @@ already opened, and a quick switcher between those), tray and quick
 launch areas and almost everything that the old sidebar was capable of,
 and more:
 
-\[img\_assist|url=images/sb2\_launcher.png|title=|align=inline|link=1|width=440\]
+`{ "name": "sb2_launcher.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 There are already some quarks exclusive to SB2, like the
 [TPI](/plugins-tpi) plugin, standing for Task Progress Indicator:
 
-\[img\_assist|url=images/sb2\_tpi.png|title=|align=inline|link=1|width=440\]
+`{ "name": "sb2_tpi.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 or [Lemon](/plugins-lemon), which monitors traffic usage on network
 interfaces:
 
-\[img\_assist|url=images/lemon\_full.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lemon_full.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Of course, no such thing goes without analog clock, which will be
 available through [LackMan](/plugins-lackman) package manager. Here it
 is near Lemon indicators:
 
-\[img\_assist|url=images/lemon\_indicators\_focused.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lemon_indicators_focused.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 TPI and Lemon have parts written in C++, but the analog clock quark is
 in pure QML, which allows us to deliver it via LackMan.
@@ -91,7 +91,7 @@ in pure QML, which allows us to deliver it via LackMan.
 SB2's intrinsic vector nature also allows it to be scaled without any
 problems:
 
-\[img\_assist|url=images/sb2\_scaled.png|title=|align=inline|link=1|width=440\]
+`{ "name": "sb2_scaled.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 SB2 also lays foundation for things we'd like to implement in next
 versions. For example, we have plans for a Dashboard tab which will also
@@ -108,8 +108,8 @@ has been added. These themes are based off KDE's ones, but also offer
 more colors to customize all those QML things, for example, in LMP and
 SB2:
 
-\[img\_assist|url=images/color\_zion.png|title=|align=inline|link=1|width=440\]
-\[img\_assist|url=images/color\_bluesilence.png|title=|align=inline|link=1|width=440\]
+`{ "name": "color_zion.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
+`{ "name": "color_bluesilence.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Blogique
 --------
@@ -120,7 +120,7 @@ which already supports all post fields available ranging from the post
 body itself to mood, location and avatar. It also supports fetching all
 the entries from a blog as well as local drafts and backups:
 
-\[img\_assist|url=images/blogique.png|title=|align=inline|link=1|width=440\]
+`{ "name": "blogique.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 LHTR module is used for editing (potentially any other editor can be
 used, if written), providing WYSIWYG functionality.
@@ -138,12 +138,12 @@ Only five years have passed since the introduction of the [BitTorrent
 plugin](/plugins-bittorrent), and as many users asked we've finally
 moved it to a separate tab:
 
-\[img\_assist|url=images/torrenttab1.png|title=|align=inline|link=1|width=440\]
-\[img\_assist|url=images/torrenttab2.png|title=|align=inline|link=1|width=440\]
+`{ "name": "torrenttab1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
+`{ "name": "torrenttab2.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Only basic info is left in [Summary](/plugins-summary):
 
-\[img\_assist|url=images/torrent\_summary.png|title=|align=inline|link=1|width=440\]
+`{ "name": "torrent_summary.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Also, the code has been migrated to the new libtorrent 0.16 API where
 possible, but it's still compatible with libtorrent 0.15.
@@ -166,7 +166,7 @@ What that means for a user — there is a context menu in
 [Azoth](/plugins-azoth) or [Poshuku](/plugins-poshuku) that offers to
 handle selected text with text-supporting data filters:
 
-\[img\_assist|url=images/azoth\_datafilters\_search.png|title=|align=inline|link=1|width=440\]
+`{ "name": "azoth_datafilters_search.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 In future more data filters will be added, for example, an image filter
 that uploads its input to an imagebin, or another image filter that
@@ -183,7 +183,7 @@ issues have been fixed.
 Poshuku browser now properly formats and highlights XML instead of
 showing it as-is:
 
-\[img\_assist|url=images/poshuku\_xml.png|title=|align=inline|link=1|width=440\]
+`{ "name": "poshuku_xml.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Among other significant changes:
 

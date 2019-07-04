@@ -26,7 +26,7 @@ into third one. Moreover, this feature is very useful for those having
 multiple monitors: one can put a long article to read or documentation
 pages on one monitor and leave primary LeechCraft window on another one:
 
-\[img\_assist|url=images/multimon.png|title=|align=inline|link=1|width=660\]
+`{ "name": "multimon.png", "align": "inline", "title": "", "thumb": "large" }`{.img}
 
 Plugins also support this new multiple windows feature. For example,
 [SB2](/plugins-sb2) will keep different settings like panel placement
@@ -94,7 +94,7 @@ audio files, split CUE files into separate tracks and obtain tags for
 files from services like MusicBrainz via audio fingerprinting (if
 corresponding plugins are installed):
 
-\[img\_assist|url=images/lmp\_graffiti01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp_graffiti01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Monocle
 -------
@@ -107,9 +107,9 @@ Monocle document reader now supports a bunch of new things:
 - forms for PDF files;
 - text searching.
 
-\[img\_assist|url=images/monocle\_toc\_search.png|title=|align=inline|link=1|width=440\]
-\[img\_assist|url=images/monocle\_thumbs.png|title=|align=inline|link=1|width=440\]
-\[img\_assist|url=images/monocle\_forms.png|title=|align=inline|link=1|width=440\]
+`{ "name": "monocle_toc_search.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
+`{ "name": "monocle_thumbs.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
+`{ "name": "monocle_forms.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Monocle also allows searching for selected text via text searchers like
 Pogooglue or [SeekThru](/plugins-seekthru) OpenSearch client.
@@ -125,7 +125,7 @@ SB2 now supports placing the panel in any window side, not only left
 one. It also supports removing and reordering quarks now, and the quarks
 can have settings as well:
 
-\[img\_assist|url=images/sb2\_reordering.png|title=|align=inline|link=1|width=440\]
+`{ "name": "sb2_reordering.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Panel placement preferences, as well as quark list, order and quark
 settings can be different for different windows.
@@ -149,7 +149,7 @@ bundled one, but in this case one misses this media keys feature.
 applications and LeechCraft tabs can be added. Favorites will be shown
 in quick launch area in SB2, if the corresponding quark is enabled:
 
-\[img\_assist|url=images/launchy\_quicklaunch1\_ex.png|title=|align=inline|link=1|width=440\]
+`{ "name": "launchy_quicklaunch1_ex.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Launchy now also supports keyboard navigation as well as filtering the
 list of applications by name, description or name of the executable.

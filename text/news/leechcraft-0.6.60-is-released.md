@@ -31,7 +31,7 @@ environment. For example, the [SB2](/plugins-sb2) sidebar (which
 contains elements like a taskbar or app launcher) turns into a separate
 always-visible dock panel that covers other applications:
 
-\[img\_assist|url=images/lcdesktop01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lcdesktop01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Desktop mode is activated via the `--desktop` command line switch, and
 there are already session files for login managers to offer LeechCraft
@@ -113,7 +113,7 @@ multiuser chats, and it automatically fetches media content embedded in
 messages like attached photos, audios, videos and reposts. Murm also
 offers the audios to be played or queued in media players like LMP:
 
-\[img\_assist|url=images/murm01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "murm01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 The messages can also be encrypted via OTR if the corresponding plugin
 is installed and if the other chat participant supports OTR encryption.
@@ -126,7 +126,7 @@ like Picasa. The exact services are implemented via subplugins, and
 there are already four of them for Flickr, LiveJournal, Picasa and
 VKontakte.
 
-\[img\_assist|url=images/blasq01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "blasq01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 The plugin supports collections of photos, uploading (and
 mass-uploading) new photos and deleting them. Other plugins like
@@ -218,7 +218,7 @@ AnHero depended on KDE's crash handling system before this release, and
 we've finally rewrote it to avoid this dependency. Now it has its own
 KDE-free crash handler:
 
-\[img\_assist|url=images/anhero01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "anhero01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 It is also able now to automatically save crash logs and backtraces as a
 bonus. On the other hand, [Dolozhee](/plugins-dolozhee) now supports

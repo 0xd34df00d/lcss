@@ -23,8 +23,7 @@ adding other clouds like Google Music would be much easier.
 Much like with device synchronization, one can also transcode the songs
 before uploading:
 
-\[img\_assist|url=images/lmp\_uploading.png|title=Cloud
-uploading|align=inline|link=1|width=440\]
+`{ "name": "lmp_uploading.png", "align": "inline", "title": "Cloud uploading", "thumb": "medium" }`{.img}
 
 As one may see from this screenshot there is now a nice stats label
 below the playlist, so that one can know exactly how much songs he added
@@ -51,7 +50,7 @@ NetStoreManager
 NetStoreManager got initial support for the Google Drive cloud storage
 service:
 
-\[img\_assist|url=images/nsm02.png|title=Google Drive|align=inline|link=1|width=440\]
+`{ "name": "nsm02.png", "align": "inline", "title": "Google Drive", "thumb": "medium" }`{.img}
 
 Its core has been reworked so now it can easily support other similar
 cloud storage services like Yandex.Disk. For now only uploading and
@@ -77,10 +76,8 @@ automatically opens a PDF document after a link to it is clicked, for
 example, in a browser or [Azoth](/plugins-azoth), and the document is
 downloaded.
 
-\[img\_assist|url=images/monocle\_pdf\_01.png|title=PDF
-document|align=inline|link=1|width=440\]
-\[img\_assist|url=images/monocle\_fb2\_01.png|title=FB2
-document|align=inline|link=1|width=440\]
+`{ "name": "monocle_pdf_01.png", "align": "inline", "title": "PDF document", "thumb": "medium" }`{.img}
+`{ "name": "monocle_fb2_01.png", "align": "inline", "title": "FB2 document", "thumb": "medium" }`{.img}
 
 Different formats are supported via different backend moudles, and for
 now only PDF and fb2 file formats are supported. There are two backends
@@ -116,7 +113,7 @@ LeechCraft architecture and integration.
 
 Azoth now finally displays user's avatar in tooltips:
 
-\[img\_assist|url=images/azoth\_tooltip\_01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "azoth_tooltip_01.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Moreover, tabs of conferences with unread highlight messages are now
 marked with a star sign ("\*").

@@ -22,10 +22,10 @@ lyrics for currently playing song.
 
 Some screenshots of LMP:
 
-\[img\_assist|url=images/lmp\_collection\_120916.png|title=Collection|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_similar\_120916.png|title=Similar artists|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_lyrics\_120917.png|title=Lyrics|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_4.png|title=Tray icon|align=inline|link=1|width=440\]
+`{ "name": "lmp_collection_120916.png", "align": "inline", "title": "Collection", "thumb": "medium" }`{.img}
+`{ "name": "lmp_similar_120916.png", "align": "inline", "title": "Similar artists", "thumb": "medium" }`{.img}
+`{ "name": "lmp_lyrics_120917.png", "align": "inline", "title": "Lyrics", "thumb": "medium" }`{.img}
+`{ "name": "lmp_4.png", "align": "inline", "title": "Tray icon", "thumb": "medium" }`{.img}
 
 The following is planned in the nearest future:
 

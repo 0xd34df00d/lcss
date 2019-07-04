@@ -27,7 +27,7 @@ provides a basic web interface for the [Aggregator](/plugins-aggregator)
 feed reader, so one can read news articles from a mobile device or
 another machine:
 
-\[img\_assist|url=images/aggregator\_wa1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "aggregator_wa1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 The module is still extremely experimental, but it is already used by
 some in some scenarios.
@@ -39,7 +39,7 @@ managing the SSL exceptions (like accepted or rejected SSL errors), as
 well as disabling system-wide SSL certificates and loading custom
 ones:
 
-\[img\_assist|url=images/certmgr1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "certmgr1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 ### CPU Load
 
@@ -47,7 +47,7 @@ CPU load monitoring quark that shows current IO/nice/user/system load in
 the [sidebar](/plugins-sb2) and displays a tooltip with the load graphs
 for each core on hover:
 
-\[img\_assist|url=images/cpuload1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "cpuload1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 It only supports Linux and Mac OS X systems for now.
 
@@ -122,7 +122,7 @@ instead of older but way more clumsy
 support both from client and server, and as far as we know only Prosody
 supports it.
 
-\[img\_assist|url=images/azoth1\_0.png|title=|align=inline|link=1|width=440\]
+`{ "name": "azoth1_0.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 The [Xoox](/plugins-azoth-xoox) submodule implementing the XMPP protocol
 gained support for [Message
@@ -160,7 +160,7 @@ been fixed as well:
 - Support for text search in chat window has been
   added:
    
-  \[img\_assist|url=images/azoth2.png|title=|align=inline|link=1|width=440\]
+  `{ "name": "azoth2.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
   
 - A workaround has been found for a long-standing bug in Qt leading to
   crashes on startup.
@@ -186,7 +186,7 @@ documents. For now annotations are only supported for PDF documents, and
 only basic textual annotations are recognized. They are displayed both
 inline in the document and in a special side panel:
 
-\[img\_assist|url=images/monocle1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "monocle1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Creating annotations is not supported yet.
 
@@ -210,21 +210,21 @@ for the image sources plugins (that Blasq also became in this release),
 so that images can be inserted easily. First we select the service we
 want to insert images from:
 
-\[img\_assist|url=images/lhtr\_up1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lhtr_up1.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Then we select the images we want to add (of course, multiple selection
 is supported):
 
-\[img\_assist|url=images/lhtr\_up2.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lhtr_up2.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Then we choose image parameters, like the size of the previews, the alt
 text for each image, the alignment and so on:
 
-\[img\_assist|url=images/lhtr\_up3.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lhtr_up3.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 And finally:
 
-\[img\_assist|url=images/lhtr\_up4.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lhtr_up4.png", "align": "inline", "title": "", "thumb": "medium" }`{.img}
 
 Also, the HTML editor now supports syntax highlighting.
 
