@@ -39,10 +39,10 @@ Screenshots
 \
 \
 LeechCraft running in desktop mode:
-\[img\_assist|url=images/lcdesktop01.png|title=|align=inline|link=1|width=440\]\
+`{ "name": "lcdesktop01.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}\
 \
 [Fenet](/plugins-fenet) settings:
-\[img\_assist|url=images/fenet01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "fenet01.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}
 [KBSwitch](/plugins-kbswitch) settings:
-\[img\_assist|url=images/kbswitch01.png|title=|align=inline|link=1|width=440\]
-\[img\_assist|url=images/kbswitch02.png|title=|align=inline|link=1|width=440\]
+`{ "name": "kbswitch01.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}
+`{ "name": "kbswitch02.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}

@@ -20,7 +20,7 @@ filters.
 A [document reader](/plugins-monocle) can pass the selected text to text
 data filters for [searching in Opensearch engines](/plugins-seekthru) or
 uploading it to a pastebin. The following screenshot illustrates this:
-\[img\_assist|url=images/monocle\_datafilters\_part.png|title=Data filters in Monocle|align=inline|link=1|width=440\]
+`{ "name": "monocle_datafilters_part.png", "align": "inline", "title": "Data filters in Monocle" , "thumb" : "medium" }`{.img}
 
 The exact functionality of the data filters doesn't matter to the plugin
 producing the data. Moreover, data filter plugins are "passive" — that

@@ -25,14 +25,13 @@ There are several ways to add a bookmark:\
 
 \
 \
-\[img\_assist|url=images/bookmarks-addbookmark-a.png|title=Add to
-bookmarks button in the address bar|align=inline|link=1|width=600\]\
+`{ "name": "bookmarks-addbookmark-a.png", "align": "inline", "title": "Add to bookmarks button in the address bar"  }`{.img}\
 \
 Whatever way to add you choose, you'd be greeted with the dialog that
 allows you to edit the title and tags of your bookmark before adding
 it:\
 \
-\[img\_assist|url=images/bookmarks-addbookmark-dialog.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "bookmarks-addbookmark-dialog.png", "align": "inline", "title": ""  }`{.img}\
 \
 Enter the ';'-separated list of tags or right-click the corresponding
 line edit and select the already existing tags. Tags may contain

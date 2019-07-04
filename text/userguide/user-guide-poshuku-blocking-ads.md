@@ -36,12 +36,12 @@ There is a package called *Poshuku CleanWeb Subscriptions* with the list
 of some popular filters in the [LackMan](/plugins-lackman). Install it
 though LackMan:\
 \
-\[img\_assist|url=images/cleanweb-install-packages1.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "cleanweb-install-packages1.png", "align": "inline", "title": ""  }`{.img}\
 \
 After that, go to CleanWeb settings, select *Subscriptions* tab and
 click *Add*:\
 \
-\[img\_assist|url=images/cleanweb-install-packages2.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "cleanweb-install-packages2.png", "align": "inline", "title": ""  }`{.img}\
 \
 There, select the subscriptions you want and click *OK*. That's it!
 
@@ -74,7 +74,7 @@ filters. To block them, right-click the corresponding element and select
 *Block image...*. A dialog would pop up, where you can select blocking
 options:\
 \
-\[img\_assist|url=images/cleanweb-manual-filter1.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "cleanweb-manual-filter1.png", "align": "inline", "title": ""  }`{.img}\
 \
 There, you could customize the URL pattern to block, select whether it
 should be interpreted as a wildcard (with *\*?* symbols) or a regexp.

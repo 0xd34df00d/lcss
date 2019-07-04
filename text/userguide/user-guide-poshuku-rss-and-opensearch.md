@@ -28,11 +28,11 @@ another format similar to RSS) feeds are detected on a web page, Poshuku
 would offer subscribing to them by displaying the corresponding icon in
 the address bar:\
 \
-\[img\_assist|url=images/rss1-a.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "rss1-a.png", "align": "inline", "title": ""  }`{.img}\
 \
 Clicking on the button reveals the list of feeds found:\
 \
-\[img\_assist|url=images/rss2.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "rss2.png", "align": "inline", "title": ""  }`{.img}\
 \
 As you may see, there may be several feeds on a single page, having
 different content.\
@@ -40,7 +40,7 @@ different content.\
 Clicking on any item in the list results in dialog were you can set the
 tags for the item:\
 \
-\[img\_assist|url=images/rss3.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "rss3.png", "align": "inline", "title": ""  }`{.img}\
 \
 Here you can enter ';'-separated list of tags for the feed, or choose
 them from already-existing tags by right-clicking the line edit and
@@ -52,7 +52,7 @@ information.\
 *Note*: you can also right-click on any link containing the word *RSS*,
 and the context menu would have the corresponding action right on top:\
 \
-\[img\_assist|url=images/rss4.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "rss4.png", "align": "inline", "title": ""  }`{.img}\
 \
 This way you can subscribe to feeds that are not automatically detected.
 
@@ -70,7 +70,7 @@ Just like with RSS feeds, Poshuku automatically detects the presence of
 OpenSearch descriptions and suggests to add them. This is completely
 analogous to the RSS autodetection and addition:\
 \
-\[img\_assist|url=images/opensearch1-a.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "opensearch1-a.png", "align": "inline", "title": ""  }`{.img}\
 \
 After selecting the OpenSearch description a dialog pops up where one
 can enter the tags that would be used to address this description.\
@@ -81,7 +81,7 @@ guide) or directly from Poshuku. For that, just prepend the name of the
 tag with the exclamation sign and enter the search query in the address
 bar:\
 \
-\[img\_assist|url=images/opensearch2.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "opensearch2.png", "align": "inline", "title": ""  }`{.img}\
 \
 Here, we would search for "leechcraft repo" using all search engines
 with the *git* tag.

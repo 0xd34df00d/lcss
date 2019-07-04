@@ -11,6 +11,6 @@ features are listed on [its page](/plugins-poshuku).\
 This section of the user guide describes various aspects of Poshuku and
 shows some typical usage scenarios.\
 \
-\[img\_assist|url=images/poshuku01.png|title=|align=inline|link=1|width=440\]\
+`{ "name": "poshuku01.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}\
 \
-\[img\_assist|url=images/poshuku2.png|title=|align=inline|link=1|width=440\]
+`{ "name": "poshuku2.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}

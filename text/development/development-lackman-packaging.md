@@ -78,26 +78,26 @@ style for [Azoth](/plugins-azoth).\
 \
 So, we run *lcpackgen* and see something like this:\
 \
-\[img\_assist|url=images/00\_startup.png|title=|align=inline|link=1|width=679|height=502\]\
+`{ "name": "00_startup.png", "align": "inline", "title": ""  }`{.img}\
 \
 We start filling different fields and noting where the label in bottom
 right corner becomes green, meaning that we have provided enough
 information. So, we fill in some fields in the *Basic* tab:\
 \
-\[img\_assist|url=images/01\_basic.png|title=|align=inline|link=1|width=679|height=502\]\
+`{ "name": "01_basic.png", "align": "inline", "title": ""  }`{.img}\
 \
 Please note how we use HTML in the *Long description* field.\
 \
 Then we set what versions are available:\
 \
-\[img\_assist|url=images/02\_versions.png|title=|align=inline|link=1|width=679|height=502\]\
+`{ "name": "02_versions.png", "align": "inline", "title": ""  }`{.img}\
 \
 Our theme doesn't have any dependencies, so we leave that field blank.
 Also note that the label in the bottom right corner tells now that the
 description is valid. We can basically save the description, but since
 our theme is a really nice piece of artwork, we'd provide a screenshot:\
 \
-\[img\_assist|url=images/04\_screenshots.png|title=|align=inline|link=1|width=679|height=502\]\
+`{ "name": "04_screenshots.png", "align": "inline", "title": ""  }`{.img}\
 \
 In these fields, we can list URLs of screenshots and thumbnails, one URL
 per line.\
@@ -129,4 +129,4 @@ or find us in our XMPP conference,
 After that, if all goes well, your package would be in the LackMan
 repos:\
 \
-\[img\_assist|url=images/lackman2.png|title=|align=inline|link=1|width=440|height=269\]
+`{ "name": "lackman2.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}

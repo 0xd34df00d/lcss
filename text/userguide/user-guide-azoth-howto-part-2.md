@@ -27,8 +27,7 @@ can be used to hide the quarks. A hidden quark can be brought back by
 pressing a green plus sign (5 on pic. 1), appearing near the
 configuration button.\
 \
-\[img\_assist|url=images/im01\_0.png|title=Picture
-1|align=inline|link=1|width=440\]\
+`{ "name": "im01_0.png", "align": "inline", "title": "Picture 1", "thumb": "medium" }`{.img}\
 \
 Let's get to our trip into LeechCraft world and add a few IM accounts to
 start chatting! Press the first button in the roster (1 on pic. 2), then
@@ -37,8 +36,7 @@ implementation is in the beginning of the protocol list, while native
 XMPP is in the end. It is recommended to use native implementations as
 they have the widest features set.\
 \
-\[img\_assist|url=images/im02.png|title=Picture
-2|align=inline|link=1|width=440\]\
+`{ "name": "im02.png", "align": "inline", "title": "Picture 2", "thumb": "medium" }`{.img}\
 \
 After adding the accounts we can change the global status by the button
 above the roster (1 on pic. 3) or for each account separately by
@@ -47,8 +45,7 @@ the password. After coming online I immediately turn off displaying
 offline contacts by pressing the corresponding button on top of the
 roster (3 on pic. 3).\
 \
-\[img\_assist|url=images/im03.png|title=Picture
-3|align=inline|link=1|width=440\]\
+`{ "name": "im03.png", "align": "inline", "title": "Picture 3", "thumb": "medium" }`{.img}\
 \
 After that we click the LC button (1 on pic. 4) to get to the settings
 (2 on pic. 4) of the Azoth (3 on pic. 4) module. There are a few
@@ -61,10 +58,8 @@ note the buttons to apply (6 on pic. 5) the settings (don't forget to
 press it!) or cancel (7 on pic. 5) changes, or to go back (8 on pic.
 5).\
 \
-\[img\_assist|url=images/im04.png|title=Picture
-4|align=inline|link=1|width=440\]
-\[img\_assist|url=images/im05.png|title=Picture
-5|align=inline|link=1|width=440\]\
+`{ "name": "im04.png", "align": "inline", "title": "Picture 4", "thumb": "medium" }`{.img}
+`{ "name": "im05.png", "align": "inline", "title": "Picture 5", "thumb": "medium" }`{.img}\
 \
 If your account has bookmarked multiuser chats with autojoin turned on,
 you can toggle automatic chat tabs opening (3 on pic. 6) in tabs (2 on
@@ -77,8 +72,7 @@ entry in the contact list. Roster display mode can be toggled between
 full view and conference view by the rightest button above the roster (8
 on pic. 6), which also has a configurable shortcut.\
 \
-\[img\_assist|url=images/im06.png|title=Picture
-6|align=inline|link=1|width=440\]\
+`{ "name": "im06.png", "align": "inline", "title": "Picture 6", "thumb": "medium" }`{.img}\
 \
 Meanwhile one can go to the *Appearance* page (1 on pic. 7), then to the
 *Chat windows* tab to disable formatted messages (3 on pic. 7) to avoid
@@ -88,10 +82,8 @@ here resides the font size option (5 on pic. 7). The fonts themselves
 can be configured (3 on pic. 8) on the corresponding tab (2 on pic. 8)
 of the *Appearance* tab again (1 on pic. 8).\
 \
-\[img\_assist|url=images/im07.png|title=Picture
-7|align=inline|link=1|width=440\]
-\[img\_assist|url=images/im08.png|title=Picture
-8|align=inline|link=1|width=440\]\
+`{ "name": "im07.png", "align": "inline", "title": "Picture 7", "thumb": "medium" }`{.img}
+`{ "name": "im08.png", "align": "inline", "title": "Picture 8", "thumb": "medium" }`{.img}\
 \
 Next, we can configure the height of a single roster entry (3 on pic. 9)
 in *Contact list* tab (2 on pic. 9) of *Appearance* page (1 on pic. 9).
@@ -102,10 +94,8 @@ windows, so it's recommended to close (almost all of) them before
 changing the styles. The various iconsets can be also changes on the
 same page.\
 \
-\[img\_assist|url=images/im09.png|title=Picture
-9|align=inline|link=1|width=440\]
-\[img\_assist|url=images/im10.png|title=Picture
-10|align=inline|link=1|width=440\]\
+`{ "name": "im09.png", "align": "inline", "title": "Picture 9", "thumb": "medium" }`{.img}
+`{ "name": "im10.png", "align": "inline", "title": "Picture 10", "thumb": "medium" }`{.img}\
 \
 You can change the global LeechCraft color scheme in the settings (1 on
 pic. 11) of the LeechCraft core (2 on pic. 11), particularly on the
@@ -113,10 +103,8 @@ pic. 11) of the LeechCraft core (2 on pic. 11), particularly on the
 pic. 12). There you can also set the default system iconset or choose
 another icon theme (3 on pic. 12).\
 \
-\[img\_assist|url=images/im11.png|title=Picture
-11|align=inline|link=1|width=440\]
-\[img\_assist|url=images/im12.png|title=Picture
-12|align=inline|link=1|width=440\]\
+`{ "name": "im11.png", "align": "inline", "title": "Picture 11", "thumb": "medium" }`{.img}
+`{ "name": "im12.png", "align": "inline", "title": "Picture 12", "thumb": "medium" }`{.img}\
 \
 As the final part of our preliminary configuration we can set the
 default status texts (2 on pic. 13) in status settings (1 on pic. 13).
@@ -126,8 +114,7 @@ entering arbitrary text on the fly via the *Custom* action (4 on pic.
 Similarly, custom statuses can also be defined on the per-account basis
 via the accounts context menu.\
 \
-\[img\_assist|url=images/im13.png|title=Picture
-13|align=inline|link=1|width=440\]\
+`{ "name": "im13.png", "align": "inline", "title": "Picture 13", "thumb": "medium" }`{.img}\
 \
 *This guide is originally written by DarkneSS in Russian. Translated to
 English by 0xd34df00d with minor stylistic and contextual changes.*

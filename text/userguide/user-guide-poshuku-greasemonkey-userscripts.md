@@ -27,12 +27,12 @@ Let's navigate to the site and pick a userscript for installation, for
 example, [this one](http://userscripts.org/scripts/show/86674). Click
 the *Install* button:\
 \
-\[img\_assist|url=images/fatape-install1a.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "fatape-install1a.png", "align": "inline", "title": ""  }`{.img}\
 \
 After that, FatApe's dialog will pop up with some information about the
 script (the domains where it is enabled or explicitly disabled):\
 \
-\[img\_assist|url=images/fatape-install2.png|title=|align=inline|link=1|width=750\]\
+`{ "name": "fatape-install2.png", "align": "inline", "title": ""  }`{.img}\
 \
 You can view the script sources to ensure it doesn't do anything
 malicious, or you can just click *Install* to install it. That's
