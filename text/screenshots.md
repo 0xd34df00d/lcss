@@ -8,43 +8,26 @@ published: 2013-08-24T17:49:04
 Azoth
 -----
 
-\
-\
-\[img\_assist|url=images/azoth\_muc\_120916.png|title=MUC|align=inline|link=1|width=440\]
-\[img\_assist|url=images/azoth\_muc\_as0\_120916.png|title=MUC with
-Adium style|align=inline|link=1|width=440\]
-\[img\_assist|url=images/azoth\_muc\_as1\_120916.png|title=Another Adium
-style|align=inline|link=1|width=440\]
-\[img\_assist|url=images/azoth\_muc\_as4\_120917.png|title=Yet one more
-Adium style|align=inline|link=1|width=440\]
-\[img\_assist|url=images/modnok01.png|title=LaTeX formula in a
-MUC|align=inline|link=1|width=440\]
-\[img\_assist|url=images/azoth\_psto\_120916.png|title=Psto in
-Azoth|align=inline|link=1|width=440\]
-\[img\_assist|url=images/azoth\_sd\_120916.png|title=Service
-Discovery|align=inline|link=1|width=440\]
+`{ "name": "azoth_muc_120916.png", "align": "inline", "title": "MUC", "thumb": "medium" }`{.img}
+`{ "name": "azoth_muc_as0_120916.png", "align": "inline", "title": "MUC with Adium style", "thumb": "medium" }`{.img}
+`{ "name": "azoth_muc_as1_120916.png", "align": "inline", "title": "Another Adium style", "thumb": "medium" }`{.img}
+`{ "name": "azoth_muc_as4_120917.png", "align": "inline", "title": "Yet one more Adium style", "thumb": "medium" }`{.img}
+`{ "name": "modnok01.png", "align": "inline", "title": "LaTeX formula in a MUC", "thumb": "medium" }`{.img}
+`{ "name": "azoth_psto_120916.png", "align": "inline", "title": "Psto in Azoth", "thumb": "medium" }`{.img}
+`{ "name": "azoth_sd_120916.png", "align": "inline", "title": "Service Discovery", "thumb": "medium" }`{.img}
 
 LMP
 ---
 
-\
-\
-\[img\_assist|url=images/lmp\_similar\_120916.png|title=Similar
-artists|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_collection\_120916.png|title=Collection|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_recs\_120917.png|title=Recommendations|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_releases\_disco.png|title=Recent
-releases|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_events\_120918.png|title=Recommended
-events|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_radio\_120917.png|title=Radio
-station|align=inline|link=1|width=440\]
-\[img\_assist|url=images/lmp\_lyrics\_120917.png|title=Lyrics|align=inline|link=1|width=440\]
+`{ "name": "lmp_similar_120916.png", "align": "inline", "title": "Similar artists", "thumb": "medium" }`{.img}
+`{ "name": "lmp_collection_120916.png", "align": "inline", "title": "Collection", "thumb": "medium" }`{.img}
+`{ "name": "lmp_recs_120917.png", "align": "inline", "title": "Recommendations", "thumb": "medium" }`{.img}
+`{ "name": "lmp_releases_disco.png", "align": "inline", "title": "Recent releases", "thumb": "medium" }`{.img}
+`{ "name": "lmp_events_120918.png", "align": "inline", "title": "Recommended events", "thumb": "medium" }`{.img}
+`{ "name": "lmp_radio_120917.png", "align": "inline", "title": "Radio station", "thumb": "medium" }`{.img}
+`{ "name": "lmp_lyrics_120917.png", "align": "inline", "title": "Lyrics", "thumb": "medium" }`{.img}
 
 Various
 -------
 
-\
-\
-\[img\_assist|url=images/vrooby-1.png|title=Vrooby device
-manager|align=inline|link=1|width=440\]
+`{ "name": "vrooby-1.png", "align": "inline", "title": "Vrooby device manager", "thumb": "medium" }`{.img}

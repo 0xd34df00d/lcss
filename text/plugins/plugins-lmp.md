@@ -49,25 +49,24 @@ Some features in the above list rely on other plugins like
 Screenshots
 -----------
 
-\[img\_assist|url=images/lmp00.png|title=Biography|align=inline|link=1|width=440\]
+`{ "name": "lmp00.png", "align": "inline", "title": "Biography", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp01.png|title=Collection|align=inline|link=1|width=440\]
+`{ "name": "lmp01.png", "align": "inline", "title": "Collection", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp02.png|title=Similar artists|align=inline|link=1|width=440\]
+`{ "name": "lmp02.png", "align": "inline", "title": "Similar artists", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp07.png|title=Artists browser|align=inline|link=1|width=440\]
+`{ "name": "lmp07.png", "align": "inline", "title": "Artists browser", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp08.png|title=Lyrics|align=inline|link=1|width=440\]
+`{ "name": "lmp08.png", "align": "inline", "title": "Lyrics", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp03.png|title=Recommendations|align=inline|link=1|width=440\]
+`{ "name": "lmp03.png", "align": "inline", "title": "Recommendations", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp04.png|title=Recommended events nearby|align=inline|link=1|width=440\]
+`{ "name": "lmp04.png", "align": "inline", "title": "Recommended events nearby", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp09.png|title=Recent releases with
-discography|align=inline|link=1|width=440\]
+`{ "name": "lmp09.png", "align": "inline", "title": "Recent releases with discography", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp06.png|title=Hypes|align=inline|link=1|width=440\]
+`{ "name": "lmp06.png", "align": "inline", "title": "Hypes", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp05.png|title=Transcoding parameters on sync|align=inline|link=1|width=440\]
+`{ "name": "lmp05.png", "align": "inline", "title": "Transcoding parameters on sync", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/lmp\_4.png|title=Tray icon|align=inline|link=1|width=440\]
+`{ "name": "lmp_4.png", "align": "inline", "title": "Tray icon", "thumb": "medium" }`{.img}

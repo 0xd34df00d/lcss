@@ -40,15 +40,15 @@ The exact feature set depends on the backend used and document type.
 Screenshots
 -----------
 
-\[img\_assist|url=images/monocle01.png|title=Searching in a PDF document|align=inline|link=1|width=440\]
+`{ "name": "monocle01.png", "align": "inline", "title": "Searching in a PDF document", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/monocle\_datafilters\_part.png|title=Data filters|align=inline|link=1|width=440\]
+`{ "name": "monocle_datafilters_part.png", "align": "inline", "title": "Data filters", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/monocle02.png|title=Page thumbnails|align=inline|link=1|width=440\]\
+`{ "name": "monocle02.png", "align": "inline", "title": "Page thumbnails", "thumb": "medium" }`{.img}\
 
-\[img\_assist|url=images/monocle03.png|title=PDF document with forms|align=inline|link=1|width=440\]\
+`{ "name": "monocle03.png", "align": "inline", "title": "PDF document with forms", "thumb": "medium" }`{.img}\
 
-\[img\_assist|url=images/monocle04.png|title=DjVu document|align=inline|link=1|width=440\]
+`{ "name": "monocle04.png", "align": "inline", "title": "DjVu document", "thumb": "medium" }`{.img}
 
 Backends
 --------

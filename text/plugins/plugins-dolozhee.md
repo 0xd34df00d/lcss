@@ -17,10 +17,10 @@ Features
   the problem (works well with [AnHero](/plugins-anhero)).
 - A clean and simple wizard for submitting reports.
 
-\[img\_assist|url=images/dolozhee01.png|title=Selecting user|align=inline|link=1|width=440\]
+`{ "name": "dolozhee01.png", "align": "inline", "title": "Selecting user", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/dolozhee02.png|title=Selecting report type|align=inline|link=1|width=440\]
+`{ "name": "dolozhee02.png", "align": "inline", "title": "Selecting report type", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/dolozhee03.png|title=Filling the report|align=inline|link=1|width=440\]
+`{ "name": "dolozhee03.png", "align": "inline", "title": "Filling the report", "thumb": "medium" }`{.img}
 
-\[img\_assist|url=images/dolozhee04.png|title=Submitting|align=inline|link=1|width=440\]
+`{ "name": "dolozhee04.png", "align": "inline", "title": "Submitting", "thumb": "medium" }`{.img}
