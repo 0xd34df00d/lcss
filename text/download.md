@@ -11,33 +11,6 @@ toc: true
 Linux {#linux class="invisible-header"}
 -----
 
-### Agilia {#agilia class="invisible-header"}
-
-![](//files.leechcraft.org/imgs/distro_logos/agilia.png)
-
-First, you need to enable the *edge* repository. For that, issue
-```bash
-mpkg-list_rep
-mpkg-enable_rep repo_num
-mpkg-update
-```
-where *repo\_num* is the number of *edge* repo in the output of
-`mkpg-list_rep`{type="bash"}. If there is no *edge* repository, you need
-to add it manually:
-```bash
-mpkg-add_rep http://edge.agilialinux.ru
-mpkg-update
-```
-After that, you can issue
-```bash
-mpkg search leechcraft
-```
-to see what packages of LeechCraft are available and install the ones
-you want, for example, for Aggregator, Azoth and Poshuku:
-```bash
-mpkg install leechcraft-aggregator leechcraft-azoth leechcraft-poshuku
-```
-
 ### Arch {#arch class="invisible-header"}
 
 ![](//files.leechcraft.org/imgs/distro_logos/arch.png)
