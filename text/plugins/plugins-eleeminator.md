@@ -20,6 +20,6 @@ Features
 Screenshots
 -----------
 
-\[img\_assist|url=images/eleeminator1.png|title=Eleeminator tab|align=inline|link=1|width=440\]\
+`{ "name": "eleeminator1.png", "align": "inline", "title": "Eleeminator tab" , "thumb" : "medium" }`{.img}\
 
-\[img\_assist|url=images/eleeminator2.png|title=Closing tabs with running processes|align=inline|link=1|width=440\]
+`{ "name": "eleeminator2.png", "align": "inline", "title": "Closing tabs with running processes" , "thumb" : "medium" }`{.img}

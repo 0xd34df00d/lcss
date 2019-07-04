@@ -8,4 +8,4 @@ shortdescr: the crash handler
 crashes and automatically creates reports for
 [Dolozhee](/plugins-dolozhee) to send them.
 
-\[img\_assist|url=images/anhero01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "anhero01.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}

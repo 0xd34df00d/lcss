@@ -16,4 +16,4 @@ threshold.
 Screenshots
 -----------
 
-\[img\_assist|url=images/poshuku\_dcac1.png|title=|align=inline|link=1|width=440\]
+`{ "name": "poshuku_dcac1.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}

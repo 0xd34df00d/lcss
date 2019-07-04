@@ -8,11 +8,11 @@ parentPage: plugins-azoth
 Azoth AdiumStyles provides support for Adium chat window styles. Both
 normal chats and multiuser conferences are supported.
 
-\[img\_assist|url=images/azoth\_muc\_as0\_120916.png|title=Adium style|align=inline|link=1|width=440\]
+`{ "name": "azoth_muc_as0_120916.png", "align": "inline", "title": "Adium style" , "thumb" : "medium" }`{.img}
 
-\[img\_assist|url=images/azoth\_muc\_as1\_120916.png|title=Adium style|align=inline|link=1|width=440\]
+`{ "name": "azoth_muc_as1_120916.png", "align": "inline", "title": "Adium style" , "thumb" : "medium" }`{.img}
 
-\[img\_assist|url=images/azoth\_muc\_as4\_120917.png|title=Adium style|align=inline|link=1|width=440\]
+`{ "name": "azoth_muc_as4_120917.png", "align": "inline", "title": "Adium style" , "thumb" : "medium" }`{.img}
 
 Please note that this styling engine may be considerably slower than
 Azoth StandardStyles.

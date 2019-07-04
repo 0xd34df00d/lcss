@@ -11,7 +11,7 @@ native API.
 Using the native API allows Murm to support various additional features,
 such as displaying photos or other media attachments in the messages.
 
-\[img\_assist|url=images/murm01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "murm01.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}
 
 Feature highlights
 ------------------

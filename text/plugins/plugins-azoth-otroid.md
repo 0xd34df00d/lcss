@@ -20,11 +20,8 @@ Features
 Screenshots
 -----------
 
-\[img\_assist|url=images/azoth\_otroid\_auth1.png|title=Authentication
-dialog|align=inline|link=1|width=440\]
+`{ "name": "azoth_otroid_auth1.png", "align": "inline", "title": "Authentication dialog" , "thumb" : "medium" }`{.img}
 
-\[img\_assist|url=images/azoth\_otroid\_priv2.png|title=Managing known
-fingerprints|align=inline|link=1|width=440\]
+`{ "name": "azoth_otroid_priv2.png", "align": "inline", "title": "Managing known fingerprints" , "thumb" : "medium" }`{.img}
 
-\[img\_assist|url=images/azoth\_otroid\_priv1.png|title=Managing account
-keys|align=inline|link=1|width=440\]
+`{ "name": "azoth_otroid_priv1.png", "align": "inline", "title": "Managing account keys" , "thumb" : "medium" }`{.img}

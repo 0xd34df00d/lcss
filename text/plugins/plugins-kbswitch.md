@@ -9,6 +9,6 @@ shortdescr: for configuring keyboard layouts and options
 KBSwitch is a plugin for configuring keyboard layouts and options. It
 also provides a quark with current layout flag and name.
 
-\[img\_assist|url=images/kbswitch01.png|title=KBSwitch options|align=inline|link=1|width=440\]
+`{ "name": "kbswitch01.png", "align": "inline", "title": "KBSwitch options" , "thumb" : "medium" }`{.img}
 
-\[img\_assist|url=images/kbswitch02.png|title=Layout list|align=inline|link=1|width=440\]
+`{ "name": "kbswitch02.png", "align": "inline", "title": "Layout list" , "thumb" : "medium" }`{.img}

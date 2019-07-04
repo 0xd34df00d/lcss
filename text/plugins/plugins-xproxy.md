@@ -6,7 +6,7 @@ shortdescr: allows configuring proxy servers on a per-host basis
 
 XProxy allows configuring proxy servers on a per-host basis.
 
-\[img\_assist|url=images/xproxy-1.png|title=XProxy settings|align=inline|link=1|width=440\]
+`{ "name": "xproxy-1.png", "align": "inline", "title": "XProxy settings" , "thumb" : "medium" }`{.img}
 
 Features
 --------

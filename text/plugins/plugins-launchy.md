@@ -23,4 +23,4 @@ Features
 - Keyboard navigation.
 - Filtering by application name, description or executable name.
 
-\[img\_assist|url=images/launch01.png|title=Launchy|align=inline|link=1|width=440\]
+`{ "name": "launch01.png", "align": "inline", "title": "Launchy" , "thumb" : "medium" }`{.img}

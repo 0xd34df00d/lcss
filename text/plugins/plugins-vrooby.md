@@ -12,7 +12,7 @@ provides other plugins with information about what devices are mounted
 and at which mount points. [LMP](/plugins-lmp) for example uses this to
 enable collection synchronization.
 
-\[img\_assist|url=images/vrooby01\_th.png|title=Devices popup|align=inline|link=1|width=440\]
+`{ "name": "vrooby01_th.png", "align": "inline", "title": "Devices popup" , "thumb" : "medium" }`{.img}
 
 Features
 --------

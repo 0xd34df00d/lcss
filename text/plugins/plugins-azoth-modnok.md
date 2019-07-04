@@ -13,7 +13,7 @@ formulae in outgoing messages with the corresponding images, so that
 your chatmates would see the nice rendered formulae instead of raw LaTeX
 code.
 
-\[img\_assist|url=images/modnok01.png|title=LaTeX formula in a MUC|align=inline|link=1|width=440\]
+`{ "name": "modnok01.png", "align": "inline", "title": "LaTeX formula in a MUC" , "thumb" : "medium" }`{.img}
 
 Unfortunately, Modnok works only on Unix-like systems with LaTeX
 installed, so support for Windows will hardly arrive anytime soon.

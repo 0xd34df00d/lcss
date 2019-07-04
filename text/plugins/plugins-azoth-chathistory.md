@@ -5,7 +5,7 @@ shortdescr: chat history plugin
 parentPage: plugins-azoth
 ---
 
-\[img\_assist|url=images/azoth\_ch1\_0.png|title=MUC chat history|align=right|link=1|width=220\]
+`{ "name": "azoth_ch1_0.png", "align": "right", "title": "MUC chat history" , "thumb" : "small" }`{.img}
 
 Azoth ChatHistory, as the name implies, stores the history of chat
 sessions. It supports storing history from normal one-to-one chats as

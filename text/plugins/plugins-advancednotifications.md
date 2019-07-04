@@ -28,16 +28,14 @@ default setup). The rules are matched from top to bottom. These rules
 contain a set of conditions that must be fulfilled for the rule to be
 triggered.
 
-\[img\_assist|url=images/an1.png|title=List of
-rules|align=inline|link=1|width=440\]
+`{ "name": "an1.png", "align": "inline", "title": "List of rules" , "thumb" : "medium" }`{.img}
 
 Different plugins may define additional fields that could be used as
 conditions in the rules. For example, [Azoth](/plugins-azoth) defines
 such fields as sender name, sender ID, sender groups, message body,
 etc.
 
-\[img\_assist|url=images/an\_matchers1.png|title=Field
-matchers|align=inline|link=1|width=440\]
+`{ "name": "an_matchers1.png", "align": "inline", "title": "Field matchers" , "thumb" : "medium" }`{.img}
 
 So, for example, a rule could be written to ignore all the messages from
 a given contact, unless they contain some keyword, or a different
@@ -67,8 +65,7 @@ supported by right-clicking the corresponding category icon. It also
 allows to enable event counter for different categories, which draw the
 amount of events over the icon.
 
-\[img\_assist|url=images/an01.png|title=System tray
-notifier|align=inline|link=1|width=440\]
+`{ "name": "an01.png", "align": "inline", "title": "System tray notifier" , "thumb" : "medium" }`{.img}
 
 Sound method
 ------------

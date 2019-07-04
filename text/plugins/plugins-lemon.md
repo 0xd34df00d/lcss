@@ -12,9 +12,9 @@ Lemon is LeechCraft Network Monitor. It provides a quark for panels like
 The quark displays an indicator per active network interface with a bar
 for upload/download activity:
 
-\[img\_assist|url=images/lemon\_indicators\_focused.png|title=|align=inline|link=1|width=440\]\
+`{ "name": "lemon_indicators_focused.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}\
 
 A graph with RX/TX speeds is available by clicking on the corresponding
 indicator:
 
-\[img\_assist|url=images/lemon\_full.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lemon_full.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}

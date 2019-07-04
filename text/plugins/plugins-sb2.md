@@ -34,6 +34,6 @@ Other quarks may be installed via [LackMan](/plugins-lackman).
 Screenshots
 -----------
 
-\[img\_assist|url=images/sb201.png|title=Tab manager|align=inline|link=1|width=440\]
+`{ "name": "sb201.png", "align": "inline", "title": "Tab manager" , "thumb" : "medium" }`{.img}
 
-\[img\_assist|url=images/sb202.png|title=Task Progress Indicator quark|align=inline|link=1|width=440\]
+`{ "name": "sb202.png", "align": "inline", "title": "Task Progress Indicator quark" , "thumb" : "medium" }`{.img}

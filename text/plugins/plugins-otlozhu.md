@@ -10,7 +10,7 @@ Otlozhu is a
 [GTD](http://en.wikipedia.org/wiki/Getting_Things_Done)-inspired TODO
 manager for LeechCraft.
 
-\[img\_assist|url=images/otlozhu-1.png|title=Otlozhu|align=inline|link=1|width=440\]
+`{ "name": "otlozhu-1.png", "align": "inline", "title": "Otlozhu" , "thumb" : "medium" }`{.img}
 
 Features
 --------

@@ -16,7 +16,7 @@ LeechCraft as a desktop environment.
 Fenet is active only in desktop mode, thus there is no need to disable
 it if running LeechCraft as a DE isn't planned.
 
-\[img\_assist|url=images/fenet01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "fenet01.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}
 
 ### Supported WMs
 

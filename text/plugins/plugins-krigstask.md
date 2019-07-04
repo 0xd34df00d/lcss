@@ -12,4 +12,4 @@ desktops.
 
 It can be seen on the following screenshot on the bottom of the window:
 
-\[img\_assist|url=images/lmp00.png|title=|align=inline|link=1|width=440\]
+`{ "name": "lmp00.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}

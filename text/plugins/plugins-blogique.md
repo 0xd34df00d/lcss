@@ -11,7 +11,7 @@ Blogique is the blogging client.
 It supports various platforms via different modules -- for now LiveJournal
 and local blogging only.
 
-\[img\_assist|url=images/blogique01.png|title=|align=inline|link=1|width=440\]
+`{ "name": "blogique01.png", "align": "inline", "title": "" , "thumb" : "medium" }`{.img}
 
 Features
 --------

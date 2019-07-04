@@ -13,7 +13,7 @@ It also supports dependencies between packages as well as versioning and
 automatic updates of the packages. LackMan works completely in userspace
 and is crossplatform by its nature.
 
-\[img\_assist|url=images/lackman01.png|title=LackMan interface|align=inline|link=1|width=440\]
+`{ "name": "lackman01.png", "align": "inline", "title": "LackMan interface" , "thumb" : "medium" }`{.img}
 
 Features
 --------

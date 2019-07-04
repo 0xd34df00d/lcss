@@ -5,10 +5,10 @@ shortdescr: modular IM client
 keyplugin: 1
 ---
 
-\[img\_assist|url=images/azoth\_muc\_120916.png|title=MUC|align=right|link=1|width=220|height=136\]
-\[img\_assist|url=images/azoth\_muc\_as0\_120916.png|title=MUC with Adium style|align=right|link=1|width=220|height=136\]
-\[img\_assist|url=images/azoth\_sd\_120916.png|title=Service Discovery|align=right|link=1|width=220|height=136\]
-\[img\_assist|url=images/azoth\_psto\_120916.png|title=Psto in Azoth|align=right|link=1|width=220|height=136\]
+`{ "name": "azoth_muc_120916.png", "align": "right", "title": "MUC" , "thumb" : "small" }`{.img}
+`{ "name": "azoth_muc_as0_120916.png", "align": "right", "title": "MUC with Adium style" , "thumb" : "small" }`{.img}
+`{ "name": "azoth_sd_120916.png", "align": "right", "title": "Service Discovery" , "thumb" : "small" }`{.img}
+`{ "name": "azoth_psto_120916.png", "align": "right", "title": "Psto in Azoth" , "thumb" : "small" }`{.img}
 
 Azoth is the modular IM client for LeechCraft.
 

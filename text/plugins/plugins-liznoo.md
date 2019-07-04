@@ -8,9 +8,9 @@ shortdescr: the LeechCraft power manager
 
 Liznoo is the LeechCraft power manager.
 
-\[img\_assist|url=images/835321.png|title=Battery state icon|align=inline|link=1|width=440\]
+`{ "name": "835321.png", "align": "inline", "title": "Battery state icon" , "thumb" : "medium" }`{.img}
 
-\[img\_assist|url=images/liznoo01.png|title=Battery history|align=inline|link=1|width=440\]
+`{ "name": "liznoo01.png", "align": "inline", "title": "Battery history" , "thumb" : "medium" }`{.img}
 
 Features
 --------

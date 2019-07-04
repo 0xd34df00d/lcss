@@ -10,7 +10,7 @@ NetStoreManager allows one to manage cloud storages like Google Drive.
 It is modular, so different storages can be added to it without
 modifying the plugin itself.
 
-\[img\_assist|url=images/nsm01\_0.png|title=NetStoreManager|align=inline|link=1|width=440\]
+`{ "name": "nsm01_0.png", "align": "inline", "title": "NetStoreManager" , "thumb" : "medium" }`{.img}
 
 Features
 --------
