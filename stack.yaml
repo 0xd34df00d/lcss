@@ -3,5 +3,5 @@ extra-package-dbs: []
 packages:
 - .
 extra-deps:
-- hakyll-4.12.5.2
+- hakyll-4.13.0.1
 resolver: lts-14.16
