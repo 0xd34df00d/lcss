@@ -9,8 +9,8 @@ Prerequisites
 -------------
 
 +--------------------------+--------------------------+--------------------------+
-| Dependency               | *Version*                | Notes                    |
-+==========================+==========================+==========================+
+| Dependency               | Version                  | Notes                    |
++:=========================+:=========================+==========================+
 | Qt                       | ≥4.8                     | For most new plugins Qt  |
 |                          |                          | 4.8 is required.         |
 +--------------------------+--------------------------+--------------------------+
@@ -33,12 +33,11 @@ Prerequisites
 |                          |                          | will also work though    |
 |                          |                          | lack JIT support.        |
 +--------------------------+--------------------------+--------------------------+
-| [**Rasterbar**           | ≥0.16.x                  | Unicode and DHT support  |
-| libtorrent](http://libto |                          | is required.             |
-| rrent.org)               |                          |                          |
+| Rasterbar libtorrent     | ≥0.16.x                  | Unicode and DHT support  |
+|                          |                          | is required.             |
 +--------------------------+--------------------------+--------------------------+
-| [QJson](http://qjson.sou | ≥0.7.0                   | Required for several     |
-| rceforge.net/)           |                          | plugins like SB2,        |
+| QJson                    | ≥0.7.0                   | Required for several     |
+|                          |                          | plugins like SB2,        |
 |                          |                          | Poshuku OnlineBookmarks, |
 |                          |                          | etc.                     |
 +--------------------------+--------------------------+--------------------------+
@@ -80,8 +79,8 @@ Prerequisites
 | libguess                 | ≥1.0                     | Recommended for the LMP  |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
-| [liblastfm](http://githu | ≥0.3.3                   | Required for the         |
-| b.com/eartle/liblastfm)  |                          | LastFMScrobble plugin.   |
+| liblastfm                | ≥0.3.3                   | Required for the         |
+|                          |                          | LastFMScrobble plugin.   |
 +--------------------------+--------------------------+--------------------------+
 | ffmpeg                   | ≥1.2.0                   | Used by the MusicZombie  |
 |                          |                          | plugin (libav would not  |
@@ -89,8 +88,8 @@ Prerequisites
 |                          |                          | differences in           |
 |                          |                          | resampling code).        |
 +--------------------------+--------------------------+--------------------------+
-| [chromaprint](http://aco | ≥0.6                     | Used by the MusicZombie  |
-| ustid.org/chromaprint)   |                          | plugin.                  |
+| chromaprint              | ≥0.6                     | Used by the MusicZombie  |
+|                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
 | poppler                  | ≥0.24.0                  | Required for the Monocle |
 |                          |                          | PDF plugin (0.22.x will  |
@@ -121,12 +120,12 @@ Prerequisites
 |                          |                          | SB2 and utility library  |
 |                          |                          | (\*NIX-only).            |
 +--------------------------+--------------------------+--------------------------+
-| [kqoauth](https://github | ≥0.98                    | Required for the Azoth   |
-| .com/kypeli/kQOAuth)     |                          | WoodPecker and Blasq     |
+| kqoauth                  | ≥0.98                    | Required for the Azoth   |
+|                          |                          | WoodPecker and Blasq     |
 |                          |                          | Spegnersi plugin.        |
 +--------------------------+--------------------------+--------------------------+
-| [Qross](http://github.co | ≥0.2.0                   | Required for the Qrosp   |
-| m/0xd34df00d/Qross)      |                          | plugin.                  |
+| Qross                    | ≥0.2.0                   | Required for the Qrosp   |
+|                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
 | QScintilla2              | ≥2.6                     | Required for the Popishu |
 |                          |                          | plugin.                  |
