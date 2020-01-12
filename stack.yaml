@@ -5,4 +5,4 @@ packages:
 extra-deps:
 - hakyll-4.12.5.2
 - lrucache-1.2.0.1
-resolver: lts-13.26
+resolver: lts-14.16
