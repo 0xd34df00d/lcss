@@ -8,9 +8,6 @@ parentPage: development-general-information
 Prerequisites
 -------------
 
-\
-\
-
 +--------------------------+--------------------------+--------------------------+
 | Dependency               | *Version*                | Notes                    |
 +==========================+==========================+==========================+
@@ -137,11 +134,9 @@ Prerequisites
 | CMake                    | ≥2.8.9                   |                          |
 +--------------------------+--------------------------+--------------------------+
 
-\
-\
 A pretty decent compiler is required for LeechCraft from master. gcc 4.8
-and clang 3.4 will surely work.\
-\
+and clang 3.4 will surely work.
+
 ***Note:*** this guide suggests a \*NIX-like OS like Linux or FreeBSD.
 Building with Windows is possible but is full of patching and heavy
 work, and it hasn't been properly documented yet.
@@ -149,9 +144,6 @@ work, and it hasn't been properly documented yet.
 ### Platform-specific prerequisites
 
 #### X11
-
-\
-\
 
   Dependency      *Version*   Notes
   --------------- ----------- ---------------------------------------------------------------------------------------------
@@ -164,15 +156,11 @@ work, and it hasn't been properly documented yet.
 Getting prerequesites
 ---------------------
 
-\
-\
 Some distros allow easy installation of all the required prerequesites,
 and the process is documented here.
 
 ### Debian, Ubuntu
 
-\
-\
 It's as simple as running the following from root:
 
 ``` {type="bash"}
