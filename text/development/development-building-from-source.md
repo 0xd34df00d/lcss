@@ -171,8 +171,6 @@ sudo apt-get build-dep leechcraft-unstable
 
 ### openSUSE
 
-\
-\
 Execute the following replacing *openSUSE\_Tumbleweed* with your distro
 version:
 
@@ -185,8 +183,6 @@ sudo zypper si -d leechcraft
 Getting sources
 ---------------
 
-\
-\
 You can either download (an extremely outdated) source package from
 https://sourceforge.net/projects/leechcraft/files/ or check out the
 files from git (you will need `git`{type="bash"} for this). The later is
@@ -213,8 +209,6 @@ git pull
 Building and installing
 -----------------------
 
-\
-\
 We use so-called out-of-source builds. They support having different
 builds with different configurations simultaneously as well as easily
 remove the build directory if something goes wrong. So, create a
@@ -263,32 +257,28 @@ size.
 
 </dd>
 </dl>
-\
-\
+
 Then, after `cmake`{type="bash"} successfully prepares the build system,
 type `ccmake`{type="bash"} and check the list of plugins to be built.
 You can enable or disable them there nicely. Alternatively, you can
 manually edit the `CMakeCache.txt`{type="bash"} file in the build
 directory, modifying values of variables starting with *ENABLE\_*.\
-\
+
 After you've selected what you want to build, run `make`{type="bash"}
 and have a cup of coffee while LeechCraft compiles. To compile things
 faster, append the *-jN* option, where *N* is number of cores you have.
 For a decent Core i7 system that would be `make -j8`{type="bash"}, for
 example. If it fails, join the Jabber conference
 [leechcraft@conference.jabber.ru</code> and feel free to ask.\
-\
+
 Become root and issue `make install`{type="bash"} to install LeechCraft
 into `/usr/local`{type="bash"}. That's it!\
-\
+
 Please note that **LeechCraft won't work without
 installing**.](xmpp:leechcraft@conference.jabber.ru)
 
 Uninstalling
 ------------
-
-\
-\
 
 ``` {type="bash"}
 cd ~/Programming/leechcraft/build
@@ -298,14 +288,12 @@ sudo cmake -P cmake_uninstall.cmake
 Microsoft Windows
 -----------------
 
-\
-\
-Hehe. It's tricky. Don't try.\
-\
+Hehe. It's tricky. Don't try.
+
 More seriously, building on Win32 requires a good knowledge of the build
 process, Qt and Boost pecularities and various typical but subtle
-errors.\
-\
+errors.
+
 Nevertheless, if you are brave enough, you could follow the [Win32
 building guide](/development-building-from-source-win32).
 
@@ -313,9 +301,6 @@ Troubleshooting
 ---------------
 
 ### LeechCraft segfaults on startup
-
-\
-\
 
 ``` {type="bash"}
 make install is required, really.
@@ -328,7 +313,7 @@ leechcraft: error while loading shared libraries: liblcutil.so.0.5.0: cannot ope
 ```
 
 then just run `ldconfig` from root, like, `sudo ldconfig`.\
-\
+
 If you still can't run LeechCraft with the same error, check that
 
 ``` {type="bash"}
@@ -341,8 +326,6 @@ Mandriva setups are known to miss these lines.
 
 ### Linking/startup problems on FreeBSD/Mac OS X in BitTorrent plugin
 
-\
-\
 If you get linking errors in `libleechcraft_bittorrent.so`{type="bash"}
 (or `libleechcraft_bittorrent.dylib`{type="bash"} on Mac OS X),
 particularly, something like:
@@ -360,14 +343,10 @@ that it's compiled with.
 
 ### LeechCraft fails to build with your\_compiler\_name
 
-\
-\
 Please see prerequesites.
 
 ### CMake outputs \`Package libtorrent-rasterbar was not found in the pkg-config search path\` and fails with an error
 
-\
-\
 The full error message is:
 
 ``` {type="bash"}
@@ -388,6 +367,6 @@ export PKG_CONFIG_PATH="/path/to/your/libtorrent-rasterbar.pc"
 ```
 
 and then re-run CMake in the same shell with the same command line.\
-\
+
 If you re-configure LeechCraft often, you'd probably want to add this
 export declaration to your `~/.bashrc`{type="bash"}.
