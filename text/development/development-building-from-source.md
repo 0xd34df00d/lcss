@@ -16,12 +16,13 @@ Prerequisites
 +--------------------------+--------------------------+--------------------------+
 | Boost                    | ≥1.51                    | The following libraries  |
 |                          |                          | are required, besides    |
-|                          |                          | header-only ones:        |
-|                          |                          | -   date\_time           |
-|                          |                          | -   filesystem           |
-|                          |                          | -   program\_options     |
-|                          |                          | -   system               |
-|                          |                          | -   thread               |
+|                          |                          | header-only ones:\       |
+|                          |                          |                          |
+|                          |                          | * date\_time             |
+|                          |                          | * filesystem             |
+|                          |                          | * program\_options       |
+|                          |                          | * system                 |
+|                          |                          | * thread                 |
 +--------------------------+--------------------------+--------------------------+
 | OpenSSL                  | ≥0.9.8                   |                          |
 +--------------------------+--------------------------+--------------------------+
