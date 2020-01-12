@@ -106,7 +106,7 @@ getting a decent IM client, media player or a feed reader, for example.
 }
 
 .downbutton img {
-    margin-top: 0.5em;
+    margin-top: 0.1em;
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
