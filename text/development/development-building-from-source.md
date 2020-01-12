@@ -58,8 +58,7 @@ Prerequisites
 | Speex                    | ≥1.0                     | Required for the         |
 |                          |                          | [Azoth](/plugins-azoth)  |
 |                          |                          | plugin compiled with     |
-|                          |                          | `ENABLE_MEDIACALLS`{type |
-|                          |                          | ="cpp"}.                 |
+|                          |                          | `ENABLE_MEDIACALLS`.     |
 +--------------------------+--------------------------+--------------------------+
 | libtelepathy-qt4         | ≥0.9.0                   | Required for the [Azoth  |
 |                          |                          | Astrality](/plugins-azot |
@@ -137,7 +136,7 @@ Prerequisites
 A pretty decent compiler is required for LeechCraft from master. gcc 4.8
 and clang 3.4 will surely work.
 
-***Note:*** this guide suggests a \*NIX-like OS like Linux or FreeBSD.
+***Note***: this guide assumes a \*NIX-like OS like Linux or FreeBSD.
 Building with Windows is possible but is full of patching and heavy
 work, and it hasn't been properly documented yet.
 
@@ -269,13 +268,13 @@ and have a cup of coffee while LeechCraft compiles. To compile things
 faster, append the *-jN* option, where *N* is number of cores you have.
 For a decent Core i7 system that would be `make -j8`{type="bash"}, for
 example. If it fails, join the Jabber conference
-[leechcraft@conference.jabber.ru</code> and feel free to ask.\
+[leechcraft@conference.jabber.ru.](xmpp:leechcraft@conference.jabber.ru) and feel free to ask.
 
 Become root and issue `make install`{type="bash"} to install LeechCraft
 into `/usr/local`{type="bash"}. That's it!\
 
 Please note that **LeechCraft won't work without
-installing**.](xmpp:leechcraft@conference.jabber.ru)
+installing**
 
 Uninstalling
 ------------
@@ -302,17 +301,17 @@ Troubleshooting
 
 ### LeechCraft segfaults on startup
 
-``` {type="bash"}
-make install is required, really.
+`make install`{.bash} is required, really.
 
 LeechCraft doesn't start, outputting into console complaints about liblcutil.so.0.5.0
 
 If you get something like
 
+```
 leechcraft: error while loading shared libraries: liblcutil.so.0.5.0: cannot open shared object file: No such file or directory
 ```
 
-then just run `ldconfig` from root, like, `sudo ldconfig`.\
+then just run `ldconfig` as root.
 
 If you still can't run LeechCraft with the same error, check that
 
