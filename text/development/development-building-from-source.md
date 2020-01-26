@@ -11,9 +11,9 @@ Prerequisites
 +--------------------------+--------------------------+--------------------------+
 | Dependency               | Version                  | Notes                    |
 +:=========================+:=========================+:=========================+
-| Qt                       | ≥4.8                     |                          |
+| Qt                       | ≥5.9                     |                          |
 +--------------------------+--------------------------+--------------------------+
-| Boost                    | ≥1.51                    |                          |
+| Boost                    | ≥1.70                    |                          |
 +--------------------------+--------------------------+--------------------------+
 | OpenSSL                  | ≥0.9.8                   |                          |
 +--------------------------+--------------------------+--------------------------+
@@ -25,10 +25,10 @@ Prerequisites
 |                          |                          | will also work though    |
 |                          |                          | lack JIT support.        |
 +--------------------------+--------------------------+--------------------------+
-| Rasterbar libtorrent     | ≥0.16.x                  | Unicode and DHT support  |
+| Rasterbar libtorrent     | ≥1.2.1                  | Unicode and DHT support  |
 |                          |                          | is required.             |
 +--------------------------+--------------------------+--------------------------+
-| QXmpp                    | ≥0.8.0                   |                          |
+| QXmpp                    | ≥1.1.0                   |                          |
 +--------------------------+--------------------------+--------------------------+
 | libotr                   | ≥4.0.0                   | Required for the Azoth   |
 |                          |                          | OTRoid plugin (3.x will  |
@@ -43,7 +43,7 @@ Prerequisites
 |                          |                          | plugin compiled with     |
 |                          |                          | `ENABLE_MEDIACALLS`.     |
 +--------------------------+--------------------------+--------------------------+
-| libtelepathy-qt4         | ≥0.9.0                   | Required for the [Azoth  |
+| libtelepathy-qt5         | ≥0.9.8                   | Required for the [Azoth  |
 |                          |                          | Astrality](/plugins-azot |
 |                          |                          | h-astrality)             |
 |                          |                          | plugin.                  |
@@ -53,28 +53,28 @@ Prerequisites
 |                          |                          | th-velvetbird)           |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
-| gstreamer                | 0.10 or ≥1.0             | Required for the LMP     |
+| gstreamer                | ≥1.0                     | Required for the LMP     |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
-| Taglib                   | ≥1.7.0                   | Required for the LMP     |
+| Taglib                   | ≥1.11.0                   | Required for the LMP     |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
 | libguess                 | ≥1.0                     | Recommended for the LMP  |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
-| liblastfm                | ≥0.3.3                   | Required for the         |
+| liblastfm                | ≥1.0.9                   | Required for the         |
 |                          |                          | LastFMScrobble plugin.   |
 +--------------------------+--------------------------+--------------------------+
-| ffmpeg                   | ≥1.2.0                   | Used by the MusicZombie  |
+| ffmpeg                   | ≥4.0.0                   | Used by the MusicZombie  |
 |                          |                          | plugin (libav would not  |
 |                          |                          | work thanks to           |
 |                          |                          | differences in           |
 |                          |                          | resampling code).        |
 +--------------------------+--------------------------+--------------------------+
-| chromaprint              | ≥0.6                     | Used by the MusicZombie  |
+| chromaprint              | ≥1.4.0                   | Used by the MusicZombie  |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
-| poppler                  | ≥0.24.0                  | Required for the Monocle |
+| poppler                  | ≥0.82.0                  | Required for the Monocle |
 |                          |                          | PDF plugin (0.22.x will  |
 |                          |                          | work too, but it has     |
 |                          |                          | some issues with         |
@@ -113,11 +113,11 @@ Prerequisites
 | QScintilla2              | ≥2.6                     | Required for the Popishu |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
-| CMake                    | ≥2.8.9                   |                          |
+| CMake                    | ≥3.1                     |                          |
 +--------------------------+--------------------------+--------------------------+
 
-A pretty decent compiler is required for LeechCraft from master. gcc 4.8
-and clang 3.4 will surely work.
+A pretty decent compiler is required for LeechCraft from master. gcc 9.2
+and clang 9 will surely work.
 
 ***Note***: this guide assumes a \*NIX-like OS like Linux or FreeBSD.
 Building with Windows is possible but is full of patching and heavy
