@@ -37,15 +37,7 @@ Prerequisites
 | Rasterbar libtorrent     | ≥0.16.x                  | Unicode and DHT support  |
 |                          |                          | is required.             |
 +--------------------------+--------------------------+--------------------------+
-| QJson                    | ≥0.7.0                   | Required for several     |
-|                          |                          | plugins like SB2,        |
-|                          |                          | Poshuku OnlineBookmarks, |
-|                          |                          | etc.                     |
-+--------------------------+--------------------------+--------------------------+
 | QXmpp                    | ≥0.8.0                   |                          |
-+--------------------------+--------------------------+--------------------------+
-| libmsn                   | ≥4.1                     | Required for the Azoth   |
-|                          |                          | Zheet plugin.            |
 +--------------------------+--------------------------+--------------------------+
 | libotr                   | ≥4.0.0                   | Required for the Azoth   |
 |                          |                          | OTRoid plugin (3.x will  |
