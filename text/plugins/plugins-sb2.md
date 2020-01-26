@@ -24,7 +24,7 @@ The following quarks are available, except those bundled with SB2:
 - [Krigstask](/plugins-krigstask) for a taskbar and desktop pager.
 - [Launchy](/plugins-launchy) third-party application launcher.
 - [Lemon](/plugins-lemon) for network interfaces monitoring.
-- [Liznoo](/plugins-lemon) for battery status monitoring.
+- [Liznoo](/plugins-liznoo) for battery status monitoring.
 - [Mellonetray](/plugins-mellonetray) for system tray.
 - [Ooronee](/plugins-ooronee) for quick uploading of files and images to various image- and filebins.
 - [TPI](/plugins-tpi) for tracking ongoing tasks.
