@@ -8,14 +8,15 @@ module ImageCodesProducer
 ) where
 
 import qualified Data.Aeson as A
-import qualified Data.ByteString.Lazy.Char8 as BS
 import qualified Data.HashMap.Strict as HM
+import qualified Data.Text as T
+import qualified Data.Text.Encoding as T
 import Control.Applicative
 import Control.Concurrent.ParallelIO.Local
 import Control.Monad.Extra
 import Data.Char
 import Data.List
-import Data.String.Interpolate
+import Data.String.Interpolate.IsString
 import GHC.Generics
 import System.Directory
 import System.Process
@@ -48,10 +49,10 @@ data ImageRefInfo = ImageRefInfo
   , align :: ImgAlign
   } deriving (Eq, Ord, Show, Generic, A.FromJSON)
 
-compileImageInfo :: ImagesDb -> String -> Inline
+compileImageInfo :: ImagesDb -> T.Text -> Inline
 compileImageInfo db str | Left err <- decoded = error $ "Unable to decode image info: " <> err
                         | Right ii <- decoded = producePandoc db ii
-  where decoded = A.eitherDecode $ BS.pack str
+  where decoded = A.eitherDecodeStrict $ T.encodeUtf8 str
 
 producePandoc :: ImagesDb -> ImageRefInfo -> Inline
 producePandoc ImagesDb { .. } ImageRefInfo { .. } = RawInline "html" fullHtml

@@ -10,6 +10,9 @@ import           Text.Pandoc.Walk
 import           Text.Pandoc.Definition
 
 import qualified Data.Map.Lazy as M
+import qualified Data.Text as T
+import qualified Text.Pandoc.Templates as P
+import Data.Functor.Identity
 import Data.List.Extra
 import Data.Char
 import Data.Maybe
@@ -204,7 +207,10 @@ pandocCompilerWithToc imagesDb = do
                                                   , writerTOCDepth = 4
                                                   , writerTemplate = Just tocTemplate
                                                   }
-        tocTemplate = [r|
+
+tocTemplate :: P.Template T.Text
+tocTemplate = either error id $ runIdentity $ P.compileTemplate mempty tocTemplateText
+  where tocTemplateText = [r|
 $if(toc)$
 <aside class="toc bordered">
     <details open="open">
@@ -215,6 +221,7 @@ $if(toc)$
 $endif$
 $body$
 |]
+
 
 defaultTextRoute :: Identifier -> FilePath
 defaultTextRoute = snd . breakEnd (== '/') . unmdize . toFilePath
