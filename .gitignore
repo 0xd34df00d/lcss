@@ -6,3 +6,4 @@ images/large/
 _cache
 _site
 mirror
+.mirror
