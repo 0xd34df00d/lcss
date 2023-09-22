@@ -25,7 +25,7 @@ Prerequisites
 |                          |                          | will also work though    |
 |                          |                          | lack JIT support.        |
 +--------------------------+--------------------------+--------------------------+
-| Rasterbar libtorrent     | ≥1.2.1                  | Unicode and DHT support  |
+| Rasterbar libtorrent     | ≥1.2.1                   | Unicode and DHT support  |
 |                          |                          | is required.             |
 +--------------------------+--------------------------+--------------------------+
 | QXmpp                    | ≥1.1.0                   |                          |
@@ -56,7 +56,7 @@ Prerequisites
 | gstreamer                | ≥1.0                     | Required for the LMP     |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
-| Taglib                   | ≥1.11.0                   | Required for the LMP     |
+| Taglib                   | ≥1.11.0                  | Required for the LMP     |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
 | libguess                 | ≥1.0                     | Recommended for the LMP  |
@@ -75,10 +75,7 @@ Prerequisites
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
 | poppler                  | ≥0.82.0                  | Required for the Monocle |
-|                          |                          | PDF plugin (0.22.x will  |
-|                          |                          | work too, but it has     |
-|                          |                          | some issues with         |
-|                          |                          | threading).              |
+|                          |                          | PDF plugin.              |
 +--------------------------+--------------------------+--------------------------+
 | ghostscript              | ≥9.0                     | Required for the Monocle |
 |                          |                          | PostRus plugin.          |
