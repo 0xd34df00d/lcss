@@ -83,7 +83,7 @@ data ListedConfig = ListedConfig
   , listTemplate :: String
   , createRoot :: RootItem
   , verPreprocess :: Bool
-  , subOrder :: forall m a. MonadMetadata m => [Item a] -> m [Item a]
+  , subOrder :: forall m a. (MonadMetadata m, MonadFail m) => [Item a] -> m [Item a]
   , withRss :: Maybe (Identifier, FeedConfiguration)
   }
 
