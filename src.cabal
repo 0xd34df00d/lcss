@@ -19,6 +19,7 @@ executable site
                   , process
                   , raw-strings-qq
                   , split
+                  , text
                   , unordered-containers
   ghc-options:      -threaded -Wall -rtsopts "-with-rtsopts=-A4M -N4"
   other-modules:    CustomFields
