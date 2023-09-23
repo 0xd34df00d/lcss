@@ -1,7 +1,7 @@
 ---
 title: Building from source
 tags: development
-published: 2014-07-03T22:14:58
+published: 2023-09-23T22:14:58
 parentPage: development-general-information
 ---
 
@@ -11,9 +11,9 @@ Prerequisites
 +--------------------------+--------------------------+--------------------------+
 | Dependency               | Version                  | Notes                    |
 +:=========================+:=========================+:=========================+
-| Qt                       | ≥5.9                     |                          |
+| Qt                       | =5.15                    |                          |
 +--------------------------+--------------------------+--------------------------+
-| Boost                    | ≥1.70                    |                          |
+| Boost                    | ≥1.80                    |                          |
 +--------------------------+--------------------------+--------------------------+
 | OpenSSL                  | ≥0.9.8                   |                          |
 +--------------------------+--------------------------+--------------------------+
@@ -25,28 +25,23 @@ Prerequisites
 |                          |                          | will also work though    |
 |                          |                          | lack JIT support.        |
 +--------------------------+--------------------------+--------------------------+
-| Rasterbar libtorrent     | ≥1.2.1                   | Unicode and DHT support  |
+| Rasterbar libtorrent     | ≥2.0                     | Unicode and DHT support  |
 |                          |                          | is required.             |
 +--------------------------+--------------------------+--------------------------+
-| QXmpp                    | ≥1.1.0                   |                          |
+| QXmpp                    | ≥1.4.0                   |                          |
 +--------------------------+--------------------------+--------------------------+
 | libotr                   | ≥4.0.0                   | Required for the Azoth   |
 |                          |                          | OTRoid plugin (3.x will  |
 |                          |                          | also work though lack    |
 |                          |                          | some features).          |
 +--------------------------+--------------------------+--------------------------+
-| hunspell                 | ≥1.3.0                   | Required for the         |
+| hunspell                 | ≥1.5.1                   | Required for the         |
 |                          |                          | Rosenthal plugin.        |
 +--------------------------+--------------------------+--------------------------+
 | Speex                    | ≥1.0                     | Required for the         |
 |                          |                          | [Azoth](/plugins-azoth)  |
 |                          |                          | plugin compiled with     |
 |                          |                          | `ENABLE_MEDIACALLS`.     |
-+--------------------------+--------------------------+--------------------------+
-| libtelepathy-qt5         | ≥0.9.8                   | Required for the [Azoth  |
-|                          |                          | Astrality](/plugins-azot |
-|                          |                          | h-astrality)             |
-|                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
 | libpurple                | ≥2.10                    | Required for the [Azoth  |
 |                          |                          | VelvetBird](/plugins-azo |
@@ -59,15 +54,12 @@ Prerequisites
 | Taglib                   | ≥1.11.0                  | Required for the LMP     |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
-| libguess                 | ≥1.0                     | Recommended for the LMP  |
-|                          |                          | plugin.                  |
-+--------------------------+--------------------------+--------------------------+
 | liblastfm                | ≥1.0.9                   | Required for the         |
 |                          |                          | LastFMScrobble plugin.   |
 +--------------------------+--------------------------+--------------------------+
-| ffmpeg                   | ≥4.0.0                   | Used by the MusicZombie  |
+| ffmpeg                   | ≥4.4.0                   | Used by the MusicZombie  |
 |                          |                          | plugin (libav would not  |
-|                          |                          | work thanks to           |
+|                          |                          | work due to              |
 |                          |                          | differences in           |
 |                          |                          | resampling code).        |
 +--------------------------+--------------------------+--------------------------+
@@ -110,11 +102,11 @@ Prerequisites
 | QScintilla2              | ≥2.6                     | Required for the Popishu |
 |                          |                          | plugin.                  |
 +--------------------------+--------------------------+--------------------------+
-| CMake                    | ≥3.1                     |                          |
+| CMake                    | ≥3.10                    |                          |
 +--------------------------+--------------------------+--------------------------+
 
-A pretty decent compiler is required for LeechCraft from master. gcc 9.2
-and clang 9 will surely work.
+A pretty recent C++20-supporting compiler is required for LeechCraft from master.
+gcc 13 and clang 16 will surely work.
 
 ***Note***: this guide assumes a \*NIX-like OS like Linux or FreeBSD.
 Building with Windows is possible but is full of patching and heavy
