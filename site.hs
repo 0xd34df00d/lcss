@@ -91,12 +91,13 @@ data ListedConfig = ListedConfig
   }
 
 defListedConfig :: String -> ListedConfig
-defListedConfig section = ListedConfig
+defListedConfig [] = error "empty section"
+defListedConfig section@(sectHead : sectTail) = ListedConfig
   { section = section
   , customTemplate = Nothing
   , customContext = mempty
   , customItemsContext = Nothing
-  , listTitle = toUpper (head section) : tail section
+  , listTitle = toUpper sectHead : sectTail
   , listFieldName = section
   , listTemplate = section
   , createRoot = DefaultRoot
@@ -254,13 +255,14 @@ parentPageContext ListedConfig { .. } _ Nothing = pure $ mconcat
   [ constField "parentPageTitle" listTitle
   , constField "parentPageUrl" section
   ]
-parentPageContext _ allItems (Just itemId) = do
-  title <- getMetadataField id' "title"
-  pure $ mconcat
-    [ constField "parentPageTitle" $ fromJust title
-    , constField "parentPageUrl" itemId
-    ]
-  where id' = ident $ head $ filter ((== itemId) . defaultTextRoute . ident) allItems
+parentPageContext _ allItems (Just itemId)
+  | (item : _) <- filter ((== itemId) . defaultTextRoute . ident) allItems = do
+    title <- getMetadataField (ident item) "title"
+    pure $ mconcat
+      [ constField "parentPageTitle" $ fromJust title
+      , constField "parentPageUrl" itemId
+      ]
+  | otherwise = error $ "Item " <> itemId <> " not found among all items"
 
 unmdize :: String -> String
 unmdize s = take (length s - 3) s
